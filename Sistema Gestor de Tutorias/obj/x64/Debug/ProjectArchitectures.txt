@@ -1,0 +1,1 @@
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Sistema Gestor de Tutorias.csproj;x64
