@@ -122,7 +122,6 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NavigationViewSettingsInvokedEventArgs.cs" />
     <Compile Include="Pagina_Configuracion.xaml.cs">
       <DependentUpon>Pagina_Configuracion.xaml</DependentUpon>
     </Compile>

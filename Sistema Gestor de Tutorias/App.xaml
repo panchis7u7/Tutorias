@@ -7,13 +7,19 @@
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
-                    <AcrylicBrush x:Key="Acrilico1" TintOpacity=".1" TintColor="White" BackgroundSource="HostBackdrop" FallbackColor="White" AlwaysUseFallback="False"></AcrylicBrush>
+                    <SolidColorBrush x:Key="NavigationViewItemForegroundPointerOver" Color="Black"/>
+                    <SolidColorBrush x:Key="NavigationViewItemForegroundSelected" Color="Black"/>
+                    <SolidColorBrush x:Key="NavigationViewItemForegroundSelectedPointerOver" Color="Black"/>
+                    <SolidColorBrush x:Key="NavigationViewItemForegroundPressed" Color="Black"/>
+                    <SolidColorBrush x:Key="NavigationViewItemForegroundSelectedPressed" Color="Black"/>
+                    <SolidColorBrush x:Key="NavigationViewItemForeground" Color="Black"/>
+                    <AcrylicBrush x:Key="Acrilico1" TintOpacity=".2" TintColor="White" BackgroundSource="HostBackdrop" FallbackColor="White" AlwaysUseFallback="False"></AcrylicBrush>
                     <AcrylicBrush x:Key="NavigationViewDefaultPaneBackground"
                   BackgroundSource="Backdrop" TintColor="White" TintOpacity=".2"/>
                     <AcrylicBrush x:Key="NavigationViewTopPaneBackground"
                   BackgroundSource="Backdrop" TintColor="White" TintOpacity=".2"/>
                     <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground"
-                  BackgroundSource="HostBackdrop" TintColor="White" TintOpacity=".2"/>
+                  BackgroundSource="HostBackdrop" TintColor="White" TintOpacity=".8"/>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>

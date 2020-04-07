@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page x:ConnectionId='1'
     x:Name="mainPageRef"
     x:Class="Sistema_Gestor_de_Tutorias.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -16,44 +16,44 @@
             <Setter Property="Foreground" Value="Black"/>
         </Style>
     </Page.Resources>
-    <NavigationView x:Name="navMenu"
+    <NavigationView x:ConnectionId='2' x:Name="navMenu"
                     PaneTitle=""
                     AlwaysShowHeader="False"
                     Header="SGT"
-                    BackRequested="navMenu_BackRequested"
+                                                         
                     IsBackEnabled="True"
                     Foreground="Black"
                     OpenPaneLength="200"
-                    Loaded="navMenu_Loaded"
-                    SelectionChanged="navMenu_SelectionChanged">
+                                           
+                                                               >
         <!--<NavigationView.MenuItemContainerStyle>
             <Style TargetType="NavigationViewItem">
                 <Setter Property="Foreground" Value="Black"></Setter>
             </Style>
         </NavigationView.MenuItemContainerStyle>-->
         <NavigationView.AutoSuggestBox>
-            <AutoSuggestBox x:Name="ASB" QueryIcon="Find" Foreground="Wheat" Background="White"></AutoSuggestBox>
+            <AutoSuggestBox x:ConnectionId='3' x:Name="ASB" QueryIcon="Find" Foreground="Wheat" Background="White"></AutoSuggestBox>
         </NavigationView.AutoSuggestBox>
         <NavigationView.MenuItems>
             <NavigationViewItemSeparator></NavigationViewItemSeparator>
-            <NavigationViewItem x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="False" Tag="1">
+            <NavigationViewItem x:ConnectionId='4' x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="False" Tag="1">
                 <NavigationViewItem.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10F;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
-            <NavigationViewItem x:Name="btn_Consultas" Content="Consultas" IsEnabled="True" IsSelected="False" Tag="2">
+            <NavigationViewItem x:ConnectionId='5' x:Name="btn_Consultas" Content="Consultas" IsEnabled="True" IsSelected="False" Tag="2">
                 <NavigationViewItem.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE81E;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
-            <NavigationViewItem x:Name="btn_formatos" Content="Formatos" IsEnabled="True" IsSelected="False" Tag="3">
+            <NavigationViewItem x:ConnectionId='6' x:Name="btn_formatos" Content="Formatos" IsEnabled="True" IsSelected="False" Tag="3">
                 <NavigationViewItem.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FF;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
         </NavigationView.MenuItems>
         <Grid>
-            <Frame x:Name="main_frame">
+            <Frame x:ConnectionId='7' x:Name="main_frame">
                 <Frame.ContentTransitions>
                     <TransitionCollection>
                         <NavigationThemeTransition></NavigationThemeTransition>
@@ -63,3 +63,4 @@
         </Grid>
     </NavigationView>
 </Page>
+
