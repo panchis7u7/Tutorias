@@ -22,14 +22,26 @@ namespace Sistema_Gestor_de_Tutorias
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private Pagina_Configuracion config_page;
+        public event EventHandler<NavigationViewSettingsInvokedEventArgs> settings_invoked;
         public MainPage()
         {
+            settings_invoked += btn_settings_Invoked;
             this.InitializeComponent();
+            config_page = new Pagina_Configuracion(ref mainPageRef, ref navMenu);
         }
 
         private void navMenu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
+            if (args.IsSettingsInvoked)
+            {
+                settings_invoked(this, new NavigationViewSettingsInvokedEventArgs());
+            }
+        }
 
+        private void btn_settings_Invoked(object sender, NavigationViewSettingsInvokedEventArgs args)
+        {
+            main_frame.Content = config_page;
         }
 
         private void navMenu_Loaded(object sender, RoutedEventArgs e)
