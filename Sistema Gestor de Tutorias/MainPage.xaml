@@ -12,24 +12,23 @@
                     PaneTitle="SGT Menu"
                     AlwaysShowHeader="False"
                     Header="SGT"
-                    ItemInvoked="navMenu_ItemInvoked"
-                    Loaded="navMenu_Loaded"
                     BackRequested="navMenu_BackRequested"
                     IsBackEnabled="True"
-                    OpenPaneLength="200">
+                    OpenPaneLength="200"
+                    SelectionChanged="navMenu_SelectionChanged">
         <NavigationView.MenuItems>
             <NavigationViewItemSeparator></NavigationViewItemSeparator>
-            <NavigationViewItem x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="False" Tapped="btn_home_Tapped">
+            <NavigationViewItem x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="False" Tag="1">
                 <NavigationViewItem.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10F;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
-            <NavigationViewItem x:Name="btn_Consultas" Content="Consultas" IsEnabled="True" IsSelected="False" Tapped="btn_Consultas_Tapped">
+            <NavigationViewItem x:Name="btn_Consultas" Content="Consultas" IsEnabled="True" IsSelected="False" Tag="2">
                 <NavigationViewItem.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE81E;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
-            <NavigationViewItem x:Name="btn_formatos" Content="Formatos" IsEnabled="True" IsSelected="False" Tapped="btn_formatos_Tapped">
+            <NavigationViewItem x:Name="btn_formatos" Content="Formatos" IsEnabled="True" IsSelected="False" Tag="3">
                 <NavigationViewItem.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FF;"></FontIcon>
                 </NavigationViewItem.Icon>
@@ -37,7 +36,11 @@
         </NavigationView.MenuItems>
         <Grid>
             <Frame x:Name="main_frame">
-                
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition></NavigationThemeTransition>
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
             </Frame>
         </Grid>
     </NavigationView>
