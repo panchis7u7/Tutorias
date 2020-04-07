@@ -26,5 +26,35 @@ namespace Sistema_Gestor_de_Tutorias
         {
             this.InitializeComponent();
         }
+
+        private void navMenu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+
+        }
+
+        private void navMenu_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void navMenu_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+
+        }
+
+        private void btn_home_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Consultas_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_formatos_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
     }
 }

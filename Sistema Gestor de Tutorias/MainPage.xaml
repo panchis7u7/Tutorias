@@ -7,8 +7,37 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{StaticResource Acrilico1}">
-
-    <Grid>
-
-    </Grid>
+    <NavigationView x:Name="navMenu"
+                    PaneTitle="SGT Menu"
+                    AlwaysShowHeader="False"
+                    Header="SGT"
+                    ItemInvoked="navMenu_ItemInvoked"
+                    Loaded="navMenu_Loaded"
+                    BackRequested="navMenu_BackRequested"
+                    IsBackEnabled="True"
+                    OpenPaneLength="200">
+        <NavigationView.MenuItems>
+            <NavigationViewItemSeparator></NavigationViewItemSeparator>
+            <NavigationViewItem x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="False" Tapped="btn_home_Tapped">
+                <NavigationViewItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10F;"></FontIcon>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+            <NavigationViewItem x:Name="btn_Consultas" Content="Consultas" IsEnabled="True" IsSelected="False" Tapped="btn_Consultas_Tapped">
+                <NavigationViewItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE81E;"></FontIcon>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+            <NavigationViewItem x:Name="btn_formatos" Content="Formatos" IsEnabled="True" IsSelected="False" Tapped="btn_formatos_Tapped">
+                <NavigationViewItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FF;"></FontIcon>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+        </NavigationView.MenuItems>
+        <Grid>
+            <Frame x:Name="main_frame">
+                
+            </Frame>
+        </Grid>
+    </NavigationView>
 </Page>
