@@ -29,7 +29,6 @@ namespace Sistema_Gestor_de_Tutorias
         {
             this.InitializeComponent();
             config_page = new Pagina_Configuracion(ref mainPageRef, ref navMenu);
-
         }
 
         private void navMenu_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
@@ -52,7 +51,7 @@ namespace Sistema_Gestor_de_Tutorias
                         main_frame.Navigate(typeof(Pagina_Configuracion));
                         break;
                     case "2":
-                        main_frame.Navigate(typeof(Pagina_Configuracion));
+                        main_frame.Navigate(typeof(Pagina_Consultas));
                         break;
                     case "3":
                         main_frame.Navigate(typeof(Pagina_Configuracion));
@@ -77,9 +76,9 @@ namespace Sistema_Gestor_de_Tutorias
                 var buttonHolderGrid = VisualTreeHelper.GetChild(paneToggleButtonGrid, 1) as Grid;
                 var navigationViewBackButton = VisualTreeHelper.GetChild(buttonHolderGrid, 0) as Button;
                 navigationViewBackButton.AccessKey = "A";
-                SolidColorBrush back_black = new SolidColorBrush();
-                back_black.Color = Color.FromArgb(255, 0, 0, 0);
-                navigationViewBackButton.Foreground = back_black;
+                //SolidColorBrush back_black = new SolidColorBrush();
+                //back_black.Color = Color.FromArgb(255, 0, 0, 0);
+                //navigationViewBackButton.Foreground = back_black;
             }
         }
     }

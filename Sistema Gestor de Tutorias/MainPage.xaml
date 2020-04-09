@@ -7,13 +7,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{StaticResource Acrilico1}">
+    Background="{ThemeResource Acrilico1}">
     <Page.Resources>
         <Style TargetType="NavigationViewItem">
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
     </Page.Resources>
     <NavigationView x:Name="navMenu"
@@ -22,8 +22,8 @@
                     Header="SGT"
                     BackRequested="navMenu_BackRequested"
                     IsBackEnabled="True"
-                    Foreground="Black"
-                    OpenPaneLength="200"
+                    Foreground="White"
+                    OpenPaneLength="250"
                     Loaded="navMenu_Loaded"
                     SelectionChanged="navMenu_SelectionChanged">
         <!--<NavigationView.MenuItemContainerStyle>
@@ -32,10 +32,10 @@
             </Style>
         </NavigationView.MenuItemContainerStyle>-->
         <NavigationView.AutoSuggestBox>
-            <AutoSuggestBox x:Name="ASB" QueryIcon="Find" Foreground="Wheat" Background="White"></AutoSuggestBox>
+            <AutoSuggestBox x:Name="ASB" QueryIcon="Find" Foreground="White" Background="White"></AutoSuggestBox>
         </NavigationView.AutoSuggestBox>
         <NavigationView.MenuItems>
-            <NavigationViewItemSeparator></NavigationViewItemSeparator>
+            <NavigationViewItemSeparator Background="White"></NavigationViewItemSeparator>
             <NavigationViewItem x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="False" Tag="1">
                 <NavigationViewItem.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10F;"></FontIcon>
@@ -53,13 +53,16 @@
             </NavigationViewItem>
         </NavigationView.MenuItems>
         <Grid>
-            <Frame x:Name="main_frame">
+            <Frame x:Name="main_frame" Background="Transparent">
                 <Frame.ContentTransitions>
                     <TransitionCollection>
-                        <NavigationThemeTransition></NavigationThemeTransition>
+                        <NavigationThemeTransition>
+                            
+                        </NavigationThemeTransition>
                     </TransitionCollection>
                 </Frame.ContentTransitions>
             </Frame>
+            
         </Grid>
     </NavigationView>
 </Page>

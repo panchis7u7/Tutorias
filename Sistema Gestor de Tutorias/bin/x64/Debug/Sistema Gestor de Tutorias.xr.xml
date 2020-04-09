@@ -22,7 +22,7 @@
       <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationViewItem">
       <RootProperty Name="Content" />
       <RootProperty Name="IsEnabled" />
@@ -57,7 +57,9 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="Background" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.NavigationViewItemSeparator" />
+    <RootType FullName="Windows.UI.Xaml.Controls.NavigationViewItemSeparator">
+      <RootProperty Name="Background" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.FontIcon">
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Glyph" />
@@ -72,6 +74,7 @@
       <RootMethod Name="SetRow" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame">
+      <RootProperty Name="Background" />
       <RootProperty Name="ContentTransitions" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
@@ -94,5 +97,9 @@
       <RootEvent Name="Toggled" />
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Configuracion" />
+    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
+      <RootProperty Name="Margin" />
+    </RootType>
+    <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Consultas" />
   </Roots.RootTypes>
 </Roots>
