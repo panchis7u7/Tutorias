@@ -11,7 +11,7 @@
     Background="Transparent">
 
     <Grid>
-        <controls:DataGrid Name="EstudianteDataGrid" 
+        <controls:DataGrid x:ConnectionId='2' Name="EstudianteDataGrid" 
                            AutoGenerateColumns="False"
                            AlternatingRowBackground="LightBlue"
                            AreRowDetailsFrozen="True"
@@ -33,3 +33,4 @@
         
     </Grid>
 </Page>
+

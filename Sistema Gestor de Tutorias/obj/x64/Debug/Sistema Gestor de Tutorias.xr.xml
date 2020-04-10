@@ -98,7 +98,22 @@
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Configuracion" />
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
+      <RootProperty Name="Name" />
+      <RootProperty Name="AutoGenerateColumns" />
+      <RootProperty Name="AlternatingRowBackground" />
+      <RootProperty Name="AreRowDetailsFrozen" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="CanUserReorderColumns" />
+      <RootProperty Name="CanUserResizeColumns" />
+      <RootProperty Name="GridLinesVisibility" />
+      <RootProperty Name="HeadersVisibility" />
+      <RootProperty Name="SelectionMode" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Columns" />
+    </RootType>
+    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.DataGridTextColumn">
+      <RootProperty Name="Header" />
+      <RootProperty Name="IsReadOnly" />
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Consultas" />
   </Roots.RootTypes>

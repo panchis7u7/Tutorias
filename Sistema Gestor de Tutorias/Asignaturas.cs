@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sistema_Gestor_de_Tutorias
 {
-    class Grupos
+    class Asignaturas
     {
-        public int id_grupo { get; set; }
-        public int id_tutor { get; set; }
+        public int id_asignatura { get; set; }
+        public int id_profesor { get; set; }
+        public string asignatura { get; set; }
     }
 }

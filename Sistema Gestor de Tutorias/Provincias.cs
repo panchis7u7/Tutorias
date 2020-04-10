@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sistema_Gestor_de_Tutorias
 {
-    class Tutor
+    class Provincias
     {
-        public int IdTutor { get; set; }
-        public string Nombre { get; set; }
-        public string Departamento { get; set; }
+        public int id_provincia { get; set; }
+        public int cod_postal { get; set; }
+        public string provincia { get; set; }
     }
 }
