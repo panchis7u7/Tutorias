@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sistema_Gestor_de_Tutorias
 {
-    class ResidenciasAlumno
+    class ResidenciasProfesores
     {
         public int id_provincia { get; set; }
-        public int id_alumno { get; set; }
+        public int id_profesor { get; set; }
     }
 }

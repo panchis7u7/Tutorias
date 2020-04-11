@@ -8,28 +8,50 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:data="using:System.Data"
     mc:Ignorable="d"
+    Loaded="Page_Loaded"
     Background="Transparent">
 
-    <Grid>
-        <controls:DataGrid Name="EstudianteDataGrid" 
-                           AutoGenerateColumns="False"
-                           AlternatingRowBackground="LightBlue"
-                           AreRowDetailsFrozen="True"
-                           Background="White"
-                           CanUserReorderColumns="False"
-                           CanUserResizeColumns="True"
-                           GridLinesVisibility="All"
-                           HeadersVisibility="Column"
-                           SelectionMode="Single"
-                           Margin="46,373,54,56">
-            <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn Header="No. Control"
-                                             IsReadOnly="True"/>
-                <controls:DataGridTextColumn Header="Nombre"
-                                             IsReadOnly="True"/>
-
-            </controls:DataGrid.Columns>
-        </controls:DataGrid>
-        
+    <Grid Background="Transparent">
+        <RelativePanel>
+            <ListView Name="InventoryList"
+                  SelectionMode="Single"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.IsVerticalRailEnabled="True"
+                  ScrollViewer.VerticalScrollMode="Enabled"
+                  ScrollViewer.HorizontalScrollMode="Enabled"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.IsHorizontalRailEnabled="True"
+                  Margin="20">
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal"  Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+                            <TextBlock Text="ID" Padding="0 10 0 10" Margin="8,0" Width="50" Foreground="White"  HorizontalAlignment="Center"/>
+                            <TextBlock Text="Nombre" Width="200" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center" />
+                            <TextBlock Text="Apellidos" Width="200" Padding="0 10 0 10" Foreground="White"  HorizontalAlignment="Center"/>
+                            <TextBlock Text="Semestre" Width="80" Padding="0 10 0 10" Foreground="White"  HorizontalAlignment="Center"/>
+                            <TextBlock Text="Carrera" Width="80" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Alumnos">
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Name="Id"
+                                    Text="{x:Bind id_alumno}"
+                                    Width="50" />
+                            <TextBlock Name="Nombre"
+                                    Text="{x:Bind nombre}"
+                                    Width="200" />
+                            <TextBlock Text="{x:Bind apellidos}"
+                                   Width="200" />
+                            <TextBlock Text="{x:Bind semestre}"
+                                   Width="80" />
+                            <TextBlock Text="{x:Bind carrera}"
+                                   Width="80" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
     </Grid>
 </Page>

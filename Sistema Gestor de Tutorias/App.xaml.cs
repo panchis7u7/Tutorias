@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -29,6 +30,8 @@ namespace Sistema_Gestor_de_Tutorias
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        private string connectionString = @"Data Source=ALIENWARE2000;Initial Catalog=Estudiantes;Integrated Security=True";
+        public string ConnectionString { get => connectionString; set => connectionString = value; }
         public App()
         {
             this.InitializeComponent();

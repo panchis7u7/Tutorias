@@ -28,11 +28,12 @@ namespace Sistema_Gestor_de_Tutorias
     public sealed partial class MainPage : Page
     {
         private Pagina_Configuracion config_page;
-
+        // private Pagina_Consultas consultas_page;
         public MainPage()
         {
             this.InitializeComponent();
             config_page = new Pagina_Configuracion(ref mainPageRef, ref navMenu);
+            //consultas_page = new Pagina_Consultas();
         }
 
         private void navMenu_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
