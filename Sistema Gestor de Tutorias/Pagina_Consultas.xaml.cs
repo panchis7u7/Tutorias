@@ -37,8 +37,8 @@ namespace Sistema_Gestor_de_Tutorias
         public async Task<ObservableCollection<InfoAlumnos>> GetAlumnos(string connectionString)
         {
             const string GetAlumnosQuery = "SELECT Provincias.id_provincia, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.cod_postal, Provincias.provincia FROM Alumnos" +
-                                           "INNER JOIN ResidenciasAlumnos ON Alumnos.id_alumno = ResidenciasAlumnos.id_alumno" +
-                                           "INNER JOIN Provincias ON ResidenciasAlumnos.id_provincia = Provincias.id_provincia";
+                                           " INNER JOIN ResidenciasAlumnos ON Alumnos.id_alumno = ResidenciasAlumnos.id_alumno" +
+                                           " INNER JOIN Provincias ON ResidenciasAlumnos.id_provincia = Provincias.id_provincia";
             var alumnos = new ObservableCollection<InfoAlumnos>();
             try
             {
