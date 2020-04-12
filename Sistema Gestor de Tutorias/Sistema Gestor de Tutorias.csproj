@@ -123,6 +123,7 @@
     <Compile Include="Asignaturas.cs" />
     <Compile Include="Calificaciones.cs" />
     <Compile Include="Grupos.cs" />
+    <Compile Include="InfoAlumnos.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

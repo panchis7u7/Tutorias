@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_Gestor_de_Tutorias
 {
-    public class Alumnos : INotifyPropertyChanged
+    public class InfoAlumnos : INotifyPropertyChanged
     {
         public int id_alumno { get; set; }
         public int matricula { get; set; }
@@ -15,7 +15,8 @@ namespace Sistema_Gestor_de_Tutorias
         public string apellidos { get; set; }
         public int semestre { get; set; }
         public string carrera { get; set; }
-
+        public int cod_postal { get; set; }
+        public string provincia { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName) =>
