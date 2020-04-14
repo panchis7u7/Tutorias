@@ -23,10 +23,8 @@ namespace Sistema_Gestor_de_Tutorias
     /// </summary>
     public sealed partial class Pagina_Configuracion : Page
     {
-        private Page main_page_obj;
-        private NavigationView nav_view_obj;
-        private bool toggled = false;
-
+        public Page main_page_obj;
+        public NavigationView nav_view_obj;
         public Pagina_Configuracion()
         {
             this.InitializeComponent();
@@ -43,7 +41,7 @@ namespace Sistema_Gestor_de_Tutorias
         {
             if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.XamlCompositionBrushBase"))
             {
-                if (toggled == false)
+                if (this.ts_Modo_Oscuro.IsOn == true)
                 {
                     Windows.UI.Xaml.Media.AcrylicBrush acrilicoOscuro = new Windows.UI.Xaml.Media.AcrylicBrush();
                     acrilicoOscuro.BackgroundSource = Windows.UI.Xaml.Media.AcrylicBackgroundSource.HostBackdrop;
@@ -52,18 +50,16 @@ namespace Sistema_Gestor_de_Tutorias
                     acrilicoOscuro.TintOpacity = 0.1;
                     main_page_obj.Background = acrilicoOscuro;
                     nav_view_obj.Background = acrilicoOscuro;
-                    toggled = true;
                 }
                 else
                 {
-                    Windows.UI.Xaml.Media.AcrylicBrush acrilicoOscuro = new Windows.UI.Xaml.Media.AcrylicBrush();
-                    acrilicoOscuro.BackgroundSource = Windows.UI.Xaml.Media.AcrylicBackgroundSource.HostBackdrop;
-                    acrilicoOscuro.TintColor = Color.FromArgb(0, 255, 255, 255);
-                    acrilicoOscuro.FallbackColor = Color.FromArgb(0, 255, 255, 255);
-                    acrilicoOscuro.TintOpacity = 0.1;
-                    main_page_obj.Background = acrilicoOscuro;
-                    nav_view_obj.Background = acrilicoOscuro;
-                    toggled = false;
+                    Windows.UI.Xaml.Media.AcrylicBrush acrilicoBlanco = new Windows.UI.Xaml.Media.AcrylicBrush();
+                    acrilicoBlanco.BackgroundSource = Windows.UI.Xaml.Media.AcrylicBackgroundSource.HostBackdrop;
+                    acrilicoBlanco.TintColor = Color.FromArgb(0, 255, 255, 255);
+                    acrilicoBlanco.FallbackColor = Color.FromArgb(0, 255, 255, 255);
+                    acrilicoBlanco.TintOpacity = 0.1;
+                    main_page_obj.Background = acrilicoBlanco;
+                    nav_view_obj.Background = acrilicoBlanco;
                 }
             }
             else

@@ -52,8 +52,8 @@
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
         </NavigationView.MenuItems>
-        <Grid>
-            <Frame x:ConnectionId='7' x:Name="main_frame" Background="Transparent">
+        <Grid x:ConnectionId='7' x:Name="hola">
+            <Frame x:ConnectionId='8' x:Name="main_frame" Background="Transparent">
                 <Frame.ContentTransitions>
                     <TransitionCollection>
                         <NavigationThemeTransition>

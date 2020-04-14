@@ -28,7 +28,7 @@
         <TextBlock Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="30em">Configuracion</TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="20em" Padding="0 30 0 0">Ubicacion de Guardado:</TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="3" Foreground="White" FontSize="20em" Padding="0 30 0 0">Modo Oscuro</TextBlock>
-        <ToggleSwitch x:ConnectionId='3' x:Name="Modo_Oscuro"                                Grid.Column="1" Grid.Row="4" Foreground="White" ></ToggleSwitch>
+        <ToggleSwitch x:ConnectionId='3' x:Name="ts_Modo_Oscuro"                                Grid.Column="1" Grid.Row="4" Foreground="White" ></ToggleSwitch>
     </Grid>
 </Page>
 

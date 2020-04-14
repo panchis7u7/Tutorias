@@ -52,7 +52,7 @@
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
         </NavigationView.MenuItems>
-        <Grid>
+        <Grid x:Name="hola">
             <Frame x:Name="main_frame" Background="Transparent">
                 <Frame.ContentTransitions>
                     <TransitionCollection>

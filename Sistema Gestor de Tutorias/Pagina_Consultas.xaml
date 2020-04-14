@@ -10,9 +10,28 @@
     mc:Ignorable="d"
     Loaded="Page_Loaded"
     Background="Transparent">
-
+    
     <Grid Background="Transparent">
-        <RelativePanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="7" Grid.Column="4" Background="{StaticResource Acrilico2}">
             <ListView Name="InventoryList"
                   SelectionMode="Single"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -21,35 +40,40 @@
                   ScrollViewer.HorizontalScrollMode="Enabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   ScrollViewer.IsHorizontalRailEnabled="True"
-                  Margin="20">
+                  HorizontalAlignment="Stretch">
                 <ListView.HeaderTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal"  Background="{ThemeResource SystemControlAcrylicWindowBrush}">
-                            <TextBlock Text="ID" Padding="0 10 0 10" Margin="8,0" Width="50" Foreground="White"  HorizontalAlignment="Center"/>
-                            <TextBlock Text="Matricula" Padding="0 10 0 10"  Width="100" Foreground="White"  HorizontalAlignment="Center"/>
-                            <TextBlock Text="Nombre" Width="200" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center" />
-                            <TextBlock Text="Apellidos" Width="200" Padding="0 10 0 10" Foreground="White"  HorizontalAlignment="Center"/>
-                            <TextBlock Text="Semestre" Width="80" Padding="0 10 0 10" Foreground="White"  HorizontalAlignment="Center"/>
-                            <TextBlock Text="Carrera" Width="100" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Cod. Postal" Width="100" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Provincia" Width="200" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Padding="12 0 0 0">
+                            <TextBlock Name="id_provincia" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" TextWrapping="Wrap" Text="ID" Padding="0 10 0 10"  Width="50" Foreground="OrangeRed"/>
+                            <TextBlock Name="matricula" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Matricula" Padding="0 10 0 10"  Width="100" Foreground="OrangeRed"/>
+                            <TextBlock Name="nombre" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Nombre" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock Name="apellidos" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Apellidos" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock Name="semestre" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Semestre" Width="80" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock Name="carrera" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Carrera" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock Name="cod_postal" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Cod. Postal" Width="100" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock Name="provincia" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Provincia" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.HeaderTemplate>
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:InfoAlumnos">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Name="Id" Text="{x:Bind id_alumno}" Width="50" />
-                            <TextBlock Name="Matricula" Text="{x:Bind matricula}" Width="100"/>
-                            <TextBlock Name="Nombre" Text="{x:Bind nombre}" Width="200" />
-                            <TextBlock Text="{x:Bind apellidos}" Width="200" />
-                            <TextBlock Text="{x:Bind semestre}" Width="80" />
-                            <TextBlock Text="{x:Bind carrera}" Width="100" />
-                            <TextBlock Text="{x:Bind cod_postal}" Width="100" />
-                            <TextBlock Text="{x:Bind provincia}" Width="200" />
+                            <TextBlock Name="Id" Text="{x:Bind id_alumno}"  Width="50" Foreground="White" />
+                            <TextBlock Name="Matricula" Text="{x:Bind matricula}" Width="100" Foreground="White"/>
+                            <TextBlock Name="Nombre" Text="{x:Bind nombre}" Width="200" Foreground="White"/>
+                            <TextBlock Text="{x:Bind apellidos}" Width="200" Foreground="White"/>
+                            <TextBlock Text="{x:Bind semestre}" Width="80" Foreground="White"/>
+                            <TextBlock Text="{x:Bind carrera}" Width="200" Foreground="White"/>
+                            <TextBlock Text="{x:Bind cod_postal}" Width="100" Foreground="White"/>
+                            <TextBlock Text="{x:Bind provincia}" Width="200" Foreground="White"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListView">
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </RelativePanel>
     </Grid>

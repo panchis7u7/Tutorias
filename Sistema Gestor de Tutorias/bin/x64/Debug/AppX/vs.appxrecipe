@@ -30,13 +30,13 @@
     <AppXManifest Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-04-12T22:17:58.985</Modified>
+      <Modified>2020-04-14T02:01:38.778</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.exe">
       <PackagePath>entrypoint\Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-04-12T22:17:55.342</Modified>
+      <Modified>2020-04-14T02:01:35.506</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\bouncycastle.netcore\1.8.3\lib\netstandard2.0\BouncyCastle.Crypto.dll">
       <PackagePath>BouncyCastle.Crypto.dll</PackagePath>
@@ -238,23 +238,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.xr.xml">
       <PackagePath>Sistema Gestor de Tutorias.xr.xml</PackagePath>
-      <Modified>2020-04-13T00:50:54.372</Modified>
+      <Modified>2020-04-14T01:58:20.351</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-04-12T22:07:11.762</Modified>
+      <Modified>2020-04-14T01:58:20.389</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-04-12T22:07:11.762</Modified>
+      <Modified>2020-04-14T01:58:20.389</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Configuracion.xbf">
       <PackagePath>Pagina_Configuracion.xbf</PackagePath>
-      <Modified>2020-04-12T22:07:11.763</Modified>
+      <Modified>2020-04-14T01:58:20.390</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Consultas.xbf">
       <PackagePath>Pagina_Consultas.xbf</PackagePath>
-      <Modified>2020-04-12T22:07:11.763</Modified>
+      <Modified>2020-04-14T02:01:34.973</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -266,7 +266,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\Sistema Gestor de Tutorias.exe">
       <PackagePath>Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-04-12T22:17:58.968</Modified>
+      <Modified>2020-04-14T02:01:38.768</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

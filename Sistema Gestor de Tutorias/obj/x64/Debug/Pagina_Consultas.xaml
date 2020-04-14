@@ -10,9 +10,28 @@
     mc:Ignorable="d"
                         
     Background="Transparent">
-
+    
     <Grid Background="Transparent">
-        <RelativePanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="7" Grid.Column="4" Background="{StaticResource Acrilico2}">
             <ListView x:ConnectionId='2' Name="InventoryList"
                   SelectionMode="Single"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -21,35 +40,40 @@
                   ScrollViewer.HorizontalScrollMode="Enabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   ScrollViewer.IsHorizontalRailEnabled="True"
-                  Margin="20">
+                  HorizontalAlignment="Stretch">
                 <ListView.HeaderTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal"  Background="{ThemeResource SystemControlAcrylicWindowBrush}">
-                            <TextBlock Text="ID" Padding="0 10 0 10" Margin="8,0" Width="50" Foreground="White"  HorizontalAlignment="Center"/>
-                            <TextBlock Text="Matricula" Padding="0 10 0 10"  Width="100" Foreground="White"  HorizontalAlignment="Center"/>
-                            <TextBlock Text="Nombre" Width="200" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center" />
-                            <TextBlock Text="Apellidos" Width="200" Padding="0 10 0 10" Foreground="White"  HorizontalAlignment="Center"/>
-                            <TextBlock Text="Semestre" Width="80" Padding="0 10 0 10" Foreground="White"  HorizontalAlignment="Center"/>
-                            <TextBlock Text="Carrera" Width="100" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Cod. Postal" Width="100" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Provincia" Width="200" Padding="0 10 0 10" Foreground="White" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Padding="12 0 0 0">
+                            <TextBlock x:ConnectionId='4' Name="id_provincia"                                                                                                                               TextWrapping="Wrap" Text="ID" Padding="0 10 0 10"  Width="50" Foreground="OrangeRed"/>
+                            <TextBlock x:ConnectionId='5' Name="matricula"                                                                                                                               Text="Matricula" Padding="0 10 0 10"  Width="100" Foreground="OrangeRed"/>
+                            <TextBlock x:ConnectionId='6' Name="nombre"                                                                                                                               Text="Nombre" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock x:ConnectionId='7' Name="apellidos"                                                                                                                               Text="Apellidos" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock x:ConnectionId='8' Name="semestre"                                                                                                                               Text="Semestre" Width="80" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock x:ConnectionId='9' Name="carrera"                                                                                                                               Text="Carrera" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock x:ConnectionId='10' Name="cod_postal"                                                                                                                               Text="Cod. Postal" Width="100" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock x:ConnectionId='11' Name="provincia"                                                                                                                               Text="Provincia" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.HeaderTemplate>
                 <ListView.ItemTemplate>
                     <DataTemplate                               >
-                        <StackPanel x:ConnectionId='5' Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='6' Name="Id"                           Width="50" />
-                            <TextBlock x:ConnectionId='7' Name="Matricula"                           Width="100"/>
-                            <TextBlock x:ConnectionId='8' Name="Nombre"                        Width="200" />
-                            <TextBlock x:ConnectionId='9'                           Width="200" />
-                            <TextBlock x:ConnectionId='10'                          Width="80" />
-                            <TextBlock x:ConnectionId='11'                         Width="100" />
-                            <TextBlock x:ConnectionId='12'                            Width="100" />
-                            <TextBlock x:ConnectionId='13'                           Width="200" />
+                        <StackPanel x:ConnectionId='13' Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='14' Name="Id"                            Width="50" Foreground="White" />
+                            <TextBlock x:ConnectionId='15' Name="Matricula"                           Width="100" Foreground="White"/>
+                            <TextBlock x:ConnectionId='16' Name="Nombre"                        Width="200" Foreground="White"/>
+                            <TextBlock x:ConnectionId='17'                           Width="200" Foreground="White"/>
+                            <TextBlock x:ConnectionId='18'                          Width="80" Foreground="White"/>
+                            <TextBlock x:ConnectionId='19'                         Width="200" Foreground="White"/>
+                            <TextBlock x:ConnectionId='20'                            Width="100" Foreground="White"/>
+                            <TextBlock x:ConnectionId='21'                           Width="200" Foreground="White"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListView">
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </RelativePanel>
     </Grid>

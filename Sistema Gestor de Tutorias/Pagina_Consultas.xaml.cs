@@ -12,6 +12,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -34,11 +35,8 @@ namespace Sistema_Gestor_de_Tutorias
             this.InitializeComponent();
         }
 
-        public async Task<ObservableCollection<InfoAlumnos>> GetAlumnos(string connectionString)
+        public async Task<ObservableCollection<InfoAlumnos>> GetAlumnos(string connectionString, string Query)
         {
-            const string GetAlumnosQuery = "SELECT Provincias.id_provincia, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.cod_postal, Provincias.provincia FROM Alumnos" +
-                                           " INNER JOIN ResidenciasAlumnos ON Alumnos.id_alumno = ResidenciasAlumnos.id_alumno" +
-                                           " INNER JOIN Provincias ON ResidenciasAlumnos.id_provincia = Provincias.id_provincia";
             var alumnos = new ObservableCollection<InfoAlumnos>();
             try
             {
@@ -49,7 +47,7 @@ namespace Sistema_Gestor_de_Tutorias
                     {
                         using (SqlCommand cmd = conn.CreateCommand())
                         {
-                            cmd.CommandText = GetAlumnosQuery;
+                            cmd.CommandText = Query;
                             using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                             {
                                 while (await reader.ReadAsync())
@@ -87,7 +85,32 @@ namespace Sistema_Gestor_de_Tutorias
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            InventoryList.ItemsSource = await GetAlumnos((App.Current as App).ConnectionString);
+            const string GetAlumnosQuery = "SELECT Provincias.id_provincia, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.cod_postal, Provincias.provincia FROM Alumnos" +
+                                           " INNER JOIN ResidenciasAlumnos ON Alumnos.id_alumno = ResidenciasAlumnos.id_alumno" +
+                                           " INNER JOIN Provincias ON ResidenciasAlumnos.id_provincia = Provincias.id_provincia";
+            InventoryList.ItemsSource = await GetAlumnos((App.Current as App).ConnectionString, GetAlumnosQuery);
+        }
+
+        private void TextBlock_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            TextBlock tx = sender as TextBlock;
+            tx.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void TextBlock_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            TextBlock tx = sender as TextBlock;
+            tx.Foreground = new SolidColorBrush(Colors.OrangeRed);
+        }
+
+        private async void TextBlock_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            TextBlock tx = sender as TextBlock;
+            string GetAlumnosOrderByQuery = "SELECT Provincias.id_provincia, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.cod_postal, Provincias.provincia FROM Alumnos" +
+                                           " INNER JOIN ResidenciasAlumnos ON Alumnos.id_alumno = ResidenciasAlumnos.id_alumno" +
+                                           " INNER JOIN Provincias ON ResidenciasAlumnos.id_provincia = Provincias.id_provincia" +
+                                           " ORDER BY " + tx.Name;
+            InventoryList.ItemsSource = await GetAlumnos((App.Current as App).ConnectionString, GetAlumnosOrderByQuery);
         }
     }
 }

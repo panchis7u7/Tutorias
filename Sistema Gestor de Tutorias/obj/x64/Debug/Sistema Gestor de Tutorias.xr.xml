@@ -93,11 +93,13 @@
       <RootProperty Name="FontSize" />
       <RootProperty Name="Inlines" />
       <RootProperty Name="Padding" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Name" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="Width" />
+      <RootEvent Name="PointerReleased" />
+      <RootEvent Name="PointerEntered" />
+      <RootEvent Name="PointerExited" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
       <RootProperty Name="Foreground" />
@@ -105,14 +107,17 @@
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Configuracion" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
+      <RootProperty Name="Background" />
       <RootProperty Name="Children" />
     </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Name" />
       <RootProperty Name="SelectionMode" />
-      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="HeaderTemplate" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="ItemContainerStyle" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootMethod Name="GetVerticalScrollBarVisibility" />
@@ -133,10 +138,14 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Orientation" />
-      <RootProperty Name="Background" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Padding" />
       <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
+    <RootType FullName="Windows.UI.Xaml.FrameworkElement">
+      <RootProperty Name="HorizontalAlignment" />
+    </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Consultas" />
   </Roots.RootTypes>
 </Roots>

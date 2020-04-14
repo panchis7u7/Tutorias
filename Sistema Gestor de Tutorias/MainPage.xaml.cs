@@ -27,13 +27,11 @@ namespace Sistema_Gestor_de_Tutorias
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private Pagina_Configuracion config_page;
-        // private Pagina_Consultas consultas_page;
+        Pagina_Configuracion config_page;
         public MainPage()
         {
             this.InitializeComponent();
             config_page = new Pagina_Configuracion(ref mainPageRef, ref navMenu);
-            //consultas_page = new Pagina_Consultas();
         }
 
         private void navMenu_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
@@ -59,7 +57,7 @@ namespace Sistema_Gestor_de_Tutorias
                         main_frame.Navigate(typeof(Pagina_Consultas));
                         break;
                     case "3":
-                        main_frame.Navigate(typeof(Pagina_Configuracion));
+                        main_frame.Content = config_page;
                         break;
                     default:
                         break;
