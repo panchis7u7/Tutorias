@@ -51,13 +51,13 @@ namespace Sistema_Gestor_de_Tutorias
                 switch (item.Tag.ToString())
                 {
                     case "1":
-                        main_frame.Navigate(typeof(Pagina_Configuracion));
+                        main_frame.Navigate(typeof(Pagina_Formatos));
                         break;
                     case "2":
                         main_frame.Navigate(typeof(Pagina_Consultas));
                         break;
                     case "3":
-                        main_frame.Content = config_page;
+                        main_frame.Navigate(typeof(Pagina_Formatos));
                         break;
                     default:
                         break;

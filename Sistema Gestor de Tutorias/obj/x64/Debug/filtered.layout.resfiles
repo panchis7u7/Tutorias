@@ -1,14 +1,24 @@
 WinMetadata\Windows.winmd
+Assets\Canalizacion_Interna_Psicologia.png
+Assets\Envio_Anexos.png
+Assets\Firma_Recibidos_Constancias.png
+Assets\Kali.txt
 Assets\LockScreenLogo.scale-200.png
+Assets\Nombramiento_de_Docente_Tutor.png
+Assets\Nombramiento_Tutores.png
+Assets\Prevencion_Baja_Ausentismo.png
+Assets\Recibido_Constancias_Credito.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png
 Assets\Square44x44Logo.scale-200.png
 Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
+Assets\Tutorados_Credito_Complementario.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
 MainPage.xbf
 Pagina_Configuracion.xbf
 Pagina_Consultas.xbf
+Pagina_Formatos.xbf
 Sistema Gestor de Tutorias.xr.xml
 Properties\Default.rd.xml
