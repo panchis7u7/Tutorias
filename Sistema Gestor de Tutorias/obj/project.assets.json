@@ -739,6 +739,40 @@
           "lib/uap10.0/SshNet.Security.Cryptography.dll": {}
         }
       },
+      "Syncfusion.DocIO.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45",
+          "Syncfusion.OfficeChart.UWP": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.1.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.OfficeChart.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2711,6 +2745,40 @@
         },
         "runtime": {
           "lib/uap10.0/SshNet.Security.Cryptography.dll": {}
+        }
+      },
+      "Syncfusion.DocIO.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45",
+          "Syncfusion.OfficeChart.UWP": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.1.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.OfficeChart.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
         }
       },
       "System.Buffers/4.3.0": {
@@ -4713,6 +4781,40 @@
           "lib/uap10.0/SshNet.Security.Cryptography.dll": {}
         }
       },
+      "Syncfusion.DocIO.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45",
+          "Syncfusion.OfficeChart.UWP": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.1.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.OfficeChart.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "compile": {
@@ -6713,6 +6815,40 @@
           "lib/uap10.0/SshNet.Security.Cryptography.dll": {}
         }
       },
+      "Syncfusion.DocIO.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45",
+          "Syncfusion.OfficeChart.UWP": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.1.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.OfficeChart.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "compile": {
@@ -8680,6 +8816,40 @@
         },
         "runtime": {
           "lib/uap10.0/SshNet.Security.Cryptography.dll": {}
+        }
+      },
+      "Syncfusion.DocIO.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45",
+          "Syncfusion.OfficeChart.UWP": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.1.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.OfficeChart.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
         }
       },
       "System.Buffers/4.3.0": {
@@ -10682,6 +10852,40 @@
           "lib/uap10.0/SshNet.Security.Cryptography.dll": {}
         }
       },
+      "Syncfusion.DocIO.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45",
+          "Syncfusion.OfficeChart.UWP": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.1.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.OfficeChart.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "compile": {
@@ -12649,6 +12853,40 @@
         },
         "runtime": {
           "lib/uap10.0/SshNet.Security.Cryptography.dll": {}
+        }
+      },
+      "Syncfusion.DocIO.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45",
+          "Syncfusion.OfficeChart.UWP": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.1.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.OfficeChart.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
         }
       },
       "System.Buffers/4.3.0": {
@@ -14649,6 +14887,40 @@
         },
         "runtime": {
           "lib/uap10.0/SshNet.Security.Cryptography.dll": {}
+        }
+      },
+      "Syncfusion.DocIO.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45",
+          "Syncfusion.OfficeChart.UWP": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.DocIO.UWP.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/18.1.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.OfficeChart.UWP/18.1.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.45"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll": {}
         }
       },
       "System.Buffers/4.3.0": {
@@ -21221,6 +21493,64 @@
         "sshnet.security.cryptography.nuspec"
       ]
     },
+    "Syncfusion.DocIO.UWP/18.1.0.45": {
+      "sha512": "u4S0hRlTyvQQeFs+KmCM+mVArUuJViq6ZYH77QCO7T/hxZ5Nbts9QvAQLRTUiIidqdXy8XCjXc7edDf8ZStoJg==",
+      "type": "package",
+      "path": "syncfusion.docio.uwp/18.1.0.45",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0/Syncfusion.DocIO.UWP.dll",
+        "lib/uap10.0/Syncfusion.DocIO.UWP.pri",
+        "lib/uap10.0/Syncfusion.DocIO.UWP.xml",
+        "lib/uap10.0/Syncfusion.DocIO.UWP/Syncfusion.DocIO.UWP.xml",
+        "lib/uap10.0/Syncfusion.DocIO.UWP/Syncfusion.OfficeChart.UWP.xml",
+        "syncfusion.docio.uwp.18.1.0.45.nupkg.sha512",
+        "syncfusion.docio.uwp.nuspec"
+      ]
+    },
+    "Syncfusion.Licensing/18.1.0.45": {
+      "sha512": "C+YhSudANq6VAFfOUYmTcLCvHPjMt+yXJJ8xv65m+U+9H3t79wSGd1+mRc0SjACaGGGE+w3uTbJd+hq4C4Q9oA==",
+      "type": "package",
+      "path": "syncfusion.licensing/18.1.0.45",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.Licensing.dll",
+        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
+        "lib/net20/Syncfusion.Licensing.dll",
+        "lib/net35/Syncfusion.Licensing.dll",
+        "lib/net40/Syncfusion.Licensing.dll",
+        "lib/net45/Syncfusion.Licensing.dll",
+        "lib/net451/Syncfusion.Licensing.dll",
+        "lib/net46/Syncfusion.Licensing.dll",
+        "lib/netcoreapp3.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.2/Syncfusion.Licensing.dll",
+        "lib/netstandard1.4/Syncfusion.Licensing.dll",
+        "lib/netstandard2.0/Syncfusion.Licensing.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
+        "lib/uap10.0/Syncfusion.Licensing.dll",
+        "syncfusion.licensing.18.1.0.45.nupkg.sha512",
+        "syncfusion.licensing.nuspec"
+      ]
+    },
+    "Syncfusion.OfficeChart.UWP/18.1.0.45": {
+      "sha512": "T/f3Ohz63jkE9b/CEaaGK3JUwCU9pMC/I/1ymCSY7iiqB6R1KDgueZvwIrRfhOvS5J/Qt4QkSslTAfexzVczuA==",
+      "type": "package",
+      "path": "syncfusion.officechart.uwp/18.1.0.45",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0/Syncfusion.OfficeChart.UWP.dll",
+        "lib/uap10.0/Syncfusion.OfficeChart.UWP.pri",
+        "lib/uap10.0/Syncfusion.OfficeChart.UWP.xml",
+        "lib/uap10.0/Syncfusion.OfficeChart.UWP/Syncfusion.OfficeChart.UWP.xml",
+        "syncfusion.officechart.uwp.18.1.0.45.nupkg.sha512",
+        "syncfusion.officechart.uwp.nuspec"
+      ]
+    },
     "System.Buffers/4.3.0": {
       "sha512": "ratu44uTIHgeBeI0dE8DWvmXVBSo4u7ozRZZHOMmK/JPpYyo0dAfgSiHlpiObMQ5lEtEyIXA40sKRYg5J6A8uQ==",
       "type": "package",
@@ -24769,6 +25099,7 @@
       "Microsoft.Toolkit.Uwp.UI.Controls >= 6.0.0",
       "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid >= 6.0.0",
       "MySql.Data >= 8.0.19",
+      "Syncfusion.DocIO.UWP >= 18.1.0.45",
       "Uno.Microsoft.Toolkit.Uwp.UI.Controls >= 6.0.0-ge975abb046",
       "Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid >= 6.0.0-ge975abb046"
     ]
@@ -24833,6 +25164,10 @@
           "MySql.Data": {
             "target": "Package",
             "version": "[8.0.19, )"
+          },
+          "Syncfusion.DocIO.UWP": {
+            "target": "Package",
+            "version": "[18.1.0.45, )"
           },
           "Uno.Microsoft.Toolkit.Uwp.UI.Controls": {
             "target": "Package",

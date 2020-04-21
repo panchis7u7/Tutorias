@@ -2,7 +2,6 @@ WinMetadata\Windows.winmd
 Assets\Canalizacion_Interna_Psicologia.png
 Assets\Envio_Anexos.png
 Assets\Firma_Recibidos_Constancias.png
-Assets\Kali.txt
 Assets\LockScreenLogo.scale-200.png
 Assets\Nombramiento_de_Docente_Tutor.png
 Assets\Nombramiento_Tutores.png
@@ -16,6 +15,7 @@ Assets\StoreLogo.png
 Assets\Tutorados_Credito_Complementario.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
+Editor.xbf
 MainPage.xbf
 Pagina_Configuracion.xbf
 Pagina_Consultas.xbf

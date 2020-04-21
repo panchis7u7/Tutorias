@@ -45,21 +45,21 @@ namespace Sistema_Gestor_de_Tutorias
                 {
                     Windows.UI.Xaml.Media.AcrylicBrush acrilicoOscuro = new Windows.UI.Xaml.Media.AcrylicBrush();
                     acrilicoOscuro.BackgroundSource = Windows.UI.Xaml.Media.AcrylicBackgroundSource.HostBackdrop;
-                    acrilicoOscuro.TintColor = Color.FromArgb(0, 0, 0, 0);
-                    acrilicoOscuro.FallbackColor = Color.FromArgb(0, 0, 0, 0);
+                    acrilicoOscuro.TintColor = Colors.Black;
+                    acrilicoOscuro.FallbackColor = Colors.Black;
                     acrilicoOscuro.TintOpacity = 0.1;
                     main_page_obj.Background = acrilicoOscuro;
-                    nav_view_obj.Background = acrilicoOscuro;
+                    //nav_view_obj.Background = acrilicoOscuro;
                 }
                 else
                 {
                     Windows.UI.Xaml.Media.AcrylicBrush acrilicoBlanco = new Windows.UI.Xaml.Media.AcrylicBrush();
                     acrilicoBlanco.BackgroundSource = Windows.UI.Xaml.Media.AcrylicBackgroundSource.HostBackdrop;
-                    acrilicoBlanco.TintColor = Color.FromArgb(0, 255, 255, 255);
-                    acrilicoBlanco.FallbackColor = Color.FromArgb(0, 255, 255, 255);
-                    acrilicoBlanco.TintOpacity = 0.1;
+                    acrilicoBlanco.TintColor = Colors.WhiteSmoke;
+                    acrilicoBlanco.FallbackColor = Colors.WhiteSmoke;
+                    acrilicoBlanco.TintOpacity = 0.6;
                     main_page_obj.Background = acrilicoBlanco;
-                    nav_view_obj.Background = acrilicoBlanco;
+                    //nav_view_obj.Background = acrilicoBlanco;
                 }
             }
             else

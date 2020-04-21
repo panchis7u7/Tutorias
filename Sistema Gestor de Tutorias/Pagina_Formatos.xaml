@@ -7,28 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:Sistema_Gestor_de_Tutorias.Modelos"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
 
-    <Grid Padding="30" Background="{ThemeResource Acrilico2}">
-        <!--<Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
             <ColumnDefinition Width="30"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
-        </Grid.RowDefinitions>-->
-
-        <GridView ItemsSource="{x:Bind formatos}" 
+        </Grid.RowDefinitions>
+        <GridView Grid.Column="4" Grid.Row="4" ItemsSource="{x:Bind formatos}" 
                   IsItemClickEnabled="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.IsVerticalRailEnabled="True"
@@ -40,7 +38,7 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Formato">
                     <StackPanel Height="auto">
-                        <Image Width="200" HorizontalAlignment="Center" Source="{x:Bind imagen_cubierta}"/>
+                        <Image Margin="30" Width="180" HorizontalAlignment="Center" Source="{x:Bind imagen_cubierta}"/>
                         <TextBlock FontSize="16" Margin="20" HorizontalAlignment="Center" Text="{x:Bind titulo}"/>
                     </StackPanel>
                 </DataTemplate>

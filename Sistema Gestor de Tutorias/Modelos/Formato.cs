@@ -23,10 +23,10 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             formatos.Add(new Formato { formato_id = 3, titulo = "Canalizacion Psicologia", imagen_cubierta = "Assets/Canalizacion_Interna_Psicologia.png" });
             formatos.Add(new Formato { formato_id = 4, titulo = "Credito Tutorados", imagen_cubierta = "Assets/Tutorados_Credito_Complementario.png" });
             formatos.Add(new Formato { formato_id = 5, titulo = "Recibido de Constancias", imagen_cubierta = "Assets/Tutorados_Credito_Complementario.png" });
-            formatos.Add(new Formato { formato_id = 6, titulo = "Firma Recibido Constancias", imagen_cubierta = "Assets/Recibido_Constancias_Credito.png" });
-            formatos.Add(new Formato { formato_id = 7, titulo = "Firma Recibido Informes", imagen_cubierta = "Assets/Recibido_Constancias_Credito.png" });
-            formatos.Add(new Formato { formato_id = 8, titulo = "Envio Anexos", imagen_cubierta = "Assets/Envio_Anexos.png" });
-            formatos.Add(new Formato { formato_id = 9, titulo = "Prevencion Ausentismo", imagen_cubierta = "Assets/Prevencion_Baja_Ausentismo.png" });
+            formatos.Add(new Formato { formato_id = 6, titulo = "Envio Anexos", imagen_cubierta = "Assets/Envio_Anexos.png" });
+            formatos.Add(new Formato { formato_id = 7, titulo = "Prevencion Ausentismo", imagen_cubierta = "Assets/Prevencion_Baja_Ausentismo.png" });
+            formatos.Add(new Formato { formato_id = 8, titulo = "Firma Recibido Constancias", imagen_cubierta = "Assets/Recibido_Constancias_Credito.png" });
+            formatos.Add(new Formato { formato_id = 9, titulo = "Firma Recibido Informes", imagen_cubierta = "Assets/Recibido_Constancias_Credito.png" });
             return formatos;
         }
     }

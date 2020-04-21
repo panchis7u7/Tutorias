@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LZx9umc0A6sAK9OX2pAu+cLehLRVBBLCJ8SDLBj/YUO9In3vzfwKyixiEYFmEYN6zTodAFuYDotkVEyzF/Rq5w==",
+  "dgSpecHash": "Kw9w1ugW9W6gn1cJaKcI6/7e3EciGGUa0z7TinhF3tGHhkQLlJqITRiibd9brJb+glOPId8lWk1Z+8kH+UgWNw==",
   "success": true,
   "projectFilePath": "E:\\Proyectos\\C#\\Tutorias C#\\Sistema Gestor de Tutorias\\Sistema Gestor de Tutorias.csproj",
   "expectedPackageFiles": [
@@ -85,6 +85,9 @@
     "C:\\Users\\smadr\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.2\\sqlitepclraw.provider.e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\smadr\\.nuget\\packages\\ssh.net\\2016.1.0\\ssh.net.2016.1.0.nupkg.sha512",
     "C:\\Users\\smadr\\.nuget\\packages\\sshnet.security.cryptography\\1.2.0\\sshnet.security.cryptography.1.2.0.nupkg.sha512",
+    "C:\\Users\\smadr\\.nuget\\packages\\syncfusion.docio.uwp\\18.1.0.45\\syncfusion.docio.uwp.18.1.0.45.nupkg.sha512",
+    "C:\\Users\\smadr\\.nuget\\packages\\syncfusion.licensing\\18.1.0.45\\syncfusion.licensing.18.1.0.45.nupkg.sha512",
+    "C:\\Users\\smadr\\.nuget\\packages\\syncfusion.officechart.uwp\\18.1.0.45\\syncfusion.officechart.uwp.18.1.0.45.nupkg.sha512",
     "C:\\Users\\smadr\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\smadr\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\smadr\\.nuget\\packages\\system.collections.immutable\\1.3.1\\system.collections.immutable.1.3.1.nupkg.sha512",

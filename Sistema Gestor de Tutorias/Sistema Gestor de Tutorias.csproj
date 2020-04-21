@@ -122,6 +122,9 @@
     </Compile>
     <Compile Include="Asignaturas.cs" />
     <Compile Include="Calificaciones.cs" />
+    <Compile Include="Editor.xaml.cs">
+      <DependentUpon>Editor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Grupos.cs" />
     <Compile Include="InfoAlumnos.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -154,7 +157,6 @@
     <Content Include="Assets\Canalizacion_Interna_Psicologia.png" />
     <Content Include="Assets\Envio_Anexos.png" />
     <Content Include="Assets\Firma_Recibidos_Constancias.png" />
-    <Content Include="Assets\Kali.txt" />
     <Content Include="Assets\Nombramiento_de_Docente_Tutor.png" />
     <Content Include="Assets\Nombramiento_Tutores.png" />
     <Content Include="Assets\Prevencion_Baja_Ausentismo.png" />
@@ -174,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -209,6 +215,9 @@
     </PackageReference>
     <PackageReference Include="MySql.Data">
       <Version>8.0.19</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.DocIO.UWP">
+      <Version>18.1.0.45</Version>
     </PackageReference>
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls">
       <Version>6.0.0-ge975abb046</Version>

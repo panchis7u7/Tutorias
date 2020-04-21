@@ -30,13 +30,13 @@
     <AppXManifest Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-04-14T13:54:36.303</Modified>
+      <Modified>2020-04-21T17:15:49.258</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.exe">
       <PackagePath>entrypoint\Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-04-14T13:54:32.618</Modified>
+      <Modified>2020-04-21T17:15:42.886</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\bouncycastle.netcore\1.8.3\lib\netstandard2.0\BouncyCastle.Crypto.dll">
       <PackagePath>BouncyCastle.Crypto.dll</PackagePath>
@@ -264,37 +264,37 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-12-27T14:40:52.140</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Kali.txt">
-      <PackagePath>Assets\Kali.txt</PackagePath>
-      <Modified>2020-04-14T12:54:44.328</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2020-04-06T20:58:23.583</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.xr.xml">
       <PackagePath>Sistema Gestor de Tutorias.xr.xml</PackagePath>
-      <Modified>2020-04-14T13:54:32.157</Modified>
+      <Modified>2020-04-21T17:15:40.995</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-04-14T13:42:26.245</Modified>
+      <Modified>2020-04-21T17:15:41.089</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Editor.xbf">
+      <PackagePath>Editor.xbf</PackagePath>
+      <Modified>2020-04-21T17:15:41.089</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-04-14T13:42:26.245</Modified>
+      <Modified>2020-04-21T17:15:41.089</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Configuracion.xbf">
       <PackagePath>Pagina_Configuracion.xbf</PackagePath>
-      <Modified>2020-04-14T13:42:26.245</Modified>
+      <Modified>2020-04-21T17:15:41.089</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Consultas.xbf">
       <PackagePath>Pagina_Consultas.xbf</PackagePath>
-      <Modified>2020-04-14T13:42:26.245</Modified>
+      <Modified>2020-04-21T17:15:41.089</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Formatos.xbf">
       <PackagePath>Pagina_Formatos.xbf</PackagePath>
-      <Modified>2020-04-14T13:54:32.175</Modified>
+      <Modified>2020-04-21T17:15:41.089</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -302,11 +302,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-04-14T13:39:28.402</Modified>
+      <Modified>2020-04-21T17:15:45.776</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\Sistema Gestor de Tutorias.exe">
       <PackagePath>Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-04-14T13:54:36.294</Modified>
+      <Modified>2020-04-21T17:15:49.239</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
