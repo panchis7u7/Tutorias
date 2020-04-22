@@ -57,7 +57,7 @@ namespace Sistema_Gestor_de_Tutorias
                         main_frame.Navigate(typeof(Pagina_Consultas));
                         break;
                     case "3":
-                        main_frame.Navigate(typeof(Pagina_Formatos));
+                        main_frame.Navigate(typeof(Editor));
                         break;
                     default:
                         break;

@@ -18,7 +18,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
         public static List<Formato> GetFormatos()
         {
             var formatos = new List<Formato>();
-            formatos.Add(new Formato { formato_id = 1, titulo = "Nombramiento de Tutores", imagen_cubierta="Assets/Nombramiento_Tutores.png"});
+            formatos.Add(new Formato { formato_id = 1, titulo = "Nombramiento de Tutores", imagen_cubierta = "Assets/Nombramiento_Tutores.png" });
             formatos.Add(new Formato { formato_id = 2, titulo = "Nombramiento de Docente", imagen_cubierta = "Assets/Nombramiento_de_Docente_Tutor.png" });
             formatos.Add(new Formato { formato_id = 3, titulo = "Canalizacion Psicologia", imagen_cubierta = "Assets/Canalizacion_Interna_Psicologia.png" });
             formatos.Add(new Formato { formato_id = 4, titulo = "Credito Tutorados", imagen_cubierta = "Assets/Tutorados_Credito_Complementario.png" });

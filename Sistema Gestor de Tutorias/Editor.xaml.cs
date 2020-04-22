@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-using Sistema_Gestor_de_Tutorias.Controles;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI;
 using System.Threading.Tasks;
@@ -26,6 +26,7 @@ using System.Net.Http;
 using Windows.Data.Pdf;
 using Windows.Storage.Streams;
 using System.Runtime.CompilerServices;
+using Sistema_Gestor_de_Tutorias.Modelos;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -36,7 +37,6 @@ namespace Sistema_Gestor_de_Tutorias
     /// </summary>
     public sealed partial class Editor : Page, INotifyPropertyChanged
     {
-        private FileOpenPicker picker;
         public Editor()
         {
             this.InitializeComponent();
@@ -50,17 +50,10 @@ namespace Sistema_Gestor_de_Tutorias
 
         public event PropertyChangedEventHandler PropertyChanged;
         public Uri Source { get; set; }
-
-        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //var googleDocsViewer = "http://drive.google.com/viewerng/viewer?embedded=true&url=";
-            //var pdf = "http://www.uma.es/precarios/images/pdfs/wd-spectools-word-sample-04.doc";
-            //myWebView.Navigate(new Uri(googleDocsViewer + pdf));
-        }
-        public async void OpenLocal()
-        {
-            var uri = new Uri("ms-appx:///Assets/pdffile.pdf");
-
+            var formatoSeleccionado = (e.Parameter as Formato).formato_id;
+            var uri = new Uri("ms-appx:///Formatos/" + formatoSeleccionado + ".pdf");
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
         }

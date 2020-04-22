@@ -11,8 +11,8 @@
     <AssemblyName>Sistema Gestor de Tutorias</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -122,10 +122,6 @@
     </Compile>
     <Compile Include="Asignaturas.cs" />
     <Compile Include="Calificaciones.cs" />
-    <Compile Include="Controles\SimplePdfViewerControl.xaml.cs">
-      <DependentUpon>SimplePdfViewerControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UriExtension.cs" />
     <Compile Include="Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
@@ -150,7 +146,11 @@
     <Compile Include="ResidenciasAlumnos.cs" />
     <Compile Include="ResidenciasProfesores.cs" />
     <Compile Include="ResidenciasTutores.cs" />
+    <Compile Include="SimplePdfViewerControl.xaml.cs">
+      <DependentUpon>SimplePdfViewerControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tutores.cs" />
+    <Compile Include="UriExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -180,10 +180,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controles\SimplePdfViewerControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Editor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pagina_Formatos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SimplePdfViewerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,9 +229,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Nombramiento_Tutores.docx" />
-    <None Include="Assets\Nombramiento_Tutores.pdf" />
-    <None Include="Assets\pdffile.pdf" />
+    <Content Include="Formatos\1.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

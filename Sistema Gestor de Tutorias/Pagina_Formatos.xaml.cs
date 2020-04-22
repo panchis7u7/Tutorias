@@ -41,7 +41,7 @@ namespace Sistema_Gestor_de_Tutorias
             await myView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 Frame newFrame = new Frame();
-                newFrame.Navigate(typeof(Editor), null);
+                newFrame.Navigate(typeof(Editor));
                 Window.Current.Content = newFrame;
                 Window.Current.Activate();
                 newViewId = ApplicationView.GetForCurrentView().Id;

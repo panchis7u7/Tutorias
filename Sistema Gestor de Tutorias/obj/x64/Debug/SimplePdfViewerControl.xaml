@@ -1,0 +1,23 @@
+﻿<UserControl x:ConnectionId='1'
+    x:Class="Sistema_Gestor_de_Tutorias.SimplePdfViewerControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Sistema_Gestor_de_Tutorias"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Name="root"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <ScrollViewer x:ConnectionId='2'                                           
+                                                               >
+        <ItemsControl x:ConnectionId='3'                                             >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate                         >
+                    <Image x:ConnectionId='5'                    Margin="0 2" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
+</UserControl>
+

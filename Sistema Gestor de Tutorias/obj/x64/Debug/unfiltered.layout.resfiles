@@ -15,11 +15,12 @@ Assets\StoreLogo.png
 Assets\Tutorados_Credito_Complementario.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
-Controles\SimplePdfViewerControl.xbf
 Editor.xbf
 MainPage.xbf
 Pagina_Configuracion.xbf
 Pagina_Consultas.xbf
 Pagina_Formatos.xbf
+SimplePdfViewerControl.xbf
 Sistema Gestor de Tutorias.xr.xml
+Formatos\1.pdf
 Properties\Default.rd.xml
