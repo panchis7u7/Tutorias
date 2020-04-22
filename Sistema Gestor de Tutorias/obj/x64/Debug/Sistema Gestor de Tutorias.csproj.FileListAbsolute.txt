@@ -17,13 +17,7 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\ColorCode.C
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\ColorCode.Core.pdb
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\ColorCode.UWP.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\ColorCode.UWP.pdb
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Practices.ServiceLocation.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Practices.ServiceLocation.pdb
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Google.Protobuf.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Data.Sqlite.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Extensions.Logging.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Extensions.Logging.Abstractions.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Toolkit.pdb
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Toolkit.Parsers.pdb
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Toolkit.Uwp.pdb
@@ -37,10 +31,6 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\MySql.Data.
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Ubiety.Dns.Core.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Newtonsoft.Json.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Runtime.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\SQLitePCLRaw.batteries_v2.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\SQLitePCLRaw.core.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\e_sqlite3.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Renci.SshNet.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\SshNet.Security.Cryptography.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Configuration.ConfigurationManager.dll
@@ -48,7 +38,6 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Runt
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Security.Cryptography.ProtectedData.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Security.Permissions.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Xml.XPath.XmlDocument.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Uno.Core.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Toolkit.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Toolkit.Parsers.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Toolkit.Uwp.dll
@@ -56,8 +45,6 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.T
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Toolkit.Uwp.UI.Animations.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Toolkit.Uwp.UI.Controls.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Uno.UI.Toolkit.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Uno.UI.Toolkit.pdb
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Graphics.Canvas.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Graphics.Canvas.winmd
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.UI.Xaml.Markup.winmd
@@ -85,7 +72,6 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Sistema Ges
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\ColorCode.UWP.pri.xml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Xaml.Interactions.pri.xml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Xaml.Interactivity.pri.xml
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Uno.Core.pri.xml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Toolkit.Uwp.pri.xml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Toolkit.Uwp.UI.pri.xml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Toolkit.Uwp.UI.Animations.pri.xml
@@ -94,17 +80,12 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.T
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Sistema Gestor de Tutorias.exe
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Sistema Gestor de Tutorias.pdb
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\ResourceHandlingTask.state
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Practices.ServiceLocation\en-US\Microsoft.Practices.ServiceLocation.Properties.Resources.resw
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Data.Sqlite\en-US\Microsoft.Data.Sqlite.Properties.Resources.resw
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Extensions.DependencyInjection.Abstractions\en-us\Microsoft.Extensions.DependencyInjection.Abstractions.Resources.resw
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Extensions.Logging.Abstractions\en-us\Microsoft.Extensions.Logging.Abstractions.Resource.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\MySql.Data\en-US\MySql.Data.Resources.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\MySql.Data\en-US\MySql.Data.ResourcesX.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Configuration.ConfigurationManager.SR.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Security.Cryptography.ProtectedData.SR.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Security.Permissions.SR.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Xml.XPath.XmlDocument.SR.resw
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\en-US\Microsoft.Toolkit.Uwp.UI.Controls.DG.Properties.Resources.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\priconfig.xml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\priconfig.xml.intermediate
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\unfiltered.layout.resfiles
@@ -133,3 +114,20 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Editor.g.i.
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Editor.g.cs
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Editor.xaml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Editor.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Syncfusion.DocIO.UWP.dll
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Syncfusion.Licensing.dll
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Syncfusion.OfficeChart.UWP.dll
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Syncfusion.DocIO.UWP.pri.xml
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Syncfusion.OfficeChart.UWP.pri.xml
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Syncfusion.OfficeChart.UWP\en\Syncfusion.OfficeChart.PresetGradients.resw
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Syncfusion.OfficeChart.UWP\en\Syncfusion.OfficeChart.TexturePatternGradient.resw
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Syncfusion.OfficeChart.UWP\en\Syncfusion.OfficeChart.VMLPresetGradientFills.resw
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\resources.en.resfiles
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\resources.en.resfiles.intermediate
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Controles\SimplePdfViewerControl.g.i.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Controles\SimplePdfViewerControl.g.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Controles\SimplePdfViewerControl.xaml
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Controles\SimplePdfViewerControl.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Controles\SimplePdfViewerControl.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\en-US\Microsoft.Toolkit.Uwp.UI.Controls.Properties.Resources.resw
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_637214750760000000.json

@@ -29,6 +29,7 @@
     <Import Project="$(NuGetPackageRoot)microsoft.netcore.universalwindowsplatform\6.2.10\build\Microsoft.NETCore.UniversalWindowsPlatform.props" Condition="Exists('$(NuGetPackageRoot)microsoft.netcore.universalwindowsplatform\6.2.10\build\Microsoft.NETCore.UniversalWindowsPlatform.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\smadr\.nuget\packages\newtonsoft.json\10.0.3</PkgNewtonsoft_Json>
     <Pkgruntime_win10-x86_Microsoft_Net_UWPCoreRuntimeSdk Condition=" '$(Pkgruntime_win10-x86_Microsoft_Net_UWPCoreRuntimeSdk)' == '' ">C:\Users\smadr\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.10</Pkgruntime_win10-x86_Microsoft_Net_UWPCoreRuntimeSdk>
     <Pkgruntime_win10-x86_Microsoft_Net_Native_SharedLibrary Condition=" '$(Pkgruntime_win10-x86_Microsoft_Net_Native_SharedLibrary)' == '' ">C:\Users\smadr\.nuget\packages\runtime.win10-x86.microsoft.net.native.sharedlibrary\2.2.7-rel-28605-00</Pkgruntime_win10-x86_Microsoft_Net_Native_SharedLibrary>
     <Pkgruntime_win10-x86_Microsoft_Net_Native_Compiler Condition=" '$(Pkgruntime_win10-x86_Microsoft_Net_Native_Compiler)' == '' ">C:\Users\smadr\.nuget\packages\runtime.win10-x86.microsoft.net.native.compiler\2.2.8-rel-28605-00</Pkgruntime_win10-x86_Microsoft_Net_Native_Compiler>
@@ -40,11 +41,9 @@
     <Pkgruntime_win10-arm_Microsoft_Net_UWPCoreRuntimeSdk Condition=" '$(Pkgruntime_win10-arm_Microsoft_Net_UWPCoreRuntimeSdk)' == '' ">C:\Users\smadr\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.10</Pkgruntime_win10-arm_Microsoft_Net_UWPCoreRuntimeSdk>
     <Pkgruntime_win10-arm_Microsoft_Net_Native_SharedLibrary Condition=" '$(Pkgruntime_win10-arm_Microsoft_Net_Native_SharedLibrary)' == '' ">C:\Users\smadr\.nuget\packages\runtime.win10-arm.microsoft.net.native.sharedlibrary\2.2.7-rel-28605-00</Pkgruntime_win10-arm_Microsoft_Net_Native_SharedLibrary>
     <Pkgruntime_win10-arm_Microsoft_Net_Native_Compiler Condition=" '$(Pkgruntime_win10-arm_Microsoft_Net_Native_Compiler)' == '' ">C:\Users\smadr\.nuget\packages\runtime.win10-arm.microsoft.net.native.compiler\2.2.8-rel-28605-00</Pkgruntime_win10-arm_Microsoft_Net_Native_Compiler>
+    <PkgMicrosoft_Toolkit_Uwp_UI_Controls_DataGrid Condition=" '$(PkgMicrosoft_Toolkit_Uwp_UI_Controls_DataGrid)' == '' ">C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls.datagrid\7.0.0-preview1</PkgMicrosoft_Toolkit_Uwp_UI_Controls_DataGrid>
+    <PkgMicrosoft_Toolkit_Uwp_UI_Controls Condition=" '$(PkgMicrosoft_Toolkit_Uwp_UI_Controls)' == '' ">C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls\7.0.0-preview1</PkgMicrosoft_Toolkit_Uwp_UI_Controls>
     <PkgMicrosoft_Net_UWPCoreRuntimeSdk Condition=" '$(PkgMicrosoft_Net_UWPCoreRuntimeSdk)' == '' ">C:\Users\smadr\.nuget\packages\microsoft.net.uwpcoreruntimesdk\2.2.10</PkgMicrosoft_Net_UWPCoreRuntimeSdk>
     <PkgMicrosoft_Net_Native_Compiler Condition=" '$(PkgMicrosoft_Net_Native_Compiler)' == '' ">C:\Users\smadr\.nuget\packages\microsoft.net.native.compiler\2.2.8-rel-28605-00</PkgMicrosoft_Net_Native_Compiler>
-    <PkgUno_UI Condition=" '$(PkgUno_UI)' == '' ">C:\Users\smadr\.nuget\packages\uno.ui\2.2.0-dev.109</PkgUno_UI>
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\smadr\.nuget\packages\newtonsoft.json\10.0.3</PkgNewtonsoft_Json>
-    <PkgMicrosoft_Toolkit_Uwp_UI_Controls_DataGrid Condition=" '$(PkgMicrosoft_Toolkit_Uwp_UI_Controls_DataGrid)' == '' ">C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls.datagrid\6.0.0</PkgMicrosoft_Toolkit_Uwp_UI_Controls_DataGrid>
-    <PkgMicrosoft_Toolkit_Uwp_UI_Controls Condition=" '$(PkgMicrosoft_Toolkit_Uwp_UI_Controls)' == '' ">C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls\6.0.0</PkgMicrosoft_Toolkit_Uwp_UI_Controls>
   </PropertyGroup>
 </Project>

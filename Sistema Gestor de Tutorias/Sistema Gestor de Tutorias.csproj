@@ -122,6 +122,10 @@
     </Compile>
     <Compile Include="Asignaturas.cs" />
     <Compile Include="Calificaciones.cs" />
+    <Compile Include="Controles\SimplePdfViewerControl.xaml.cs">
+      <DependentUpon>SimplePdfViewerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UriExtension.cs" />
     <Compile Include="Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
@@ -176,6 +180,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controles\SimplePdfViewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Editor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,20 +206,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.Sqlite">
-      <Version>5.0.0-preview.2.20159.4</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Data.Sqlite.Core">
-      <Version>5.0.0-preview.2.20159.4</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>6.0.0</Version>
+      <Version>7.0.0-preview1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
-      <Version>6.0.0</Version>
+      <Version>7.0.0-preview1</Version>
     </PackageReference>
     <PackageReference Include="MySql.Data">
       <Version>8.0.19</Version>
@@ -220,11 +222,16 @@
       <Version>18.1.0.45</Version>
     </PackageReference>
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>6.0.0-ge975abb046</Version>
+      <Version>6.1.0-build.71.g38c59ea2a0</Version>
     </PackageReference>
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
-      <Version>6.0.0-ge975abb046</Version>
+      <Version>6.1.0-build.71.g38c59ea2a0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Nombramiento_Tutores.docx" />
+    <None Include="Assets\Nombramiento_Tutores.pdf" />
+    <None Include="Assets\pdffile.pdf" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

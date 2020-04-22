@@ -31,7 +31,7 @@ namespace Sistema_Gestor_de_Tutorias
         public MainPage()
         {
             this.InitializeComponent();
-            config_page = new Pagina_Configuracion(ref mainPageRef, ref navMenu);
+            //config_page = new Pagina_Configuracion(ref mainPageRef, ref navMenu);
         }
 
         private void navMenu_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
@@ -43,7 +43,7 @@ namespace Sistema_Gestor_de_Tutorias
         {
             if (args.IsSettingsSelected)
             {
-                main_frame.Content = config_page;
+                main_frame.Navigate(typeof(Pagina_Configuracion), mainPageRef);
             }
             else
             {

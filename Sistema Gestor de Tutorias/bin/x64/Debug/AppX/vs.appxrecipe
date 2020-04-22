@@ -30,13 +30,13 @@
     <AppXManifest Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-04-21T17:15:49.258</Modified>
+      <Modified>2020-04-22T16:39:13.028</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.exe">
       <PackagePath>entrypoint\Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-04-21T17:15:42.886</Modified>
+      <Modified>2020-04-22T16:39:04.967</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\bouncycastle.netcore\1.8.3\lib\netstandard2.0\BouncyCastle.Crypto.dll">
       <PackagePath>BouncyCastle.Crypto.dll</PackagePath>
@@ -50,29 +50,37 @@
       <PackagePath>ColorCode.UWP.dll</PackagePath>
       <Modified>2018-10-06T04:30:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\commonservicelocator\1.3.0\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll">
-      <PackagePath>Microsoft.Practices.ServiceLocation.dll</PackagePath>
-      <Modified>2014-05-05T16:25:44.000</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\google.protobuf\3.6.1\lib\netstandard1.0\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
       <Modified>2018-08-10T23:51:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.data.sqlite.core\5.0.0-preview.2.20159.4\lib\netstandard2.0\Microsoft.Data.Sqlite.dll">
-      <PackagePath>Microsoft.Data.Sqlite.dll</PackagePath>
-      <Modified>2020-03-10T04:16:56.000</Modified>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit\7.0.0-preview1\lib\netstandard2.0\Microsoft.Toolkit.dll">
+      <PackagePath>Microsoft.Toolkit.dll</PackagePath>
+      <Modified>2020-04-21T05:51:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll">
-      <PackagePath>Microsoft.Extensions.DependencyInjection.Abstractions.dll</PackagePath>
-      <Modified>2016-11-15T02:41:28.000</Modified>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.parsers\7.0.0-preview1\lib\netstandard2.0\Microsoft.Toolkit.Parsers.dll">
+      <PackagePath>Microsoft.Toolkit.Parsers.dll</PackagePath>
+      <Modified>2020-04-21T05:51:02.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.extensions.logging\1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.dll">
-      <PackagePath>Microsoft.Extensions.Logging.dll</PackagePath>
-      <Modified>2017-02-17T23:01:04.000</Modified>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp\7.0.0-preview1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.dll</PackagePath>
+      <Modified>2020-04-21T05:51:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.extensions.logging.abstractions\1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll">
-      <PackagePath>Microsoft.Extensions.Logging.Abstractions.dll</PackagePath>
-      <Modified>2017-02-17T23:01:04.000</Modified>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui\7.0.0-preview1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.dll</PackagePath>
+      <Modified>2020-04-21T05:51:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.animations\7.0.0-preview1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Animations.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Animations.dll</PackagePath>
+      <Modified>2020-04-21T05:51:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls\7.0.0-preview1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.dll</PackagePath>
+      <Modified>2020-04-21T05:51:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls.datagrid\7.0.0-preview1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll</PackagePath>
+      <Modified>2020-04-21T05:51:40.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.xaml.behaviors.uwp.managed\1.1.0\lib\uap10.0\Microsoft.Xaml.Interactions.dll">
       <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
@@ -98,22 +106,6 @@
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2020-02-28T01:17:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\sqlitepclraw.bundle_e_sqlite3\2.0.2\lib\netstandard2.0\SQLitePCLRaw.batteries_v2.dll">
-      <PackagePath>SQLitePCLRaw.batteries_v2.dll</PackagePath>
-      <Modified>2019-11-01T23:24:08.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\sqlitepclraw.core\2.0.2\lib\netstandard2.0\SQLitePCLRaw.core.dll">
-      <PackagePath>SQLitePCLRaw.core.dll</PackagePath>
-      <Modified>2019-11-01T23:23:34.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.0.2\runtimes\win10-x64\nativeassets\uap10.0\e_sqlite3.dll">
-      <PackagePath>e_sqlite3.dll</PackagePath>
-      <Modified>2019-08-15T23:15:00.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\sqlitepclraw.provider.e_sqlite3\2.0.2\lib\uap10.0\SQLitePCLRaw.provider.e_sqlite3.dll">
-      <PackagePath>SQLitePCLRaw.provider.e_sqlite3.dll</PackagePath>
-      <Modified>2019-11-01T23:23:38.000</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\ssh.net\2016.1.0\lib\uap10\Renci.SshNet.dll">
       <PackagePath>Renci.SshNet.dll</PackagePath>
       <Modified>2017-10-17T01:53:06.000</Modified>
@@ -121,6 +113,18 @@
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\sshnet.security.cryptography\1.2.0\lib\uap10.0\SshNet.Security.Cryptography.dll">
       <PackagePath>SshNet.Security.Cryptography.dll</PackagePath>
       <Modified>2016-07-15T01:47:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\syncfusion.docio.uwp\18.1.0.45\lib\uap10.0\Syncfusion.DocIO.UWP.dll">
+      <PackagePath>Syncfusion.DocIO.UWP.dll</PackagePath>
+      <Modified>2020-04-20T14:53:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\syncfusion.licensing\18.1.0.45\lib\uap10.0\Syncfusion.Licensing.dll">
+      <PackagePath>Syncfusion.Licensing.dll</PackagePath>
+      <Modified>2020-04-20T14:04:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\syncfusion.officechart.uwp\18.1.0.45\lib\uap10.0\Syncfusion.OfficeChart.UWP.dll">
+      <PackagePath>Syncfusion.OfficeChart.UWP.dll</PackagePath>
+      <Modified>2020-04-20T14:51:30.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\system.configuration.configurationmanager\4.4.1\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll">
       <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>
@@ -142,61 +146,25 @@
       <PackagePath>System.Xml.XPath.XmlDocument.dll</PackagePath>
       <Modified>2016-06-12T04:15:02.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.core\1.29.0-dev.93\lib\uap10.0\Uno.Core.dll">
-      <PackagePath>Uno.Core.dll</PackagePath>
-      <Modified>2019-07-10T22:37:32.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.microsoft.toolkit\6.0.0-ge975abb046\lib\netstandard2.0\Microsoft.Toolkit.dll">
-      <PackagePath>Microsoft.Toolkit.dll</PackagePath>
-      <Modified>2020-03-24T00:26:10.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.microsoft.toolkit.parsers\6.0.0-ge975abb046\lib\netstandard2.0\Microsoft.Toolkit.Parsers.dll">
-      <PackagePath>Microsoft.Toolkit.Parsers.dll</PackagePath>
-      <Modified>2020-03-24T00:27:52.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.microsoft.toolkit.uwp\6.0.0-ge975abb046\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.dll">
-      <PackagePath>Microsoft.Toolkit.Uwp.dll</PackagePath>
-      <Modified>2020-03-24T00:26:16.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.microsoft.toolkit.uwp.ui\6.0.0-ge975abb046\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.dll">
-      <PackagePath>Microsoft.Toolkit.Uwp.UI.dll</PackagePath>
-      <Modified>2020-03-24T00:26:54.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.microsoft.toolkit.uwp.ui.animations\6.0.0-ge975abb046\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Animations.dll">
-      <PackagePath>Microsoft.Toolkit.Uwp.UI.Animations.dll</PackagePath>
-      <Modified>2020-03-24T00:27:50.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.microsoft.toolkit.uwp.ui.controls\6.0.0-ge975abb046\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.dll">
-      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.dll</PackagePath>
-      <Modified>2020-03-24T00:36:04.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.microsoft.toolkit.uwp.ui.controls.datagrid\6.0.0-ge975abb046\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll">
-      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll</PackagePath>
-      <Modified>2020-03-24T00:34:12.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.ui\2.2.0-dev.109\lib\UAP\Uno.UI.Toolkit.dll">
-      <PackagePath>Uno.UI.Toolkit.dll</PackagePath>
-      <Modified>2020-03-11T20:06:36.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\win2d.uwp\1.24.0\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\win2d.uwp\1.25.0\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
-      <Modified>2019-10-26T04:29:30.000</Modified>
+      <Modified>2020-04-03T01:46:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\win2d.uwp\1.24.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\win2d.uwp\1.25.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
-      <Modified>2019-10-26T04:27:44.000</Modified>
+      <Modified>2020-04-03T01:44:36.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-19T00:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.microsoft.toolkit.uwp.ui.controls\6.0.0-ge975abb046\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml">
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls\7.0.0-preview1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml</PackagePath>
-      <Modified>2020-03-24T00:28:06.000</Modified>
+      <Modified>2020-04-21T05:40:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\uno.microsoft.toolkit.uwp.ui.controls.datagrid\6.0.0-ge975abb046\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml">
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls.datagrid\7.0.0-preview1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml</PackagePath>
-      <Modified>2020-03-24T00:26:42.000</Modified>
+      <Modified>2020-04-21T05:37:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Canalizacion_Interna_Psicologia.png">
       <PackagePath>Assets\Canalizacion_Interna_Psicologia.png</PackagePath>
@@ -270,31 +238,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.xr.xml">
       <PackagePath>Sistema Gestor de Tutorias.xr.xml</PackagePath>
-      <Modified>2020-04-21T17:15:40.995</Modified>
+      <Modified>2020-04-22T16:28:13.183</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-04-21T17:15:41.089</Modified>
+      <Modified>2020-04-22T16:28:13.296</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Controles\SimplePdfViewerControl.xbf">
+      <PackagePath>Controles\SimplePdfViewerControl.xbf</PackagePath>
+      <Modified>2020-04-22T16:28:13.296</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Editor.xbf">
       <PackagePath>Editor.xbf</PackagePath>
-      <Modified>2020-04-21T17:15:41.089</Modified>
+      <Modified>2020-04-22T16:28:13.296</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-04-21T17:15:41.089</Modified>
+      <Modified>2020-04-22T16:28:13.296</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Configuracion.xbf">
       <PackagePath>Pagina_Configuracion.xbf</PackagePath>
-      <Modified>2020-04-21T17:15:41.089</Modified>
+      <Modified>2020-04-22T16:28:13.296</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Consultas.xbf">
       <PackagePath>Pagina_Consultas.xbf</PackagePath>
-      <Modified>2020-04-21T17:15:41.089</Modified>
+      <Modified>2020-04-22T16:28:13.296</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Formatos.xbf">
       <PackagePath>Pagina_Formatos.xbf</PackagePath>
-      <Modified>2020-04-21T17:15:41.089</Modified>
+      <Modified>2020-04-22T16:28:13.296</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -302,11 +274,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-04-21T17:15:45.776</Modified>
+      <Modified>2020-04-22T16:39:08.081</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\Sistema Gestor de Tutorias.exe">
       <PackagePath>Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-04-21T17:15:49.239</Modified>
+      <Modified>2020-04-22T16:39:13.009</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

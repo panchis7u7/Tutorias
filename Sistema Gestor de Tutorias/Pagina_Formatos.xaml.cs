@@ -16,6 +16,7 @@ using Sistema_Gestor_de_Tutorias.Modelos;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
+using Windows.UI;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -39,10 +40,10 @@ namespace Sistema_Gestor_de_Tutorias
             int newViewId= 0;
             await myView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-            Frame newFrame = new Frame();
-            newFrame.Navigate(typeof(Editor), null);
-            Window.Current.Content = newFrame;
-            Window.Current.Activate();
+                Frame newFrame = new Frame();
+                newFrame.Navigate(typeof(Editor), null);
+                Window.Current.Content = newFrame;
+                Window.Current.Activate();
                 newViewId = ApplicationView.GetForCurrentView().Id;
             });
             await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId,ViewSizePreference.UseHalf);

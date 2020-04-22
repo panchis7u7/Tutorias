@@ -24,7 +24,7 @@ namespace Sistema_Gestor_de_Tutorias
     public sealed partial class Pagina_Configuracion : Page
     {
         public Page main_page_obj;
-        public NavigationView nav_view_obj;
+        //public NavigationView nav_view_obj;
         public Pagina_Configuracion()
         {
             this.InitializeComponent();
@@ -32,7 +32,7 @@ namespace Sistema_Gestor_de_Tutorias
 
         public Pagina_Configuracion(ref Page main_page_obj, ref NavigationView nav_view_obj)
         {
-            this.nav_view_obj = nav_view_obj;
+            //this.nav_view_obj = nav_view_obj;
             this.main_page_obj = main_page_obj;
             this.InitializeComponent();
         }
@@ -68,6 +68,11 @@ namespace Sistema_Gestor_de_Tutorias
                 main_page_obj.Foreground = myBrush;
                 main_page_obj.Background = myBrush;
             }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.main_page_obj = e.Parameter as Page;
         }
     }
 }

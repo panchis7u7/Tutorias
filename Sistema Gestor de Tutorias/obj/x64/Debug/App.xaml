@@ -13,7 +13,7 @@
                     <SolidColorBrush x:Key="NavigationViewItemForegroundPressed" Color="White"/>
                     <SolidColorBrush x:Key="NavigationViewItemForegroundSelectedPressed" Color="White"/>
                     <AcrylicBrush x:Key="Acrilico1" TintOpacity=".6" TintColor="WhiteSmoke" BackgroundSource="HostBackdrop" FallbackColor="WhiteSmoke" AlwaysUseFallback="False"></AcrylicBrush>
-                    <AcrylicBrush x:Key="Acrilico2" TintOpacity=".4" TintColor="Black" BackgroundSource="HostBackdrop" FallbackColor="White" AlwaysUseFallback="False"></AcrylicBrush>
+                    <AcrylicBrush x:Key="Acrilico2" TintOpacity=".4" TintColor="Black" BackgroundSource="HostBackdrop" FallbackColor="Black" AlwaysUseFallback="False"></AcrylicBrush>
                     <AcrylicBrush x:Key="NavigationViewDefaultPaneBackground" BackgroundSource="Backdrop" TintColor="OrangeRed" TintOpacity=".8"/>
                     <AcrylicBrush x:Key="NavigationViewTopPaneBackground" BackgroundSource="Backdrop" TintColor="OrangeRed" TintOpacity=".8"/>
                     <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground" BackgroundSource="HostBackdrop" TintColor="OrangeRed" TintOpacity=".8"/>

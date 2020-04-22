@@ -168,6 +168,7 @@
       <RootProperty Name="MinHeight" />
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Resources" />
+      <RootProperty Name="Name" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -214,9 +215,12 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="HighContrastAdjustment" />
       <RootProperty Name="MaxLines" />
+      <RootProperty Name="DataContext" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="OpticalMarginAlignment" />
       <RootProperty Name="Height" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Name" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
@@ -246,6 +250,7 @@
       <RootProperty Name="FontStyle" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="IsTabStop" />
+      <RootProperty Name="MinWidth" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension">
       <RootProperty Name="ResourceKey" />
@@ -272,6 +277,8 @@
       <RootProperty Name="Name" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Tag" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="FontStyle" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="RelativeSource" />
@@ -410,7 +417,6 @@
       <RootProperty Name="FontWeight" />
       <RootProperty Name="MaxHeight" />
       <RootProperty Name="Template" />
-      <RootProperty Name="DataContext" />
       <RootProperty Name="ContentTransitions" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.RotateTransform">
@@ -441,6 +447,8 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Opacity" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
       <RootProperty Name="Maximum" />
@@ -476,6 +484,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="RenderTransform" />
+      <RootProperty Name="Padding" />
     </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock">
       <RootProperty Name="Orientation" />
@@ -490,6 +499,8 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Background" />
       <RootProperty Name="DataContext" />
+      <RootMethod Name="GetZIndex" />
+      <RootMethod Name="SetZIndex" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Path">
       <RootProperty Name="Fill" />
@@ -540,6 +551,10 @@
       <RootProperty Name="InputScope" />
       <RootProperty Name="MaxLength" />
       <RootProperty Name="Text" />
+      <RootProperty Name="DesiredCandidateWindowAlignment" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="UseSystemFocusVisuals" />
     </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.InfiniteCanvasVirtualDrawingSurface">
       <RootProperty Name="Width" />
@@ -651,6 +666,13 @@
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="IsDoubleTapEnabled" />
       <RootProperty Name="IsMultiSelectCheckBoxEnabled" />
+      <RootProperty Name="MaxHeight" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="DisplayMemberPath" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.VisualTransition">
       <RootProperty Name="From" />
@@ -680,7 +702,13 @@
       <RootProperty Name="MenuFlyoutStyle" />
     </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.MenuItem" />
-    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel" />
+    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel">
+      <RootProperty Name="Name" />
+      <RootProperty Name="HorizontalSpacing" />
+      <RootProperty Name="StretchChild" />
+      <RootProperty Name="VerticalSpacing" />
+      <RootProperty Name="Children" />
+    </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.OrbitView">
       <RootProperty Name="AnchorColor" />
       <RootProperty Name="OrbitColor" />
@@ -700,6 +728,7 @@
       <RootProperty Name="MaxHeight" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.RadialProgressBar">
       <RootProperty Name="Outline" />
@@ -845,5 +874,30 @@
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons.ToolbarButton" />
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons.ToolbarSeparator" />
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.TileControl" />
+    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.TokenizingTextBox">
+      <RootProperty Name="AutoSuggestBoxTextBoxStyle" />
+      <RootProperty Name="TokenSpacing" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Popup">
+      <RootProperty Name="Child" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AutoSuggestBox">
+      <RootProperty Name="Name" />
+      <RootProperty Name="DisplayMemberPath" />
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="QueryIcon" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="Template" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="TextBoxStyle" />
+      <RootProperty Name="TextMemberPath" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.HorizontalAlignment" />
+    <RootType FullName="Windows.UI.Xaml.VerticalAlignment" />
+    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.TokenizingTextBoxItem">
+      <RootProperty Name="ClearButtonStyle" />
+    </RootType>
   </Roots.RootTypes>
 </Roots>
