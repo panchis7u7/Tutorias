@@ -52,8 +52,8 @@ namespace Sistema_Gestor_de_Tutorias
         public Uri Source { get; set; }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var formatoSeleccionado = (e.Parameter as Formato).formato_id;
-            var uri = new Uri("ms-appx:///Formatos/" + formatoSeleccionado + ".pdf");
+            var formatoSeleccionado = (e.Parameter) as Formato;
+            var uri = new Uri("ms-appx:///Formatos/" + formatoSeleccionado.formato_id + ".pdf");
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
         }

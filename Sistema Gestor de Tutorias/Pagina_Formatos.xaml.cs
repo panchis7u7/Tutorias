@@ -17,6 +17,9 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI;
+using Microsoft.Toolkit.Uwp.Helpers;
+using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarFormats;
+using Windows.UI.Notifications;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,15 +36,16 @@ namespace Sistema_Gestor_de_Tutorias
             this.InitializeComponent();
             formatos = FormatoManager.GetFormatos();
         }
-
         private async void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var myView = CoreApplication.CreateNewView();
-            int newViewId= 0;
+            int newViewId = 0;
+            //int numero = (e.ClickedItem as Formato).formato_id;
+            object f = e.ClickedItem;
             await myView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 Frame newFrame = new Frame();
-                newFrame.Navigate(typeof(Editor));
+                newFrame.Navigate(typeof(Editor), f);
                 Window.Current.Content = newFrame;
                 Window.Current.Activate();
                 newViewId = ApplicationView.GetForCurrentView().Id;

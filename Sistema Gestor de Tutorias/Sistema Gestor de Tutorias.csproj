@@ -131,6 +131,8 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Formato.cs" />
+    <Compile Include="Modelos\ISubscriber.cs" />
+    <Compile Include="Modelos\MyEventAggregator.cs" />
     <Compile Include="Pagina_Configuracion.xaml.cs">
       <DependentUpon>Pagina_Configuracion.xaml</DependentUpon>
     </Compile>
@@ -230,6 +232,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Formatos\1.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Formatos\2.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formatos\3.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
