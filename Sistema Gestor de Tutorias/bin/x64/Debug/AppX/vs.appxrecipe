@@ -30,17 +30,13 @@
     <AppXManifest Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-04-24T02:10:50.463</Modified>
+      <Modified>2020-04-25T22:21:05.539</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.exe">
       <PackagePath>entrypoint\Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-04-24T02:10:45.686</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\bouncycastle.netcore\1.8.3\lib\netstandard2.0\BouncyCastle.Crypto.dll">
-      <PackagePath>BouncyCastle.Crypto.dll</PackagePath>
-      <Modified>2018-05-28T21:12:20.000</Modified>
+      <Modified>2020-04-25T22:21:01.527</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
       <PackagePath>ColorCode.Core.dll</PackagePath>
@@ -50,9 +46,61 @@
       <PackagePath>ColorCode.UWP.dll</PackagePath>
       <Modified>2018-10-06T04:30:16.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\common.logging\3.4.1\lib\netstandard1.3\Common.Logging.dll">
+      <PackagePath>Common.Logging.dll</PackagePath>
+      <Modified>2017-08-16T11:51:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\common.logging.core\3.4.1\lib\netstandard1.0\Common.Logging.Core.dll">
+      <PackagePath>Common.Logging.Core.dll</PackagePath>
+      <Modified>2017-08-16T11:51:46.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\google.protobuf\3.6.1\lib\netstandard1.0\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
       <Modified>2018-08-10T23:51:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.barcodes.dll">
+      <PackagePath>itext.barcodes.dll</PackagePath>
+      <Modified>2020-04-10T13:14:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.forms.dll">
+      <PackagePath>itext.forms.dll</PackagePath>
+      <Modified>2020-04-10T13:14:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.io.dll">
+      <PackagePath>itext.io.dll</PackagePath>
+      <Modified>2020-04-10T13:14:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.kernel.dll">
+      <PackagePath>itext.kernel.dll</PackagePath>
+      <Modified>2020-04-10T13:14:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.layout.dll">
+      <PackagePath>itext.layout.dll</PackagePath>
+      <Modified>2020-04-10T13:14:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.pdfa.dll">
+      <PackagePath>itext.pdfa.dll</PackagePath>
+      <Modified>2020-04-10T13:14:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.sign.dll">
+      <PackagePath>itext.sign.dll</PackagePath>
+      <Modified>2020-04-10T13:14:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.styledxmlparser.dll">
+      <PackagePath>itext.styledxmlparser.dll</PackagePath>
+      <Modified>2020-04-10T13:14:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.svg.dll">
+      <PackagePath>itext.svg.dll</PackagePath>
+      <Modified>2020-04-10T13:14:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.dotnet.platformabstractions\1.1.0\lib\netstandard1.3\Microsoft.DotNet.PlatformAbstractions.dll">
+      <PackagePath>Microsoft.DotNet.PlatformAbstractions.dll</PackagePath>
+      <Modified>2016-11-09T04:14:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.extensions.dependencymodel\1.1.0\lib\netstandard1.6\Microsoft.Extensions.DependencyModel.dll">
+      <PackagePath>Microsoft.Extensions.DependencyModel.dll</PackagePath>
+      <Modified>2016-11-09T04:14:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit\7.0.0-preview1\lib\netstandard2.0\Microsoft.Toolkit.dll">
       <PackagePath>Microsoft.Toolkit.dll</PackagePath>
@@ -102,6 +150,10 @@
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2017-06-18T18:57:10.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\portable.bouncycastle\1.8.5\lib\netstandard2.0\BouncyCastle.Crypto.dll">
+      <PackagePath>BouncyCastle.Crypto.dll</PackagePath>
+      <Modified>2019-02-08T07:50:10.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.10\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2020-02-28T01:17:32.000</Modified>
@@ -133,6 +185,10 @@
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
       <Modified>2018-09-19T00:38:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\system.runtime.loader\4.3.0\lib\netstandard1.5\System.Runtime.Loader.dll">
+      <PackagePath>System.Runtime.Loader.dll</PackagePath>
+      <Modified>2016-11-05T10:57:00.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\system.security.cryptography.protecteddata\4.4.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll">
       <PackagePath>System.Security.Cryptography.ProtectedData.dll</PackagePath>
@@ -254,31 +310,31 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-04-24T02:09:19.710</Modified>
+      <Modified>2020-04-25T22:21:01.111</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Editor.xbf">
       <PackagePath>Editor.xbf</PackagePath>
-      <Modified>2020-04-24T02:09:19.710</Modified>
+      <Modified>2020-04-25T22:21:01.111</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-04-24T02:09:19.710</Modified>
+      <Modified>2020-04-25T22:21:01.111</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Configuracion.xbf">
       <PackagePath>Pagina_Configuracion.xbf</PackagePath>
-      <Modified>2020-04-24T02:09:19.710</Modified>
+      <Modified>2020-04-25T22:21:01.112</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Consultas.xbf">
       <PackagePath>Pagina_Consultas.xbf</PackagePath>
-      <Modified>2020-04-24T02:09:19.710</Modified>
+      <Modified>2020-04-25T22:21:01.112</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Formatos.xbf">
       <PackagePath>Pagina_Formatos.xbf</PackagePath>
-      <Modified>2020-04-24T02:10:45.294</Modified>
+      <Modified>2020-04-25T22:21:01.112</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\SimplePdfViewerControl.xbf">
       <PackagePath>SimplePdfViewerControl.xbf</PackagePath>
-      <Modified>2020-04-24T02:09:19.711</Modified>
+      <Modified>2020-04-25T22:21:01.112</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -286,11 +342,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-04-24T02:10:47.807</Modified>
+      <Modified>2020-04-25T21:51:25.506</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\Sistema Gestor de Tutorias.exe">
       <PackagePath>Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-04-24T02:10:50.456</Modified>
+      <Modified>2020-04-25T22:21:05.498</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

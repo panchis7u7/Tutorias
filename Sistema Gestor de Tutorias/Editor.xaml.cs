@@ -27,6 +27,12 @@ using Windows.Data.Pdf;
 using Windows.Storage.Streams;
 using System.Runtime.CompilerServices;
 using Sistema_Gestor_de_Tutorias.Modelos;
+using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas.Parser.Listener;
+using iText.Kernel.Pdf.Canvas.Parser;
+using iText.Forms.Xfdf;
+using System.Text;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -37,25 +43,51 @@ namespace Sistema_Gestor_de_Tutorias
     /// </summary>
     public sealed partial class Editor : Page, INotifyPropertyChanged
     {
+        private Formato formato_seleccionado;
         public Editor()
         {
             this.InitializeComponent();
-            //picker = new Windows.Storage.Pickers.FileOpenPicker();
-            //picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
-            //picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
-            //picker.FileTypeFilter.Add(".jpg");
-            //picker.FileTypeFilter.Add(".jpeg");
-            //picker.FileTypeFilter.Add(".png");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public Uri Source { get; set; }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            var formatoSeleccionado = (e.Parameter) as Formato;
-            var uri = new Uri("ms-appx:///Formatos/" + formatoSeleccionado.formato_id + ".pdf");
+            formato_seleccionado = (e.Parameter) as Formato;
+            string sfilePath = "Formatos/" + formato_seleccionado.formato_id + ".pdf";
+            var uri = new Uri("ms-appx:///Formatos/" + formato_seleccionado.formato_id + ".pdf");
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
+            try
+            {
+                PdfReader reader = new PdfReader(sfilePath);
+                iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(reader);
+                string texto = string.Empty;
+                for (int page = 1; page <= pdf.GetNumberOfPages(); page++)
+                {
+                    ITextExtractionStrategy its = new LocationTextExtractionStrategy();
+                    String s = PdfTextExtractor.GetTextFromPage(pdf.GetPage(page), its);
+                    //s = System.Text.Encoding.UTF8.GetString(ASCIIEncoding.Convert(System.Text.Encoding.Default, System.Text.Encoding.UTF8, System.Text.Encoding.Default.GetBytes(s)));
+                    texto = texto + s;
+                }
+                int cuenta = char_counter(ref texto);
+                reader.Close();
+            } catch (Exception Ex)
+            {
+                var err = new MessageDialog("Unable to open File!");
+                await err.ShowAsync();
+            }
+        }
+
+        private int char_counter(ref string sInput)
+        {
+            int nCount = 0;
+            for (int i = 0; i < sInput.Length; i++)
+            {
+                if (sInput[i] == '<')
+                    nCount+=1;
+            }
+            return nCount;
         }
     }
 }

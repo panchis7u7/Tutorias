@@ -64,6 +64,10 @@
             "Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid": {
               "target": "Package",
               "version": "[6.1.0-build.71.g38c59ea2a0, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[7.1.11, )"
             }
           },
           "imports": [

@@ -28,17 +28,53 @@
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.exe">
       <PackagePath>entrypoint\Sistema Gestor de Tutorias.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\bouncycastle.netcore\1.8.3\lib\netstandard2.0\BouncyCastle.Crypto.dll">
-      <PackagePath>BouncyCastle.Crypto.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
       <PackagePath>ColorCode.Core.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\colorcode.uwp\2.0.6\lib\uap10.0\ColorCode.UWP.dll">
       <PackagePath>ColorCode.UWP.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\common.logging\3.4.1\lib\netstandard1.3\Common.Logging.dll">
+      <PackagePath>Common.Logging.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\common.logging.core\3.4.1\lib\netstandard1.0\Common.Logging.Core.dll">
+      <PackagePath>Common.Logging.Core.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\google.protobuf\3.6.1\lib\netstandard1.0\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.barcodes.dll">
+      <PackagePath>itext.barcodes.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.forms.dll">
+      <PackagePath>itext.forms.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.io.dll">
+      <PackagePath>itext.io.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.kernel.dll">
+      <PackagePath>itext.kernel.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.layout.dll">
+      <PackagePath>itext.layout.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.pdfa.dll">
+      <PackagePath>itext.pdfa.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.sign.dll">
+      <PackagePath>itext.sign.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.styledxmlparser.dll">
+      <PackagePath>itext.styledxmlparser.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\itext7\7.1.11\lib\netstandard1.6\itext.svg.dll">
+      <PackagePath>itext.svg.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.dotnet.platformabstractions\1.1.0\lib\netstandard1.3\Microsoft.DotNet.PlatformAbstractions.dll">
+      <PackagePath>Microsoft.DotNet.PlatformAbstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.extensions.dependencymodel\1.1.0\lib\netstandard1.6\Microsoft.Extensions.DependencyModel.dll">
+      <PackagePath>Microsoft.Extensions.DependencyModel.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit\7.0.0-preview1\lib\netstandard2.0\Microsoft.Toolkit.dll">
       <PackagePath>Microsoft.Toolkit.dll</PackagePath>
@@ -76,6 +112,9 @@
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\newtonsoft.json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\portable.bouncycastle\1.8.5\lib\netstandard2.0\BouncyCastle.Crypto.dll">
+      <PackagePath>BouncyCastle.Crypto.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.10\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
     </AppxPackagedFile>
@@ -99,6 +138,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\system.runtime.loader\4.3.0\lib\netstandard1.5\System.Runtime.Loader.dll">
+      <PackagePath>System.Runtime.Loader.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\system.security.cryptography.protecteddata\4.4.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll">
       <PackagePath>System.Security.Cryptography.ProtectedData.dll</PackagePath>
