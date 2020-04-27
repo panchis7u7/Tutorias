@@ -33,6 +33,9 @@ using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Forms.Xfdf;
 using System.Text;
 using Windows.UI.Popups;
+using iText.Layout;
+using System.Reflection;
+using Syncfusion.DocIO;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -58,11 +61,19 @@ namespace Sistema_Gestor_de_Tutorias
             var uri = new Uri("ms-appx:///Formatos/" + formato_seleccionado.formato_id + ".pdf");
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
+            replace();
+        }
+
+        private async Task<Dictionary<string, int>> pdfTextExtract(string sFilePath)
+        {
+            Dictionary<string, int> resultado;
+            string texto;
             try
             {
-                PdfReader reader = new PdfReader(sfilePath);
+                PdfReader reader = new PdfReader(sFilePath);
                 iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(reader);
-                string texto = string.Empty;
+                resultado = new Dictionary<string, int>();
+                texto = string.Empty;
                 for (int page = 1; page <= pdf.GetNumberOfPages(); page++)
                 {
                     ITextExtractionStrategy its = new LocationTextExtractionStrategy();
@@ -70,16 +81,19 @@ namespace Sistema_Gestor_de_Tutorias
                     //s = System.Text.Encoding.UTF8.GetString(ASCIIEncoding.Convert(System.Text.Encoding.Default, System.Text.Encoding.UTF8, System.Text.Encoding.Default.GetBytes(s)));
                     texto = texto + s;
                 }
-                int cuenta = char_counter(ref texto);
+                resultado.Add(texto, charCounter(ref texto));
                 reader.Close();
-            } catch (Exception Ex)
+            }
+            catch (Exception Ex)
             {
                 var err = new MessageDialog("Unable to open File!");
                 await err.ShowAsync();
+                return null;
             }
-        }
+            return resultado;
+        } 
 
-        private int char_counter(ref string sInput)
+        private int charCounter(ref string sInput)
         {
             int nCount = 0;
             for (int i = 0; i < sInput.Length; i++)
@@ -88,6 +102,43 @@ namespace Sistema_Gestor_de_Tutorias
                     nCount+=1;
             }
             return nCount;
+        }
+
+        private int wordCounter(ref string sInput, string sSearchTerm)
+        {
+            //Convert the string into an array of words  
+            string[] source = sInput.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            // Create the query.  Use ToLowerInvariant to match "data" and "Data"
+            var matchQuery = from word in source
+                             where word.ToLowerInvariant() == sSearchTerm.ToLowerInvariant()
+                             select word;
+            // Count the matches, which executes the query.  
+            int wordCount = matchQuery.Count();
+            return wordCount;
+        }
+
+        private async void replace()
+        {
+            using (WordDocument document = new WordDocument())
+            {
+                try
+                {
+                    Stream docStream = File.OpenRead(Path.GetFullPath(@"Formatos/2.docx"));
+                    await document.OpenAsync(docStream, FormatType.Docx);
+                    docStream.Dispose();
+                    //Finds all occurrences of a word and replaces with properly spelled word.
+                    //document.Replace("Cyles", "Cycles", true, true);
+                    ////Saves the resultant file in the given path.
+                    //docStream = File.Create(Path.GetFullPath(@"Formatos/resultado.docx"));
+                    //await document.SaveAsync(docStream, FormatType.Docx);
+                    //docStream.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    var err = new MessageDialog("Unable to open File!");
+                    await err.ShowAsync();
+                }
+            }
         }
     }
 }

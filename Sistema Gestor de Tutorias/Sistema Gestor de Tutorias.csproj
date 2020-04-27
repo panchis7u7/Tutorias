@@ -116,17 +116,17 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Alumnos.cs" />
+    <Compile Include="Database Assets\Alumnos.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Asignaturas.cs" />
-    <Compile Include="Calificaciones.cs" />
+    <Compile Include="Database Assets\Asignaturas.cs" />
+    <Compile Include="Database Assets\Calificaciones.cs" />
     <Compile Include="Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Grupos.cs" />
-    <Compile Include="InfoAlumnos.cs" />
+    <Compile Include="Database Assets\Grupos.cs" />
+    <Compile Include="Database Assets\InfoAlumnos.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -142,16 +142,16 @@
     <Compile Include="Pagina_Formatos.xaml.cs">
       <DependentUpon>Pagina_Formatos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Profesores.cs" />
+    <Compile Include="Database Assets\Profesores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Provincias.cs" />
-    <Compile Include="ResidenciasAlumnos.cs" />
-    <Compile Include="ResidenciasProfesores.cs" />
-    <Compile Include="ResidenciasTutores.cs" />
+    <Compile Include="Database Assets\Provincias.cs" />
+    <Compile Include="Database Assets\ResidenciasAlumnos.cs" />
+    <Compile Include="Database Assets\ResidenciasProfesores.cs" />
+    <Compile Include="Database Assets\ResidenciasTutores.cs" />
     <Compile Include="SimplePdfViewerControl.xaml.cs">
       <DependentUpon>SimplePdfViewerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tutores.cs" />
+    <Compile Include="Database Assets\Tutores.cs" />
     <Compile Include="UriExtension.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +245,9 @@
     <Content Include="Formatos\3.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formatos\2.docx" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
