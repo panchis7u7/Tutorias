@@ -54,25 +54,49 @@ namespace Sistema_Gestor_de_Tutorias
 
         public event PropertyChangedEventHandler PropertyChanged;
         public Uri Source { get; set; }
+
+        private List<TextBox> textBoxes;
+
+        private List<TextBlock> textBlocks;
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             formato_seleccionado = (e.Parameter) as Formato;
-            string sfilePath = "Formatos/" + formato_seleccionado.formato_id + ".pdf";
+            string sFilePath = "Formatos/" + formato_seleccionado.formato_id + ".pdf";
             var uri = new Uri("ms-appx:///Formatos/" + formato_seleccionado.formato_id + ".pdf");
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
-            replace();
+            textBlocks = new List<TextBlock>();
+            textBoxes = new List<TextBox>();
+            string texto = await pdfTextExtract(sFilePath);
+            int contador = charCounter(ref texto);
+            for (int i = 0; i < contador; i++)
+            {
+                textBlocks.Add(new TextBlock());
+                textBoxes.Add(new TextBox());
+                textBlocks[i].Width = 300;
+                textBoxes[i].Width = 300;
+                textBlocks[i].Height = 30;
+                textBoxes[i].Height = 40;
+                textBlocks[i].Margin = new Thickness(0, 0, 0, 0);
+                textBoxes[i].Margin = new Thickness(0, 0, 0, 10);
+                textBlocks[i].Text = "Hola";
+                textBoxes[i].Text = "Hola a todos";
+                textBlocks[i].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
+                textBoxes[i].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
+                textBlocks[i].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Bottom;
+                textBoxes[i].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                primary.Children.Add(textBlocks[i]);
+                primary.Children.Add(textBoxes[i]);
+            }
         }
 
-        private async Task<Dictionary<string, int>> pdfTextExtract(string sFilePath)
+        private async Task<string> pdfTextExtract(string sFilePath)
         {
-            Dictionary<string, int> resultado;
             string texto;
             try
             {
                 PdfReader reader = new PdfReader(sFilePath);
                 iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(reader);
-                resultado = new Dictionary<string, int>();
                 texto = string.Empty;
                 for (int page = 1; page <= pdf.GetNumberOfPages(); page++)
                 {
@@ -81,7 +105,6 @@ namespace Sistema_Gestor_de_Tutorias
                     //s = System.Text.Encoding.UTF8.GetString(ASCIIEncoding.Convert(System.Text.Encoding.Default, System.Text.Encoding.UTF8, System.Text.Encoding.Default.GetBytes(s)));
                     texto = texto + s;
                 }
-                resultado.Add(texto, charCounter(ref texto));
                 reader.Close();
             }
             catch (Exception Ex)
@@ -90,7 +113,7 @@ namespace Sistema_Gestor_de_Tutorias
                 await err.ShowAsync();
                 return null;
             }
-            return resultado;
+            return texto;
         } 
 
         private int charCounter(ref string sInput)
@@ -98,7 +121,7 @@ namespace Sistema_Gestor_de_Tutorias
             int nCount = 0;
             for (int i = 0; i < sInput.Length; i++)
             {
-                if (sInput[i] == '<')
+                if (sInput[i] == '<' && sInput[i+1] == '[')
                     nCount+=1;
             }
             return nCount;

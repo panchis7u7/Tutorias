@@ -44,8 +44,14 @@
                  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
         </RelativePanel>-->
         <!--<WebView Grid.Column="2" Grid.Row="2" x:Name="myWebView"></WebView>-->
-        <StackPanel Grid.Column="1" Grid.Row="2">
-        </StackPanel>
+        <ScrollViewer Grid.Column="1" Grid.Row="2">
+            <StackPanel x:Name="primary" 
+                    DataContext="{x:Bind textBoxes}"
+                    ScrollViewer.IsVerticalRailEnabled="True"
+                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                    ScrollViewer.VerticalScrollMode="Enabled">
+            </StackPanel>
+        </ScrollViewer>
         <local:SimplePdfViewerControl Grid.Column="2" Grid.Row="2" x:Name="pdfViewer"
              Source="{x:Bind Source, Mode=OneWay}"
              AutoLoad="True"

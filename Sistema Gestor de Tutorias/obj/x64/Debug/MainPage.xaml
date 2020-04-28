@@ -36,7 +36,7 @@
         </NavigationView.AutoSuggestBox>
         <NavigationView.MenuItems>
             <NavigationViewItemSeparator Background="White"></NavigationViewItemSeparator>
-            <NavigationViewItem x:ConnectionId='4' x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="False" Tag="1">
+            <NavigationViewItem x:ConnectionId='4' x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="True" Tag="1">
                 <NavigationViewItem.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10F;"></FontIcon>
                 </NavigationViewItem.Icon>
