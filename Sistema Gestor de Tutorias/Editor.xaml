@@ -46,7 +46,6 @@
         <!--<WebView Grid.Column="2" Grid.Row="2" x:Name="myWebView"></WebView>-->
         <ScrollViewer Grid.Column="1" Grid.Row="2">
             <StackPanel x:Name="primary" 
-                    DataContext="{x:Bind textBoxes}"
                     ScrollViewer.IsVerticalRailEnabled="True"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.VerticalScrollMode="Enabled">

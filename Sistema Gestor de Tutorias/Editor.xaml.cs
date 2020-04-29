@@ -56,8 +56,8 @@ namespace Sistema_Gestor_de_Tutorias
         public Uri Source { get; set; }
 
         private List<TextBox> textBoxes;
-
         private List<TextBlock> textBlocks;
+        private List<string> textAreas;
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             formato_seleccionado = (e.Parameter) as Formato;
@@ -69,6 +69,7 @@ namespace Sistema_Gestor_de_Tutorias
             textBoxes = new List<TextBox>();
             string texto = await pdfTextExtract(sFilePath);
             int contador = charCounter(ref texto);
+            textAreas = GetWordBasedOn(ref texto, "<[", "]>");
             for (int i = 0; i < contador; i++)
             {
                 textBlocks.Add(new TextBlock());
@@ -79,7 +80,7 @@ namespace Sistema_Gestor_de_Tutorias
                 textBoxes[i].Height = 40;
                 textBlocks[i].Margin = new Thickness(0, 0, 0, 0);
                 textBoxes[i].Margin = new Thickness(0, 0, 0, 10);
-                textBlocks[i].Text = "Hola";
+                textBlocks[i].Text = textAreas[i];
                 textBoxes[i].Text = "Hola a todos";
                 textBlocks[i].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
                 textBoxes[i].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
@@ -114,7 +115,26 @@ namespace Sistema_Gestor_de_Tutorias
                 return null;
             }
             return texto;
-        } 
+        }
+
+        private List<string> GetWordBasedOn(ref string sInput, string sTarget1, string sTarget2)
+        {
+            List<string> palabras = new List<string>();
+            string[] text = sInput.Split(' ');
+            foreach (var word in text)
+            {
+                if (word.Contains(sTarget1) && word.Contains(sTarget2))
+                {
+                    string result = word.Replace("_", " ");
+                    result = new string((from c in result
+                                         where char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)
+                                         select c).ToArray());
+                    result = result.Replace("\n", "").Replace("\r", "");
+                    palabras.Add(result);
+                }
+            }
+            return palabras;
+        }
 
         private int charCounter(ref string sInput)
         {
