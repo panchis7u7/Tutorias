@@ -16,7 +16,7 @@ using iText.Kernel.Pdf.Canvas.Parser;
 using Windows.UI.Popups;
 using iText.Layout;
 using Syncfusion.DocIO;
-using Windows.UI.Xaml.Automation;
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Sistema_Gestor_de_Tutorias
@@ -34,12 +34,11 @@ namespace Sistema_Gestor_de_Tutorias
 
         public event PropertyChangedEventHandler PropertyChanged;
         public Uri Source { get; set; }
-
-        private List<TextBox> textBoxes;
-        private List<TextBlock> textBlocks;
+        private List<ComboBox> comboBoxes;
         private List<CheckBox> checkBoxes;
         private List<string> textAreas;
-        private GridView items;
+        private GridView checkb_grid;
+        private GridView combob_grid;
         
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -49,11 +48,22 @@ namespace Sistema_Gestor_de_Tutorias
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
 
-            textBlocks = new List<TextBlock>();
-            textBoxes = new List<TextBox>();
             checkBoxes = new List<CheckBox>();
-            items = new GridView();
-            items.Width = double.NaN;
+            comboBoxes = new List<ComboBox>();
+
+            #region CheckBox_GridView
+            checkb_grid = new GridView();
+            checkb_grid.Width = double.NaN;
+            checkb_grid.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+            checkb_grid.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+            #endregion
+
+            #region ComboBox_GridView
+            combob_grid = new GridView();
+            combob_grid.Width = double.NaN;
+            combob_grid.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+            combob_grid.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+            #endregion
 
             string texto = await pdfTextExtract(sFilePath);
             int contador = charCounter(ref texto);
@@ -61,44 +71,35 @@ namespace Sistema_Gestor_de_Tutorias
             int k = 0; int j = 0;
             for (int i = 0; i < contador; i++)
             {
-                textBlocks.Add(new TextBlock());
-                textBlocks[i].Width = 300;
-                textBlocks[i].Height = 30;
-                textBlocks[i].Margin = new Thickness(0, 0, 0, 0);
-                textBlocks[i].Text = textAreas[i];
-                textBlocks[i].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
-                textBlocks[i].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Bottom;
                 if (textAreas[i].Length <= 1)
                 {
                     checkBoxes.Add(new CheckBox());
                     checkBoxes[j].Width = double.NaN;
                     checkBoxes[j].Height = double.NaN;
-                    checkBoxes[j].FlowDirection = FlowDirection.RightToLeft;
-                    checkBoxes[j].Content = textBlocks[i].Text + ")";
-                    items.Items.Add(checkBoxes[j]);
+                    checkBoxes[j].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                    checkBoxes[j].HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                    checkBoxes[j].Margin = new Thickness(10,0,0,0);
+                    checkBoxes[j].FlowDirection = FlowDirection.LeftToRight;
+                    checkBoxes[j].Content = textAreas[i] + ")";
+                    checkb_grid.Items.Add(checkBoxes[j]);
                     j += 1;
                 }
                 else
                 {
-                    primary.Children.Add(textBlocks[i]);
-                    textBoxes.Add(new TextBox());
-                    //textBlocks[i].Width = 300;
-                    textBoxes[k].Width = 300;
-                    //textBlocks[i].Height = 30;
-                    textBoxes[k].Height = 40;
-                    //textBlocks[i].Margin = new Thickness(0, 0, 0, 0);
-                    textBoxes[k].Margin = new Thickness(0, 0, 0, 10);
-                    //textBlocks[i].Text = textAreas[i];
-                    textBoxes[k].Text = "Hola a todos";
-                    //textBlocks[i].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
-                    textBoxes[k].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
-                    //textBlocks[i].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Bottom;
-                    textBoxes[k].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
-                    primary.Children.Add(textBoxes[k]);
+                    comboBoxes.Add(new ComboBox());
+                    comboBoxes[k].Width = 200;
+                    comboBoxes[k].Margin = new Thickness(10,3,10,3);
+                    comboBoxes[k].Height = double.NaN;
+                    comboBoxes[k].Header = textAreas[i];
+                    comboBoxes[k].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                    comboBoxes[k].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                    comboBoxes[k].Text = textAreas[i];
+                    combob_grid.Items.Add(comboBoxes[k]);
                     k += 1;
                 }
             }
-            primary.Children.Add(items);
+            primary.Children.Add(combob_grid);
+            primary.Children.Add(checkb_grid);
         }
 
         private async Task<string> pdfTextExtract(string sFilePath)

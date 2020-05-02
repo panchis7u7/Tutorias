@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Diagnostics;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace Sistema_Gestor_de_Tutorias
@@ -31,11 +22,26 @@ namespace Sistema_Gestor_de_Tutorias
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         private string connectionString = @"Data Source=ALIENWARE2000;Initial Catalog=Estudiantes;Integrated Security=True";
+        private SqlConnection Conexion;
         public string ConnectionString { get => connectionString; set => connectionString = value; }
+        private async void conexionBase()
+        {
+            try
+            {
+                Conexion = new SqlConnection(connectionString);
+                await Conexion.OpenAsync();
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+        }
+        public SqlConnection conexionBD { get => Conexion; set => conexionBD = value; }
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            conexionBase();
         }
 
         /// <summary>
