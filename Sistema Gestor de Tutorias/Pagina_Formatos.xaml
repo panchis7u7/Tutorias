@@ -34,7 +34,7 @@
                   ScrollViewer.HorizontalScrollMode="Enabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   ScrollViewer.IsHorizontalRailEnabled="True"
-                  ItemClick="GridView_ItemClick">
+                  ItemClick="GridView_ItemClick" Grid.ColumnSpan="2" Margin="21,1,10,30" Grid.RowSpan="2">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Formato">
                     <StackPanel Height="auto">

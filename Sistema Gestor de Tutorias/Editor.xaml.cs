@@ -3,40 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using static Windows.Data.Pdf.PdfDocument;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Storage;
-using Windows.Storage.Pickers;
+using System.Runtime.InteropServices.WindowsRuntime; 
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.ComponentModel;
-using System.Collections.ObjectModel;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI;
 using System.Threading.Tasks;
-using System.Net.Http;
-using Windows.Data.Pdf;
-using Windows.Storage.Streams;
-using System.Runtime.CompilerServices;
 using Sistema_Gestor_de_Tutorias.Modelos;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
 using iText.Kernel.Pdf.Canvas.Parser;
-using iText.Forms.Xfdf;
-using System.Text;
 using Windows.UI.Popups;
 using iText.Layout;
-using System.Reflection;
 using Syncfusion.DocIO;
-
+using Windows.UI.Xaml.Automation;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Sistema_Gestor_de_Tutorias
@@ -57,7 +37,10 @@ namespace Sistema_Gestor_de_Tutorias
 
         private List<TextBox> textBoxes;
         private List<TextBlock> textBlocks;
+        private List<CheckBox> checkBoxes;
         private List<string> textAreas;
+        private GridView items;
+        
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             formato_seleccionado = (e.Parameter) as Formato;
@@ -65,30 +48,57 @@ namespace Sistema_Gestor_de_Tutorias
             var uri = new Uri("ms-appx:///Formatos/" + formato_seleccionado.formato_id + ".pdf");
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
+
             textBlocks = new List<TextBlock>();
             textBoxes = new List<TextBox>();
+            checkBoxes = new List<CheckBox>();
+            items = new GridView();
+            items.Width = double.NaN;
+
             string texto = await pdfTextExtract(sFilePath);
             int contador = charCounter(ref texto);
             textAreas = GetWordBasedOn(ref texto, "<[", "]>");
+            int k = 0; int j = 0;
             for (int i = 0; i < contador; i++)
             {
                 textBlocks.Add(new TextBlock());
-                textBoxes.Add(new TextBox());
                 textBlocks[i].Width = 300;
-                textBoxes[i].Width = 300;
                 textBlocks[i].Height = 30;
-                textBoxes[i].Height = 40;
                 textBlocks[i].Margin = new Thickness(0, 0, 0, 0);
-                textBoxes[i].Margin = new Thickness(0, 0, 0, 10);
                 textBlocks[i].Text = textAreas[i];
-                textBoxes[i].Text = "Hola a todos";
                 textBlocks[i].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
-                textBoxes[i].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
                 textBlocks[i].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Bottom;
-                textBoxes[i].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
-                primary.Children.Add(textBlocks[i]);
-                primary.Children.Add(textBoxes[i]);
+                if (textAreas[i].Length <= 1)
+                {
+                    checkBoxes.Add(new CheckBox());
+                    checkBoxes[j].Width = double.NaN;
+                    checkBoxes[j].Height = double.NaN;
+                    checkBoxes[j].FlowDirection = FlowDirection.RightToLeft;
+                    checkBoxes[j].Content = textBlocks[i].Text + ")";
+                    items.Items.Add(checkBoxes[j]);
+                    j += 1;
+                }
+                else
+                {
+                    primary.Children.Add(textBlocks[i]);
+                    textBoxes.Add(new TextBox());
+                    //textBlocks[i].Width = 300;
+                    textBoxes[k].Width = 300;
+                    //textBlocks[i].Height = 30;
+                    textBoxes[k].Height = 40;
+                    //textBlocks[i].Margin = new Thickness(0, 0, 0, 0);
+                    textBoxes[k].Margin = new Thickness(0, 0, 0, 10);
+                    //textBlocks[i].Text = textAreas[i];
+                    textBoxes[k].Text = "Hola a todos";
+                    //textBlocks[i].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
+                    textBoxes[k].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
+                    //textBlocks[i].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Bottom;
+                    textBoxes[k].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                    primary.Children.Add(textBoxes[k]);
+                    k += 1;
+                }
             }
+            primary.Children.Add(items);
         }
 
         private async Task<string> pdfTextExtract(string sFilePath)
@@ -110,7 +120,7 @@ namespace Sistema_Gestor_de_Tutorias
             }
             catch (Exception Ex)
             {
-                var err = new MessageDialog("Unable to open File!");
+                var err = new MessageDialog("Unable to open File!: " + Ex.Message);
                 await err.ShowAsync();
                 return null;
             }
