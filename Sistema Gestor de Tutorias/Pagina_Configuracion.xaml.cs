@@ -30,7 +30,7 @@ namespace Sistema_Gestor_de_Tutorias
             this.InitializeComponent();
         }
 
-        public Pagina_Configuracion(ref Page main_page_obj, ref NavigationView nav_view_obj)
+        public Pagina_Configuracion(ref Page main_page_obj)
         {
             //this.nav_view_obj = nav_view_obj;
             this.main_page_obj = main_page_obj;
@@ -46,8 +46,8 @@ namespace Sistema_Gestor_de_Tutorias
                     Windows.UI.Xaml.Media.AcrylicBrush acrilicoOscuro = new Windows.UI.Xaml.Media.AcrylicBrush();
                     acrilicoOscuro.BackgroundSource = Windows.UI.Xaml.Media.AcrylicBackgroundSource.HostBackdrop;
                     acrilicoOscuro.TintColor = Colors.Black;
-                    acrilicoOscuro.FallbackColor = Colors.Black;
-                    acrilicoOscuro.TintOpacity = 0.1;
+                    acrilicoOscuro.FallbackColor = Colors.DimGray;
+                    acrilicoOscuro.TintOpacity = 0.4;
                     main_page_obj.Background = acrilicoOscuro;
                     //nav_view_obj.Background = acrilicoOscuro;
                 }
@@ -56,8 +56,8 @@ namespace Sistema_Gestor_de_Tutorias
                     Windows.UI.Xaml.Media.AcrylicBrush acrilicoBlanco = new Windows.UI.Xaml.Media.AcrylicBrush();
                     acrilicoBlanco.BackgroundSource = Windows.UI.Xaml.Media.AcrylicBackgroundSource.HostBackdrop;
                     acrilicoBlanco.TintColor = Colors.WhiteSmoke;
-                    acrilicoBlanco.FallbackColor = Colors.WhiteSmoke;
-                    acrilicoBlanco.TintOpacity = 0.6;
+                    acrilicoBlanco.FallbackColor = Colors.DimGray;
+                    acrilicoBlanco.TintOpacity = 0.4;
                     main_page_obj.Background = acrilicoBlanco;
                     //nav_view_obj.Background = acrilicoBlanco;
                 }

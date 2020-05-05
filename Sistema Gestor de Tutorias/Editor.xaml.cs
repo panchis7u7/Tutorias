@@ -16,6 +16,9 @@ using iText.Kernel.Pdf.Canvas.Parser;
 using Windows.UI.Popups;
 using iText.Layout;
 using Syncfusion.DocIO;
+using System.Collections.ObjectModel;
+using System.Data.SqlClient;
+using System.Diagnostics;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -66,10 +69,11 @@ namespace Sistema_Gestor_de_Tutorias
             #endregion
 
             string texto = await pdfTextExtract(sFilePath);
-            int contador = charCounter(ref texto);
+            //int contador = charCounter(ref texto);
             textAreas = GetWordBasedOn(ref texto, "<[", "]>");
+
             int k = 0; int j = 0;
-            for (int i = 0; i < contador; i++)
+            for (int i = 0; i < textAreas.Count; i++)
             {
                 if (textAreas[i].Length <= 1)
                 {
@@ -86,16 +90,75 @@ namespace Sistema_Gestor_de_Tutorias
                 }
                 else
                 {
-                    comboBoxes.Add(new ComboBox());
-                    comboBoxes[k].Width = 200;
-                    comboBoxes[k].Margin = new Thickness(10,3,10,3);
-                    comboBoxes[k].Height = double.NaN;
-                    comboBoxes[k].Header = textAreas[i];
-                    comboBoxes[k].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
-                    comboBoxes[k].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                    comboBoxes[k].Text = textAreas[i];
-                    combob_grid.Items.Add(comboBoxes[k]);
-                    k += 1;
+                    switch (textAreas[i])
+                    {
+                        case "No Oficio":
+                            TextBox oficio = new TextBox();
+                            oficio.Text = "1";
+                            oficio.Margin = new Thickness(10, 3, 10, 3);
+                            oficio.Height = double.NaN;
+                            oficio.Width = 200;
+                            oficio.Header = textAreas[i];
+                            oficio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                            oficio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                            combob_grid.Items.Add(oficio);
+                            break;
+                        case "Periodo":
+
+                            break;
+                        default:
+                            comboBoxes.Add(new ComboBox());
+                            comboBoxes[k].Width = 200;
+                            comboBoxes[k].Margin = new Thickness(10, 3, 10, 3);
+                            comboBoxes[k].Height = double.NaN;
+                            comboBoxes[k].Header = textAreas[i];
+                            comboBoxes[k].PlaceholderText = "Seleccione un item";
+                            comboBoxes[k].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                            comboBoxes[k].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                            comboBoxes[k].Text = textAreas[i];
+                            switch (comboBoxes[k].Text)
+                            {
+                                case "Nombre Docente":
+                                    var resultados = new ObservableCollection<Profesores>();
+                                    try
+                                    {
+
+                                        if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
+                                        {
+                                            String Query = "SELECT * FROM Profesores";
+                                            using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
+                                            {
+                                                cmd.CommandText = Query;
+                                                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                                                {
+                                                    while (await reader.ReadAsync())
+                                                    {
+                                                        Profesores p = new Profesores();
+                                                        p.id_profesor = reader.GetInt32(0);
+                                                        if (!await reader.IsDBNullAsync(1))
+                                                            p.nombre = reader.GetString(1);
+                                                        if (!await reader.IsDBNullAsync(2))
+                                                            p.apellidos = reader.GetString(2);
+                                                        if (!await reader.IsDBNullAsync(3))
+                                                            p.departamento = reader.GetString(3);
+                                                        resultados.Add(p);
+                                                        comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    catch (Exception eSql)
+                                    {
+                                        Debug.WriteLine("Resultados: " + eSql.Message);
+                                    }
+                                    break;
+
+                            }
+                            combob_grid.Items.Add(comboBoxes[k]);
+                            k += 1;
+                            break;
+                    }
                 }
             }
             primary.Children.Add(combob_grid);
