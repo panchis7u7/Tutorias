@@ -1,0 +1,7 @@
+Syncfusion.DocIO.UWP, Version=18.1460.0.45, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89
+  Syncfusion.DocIO.Resources.PatternFillResources.xml
+  Syncfusion.DocIO.Resources.builtin-styles.xml
+  Syncfusion.DocIO.Resources.ShapeTypes.txt
+  Syncfusion.DocIO.Resources.ExcelTemplate.xlsx
+  Syncfusion.DocIO.Resources.ImageNotFound.jpg
+  Syncfusion.DocIO.Resources.BlankImage.bmp

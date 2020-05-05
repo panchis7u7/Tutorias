@@ -104,7 +104,47 @@ namespace Sistema_Gestor_de_Tutorias
                             combob_grid.Items.Add(oficio);
                             break;
                         case "Periodo":
-
+                            DatePicker inicio = new DatePicker();
+                            DatePicker final = new DatePicker();
+                            inicio.Header = textAreas[i] + " inicio";
+                            inicio.Height = double.NaN;
+                            inicio.DayVisible = false;
+                            inicio.Language = "es-MX";
+                            inicio.YearVisible = false;
+                            inicio.Margin = new Thickness(10, 3, 10, 3);
+                            final.DayVisible = false;
+                            final.YearVisible = false;
+                            final.Language = "es-MX";
+                            final.Header = textAreas[i] + " final";
+                            final.Height = double.NaN;
+                            final.Margin = new Thickness(10, 3, 10, 3);
+                            inicio.Width = 200;
+                            final.Width = 200;
+                            combob_grid.Items.Add(inicio);
+                            combob_grid.Items.Add(final);
+                            break;
+                        case "Año Periodo":
+                            DatePicker anio = new DatePicker();
+                            anio.DayVisible = false;
+                            anio.MonthVisible = false;
+                            anio.Header = textAreas[i];
+                            anio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                            anio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                            anio.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
+                            anio.Margin = new Thickness(10, 3, 10, 3);
+                            anio.Height = double.NaN;
+                            anio.Width = 200;
+                            combob_grid.Items.Add(anio);
+                            break;
+                        case "Fecha":
+                            CalendarDatePicker dp = new CalendarDatePicker();
+                            dp.Header = textAreas[i];
+                            dp.Height = double.NaN;
+                            dp.Margin = new Thickness(10, 3, 10, 3); ;
+                            dp.Width = 200;
+                            dp.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                            dp.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                            combob_grid.Items.Add(dp);
                             break;
                         default:
                             comboBoxes.Add(new ComboBox());

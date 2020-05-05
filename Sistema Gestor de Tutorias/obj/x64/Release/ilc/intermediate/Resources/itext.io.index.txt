@@ -1,0 +1,16 @@
+itext.io, Version=7.1.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca
+  iText.IO.Font.AdobeGlyphList.txt
+  iText.IO.Font.Afm.Courier-Bold.afm
+  iText.IO.Font.Afm.Courier-BoldOblique.afm
+  iText.IO.Font.Afm.Courier-Oblique.afm
+  iText.IO.Font.Afm.Courier.afm
+  iText.IO.Font.Afm.Helvetica-Bold.afm
+  iText.IO.Font.Afm.Helvetica-BoldOblique.afm
+  iText.IO.Font.Afm.Helvetica-Oblique.afm
+  iText.IO.Font.Afm.Helvetica.afm
+  iText.IO.Font.Afm.Symbol.afm
+  iText.IO.Font.Afm.Times-Bold.afm
+  iText.IO.Font.Afm.Times-BoldItalic.afm
+  iText.IO.Font.Afm.Times-Italic.afm
+  iText.IO.Font.Afm.Times-Roman.afm
+  iText.IO.Font.Afm.ZapfDingbats.afm

@@ -1,0 +1,5 @@
+Syncfusion.OfficeChart.UWP, Version=18.1460.0.45, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89
+  Syncfusion.OfficeChart.PresetGradients.resources
+  Syncfusion.OfficeChart.TexturePatternGradient.resources
+  Syncfusion.OfficeChart.VMLPresetGradientFills.resources
+  Syncfusion.OfficeChart.Resource.ExcelTemplate.xlsx

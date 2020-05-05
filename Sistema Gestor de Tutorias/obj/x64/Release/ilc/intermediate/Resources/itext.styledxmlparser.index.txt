@@ -1,0 +1,3 @@
+itext.styledxmlparser, Version=7.1.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca
+  itext.styledxmlparser.jsoup.nodes.entities-base.properties
+  itext.styledxmlparser.jsoup.nodes.entities-full.properties
