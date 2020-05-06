@@ -19,6 +19,7 @@ using Syncfusion.DocIO;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using iText.Layout.Element;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -90,114 +91,190 @@ namespace Sistema_Gestor_de_Tutorias
                 }
                 else
                 {
-                    switch (textAreas[i])
+                    if (textAreas[i].ToLower().Contains("no oficio"))
                     {
-                        case "No Oficio":
-                            TextBox oficio = new TextBox();
-                            oficio.Text = "1";
-                            oficio.Margin = new Thickness(10, 3, 10, 3);
-                            oficio.Height = double.NaN;
-                            oficio.Width = 200;
-                            oficio.Header = textAreas[i];
-                            oficio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
-                            oficio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                            combob_grid.Items.Add(oficio);
-                            break;
-                        case "Periodo":
-                            DatePicker inicio = new DatePicker();
-                            DatePicker final = new DatePicker();
-                            inicio.Header = textAreas[i] + " inicio";
-                            inicio.Height = double.NaN;
-                            inicio.DayVisible = false;
-                            inicio.Language = "es-MX";
-                            inicio.YearVisible = false;
-                            inicio.Margin = new Thickness(10, 3, 10, 3);
-                            final.DayVisible = false;
-                            final.YearVisible = false;
-                            final.Language = "es-MX";
-                            final.Header = textAreas[i] + " final";
-                            final.Height = double.NaN;
-                            final.Margin = new Thickness(10, 3, 10, 3);
-                            inicio.Width = 200;
-                            final.Width = 200;
-                            combob_grid.Items.Add(inicio);
-                            combob_grid.Items.Add(final);
-                            break;
-                        case "Año Periodo":
-                            DatePicker anio = new DatePicker();
-                            anio.DayVisible = false;
-                            anio.MonthVisible = false;
-                            anio.Header = textAreas[i];
-                            anio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
-                            anio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                            anio.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
-                            anio.Margin = new Thickness(10, 3, 10, 3);
-                            anio.Height = double.NaN;
-                            anio.Width = 200;
-                            combob_grid.Items.Add(anio);
-                            break;
-                        case "Fecha":
-                            CalendarDatePicker dp = new CalendarDatePicker();
-                            dp.Header = textAreas[i];
-                            dp.Height = double.NaN;
-                            dp.Margin = new Thickness(10, 3, 10, 3); ;
-                            dp.Width = 200;
-                            dp.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
-                            dp.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                            combob_grid.Items.Add(dp);
-                            break;
-                        default:
-                            comboBoxes.Add(new ComboBox());
-                            comboBoxes[k].Width = 200;
-                            comboBoxes[k].Margin = new Thickness(10, 3, 10, 3);
-                            comboBoxes[k].Height = double.NaN;
-                            comboBoxes[k].Header = textAreas[i];
-                            comboBoxes[k].PlaceholderText = "Seleccione un item";
-                            comboBoxes[k].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
-                            comboBoxes[k].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                            comboBoxes[k].Text = textAreas[i];
-                            switch (comboBoxes[k].Text)
-                            {
-                                case "Nombre Docente":
-                                    var resultados = new ObservableCollection<Profesores>();
-                                    try
-                                    {
+                        TextBox oficio = new TextBox();
+                        oficio.Name = textAreas[i];
+                        oficio.Text = "1";
+                        oficio.Margin = new Thickness(10, 3, 10, 3);
+                        oficio.Height = double.NaN;
+                        oficio.Width = 200;
+                        oficio.Header = textAreas[i];
+                        oficio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                        oficio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                        combob_grid.Items.Add(oficio);
+                    }
+                    else if (textAreas[i].ToLower().Contains("año"))
+                    {
+                        DatePicker anio = new DatePicker();
+                        anio.Name = textAreas[i];
+                        anio.DayVisible = false;
+                        anio.MonthVisible = false;
+                        anio.Header = textAreas[i];
+                        anio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                        anio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                        anio.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
+                        anio.Margin = new Thickness(10, 3, 10, 3);
+                        anio.Height = double.NaN;
+                        anio.Width = 200;
+                        combob_grid.Items.Add(anio);
+                    }
+                    else if (textAreas[i].ToLower().Contains("periodo"))
+                    {
+                        DatePicker inicio = new DatePicker();
+                        DatePicker final = new DatePicker();
+                        inicio.Name = textAreas[i];
+                        inicio.Header = textAreas[i] + " inicio";
+                        inicio.Height = double.NaN;
+                        inicio.DayVisible = false;
+                        inicio.Language = "es-MX";
+                        inicio.YearVisible = false;
+                        inicio.Width = 200;
+                        inicio.Margin = new Thickness(10, 3, 10, 3);
+                        final.Name = textAreas[i];
+                        final.DayVisible = false;
+                        final.YearVisible = false;
+                        final.Language = "es-MX";
+                        final.Header = textAreas[i] + " final";
+                        final.Height = double.NaN;
+                        final.Width = 200;
+                        final.Margin = new Thickness(10, 3, 10, 3);
+                        combob_grid.Items.Add(inicio);
+                        combob_grid.Items.Add(final);
+                    }
+                    else if (textAreas[i].ToLower().Contains("fecha"))
+                    {
+                        CalendarDatePicker dp = new CalendarDatePicker();
+                        dp.Name = textAreas[i];
+                        dp.Header = textAreas[i];
+                        dp.Height = double.NaN;
+                        dp.Margin = new Thickness(10, 3, 10, 3); ;
+                        dp.Width = 200;
+                        dp.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                        dp.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                        combob_grid.Items.Add(dp);
+                    }
+                    else {
+                        comboBoxes.Add(new ComboBox());
+                        comboBoxes[k].Name = textAreas[i];
+                        comboBoxes[k].Width = 200;
+                        comboBoxes[k].Margin = new Thickness(10, 3, 10, 3);
+                        comboBoxes[k].Height = double.NaN;
+                        comboBoxes[k].Header = textAreas[i];
+                        comboBoxes[k].PlaceholderText = "Seleccione un item";
+                        comboBoxes[k].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                        comboBoxes[k].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                        comboBoxes[k].Text = textAreas[i];
+                        switch (comboBoxes[k].Text)
+                        {
+                            case "Nombre Docente":
+                                //var resultados = new ObservableCollection<Profesores>();
+                                try
+                                {
 
-                                        if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
+                                    if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
+                                    {
+                                        String Query = "SELECT * FROM Profesores";
+                                        using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
                                         {
-                                            String Query = "SELECT * FROM Profesores";
-                                            using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
+                                            cmd.CommandText = Query;
+                                            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                                             {
-                                                cmd.CommandText = Query;
-                                                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                                                while (await reader.ReadAsync())
                                                 {
-                                                    while (await reader.ReadAsync())
-                                                    {
-                                                        Profesores p = new Profesores();
-                                                        p.id_profesor = reader.GetInt32(0);
-                                                        if (!await reader.IsDBNullAsync(1))
-                                                            p.nombre = reader.GetString(1);
-                                                        if (!await reader.IsDBNullAsync(2))
-                                                            p.apellidos = reader.GetString(2);
-                                                        if (!await reader.IsDBNullAsync(3))
-                                                            p.departamento = reader.GetString(3);
-                                                        resultados.Add(p);
-                                                        comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
-                                                    }
+                                                    Profesores p = new Profesores();
+                                                    p.id_profesor = reader.GetInt32(0);
+                                                    if (!await reader.IsDBNullAsync(1))
+                                                        p.nombre = reader.GetString(1);
+                                                    if (!await reader.IsDBNullAsync(2))
+                                                        p.apellidos = reader.GetString(2);
+                                                    if (!await reader.IsDBNullAsync(3))
+                                                        p.departamento = reader.GetString(3);
+                                                    //resultados.Add(p);
+                                                    comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
                                                 }
                                             }
                                         }
                                     }
-                                    catch (Exception eSql)
-                                    {
-                                        Debug.WriteLine("Resultados: " + eSql.Message);
-                                    }
-                                    break;
+                                }
+                                catch (Exception eSql)
+                                {
+                                    Debug.WriteLine("Resultados: " + eSql.Message);
+                                }
+                                break;
 
-                            }
-                            combob_grid.Items.Add(comboBoxes[k]);
-                            k += 1;
-                            break;
+                            case "Nombre Tutor":
+                                //var resultados = new ObservableCollection<Profesores>();
+                                try
+                                {
+
+                                    if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
+                                    {
+                                        String Query = "SELECT * FROM Tutores";
+                                        using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
+                                        {
+                                            cmd.CommandText = Query;
+                                            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                                            {
+                                                while (await reader.ReadAsync())
+                                                {
+                                                    Tutores p = new Tutores();
+                                                    p.id_tutor = reader.GetInt32(0);
+                                                    if (!await reader.IsDBNullAsync(1))
+                                                        p.nombre = reader.GetString(1);
+                                                    if (!await reader.IsDBNullAsync(2))
+                                                        p.apellidos = reader.GetString(2);
+                                                    if (!await reader.IsDBNullAsync(3))
+                                                        p.departamento = reader.GetString(3);
+                                                    //resultados.Add(p);
+                                                    comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                catch (Exception eSql)
+                                {
+                                    Debug.WriteLine("Resultados: " + eSql.Message);
+                                }
+                                break;
+
+                            case "Nombre Matricula":
+                                //var resultados = new ObservableCollection<Profesores>();
+                                try
+                                {
+
+                                    if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
+                                    {
+                                        String Query = "SELECT nombre, apellidos, matricula FROM Alumnos";
+                                        using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
+                                        {
+                                            cmd.CommandText = Query;
+                                            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                                            {
+                                                while (await reader.ReadAsync())
+                                                {
+                                                    Alumnos p = new Alumnos();
+                                                    p.nombre = reader.GetString(0);
+                                                    if (!await reader.IsDBNullAsync(1))
+                                                        p.apellidos = reader.GetString(1);
+                                                    if (!await reader.IsDBNullAsync(2))
+                                                        p.matricula = reader.GetInt32(2);
+                                                    //resultados.Add(p);
+                                                    comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' ') + " - " + p.matricula);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                catch (Exception eSql)
+                                {
+                                    Debug.WriteLine("Resultados: " + eSql.Message);
+                                }
+                                break;
+                        }
+                        combob_grid.Items.Add(comboBoxes[k]);
+                        k += 1;
                     }
                 }
             }
