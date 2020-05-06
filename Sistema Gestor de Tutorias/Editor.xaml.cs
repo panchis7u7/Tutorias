@@ -20,6 +20,7 @@ using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using iText.Layout.Element;
+using Microsoft.Toolkit.Uwp.UI.Extensions;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -38,9 +39,14 @@ namespace Sistema_Gestor_de_Tutorias
 
         public event PropertyChangedEventHandler PropertyChanged;
         public Uri Source { get; set; }
+
+        private List<DatePicker> datePickers;
+        private List<TextBlock> textBlocks;
+        private List<TextBox> textBoxes;
         private List<ComboBox> comboBoxes;
         private List<CheckBox> checkBoxes;
         private List<string> textAreas;
+
         private GridView checkb_grid;
         private GridView combob_grid;
         
@@ -52,6 +58,9 @@ namespace Sistema_Gestor_de_Tutorias
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
 
+            datePickers = new List<DatePicker>();
+            textBlocks = new List<TextBlock>();
+            textBoxes = new List<TextBox>();
             checkBoxes = new List<CheckBox>();
             comboBoxes = new List<ComboBox>();
 
@@ -91,10 +100,12 @@ namespace Sistema_Gestor_de_Tutorias
                 }
                 else
                 {
-                    if (textAreas[i].ToLower().Contains("no oficio"))
+                    if (textAreas[i].ToLower().Contains("no oficio") || textAreas[i].ToLower().Contains("no semestre") || textAreas[i].ToLower().Contains("carrera"))
                     {
                         TextBox oficio = new TextBox();
+                        textBoxes.Add(oficio);
                         oficio.Name = textAreas[i];
+                        oficio.IsReadOnly = false;
                         oficio.Text = "1";
                         oficio.Margin = new Thickness(10, 3, 10, 3);
                         oficio.Height = double.NaN;
@@ -107,6 +118,7 @@ namespace Sistema_Gestor_de_Tutorias
                     else if (textAreas[i].ToLower().Contains("año"))
                     {
                         DatePicker anio = new DatePicker();
+                        datePickers.Add(anio);
                         anio.Name = textAreas[i];
                         anio.DayVisible = false;
                         anio.MonthVisible = false;
@@ -123,6 +135,8 @@ namespace Sistema_Gestor_de_Tutorias
                     {
                         DatePicker inicio = new DatePicker();
                         DatePicker final = new DatePicker();
+                        datePickers.Add(inicio);
+                        datePickers.Add(final);
                         inicio.Name = textAreas[i];
                         inicio.Header = textAreas[i] + " inicio";
                         inicio.Height = double.NaN;
@@ -157,6 +171,7 @@ namespace Sistema_Gestor_de_Tutorias
                     else {
                         comboBoxes.Add(new ComboBox());
                         comboBoxes[k].Name = textAreas[i];
+
                         comboBoxes[k].Width = 200;
                         comboBoxes[k].Margin = new Thickness(10, 3, 10, 3);
                         comboBoxes[k].Height = double.NaN;
@@ -240,13 +255,12 @@ namespace Sistema_Gestor_de_Tutorias
                                 break;
 
                             case "Nombre Matricula":
-                                //var resultados = new ObservableCollection<Profesores>();
+                                var resultados = new ObservableCollection<Alumnos>();
                                 try
                                 {
-
                                     if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
                                     {
-                                        String Query = "SELECT nombre, apellidos, matricula FROM Alumnos";
+                                        String Query = "SELECT * FROM Alumnos";
                                         using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
                                         {
                                             cmd.CommandText = Query;
@@ -255,14 +269,35 @@ namespace Sistema_Gestor_de_Tutorias
                                                 while (await reader.ReadAsync())
                                                 {
                                                     Alumnos p = new Alumnos();
-                                                    p.nombre = reader.GetString(0);
+                                                    p.id_alumno = reader.GetInt32(0);
                                                     if (!await reader.IsDBNullAsync(1))
-                                                        p.apellidos = reader.GetString(1);
+                                                        p.matricula = reader.GetInt32(1);
                                                     if (!await reader.IsDBNullAsync(2))
-                                                        p.matricula = reader.GetInt32(2);
-                                                    //resultados.Add(p);
+                                                        p.nombre = reader.GetString(2);
+                                                    if (!await reader.IsDBNullAsync(3))
+                                                        p.apellidos = reader.GetString(3);
+                                                    if (!await reader.IsDBNullAsync(4))
+                                                        p.semestre = reader.GetInt32(4);
+                                                    if (!await reader.IsDBNullAsync(5))
+                                                        p.carrera = reader.GetString(5);
+                                                    resultados.Add(p);
                                                     comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' ') + " - " + p.matricula);
                                                 }
+                                                comboBoxes[k].SelectionChanged += (sender, x) => {
+                                                    var obj = (sender as ComboBox);
+                                                    textBoxes.ForEach((s) => {
+                                                        if (s.Name.ToLower().Contains("carrera"))
+                                                        {
+                                                            s.Text = resultados[obj.SelectedIndex].carrera;
+                                                            s.IsReadOnly = true;
+                                                        }
+                                                        if (s.Name.ToLower().Contains("semestre"))
+                                                        {
+                                                            s.Text = resultados[obj.SelectedIndex].semestre + "";
+                                                            s.IsReadOnly = true;
+                                                        }
+                                                    });
+                                                };
                                             }
                                         }
                                     }

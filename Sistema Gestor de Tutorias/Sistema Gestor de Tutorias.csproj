@@ -245,8 +245,6 @@
     <Content Include="Formatos\2.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Formatos\3.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
