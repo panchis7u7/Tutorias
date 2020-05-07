@@ -122,6 +122,7 @@
     </Compile>
     <Compile Include="Database Assets\Asignaturas.cs" />
     <Compile Include="Database Assets\Calificaciones.cs" />
+    <Compile Include="Database Assets\InfoGrupos.cs" />
     <Compile Include="Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>

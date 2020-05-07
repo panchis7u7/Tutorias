@@ -10,5 +10,6 @@ namespace Sistema_Gestor_de_Tutorias
     {
         public int id_grupo { get; set; }
         public int id_tutor { get; set; }
+        public string grupo { get; set; }
     }
 }

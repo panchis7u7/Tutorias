@@ -16,11 +16,8 @@ using iText.Kernel.Pdf.Canvas.Parser;
 using Windows.UI.Popups;
 using iText.Layout;
 using Syncfusion.DocIO;
-using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using iText.Layout.Element;
-using Microsoft.Toolkit.Uwp.UI.Extensions;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -100,7 +97,7 @@ namespace Sistema_Gestor_de_Tutorias
                 }
                 else
                 {
-                    if (textAreas[i].ToLower().Contains("no oficio") || textAreas[i].ToLower().Contains("no semestre") || textAreas[i].ToLower().Contains("carrera"))
+                    if (textAreas[i].ToLower().Contains("no oficio") || textAreas[i].ToLower().Contains("no semestre"))
                     {
                         TextBox oficio = new TextBox();
                         textBoxes.Add(oficio);
@@ -118,17 +115,16 @@ namespace Sistema_Gestor_de_Tutorias
                     else if (textAreas[i].ToLower().Contains("año"))
                     {
                         DatePicker anio = new DatePicker();
-                        datePickers.Add(anio);
                         anio.Name = textAreas[i];
                         anio.DayVisible = false;
                         anio.MonthVisible = false;
                         anio.Header = textAreas[i];
-                        anio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
-                        anio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                        anio.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
                         anio.Margin = new Thickness(10, 3, 10, 3);
                         anio.Height = double.NaN;
-                        anio.Width = 200;
+                        anio.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
+                        anio.MaxWidth = 200;
+                        anio.MinWidth = 190;
+                        datePickers.Add(anio);
                         combob_grid.Items.Add(anio);
                     }
                     else if (textAreas[i].ToLower().Contains("periodo"))
@@ -143,7 +139,7 @@ namespace Sistema_Gestor_de_Tutorias
                         inicio.DayVisible = false;
                         inicio.Language = "es-MX";
                         inicio.YearVisible = false;
-                        inicio.Width = 200;
+                        inicio.MaxWidth = 200;
                         inicio.Margin = new Thickness(10, 3, 10, 3);
                         final.Name = textAreas[i];
                         final.DayVisible = false;
@@ -151,7 +147,6 @@ namespace Sistema_Gestor_de_Tutorias
                         final.Language = "es-MX";
                         final.Header = textAreas[i] + " final";
                         final.Height = double.NaN;
-                        final.Width = 200;
                         final.Margin = new Thickness(10, 3, 10, 3);
                         combob_grid.Items.Add(inicio);
                         combob_grid.Items.Add(final);
@@ -205,7 +200,6 @@ namespace Sistema_Gestor_de_Tutorias
                                                         p.apellidos = reader.GetString(2);
                                                     if (!await reader.IsDBNullAsync(3))
                                                         p.departamento = reader.GetString(3);
-                                                    //resultados.Add(p);
                                                     comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
                                                 }
                                             }
@@ -254,47 +248,82 @@ namespace Sistema_Gestor_de_Tutorias
                                 }
                                 break;
 
-                            case "Nombre Matricula":
-                                var resultados = new ObservableCollection<Alumnos>();
+                            //                    comboBoxes[k].SelectionChanged += (sender, x) => {
+                            //                        var obj = (sender as ComboBox);
+                            //                        textBoxes.ForEach((s) => {
+                            //                            if (s.Name.ToLower().Contains("carrera"))
+                            //                            {
+                            //                                s.Text = resultados[obj.SelectedIndex].carrera;
+                            //                                s.IsReadOnly = true;
+                            //                            }
+                            //                            if (s.Name.ToLower().Contains("semestre"))
+                            //                            {
+                            //                                s.Text = resultados[obj.SelectedIndex].semestre + "";
+                            //                                s.IsReadOnly = true;
+                            //                            }
+                            //                        });
+                            //                    };
+                            case "Carrera":
                                 try
                                 {
                                     if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
                                     {
-                                        String Query = "SELECT * FROM Alumnos";
+                                        string Query = "SELECT DISTINCT carrera FROM Alumnos";
                                         using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
                                         {
                                             cmd.CommandText = Query;
                                             using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                                             {
+                                                comboBoxes[k].Items.Clear();
                                                 while (await reader.ReadAsync())
                                                 {
-                                                    Alumnos p = new Alumnos();
-                                                    p.id_alumno = reader.GetInt32(0);
-                                                    if (!await reader.IsDBNullAsync(1))
-                                                        p.matricula = reader.GetInt32(1);
-                                                    if (!await reader.IsDBNullAsync(2))
-                                                        p.nombre = reader.GetString(2);
-                                                    if (!await reader.IsDBNullAsync(3))
-                                                        p.apellidos = reader.GetString(3);
-                                                    if (!await reader.IsDBNullAsync(4))
-                                                        p.semestre = reader.GetInt32(4);
-                                                    if (!await reader.IsDBNullAsync(5))
-                                                        p.carrera = reader.GetString(5);
-                                                    resultados.Add(p);
-                                                    comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' ') + " - " + p.matricula);
+                                                    Alumnos carreras = new Alumnos();
+                                                    carreras.carrera = reader.GetString(0);
+                                                    comboBoxes[k].Items.Add(carreras.carrera);
                                                 }
-                                                comboBoxes[k].SelectionChanged += (sender, x) => {
-                                                    var obj = (sender as ComboBox);
-                                                    textBoxes.ForEach((s) => {
-                                                        if (s.Name.ToLower().Contains("carrera"))
+                                                comboBoxes[k].SelectionChanged += (sender, x) =>
+                                                {
+                                                    comboBoxes.ForEach(async (s) =>
+                                                    {
+                                                        if (s.Name.ToLower().Contains("grupo"))
                                                         {
-                                                            s.Text = resultados[obj.SelectedIndex].carrera;
-                                                            s.IsReadOnly = true;
-                                                        }
-                                                        if (s.Name.ToLower().Contains("semestre"))
-                                                        {
-                                                            s.Text = resultados[obj.SelectedIndex].semestre + "";
-                                                            s.IsReadOnly = true;
+                                                            s.Items.Clear();
+                                                            string Query1 = "SELECT DISTINCT grupo FROM Grupos";
+                                                            cmd.CommandText = Query1;
+                                                            using (SqlDataReader reader2 = await cmd.ExecuteReaderAsync())
+                                                            {
+                                                                while (await reader2.ReadAsync())
+                                                                {
+                                                                    Grupos gr = new Grupos();
+                                                                    gr.grupo = reader2.GetString(0);
+                                                                    s.Items.Add(gr.grupo.Trim(' '));
+                                                                }
+                                                                s.SelectionChanged += (send, args) =>
+                                                                {
+                                                                    comboBoxes.ForEach( async (cb) =>
+                                                                    {
+                                                                        if (cb.Name.ToLower().Contains("alumno"))
+                                                                        {
+                                                                            cb.Items.Clear();
+                                                                            string Query2 = "SELECT nombre, apellidos, matricula FROM Alumnos";
+                                                                            cmd.CommandText = Query2;
+                                                                            using (SqlDataReader reader3 = await cmd.ExecuteReaderAsync())
+                                                                            {
+                                                                                while (await reader3.ReadAsync())
+                                                                                {
+                                                                                    Alumnos al = new Alumnos();
+                                                                                    al.nombre = reader3.GetString(0);
+                                                                                    if (!await reader3.IsDBNullAsync(1))
+                                                                                        al.apellidos = reader3.GetString(1);
+                                                                                    if (!await reader3.IsDBNullAsync(2))
+                                                                                        al.matricula = reader3.GetInt32(2);
+                                                                                    cb.Items.Add(al.nombre.Trim(' ') + " " + al.apellidos.Trim(' ') + " - " + al.matricula);
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                };
+                                                            }
                                                         }
                                                     });
                                                 };
@@ -346,20 +375,29 @@ namespace Sistema_Gestor_de_Tutorias
         private List<string> GetWordBasedOn(ref string sInput, string sTarget1, string sTarget2)
         {
             List<string> palabras = new List<string>();
-            string[] text = sInput.Split(' ');
-            foreach (var word in text)
+            try
             {
-                if (word.Contains(sTarget1) && word.Contains(sTarget2))
+                string[] text = sInput.Split(' ');
+                palabras.Add("Carrera");
+                palabras.Add("Grupo");
+                palabras.Add("Alumno");
+                foreach (var word in text)
                 {
-                    string result = word.Replace("_", " ");
-                    result = new string((from c in result
-                                         where char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)
-                                         select c).ToArray());
-                    result = result.Replace("\n", "").Replace("\r", "");
-                    palabras.Add(result);
+                    if ((word.Contains(sTarget1) && word.Contains(sTarget2)) && !(word.ToLower().Contains("carrera") || word.ToLower().Contains("grupo") || word.ToLower().Contains("alumno")))
+                    {
+                        string result = word.Replace("_", " ");
+                        result = new string((from c in result
+                                           where char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)
+                                           select c).ToArray());
+                        result = result.Replace("\n", "").Replace("\r", "");
+                        palabras.Add(result);
+                    }
                 }
+                return palabras;
+            } catch (Exception ex)
+            {
+                return null;
             }
-            return palabras;
         }
 
         private int charCounter(ref string sInput)
