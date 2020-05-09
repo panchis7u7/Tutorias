@@ -128,10 +128,14 @@
     </Compile>
     <Compile Include="Database Assets\Grupos.cs" />
     <Compile Include="Database Assets\InfoAlumnos.cs" />
+    <Compile Include="GruposItemControl.xaml.cs">
+      <DependentUpon>GruposItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Formato.cs" />
+    <Compile Include="Modelos\GruposItem.cs" />
     <Compile Include="Modelos\ISubscriber.cs" />
     <Compile Include="Modelos\MyEventAggregator.cs" />
     <Compile Include="Pagina_Configuracion.xaml.cs">
@@ -144,6 +148,9 @@
       <DependentUpon>Pagina_Formatos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Database Assets\Profesores.cs" />
+    <Compile Include="Pagina_Grupos.xaml.cs">
+      <DependentUpon>Pagina_Grupos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Database Assets\Provincias.cs" />
     <Compile Include="Database Assets\ResidenciasAlumnos.cs" />
@@ -166,6 +173,7 @@
     <Content Include="Assets\Firma_Recibidos_Constancias.png" />
     <Content Include="Assets\Nombramiento_de_Docente_Tutor.png" />
     <Content Include="Assets\Nombramiento_Tutores.png" />
+    <Content Include="Assets\Polygon.png" />
     <Content Include="Assets\Prevencion_Baja_Ausentismo.png" />
     <Content Include="Assets\Recibido_Constancias_Credito.png" />
     <Content Include="Assets\Tutorados_Credito_Complementario.png" />
@@ -187,6 +195,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GruposItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -200,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pagina_Formatos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pagina_Grupos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

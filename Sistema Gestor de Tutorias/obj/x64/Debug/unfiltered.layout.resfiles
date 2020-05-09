@@ -5,6 +5,7 @@ Assets\Firma_Recibidos_Constancias.png
 Assets\LockScreenLogo.scale-200.png
 Assets\Nombramiento_de_Docente_Tutor.png
 Assets\Nombramiento_Tutores.png
+Assets\Polygon.png
 Assets\Prevencion_Baja_Ausentismo.png
 Assets\Recibido_Constancias_Credito.png
 Assets\SplashScreen.scale-200.png
@@ -16,10 +17,12 @@ Assets\Tutorados_Credito_Complementario.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
 Editor.xbf
+GruposItemControl.xbf
 MainPage.xbf
 Pagina_Configuracion.xbf
 Pagina_Consultas.xbf
 Pagina_Formatos.xbf
+Pagina_Grupos.xbf
 SimplePdfViewerControl.xbf
 Sistema Gestor de Tutorias.xr.xml
 Formatos\1.pdf

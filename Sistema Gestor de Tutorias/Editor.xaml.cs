@@ -288,6 +288,7 @@ namespace Sistema_Gestor_de_Tutorias
                                                         if (s.Name.ToLower().Contains("grupo"))
                                                         {
                                                             s.Items.Clear();
+                                                            s.IsEnabled = true;
                                                             string Query1 = "SELECT DISTINCT grupo FROM Grupos";
                                                             cmd.CommandText = Query1;
                                                             using (SqlDataReader reader2 = await cmd.ExecuteReaderAsync())
@@ -305,7 +306,10 @@ namespace Sistema_Gestor_de_Tutorias
                                                                         if (cb.Name.ToLower().Contains("alumno"))
                                                                         {
                                                                             cb.Items.Clear();
-                                                                            string Query2 = "SELECT nombre, apellidos, matricula FROM Alumnos";
+                                                                            cb.IsEnabled = true;
+                                                                            string Query2 = "SELECT nombre, apellidos, matricula FROM Alumnos " +
+                                                                            "INNER JOIN Grupos ON Alumnos.id_alumno = Grupos.id_alumno " +
+                                                                            "AND grupo IN('" + s.SelectedItem.ToString() + "')";
                                                                             cmd.CommandText = Query2;
                                                                             using (SqlDataReader reader3 = await cmd.ExecuteReaderAsync())
                                                                             {
