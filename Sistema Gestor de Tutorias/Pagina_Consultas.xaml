@@ -8,7 +8,6 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:data="using:System.Data"
     mc:Ignorable="d"
-    Loaded="Page_Loaded"
     Background="Transparent">
     
     <Grid Background="{ThemeResource Acrilico1}">
@@ -30,6 +29,7 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="4" Grid.Row="1" FontSize="50" Margin="0 0 0 15">Agregar Alumno</TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="2" FontSize="30" Margin="0 0 0 0" Text="{x:Bind grupo_seleccionado.Subhead}"></TextBlock>
         <RelativePanel Grid.Row="4" Grid.Column="4" Background="Transparent">
             <ListView Name="InventoryList"
                   SelectionMode="Single"
