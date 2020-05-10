@@ -166,14 +166,26 @@
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls.datagrid\7.0.0-preview1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Antena.png">
+      <PackagePath>Assets\Antena.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\balance.png">
+      <PackagePath>Assets\balance.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Canalizacion_Interna_Psicologia.png">
       <PackagePath>Assets\Canalizacion_Interna_Psicologia.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Cerdito.png">
+      <PackagePath>Assets\Cerdito.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Envio_Anexos.png">
       <PackagePath>Assets\Envio_Anexos.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Firma_Recibidos_Constancias.png">
       <PackagePath>Assets\Firma_Recibidos_Constancias.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Monedas.png">
+      <PackagePath>Assets\Monedas.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Nombramiento_de_Docente_Tutor.png">
       <PackagePath>Assets\Nombramiento_de_Docente_Tutor.png</PackagePath>
@@ -189,6 +201,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Recibido_Constancias_Credito.png">
       <PackagePath>Assets\Recibido_Constancias_Credito.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Social.png">
+      <PackagePath>Assets\Social.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Tutorados_Credito_Complementario.png">
       <PackagePath>Assets\Tutorados_Credito_Complementario.png</PackagePath>

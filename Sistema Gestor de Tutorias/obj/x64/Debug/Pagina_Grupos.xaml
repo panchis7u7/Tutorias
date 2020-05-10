@@ -48,12 +48,14 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>-->
+        <TextBlock Grid.Column="4" Grid.Row="1" FontSize="50" Margin="30 0 0 15">Grupos</TextBlock>
         <GridView x:ConnectionId='2' x:Name="GruposGrid"
                   Grid.Column="4"
                   Grid.Row="5"
                   HorizontalAlignment="Stretch" 
                   Margin="10,0,0,0" 
                                                     
+                                                  
                   IsItemClickEnabled="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.IsVerticalRailEnabled="True"

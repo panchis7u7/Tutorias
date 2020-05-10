@@ -14,7 +14,7 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <!--<VisualStateManager.VisualStateGroups>
+        <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="NarrowLayout">
                     <VisualState.StateTriggers>
@@ -31,13 +31,13 @@
                         <AdaptiveTrigger MinWindowWidth="900"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MainPanelGrid.Width" Value="200"/>
-                        <Setter Target="MainPanelGrid.Height" Value="275"/>
+                        <Setter Target="MainPanelGrid.Width" Value="225"/>
+                        <Setter Target="MainPanelGrid.Height" Value="300"/>
                         <Setter Target="HeadLineTextBlock.FontSize" Value="26"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>-->
+        </VisualStateManager.VisualStateGroups>
         <Image Name="Imagen" Source="{x:Bind GruposItem.Imagen}"/>
         <RelativePanel Grid.Row="1" Margin="10">
             <TextBlock Text="{x:Bind GruposItem.HeadLine}"

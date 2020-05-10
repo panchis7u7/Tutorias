@@ -11,7 +11,7 @@
                         
     Background="Transparent">
     
-    <Grid Background="Transparent">
+    <Grid Background="{ThemeResource Acrilico1}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -27,11 +27,10 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-        <RelativePanel Grid.Row="7" Grid.Column="4" Background="{StaticResource Acrilico2}">
+        <TextBlock Grid.Column="4" Grid.Row="1" FontSize="50" Margin="0 0 0 15">Agregar Alumno</TextBlock>
+        <RelativePanel Grid.Row="4" Grid.Column="4" Background="Transparent">
             <ListView x:ConnectionId='2' Name="InventoryList"
                   SelectionMode="Single"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"

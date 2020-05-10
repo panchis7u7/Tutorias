@@ -168,14 +168,19 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Antena.png" />
+    <Content Include="Assets\balance.png" />
     <Content Include="Assets\Canalizacion_Interna_Psicologia.png" />
+    <Content Include="Assets\Cerdito.png" />
     <Content Include="Assets\Envio_Anexos.png" />
     <Content Include="Assets\Firma_Recibidos_Constancias.png" />
+    <Content Include="Assets\Monedas.png" />
     <Content Include="Assets\Nombramiento_de_Docente_Tutor.png" />
     <Content Include="Assets\Nombramiento_Tutores.png" />
     <Content Include="Assets\Polygon.png" />
     <Content Include="Assets\Prevencion_Baja_Ausentismo.png" />
     <Content Include="Assets\Recibido_Constancias_Credito.png" />
+    <Content Include="Assets\Social.png" />
     <Content Include="Assets\Tutorados_Credito_Complementario.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

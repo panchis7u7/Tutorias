@@ -14,9 +14,9 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <!--<VisualStateManager.VisualStateGroups>
+        <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <VisualState x:Name="NarrowLayout">
+                <VisualState x:ConnectionId='3' x:Name="NarrowLayout">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
@@ -26,31 +26,31 @@
                         <Setter Target="HeadLineTextBlock.FontSize" Value="18"/>
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:Name="WideLayout">
+                <VisualState x:ConnectionId='4' x:Name="WideLayout">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="900"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MainPanelGrid.Width" Value="200"/>
-                        <Setter Target="MainPanelGrid.Height" Value="275"/>
+                        <Setter Target="MainPanelGrid.Width" Value="225"/>
+                        <Setter Target="MainPanelGrid.Height" Value="300"/>
                         <Setter Target="HeadLineTextBlock.FontSize" Value="26"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>-->
-        <Image x:ConnectionId='3' Name="Imagen"                                    />
+        </VisualStateManager.VisualStateGroups>
+        <Image x:ConnectionId='5' Name="Imagen"                                    />
         <RelativePanel Grid.Row="1" Margin="10">
-            <TextBlock x:ConnectionId='4'                                    
+            <TextBlock x:ConnectionId='6'                                    
                        RelativePanel.AlignTopWithPanel="True"
                        x:Name="HeadLineTextBlock"
                        Foreground="Black"
                        FontSize="18"
                        TextWrapping="Wrap"></TextBlock>
-            <TextBlock x:ConnectionId='5'                                   
+            <TextBlock x:ConnectionId='7'                                   
                        RelativePanel.Below="HeadLineTextBlock"
                        Foreground="Black" 
                        TextWrapping="Wrap"></TextBlock>
-            <TextBlock x:ConnectionId='6'                                    
+            <TextBlock x:ConnectionId='8'                                    
                        RelativePanel.AlignBottomWithPanel="True"
                        Foreground="Black"
                        FontSize="10"></TextBlock>
