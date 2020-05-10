@@ -18,6 +18,9 @@ using iText.Layout;
 using Syncfusion.DocIO;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using Windows.ApplicationModel.Core;
+using Windows.UI.ViewManagement;
+using Windows.UI;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -49,6 +52,11 @@ namespace Sistema_Gestor_de_Tutorias
         
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
             formato_seleccionado = (e.Parameter) as Formato;
             string sFilePath = "Formatos/" + formato_seleccionado.formato_id + ".pdf";
             var uri = new Uri("ms-appx:///Formatos/" + formato_seleccionado.formato_id + ".pdf");

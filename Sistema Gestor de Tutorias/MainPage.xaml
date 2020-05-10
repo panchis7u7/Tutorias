@@ -36,19 +36,19 @@
         </NavigationView.AutoSuggestBox>
         <NavigationView.MenuItems>
             <NavigationViewItemSeparator Background="White"></NavigationViewItemSeparator>
-            <NavigationViewItem x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="True" Tag="1">
+            <NavigationViewItem x:Name="btn_formatos" Content="Formatos" IsEnabled="True" IsSelected="False" Tag="1">
                 <NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10F;"></FontIcon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FF;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
-            <NavigationViewItem x:Name="btn_Consultas" Content="Consultas" IsEnabled="True" IsSelected="False" Tag="2">
+            <NavigationViewItem x:Name="btn_Consultas" Content="Grupos" IsEnabled="True" IsSelected="False" Tag="2">
                 <NavigationViewItem.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE81E;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
-            <NavigationViewItem x:Name="btn_formatos" Content="Formatos" IsEnabled="True" IsSelected="False" Tag="3">
+            <NavigationViewItem x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="True" Tag="3">
                 <NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FF;"></FontIcon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10F;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
         </NavigationView.MenuItems>

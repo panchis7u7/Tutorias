@@ -12,8 +12,8 @@
                     <SolidColorBrush x:Key="NavigationViewItemForegroundSelectedPointerOver" Color="White"/>
                     <SolidColorBrush x:Key="NavigationViewItemForegroundPressed" Color="White"/>
                     <SolidColorBrush x:Key="NavigationViewItemForegroundSelectedPressed" Color="White"/>
-                    <AcrylicBrush x:Key="Acrilico1" TintOpacity=".4" TintColor="WhiteSmoke" BackgroundSource="HostBackdrop" FallbackColor="DimGray" AlwaysUseFallback="False"></AcrylicBrush>
-                    <AcrylicBrush x:Key="Acrilico2" TintOpacity=".4" TintColor="Black" BackgroundSource="HostBackdrop" FallbackColor="DimGray" AlwaysUseFallback="False"></AcrylicBrush>
+                    <AcrylicBrush x:Key="Acrilico1" TintOpacity=".2" TintColor="Gray" BackgroundSource="HostBackdrop" FallbackColor="DimGray" AlwaysUseFallback="False"></AcrylicBrush>
+                    <AcrylicBrush x:Key="Acrilico2" TintOpacity=".4" TintColor="Black" BackgroundSource="HostBackdrop" FallbackColor="DarkGray" AlwaysUseFallback="False"></AcrylicBrush>
                     <AcrylicBrush x:Key="NavigationViewDefaultPaneBackground" BackgroundSource="Backdrop" TintColor="OrangeRed" TintOpacity=".8" FallbackColor="OrangeRed"/>
                     <AcrylicBrush x:Key="NavigationViewTopPaneBackground" BackgroundSource="Backdrop" TintColor="OrangeRed" TintOpacity=".8" FallbackColor="OrangeRed"/>
                     <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground" BackgroundSource="HostBackdrop" TintColor="OrangeRed" TintOpacity=".8" FallbackColor="OrangeRed"/>

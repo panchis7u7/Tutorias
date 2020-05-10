@@ -5,11 +5,12 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.UI;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.ApplicationModel.Core;
+using Windows.UI.ViewManagement;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -73,14 +74,6 @@ namespace Sistema_Gestor_de_Tutorias
         return null;
     }
 
-        //private async void Page_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    const string GetAlumnosQuery = "SELECT Provincias.id_provincia, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.cod_postal, Provincias.provincia FROM Alumnos" +
-        //                                   " INNER JOIN ResidenciasAlumnos ON Alumnos.id_alumno = ResidenciasAlumnos.id_alumno" +
-        //                                   " INNER JOIN Provincias ON ResidenciasAlumnos.id_provincia = Provincias.id_provincia";
-        //    InventoryList.ItemsSource = await GetAlumnos((App.Current as App).conexionBD, GetAlumnosQuery);
-        //}
-
         private void TextBlock_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             TextBlock tx = sender as TextBlock;
@@ -108,6 +101,11 @@ namespace Sistema_Gestor_de_Tutorias
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
             grupo_seleccionado = (e.Parameter) as GruposItem;
             string Query = "SELECT Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.cod_postal, Provincias.provincia FROM Grupos " +
                            "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
