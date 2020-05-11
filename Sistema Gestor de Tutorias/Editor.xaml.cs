@@ -21,6 +21,8 @@ using System.Diagnostics;
 using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI;
+using Windows.Storage.Pickers;
+using Windows.Storage;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -45,10 +47,12 @@ namespace Sistema_Gestor_de_Tutorias
         private List<TextBox> textBoxes;
         private List<ComboBox> comboBoxes;
         private List<CheckBox> checkBoxes;
+        private List<RichEditBox> richEditBoxes;
         private List<string> textAreas;
 
         private GridView checkb_grid;
         private GridView combob_grid;
+        private StackPanel textbox_sp;
         
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -59,6 +63,7 @@ namespace Sistema_Gestor_de_Tutorias
 
             formato_seleccionado = (e.Parameter) as Formato;
             string sFilePath = "Formatos/" + formato_seleccionado.formato_id + ".pdf";
+            string sFilePathWord = "Formatos/" + formato_seleccionado.formato_id + ".docx";
             var uri = new Uri("ms-appx:///Formatos/" + formato_seleccionado.formato_id + ".pdf");
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
@@ -68,6 +73,7 @@ namespace Sistema_Gestor_de_Tutorias
             textBoxes = new List<TextBox>();
             checkBoxes = new List<CheckBox>();
             comboBoxes = new List<ComboBox>();
+            richEditBoxes = new List<RichEditBox>();
 
             #region CheckBox_GridView
             checkb_grid = new GridView();
@@ -83,25 +89,32 @@ namespace Sistema_Gestor_de_Tutorias
             combob_grid.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
             #endregion
 
+            textbox_sp = new StackPanel();
+            textbox_sp.Width = double.NaN;
+
             string texto = await pdfTextExtract(sFilePath);
             //int contador = charCounter(ref texto);
             textAreas = GetWordBasedOn(ref texto, "<[", "]>");
-
-            int k = 0; int j = 0;
             for (int i = 0; i < textAreas.Count; i++)
             {
                 if (textAreas[i].Length <= 1)
                 {
-                    checkBoxes.Add(new CheckBox());
-                    checkBoxes[j].Width = double.NaN;
-                    checkBoxes[j].Height = double.NaN;
-                    checkBoxes[j].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                    checkBoxes[j].HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                    checkBoxes[j].Margin = new Thickness(10,0,0,0);
-                    checkBoxes[j].FlowDirection = FlowDirection.LeftToRight;
-                    checkBoxes[j].Content = textAreas[i] + ")";
-                    checkb_grid.Items.Add(checkBoxes[j]);
-                    j += 1;
+                    CheckBox incisos = new CheckBox();
+                    incisos.Width = double.NaN;
+                    incisos.Height = double.NaN;
+                    incisos.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                    incisos.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                    incisos.Margin = new Thickness(10,3,10,3);
+                    incisos.FlowDirection = FlowDirection.LeftToRight;
+                    incisos.Content = textAreas[i] + ")";
+                    incisos.Checked += (sender, args) => {
+                        if (incisos.IsChecked == true)
+                            replace(incisos.Name, "x", sFilePathWord);
+                        else
+                            replace(incisos.Name, " ", sFilePathWord);
+                    };
+                    checkBoxes.Add(incisos);
+                    checkb_grid.Items.Add(incisos);
                 }
                 else
                 {
@@ -118,6 +131,10 @@ namespace Sistema_Gestor_de_Tutorias
                         oficio.Header = textAreas[i];
                         oficio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
                         oficio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                        oficio.TextChanged += (sender, args) => {
+                            var obj = sender as TextBox;
+                            replace(obj.Name, obj.Text, sFilePathWord);
+                        };
                         combob_grid.Items.Add(oficio);
                     }
                     else if (textAreas[i].ToLower().Contains("año"))
@@ -132,6 +149,10 @@ namespace Sistema_Gestor_de_Tutorias
                         anio.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
                         anio.MaxWidth = 200;
                         anio.MinWidth = 190;
+                        anio.DateChanged += (sender, args) => {
+                            var obj = sender as DatePicker;
+                            replace(obj.Name, obj.YearFormat, sFilePathWord);
+                        };
                         datePickers.Add(anio);
                         combob_grid.Items.Add(anio);
                     }
@@ -149,6 +170,10 @@ namespace Sistema_Gestor_de_Tutorias
                         inicio.YearVisible = false;
                         inicio.MaxWidth = 200;
                         inicio.Margin = new Thickness(10, 3, 10, 3);
+                        inicio.DateChanged += (sender, args) => {
+                            var obj = sender as DatePicker;
+                            replace(obj.Name, obj.MonthFormat, sFilePathWord);
+                        };
                         final.Name = textAreas[i];
                         final.DayVisible = false;
                         final.YearVisible = false;
@@ -165,25 +190,39 @@ namespace Sistema_Gestor_de_Tutorias
                         dp.Name = textAreas[i];
                         dp.Header = textAreas[i];
                         dp.Height = double.NaN;
-                        dp.Margin = new Thickness(10, 3, 10, 3); ;
+                        dp.Margin = new Thickness(10, 3, 10, 3);
                         dp.Width = 200;
                         dp.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
                         dp.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                        dp.DateChanged += (sender, args) => {
+                            var obj = sender as CalendarDatePicker;
+                            replace(obj.Name, obj.DateFormat, sFilePathWord);
+                        };
                         combob_grid.Items.Add(dp);
+                    } 
+                    else if (textAreas[i].ToLower().Contains("desarrollo") || textAreas[i].ToLower().Contains("asunto") || textAreas[i].ToLower().Contains("cargo")){
+                        RichEditBox info = new RichEditBox();
+                        info.Name = textAreas[i];
+                        info.Width = double.NaN;
+                        info.Height = 100;
+                        info.Header = textAreas[i];
+                        info.Margin = new Thickness(10, 3, 10, 3);
+                        richEditBoxes.Add(info);
+                        textbox_sp.Children.Add(info);
                     }
                     else {
-                        comboBoxes.Add(new ComboBox());
-                        comboBoxes[k].Name = textAreas[i];
-
-                        comboBoxes[k].Width = 200;
-                        comboBoxes[k].Margin = new Thickness(10, 3, 10, 3);
-                        comboBoxes[k].Height = double.NaN;
-                        comboBoxes[k].Header = textAreas[i];
-                        comboBoxes[k].PlaceholderText = "Seleccione un item";
-                        comboBoxes[k].VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
-                        comboBoxes[k].HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                        comboBoxes[k].Text = textAreas[i];
-                        switch (comboBoxes[k].Text)
+                        ComboBox desplegables = new ComboBox();
+                        desplegables.Name = textAreas[i];
+                        desplegables.Width = 200;
+                        desplegables.Margin = new Thickness(10, 3, 10, 3);
+                        desplegables.Height = double.NaN;
+                        desplegables.Header = textAreas[i];
+                        desplegables.PlaceholderText = "Seleccione un item";
+                        desplegables.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+                        desplegables.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+                        desplegables.Text = textAreas[i];
+                        comboBoxes.Add(desplegables);
+                        switch (desplegables.Text)
                         {
                             case "Nombre Docente":
                                 //var resultados = new ObservableCollection<Profesores>();
@@ -208,7 +247,7 @@ namespace Sistema_Gestor_de_Tutorias
                                                         p.apellidos = reader.GetString(2);
                                                     if (!await reader.IsDBNullAsync(3))
                                                         p.departamento = reader.GetString(3);
-                                                    comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
+                                                    desplegables.Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
                                                 }
                                             }
                                         }
@@ -244,7 +283,7 @@ namespace Sistema_Gestor_de_Tutorias
                                                     if (!await reader.IsDBNullAsync(3))
                                                         p.departamento = reader.GetString(3);
                                                     //resultados.Add(p);
-                                                    comboBoxes[k].Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
+                                                    desplegables.Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
                                                 }
                                             }
                                         }
@@ -256,21 +295,6 @@ namespace Sistema_Gestor_de_Tutorias
                                 }
                                 break;
 
-                            //                    comboBoxes[k].SelectionChanged += (sender, x) => {
-                            //                        var obj = (sender as ComboBox);
-                            //                        textBoxes.ForEach((s) => {
-                            //                            if (s.Name.ToLower().Contains("carrera"))
-                            //                            {
-                            //                                s.Text = resultados[obj.SelectedIndex].carrera;
-                            //                                s.IsReadOnly = true;
-                            //                            }
-                            //                            if (s.Name.ToLower().Contains("semestre"))
-                            //                            {
-                            //                                s.Text = resultados[obj.SelectedIndex].semestre + "";
-                            //                                s.IsReadOnly = true;
-                            //                            }
-                            //                        });
-                            //                    };
                             case "Carrera":
                                 try
                                 {
@@ -282,14 +306,14 @@ namespace Sistema_Gestor_de_Tutorias
                                             cmd.CommandText = Query;
                                             using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                                             {
-                                                comboBoxes[k].Items.Clear();
+                                                desplegables.Items.Clear();
                                                 while (await reader.ReadAsync())
                                                 {
                                                     Alumnos carreras = new Alumnos();
                                                     carreras.carrera = reader.GetString(0);
-                                                    comboBoxes[k].Items.Add(carreras.carrera);
+                                                    desplegables.Items.Add(carreras.carrera);
                                                 }
-                                                comboBoxes[k].SelectionChanged += (sender, x) =>
+                                                desplegables.SelectionChanged += (sender, x) =>
                                                 {
                                                     comboBoxes.ForEach(async (s) =>
                                                     {
@@ -349,15 +373,14 @@ namespace Sistema_Gestor_de_Tutorias
                                 }
                                 break;
                         }
-                        combob_grid.Items.Add(comboBoxes[k]);
-                        k += 1;
+                        combob_grid.Items.Add(desplegables);
                     }
                 }
             }
             primary.Children.Add(combob_grid);
             primary.Children.Add(checkb_grid);
+            primary.Children.Add(textbox_sp);
         }
-
         private async Task<string> pdfTextExtract(string sFilePath)
         {
             string texto;
@@ -436,20 +459,29 @@ namespace Sistema_Gestor_de_Tutorias
             return wordCount;
         }
 
-        private async void replace()
+        private async void replace(string textToBeReplaced, string text, string formato)
         {
             using (WordDocument document = new WordDocument())
             {
                 try
                 {
-                    Stream docStream = File.OpenRead(Path.GetFullPath(@"Formatos/2.docx"));
+                    Stream docStream = File.OpenRead(Path.GetFullPath(formato));
                     await document.OpenAsync(docStream, FormatType.Docx);
                     docStream.Dispose();
                     //Finds all occurrences of a word and replaces with properly spelled word.
-                    //document.Replace("Cyles", "Cycles", true, true);
+                    document.Replace("<[" + textToBeReplaced + "]>" , text, true, true);
                     ////Saves the resultant file in the given path.
+                    FileSavePicker savePicker = new FileSavePicker();
+                    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+                    savePicker.SuggestedFileName = "Resultado";
+                    savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+                    //Creates a storage file from FileSavePicker
+                    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+                    //Saves changes to the specified storage file
+                    await document.SaveAsync(outputStorageFile, FormatType.Docx);
+
                     //docStream = File.Create(Path.GetFullPath(@"Formatos/resultado.docx"));
-                    //await document.SaveAsync(docStream, FormatType.Docx);
+                    //await doc.SaveAsync(docStream, FormatType.Docx);
                     //docStream.Dispose();
                 }
                 catch (Exception ex)

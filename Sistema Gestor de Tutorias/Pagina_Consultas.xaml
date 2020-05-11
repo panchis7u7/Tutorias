@@ -10,7 +10,7 @@
     mc:Ignorable="d"
     Background="Transparent">
     
-    <Grid Background="{ThemeResource Acrilico1}">
+    <Grid Background="{ThemeResource Acrilico2}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -28,8 +28,8 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="4" Grid.Row="1" FontSize="50" Margin="0 0 0 15">Agregar Alumno</TextBlock>
-        <TextBlock Grid.Column="4" Grid.Row="2" FontSize="30" Margin="0 0 0 0" Text="{x:Bind grupo_seleccionado.Subhead}"></TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="1" FontSize="40" Margin="0 0 0 10" Text="{x:Bind grupo_seleccionado.Subhead}"></TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="2" FontSize="30" Margin="0 0 0 15">Agregar Alumno</TextBlock>
         <RelativePanel Grid.Row="4" Grid.Column="4" Background="Transparent">
             <ListView Name="InventoryList"
                   SelectionMode="Single"
