@@ -23,6 +23,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI;
 using Windows.Storage.Pickers;
 using Windows.Storage;
+using System.Runtime.Serialization;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -150,8 +151,7 @@ namespace Sistema_Gestor_de_Tutorias
                         anio.MaxWidth = 200;
                         anio.MinWidth = 190;
                         anio.DateChanged += (sender, args) => {
-                            var obj = sender as DatePicker;
-                            replace(obj.Name, obj.YearFormat, sFilePathWord);
+                            replace(anio.Name, anio.YearFormat, sFilePathWord);
                         };
                         datePickers.Add(anio);
                         combob_grid.Items.Add(anio);
@@ -171,8 +171,7 @@ namespace Sistema_Gestor_de_Tutorias
                         inicio.MaxWidth = 200;
                         inicio.Margin = new Thickness(10, 3, 10, 3);
                         inicio.DateChanged += (sender, args) => {
-                            var obj = sender as DatePicker;
-                            replace(obj.Name, obj.MonthFormat, sFilePathWord);
+                            replace(inicio.Name, inicio.MonthFormat, sFilePathWord);
                         };
                         final.Name = textAreas[i];
                         final.DayVisible = false;
@@ -181,6 +180,9 @@ namespace Sistema_Gestor_de_Tutorias
                         final.Header = textAreas[i] + " final";
                         final.Height = double.NaN;
                         final.Margin = new Thickness(10, 3, 10, 3);
+                        final.DateChanged += (sender, args) => {
+                            replace(final.Name, final.MonthFormat, sFilePathWord);
+                        };
                         combob_grid.Items.Add(inicio);
                         combob_grid.Items.Add(final);
                     }
@@ -192,11 +194,11 @@ namespace Sistema_Gestor_de_Tutorias
                         dp.Height = double.NaN;
                         dp.Margin = new Thickness(10, 3, 10, 3);
                         dp.Width = 200;
+                        dp.PlaceholderText = "Seleccione la fecha";
                         dp.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
                         dp.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
                         dp.DateChanged += (sender, args) => {
-                            var obj = sender as CalendarDatePicker;
-                            replace(obj.Name, obj.DateFormat, sFilePathWord);
+                            replace(dp.Name, dp.Date.Value.DateTime.ToString("dd/MMMM/yyyy"), sFilePathWord);
                         };
                         combob_grid.Items.Add(dp);
                     } 

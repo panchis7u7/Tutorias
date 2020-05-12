@@ -42,6 +42,10 @@ namespace Sistema_Gestor_de_Tutorias
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             conexionBase();
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("es-ES");
+            System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
+            Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "es";
         }
 
         /// <summary>
