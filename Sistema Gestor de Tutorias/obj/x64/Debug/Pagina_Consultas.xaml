@@ -5,11 +5,9 @@
     xmlns:local="using:Sistema_Gestor_de_Tutorias"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:data="using:System.Data"
     mc:Ignorable="d"
     Background="Transparent">
-    
+
     <Grid Background="{ThemeResource Acrilico2}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"></ColumnDefinition>
@@ -28,10 +26,45 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock x:ConnectionId='2' Grid.Column="4" Grid.Row="1" FontSize="40" Margin="0 0 0 10"                                           ></TextBlock>
-        <TextBlock Grid.Column="4" Grid.Row="2" FontSize="30" Margin="0 0 0 15">Agregar Alumno</TextBlock>
+        <StackPanel x:ConnectionId='2' Padding="10 10 10 10" x:Name="header" Grid.Column="4" Grid.Row="1">
+            <TextBlock x:ConnectionId='31' FontSize="40" Margin="0 0 0 10"                                           ></TextBlock>
+            <TextBlock FontSize="30"  Margin="0 0 0 15">Agregar Alumno</TextBlock>
+            <Button x:ConnectionId='32'                        Content="Agregar" Height="40" Width="100"></Button>
+        </StackPanel>
+        <!--<Popup x:Name="InsertsPopup" Grid.Column="4" Grid.Row="4" IsOpen="False" Width="500" Height="500" 
+               LightDismissOverlayMode="On"
+               IsLightDismissEnabled="True">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PaneThemeTransition Edge="Bottom"></PaneThemeTransition>
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <RelativePanel Background="Red" Width="500" Height="{Binding ElementName=InsertsPopup, Path=Height}">
+                <TextBlock>HOLA</TextBlock>
+            </RelativePanel>
+        </Popup>-->
+        <Popup x:ConnectionId='3' Grid.ColumnSpan="6" Grid.RowSpan="7" x:Name="InsertsPopup"
+               LightDismissOverlayMode="On"
+               IsLightDismissEnabled="True"
+                                                         >
+            <Border x:ConnectionId='24' x:Name="relativeChild" BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Width="auto" Height="auto">
+                <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto">
+                    <StackPanel Padding="20" Width="auto" HorizontalAlignment="Left">
+                        <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Alumno</TextBlock>
+                        <TextBox x:ConnectionId='25' Margin="0 10 0 10" Header="Matricula" Width="200"                                                    ></TextBox>
+                        <TextBox x:ConnectionId='26' Margin="0 10 0 10" Header="Nombre" Width="200"                                                 ></TextBox>
+                        <TextBox x:ConnectionId='27' Margin="0 10 0 10" Header="Apellidos" Width="200"                                                    ></TextBox>
+                        <TextBox x:ConnectionId='28' Margin="0 10 0 10" Header="Semestre" Width="200"                                                   ></TextBox>
+                        <TextBox x:ConnectionId='29' Margin="0 10 0 10" Header="Carrera" Width="200"                                                  ></TextBox>
+                        <Button x:ConnectionId='30' Margin="0 10 0 0" Width="100" Height="40"                          Content="Agregar"></Button>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Popup>
         <RelativePanel Grid.Row="4" Grid.Column="4" Background="Transparent">
-            <ListView x:ConnectionId='3' Name="InventoryList"
+            <ListView x:ConnectionId='4' Name="InventoryList"
                   SelectionMode="Single"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.IsVerticalRailEnabled="True"
@@ -43,28 +76,28 @@
                 <ListView.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Padding="12 0 0 0">
-                            <TextBlock x:ConnectionId='5' Name="id_provincia"                                                                                                                               TextWrapping="Wrap" Text="ID" Padding="0 10 0 10"  Width="50" Foreground="OrangeRed"/>
-                            <TextBlock x:ConnectionId='6' Name="matricula"                                                                                                                               Text="Matricula" Padding="0 10 0 10"  Width="100" Foreground="OrangeRed"/>
-                            <TextBlock x:ConnectionId='7' Name="nombre"                                                                                                                               Text="Nombre" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
-                            <TextBlock x:ConnectionId='8' Name="apellidos"                                                                                                                               Text="Apellidos" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
-                            <TextBlock x:ConnectionId='9' Name="semestre"                                                                                                                               Text="Semestre" Width="80" Padding="0 10 0 10" Foreground="OrangeRed"/>
-                            <TextBlock x:ConnectionId='10' Name="carrera"                                                                                                                               Text="Carrera" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
-                            <TextBlock x:ConnectionId='11' Name="cod_postal"                                                                                                                               Text="Cod. Postal" Width="100" Padding="0 10 0 10" Foreground="OrangeRed"/>
-                            <TextBlock x:ConnectionId='12' Name="provincia"                                                                                                                               Text="Provincia" Width="200" Padding="0 10 0 10" Foreground="OrangeRed"/>
+                            <TextBlock x:ConnectionId='6' Name="id_provincia"                                                                                                                               TextWrapping="Wrap" Text="ID" Padding="0 10 0 10" FontWeight="Medium" Width="50" Foreground="DarkOrange"/>
+                            <TextBlock x:ConnectionId='7' Name="matricula"                                                                                                                               Text="Matricula" Padding="0 10 0 10"  Width="100" FontWeight="Medium" Foreground="DarkOrange"/>
+                            <TextBlock x:ConnectionId='8' Name="nombre"                                                                                                                               Text="Nombre" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
+                            <TextBlock x:ConnectionId='9' Name="apellidos"                                                                                                                               Text="Apellidos" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
+                            <TextBlock x:ConnectionId='10' Name="semestre"                                                                                                                               Text="Semestre" Width="80" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
+                            <TextBlock x:ConnectionId='11' Name="carrera"                                                                                                                               Text="Carrera" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
+                            <TextBlock x:ConnectionId='12' Name="cod_postal"                                                                                                                               Text="Cod. Postal" Width="100" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
+                            <TextBlock x:ConnectionId='13' Name="provincia"                                                                                                                               Text="Provincia" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.HeaderTemplate>
                 <ListView.ItemTemplate>
                     <DataTemplate                               >
-                        <StackPanel x:ConnectionId='14' Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='15' Name="Id"                            Width="50" Foreground="White" />
-                            <TextBlock x:ConnectionId='16' Name="Matricula"                           Width="100" Foreground="White"/>
-                            <TextBlock x:ConnectionId='17' Name="Nombre"                        Width="200" Foreground="White"/>
-                            <TextBlock x:ConnectionId='18'                           Width="200" Foreground="White"/>
-                            <TextBlock x:ConnectionId='19'                          Width="80" Foreground="White"/>
-                            <TextBlock x:ConnectionId='20'                         Width="200" Foreground="White"/>
-                            <TextBlock x:ConnectionId='21'                            Width="100" Foreground="White"/>
-                            <TextBlock x:ConnectionId='22'                           Width="200" Foreground="White"/>
+                        <StackPanel x:ConnectionId='15' Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='16' Name="Id"                            Width="50" Foreground="White" />
+                            <TextBlock x:ConnectionId='17' Name="Matricula"                           Width="100" Foreground="White"/>
+                            <TextBlock x:ConnectionId='18' Name="Nombre"                        Width="200" Foreground="White"/>
+                            <TextBlock x:ConnectionId='19'                           Width="200" Foreground="White"/>
+                            <TextBlock x:ConnectionId='20'                          Width="80" Foreground="White"/>
+                            <TextBlock x:ConnectionId='21'                         Width="200" Foreground="White"/>
+                            <TextBlock x:ConnectionId='22'                            Width="100" Foreground="White"/>
+                            <TextBlock x:ConnectionId='23'                           Width="200" Foreground="White"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

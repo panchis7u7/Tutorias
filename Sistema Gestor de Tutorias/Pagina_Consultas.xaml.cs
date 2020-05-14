@@ -11,6 +11,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -114,6 +116,39 @@ namespace Sistema_Gestor_de_Tutorias
                            "INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
                            "AND CONCAT(TRIM(Tutores.nombre),' ', TRIM(Tutores.apellidos)) LIKE ('%" + grupo_seleccionado.Subhead + "%')";
             InventoryList.ItemsSource = await GetAlumnos((App.Current as App).conexionBD, Query);
+        }
+
+        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            InsertsPopup.IsOpen = true;
+            info_alumnos = new InfoAlumnos();
+        }
+
+        private void InsertsPopup_LayoutUpdated(object sender, object e)
+        {
+            if (relativeChild.ActualWidth == 0 && relativeChild.ActualHeight == 0)
+            {
+                return;
+            }
+
+            double ActualHorizontalOffset = this.InsertsPopup.HorizontalOffset;
+            double ActualVerticalOffset = this.InsertsPopup.VerticalOffset;
+
+            relativeChild.Height = (int)(Window.Current.Bounds.Height / 2);
+
+            double NewHorizontalOffset = (int) (Window.Current.Bounds.Width - relativeChild.ActualWidth) / 2;
+            double NewVerticalOffset = (int) (Window.Current.Bounds.Height - relativeChild.ActualHeight) / 2;
+
+            if (ActualHorizontalOffset != NewHorizontalOffset || ActualVerticalOffset != NewVerticalOffset)
+            {
+                this.InsertsPopup.HorizontalOffset = NewHorizontalOffset;
+                this.InsertsPopup.VerticalOffset = NewVerticalOffset;
+            }
+        }
+        private async void Button_Tapped_1(object sender, TappedRoutedEventArgs e)
+        {
+           var err = new MessageDialog(info_alumnos.matricula + info_alumnos.nombre + info_alumnos.apellidos);
+           await err.ShowAsync();
         }
     }
 }

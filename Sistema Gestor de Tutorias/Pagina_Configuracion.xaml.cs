@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI;
+﻿using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
@@ -20,9 +10,12 @@ namespace Sistema_Gestor_de_Tutorias
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    /// </summary>}
+    /// 
     public sealed partial class Pagina_Configuracion : Page
     {
+        public string JefeTutoria { get; set; }
+        public string JefeDepartamento { get; set; }
         public Page main_page_obj;
         //public NavigationView nav_view_obj;
         public Pagina_Configuracion()

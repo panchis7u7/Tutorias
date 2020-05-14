@@ -5,11 +5,13 @@ using Sistema_Gestor_de_Tutorias;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 namespace Sistema_Gestor_de_Tutorias
 {
     public class InfoAlumnos : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public int id_alumno { get; set; }
         public int matricula { get; set; }
         public string nombre { get; set; }
@@ -18,9 +20,14 @@ namespace Sistema_Gestor_de_Tutorias
         public string carrera { get; set; }
         public int cod_postal { get; set; }
         public string provincia { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged(string propertyName) =>
+        private void OnNotifyPropertyChanged(string propertyName) =>
            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

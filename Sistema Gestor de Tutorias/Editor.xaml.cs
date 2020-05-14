@@ -23,7 +23,6 @@ using Windows.UI.ViewManagement;
 using Windows.UI;
 using Windows.Storage.Pickers;
 using Windows.Storage;
-using System.Runtime.Serialization;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -44,7 +43,6 @@ namespace Sistema_Gestor_de_Tutorias
         public Uri Source { get; set; }
 
         private List<DatePicker> datePickers;
-        private List<TextBlock> textBlocks;
         private List<TextBox> textBoxes;
         private List<ComboBox> comboBoxes;
         private List<CheckBox> checkBoxes;
@@ -70,7 +68,6 @@ namespace Sistema_Gestor_de_Tutorias
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
 
             datePickers = new List<DatePicker>();
-            textBlocks = new List<TextBlock>();
             textBoxes = new List<TextBox>();
             checkBoxes = new List<CheckBox>();
             comboBoxes = new List<ComboBox>();
@@ -133,8 +130,7 @@ namespace Sistema_Gestor_de_Tutorias
                         oficio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
                         oficio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
                         oficio.TextChanged += (sender, args) => {
-                            var obj = sender as TextBox;
-                            replace(obj.Name, obj.Text, sFilePathWord);
+                            replace(oficio.Name, oficio.Text, sFilePathWord);
                         };
                         combob_grid.Items.Add(oficio);
                     }
@@ -151,7 +147,7 @@ namespace Sistema_Gestor_de_Tutorias
                         anio.MaxWidth = 200;
                         anio.MinWidth = 190;
                         anio.DateChanged += (sender, args) => {
-                            replace(anio.Name, anio.YearFormat, sFilePathWord);
+                            replace(anio.Name, anio.Date.DateTime.ToString(), sFilePathWord);
                         };
                         datePickers.Add(anio);
                         combob_grid.Items.Add(anio);
@@ -166,7 +162,6 @@ namespace Sistema_Gestor_de_Tutorias
                         inicio.Header = textAreas[i] + " inicio";
                         inicio.Height = double.NaN;
                         inicio.DayVisible = false;
-                        inicio.Language = "es-MX";
                         inicio.YearVisible = false;
                         inicio.MaxWidth = 200;
                         inicio.Margin = new Thickness(10, 3, 10, 3);
@@ -176,7 +171,6 @@ namespace Sistema_Gestor_de_Tutorias
                         final.Name = textAreas[i];
                         final.DayVisible = false;
                         final.YearVisible = false;
-                        final.Language = "es-MX";
                         final.Header = textAreas[i] + " final";
                         final.Height = double.NaN;
                         final.Margin = new Thickness(10, 3, 10, 3);
@@ -227,7 +221,6 @@ namespace Sistema_Gestor_de_Tutorias
                         switch (desplegables.Text)
                         {
                             case "Nombre Docente":
-                                //var resultados = new ObservableCollection<Profesores>();
                                 try
                                 {
 
@@ -262,7 +255,6 @@ namespace Sistema_Gestor_de_Tutorias
                                 break;
 
                             case "Nombre Tutor":
-                                //var resultados = new ObservableCollection<Profesores>();
                                 try
                                 {
 

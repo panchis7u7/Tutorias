@@ -23,12 +23,17 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="30em">Configuracion</TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="20em" Padding="0 30 0 0">Ubicacion de Guardado:</TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="3" Foreground="White" FontSize="20em" Padding="0 30 0 0">Modo Oscuro</TextBlock>
-        <ToggleSwitch x:Name="ts_Modo_Oscuro"  Toggled="Modo_Oscuro_Toggled" Grid.Column="1" Grid.Row="4" Foreground="White" ></ToggleSwitch>
+        <ToggleSwitch x:Name="ts_Modo_Oscuro" Margin="0 0 0 20" Toggled="Modo_Oscuro_Toggled" Grid.Column="1" Grid.Row="4" Foreground="White" ></ToggleSwitch>
+        <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+            <TextBox Width="225" FontSize="16" Margin="0 0 20 0" Text="{x:Bind JefeTutoria, Mode=TwoWay}" PlaceholderText="Nombre Completo" Header="Jefe de Tutorias"></TextBox>
+            <TextBox Width="225" FontSize="16" Margin="0 0 20 0" Text="{x:Bind JefeDepartamento, Mode=TwoWay}" PlaceholderText="Nombre Completo" Header="Jefe de Departamento"></TextBox>
+        </StackPanel>
     </Grid>
 </Page>
