@@ -18,6 +18,7 @@ namespace Sistema_Gestor_de_Tutorias
         public string apellidos { get; set; }
         public int semestre { get; set; }
         public string carrera { get; set; }
+        public int id_provincia { get; set; }
         public int cod_postal { get; set; }
         public string provincia { get; set; }
         private void OnNotifyPropertyChanged(string propertyName) =>

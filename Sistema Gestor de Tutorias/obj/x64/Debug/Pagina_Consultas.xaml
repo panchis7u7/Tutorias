@@ -27,22 +27,10 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel x:ConnectionId='2' Padding="10 10 10 10" x:Name="header" Grid.Column="4" Grid.Row="1">
-            <TextBlock x:ConnectionId='31' FontSize="40" Margin="0 0 0 10"                                           ></TextBlock>
+            <TextBlock x:ConnectionId='33' FontSize="40" Margin="0 0 0 10"                                           ></TextBlock>
             <TextBlock FontSize="30"  Margin="0 0 0 15">Agregar Alumno</TextBlock>
-            <Button x:ConnectionId='32'                        Content="Agregar" Height="40" Width="100"></Button>
+            <Button x:ConnectionId='34'                        Content="Agregar" Height="40" Width="100"></Button>
         </StackPanel>
-        <!--<Popup x:Name="InsertsPopup" Grid.Column="4" Grid.Row="4" IsOpen="False" Width="500" Height="500" 
-               LightDismissOverlayMode="On"
-               IsLightDismissEnabled="True">
-            <Popup.ChildTransitions>
-                <TransitionCollection>
-                    <PaneThemeTransition Edge="Bottom"></PaneThemeTransition>
-                </TransitionCollection>
-            </Popup.ChildTransitions>
-            <RelativePanel Background="Red" Width="500" Height="{Binding ElementName=InsertsPopup, Path=Height}">
-                <TextBlock>HOLA</TextBlock>
-            </RelativePanel>
-        </Popup>-->
         <Popup x:ConnectionId='3' Grid.ColumnSpan="6" Grid.RowSpan="7" x:Name="InsertsPopup"
                LightDismissOverlayMode="On"
                IsLightDismissEnabled="True"
@@ -58,7 +46,9 @@
                         <TextBox x:ConnectionId='27' Margin="0 10 0 10" Header="Apellidos" Width="200"                                                    ></TextBox>
                         <TextBox x:ConnectionId='28' Margin="0 10 0 10" Header="Semestre" Width="200"                                                   ></TextBox>
                         <TextBox x:ConnectionId='29' Margin="0 10 0 10" Header="Carrera" Width="200"                                                  ></TextBox>
-                        <Button x:ConnectionId='30' Margin="0 10 0 0" Width="100" Height="40"                          Content="Agregar"></Button>
+                        <TextBox x:ConnectionId='30' Margin="0 10 0 10" Header="Codigo Postal" Width="200"                                                     ></TextBox>
+                        <TextBox x:ConnectionId='31' Margin="0 10 0 10" Header="Provincia" Width="200"                                                    ></TextBox>
+                        <Button x:ConnectionId='32' Margin="0 10 0 0" Width="100" Height="40"                          Content="Agregar"></Button>
                     </StackPanel>
                 </ScrollViewer>
             </Border>
