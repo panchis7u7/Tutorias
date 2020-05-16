@@ -12,6 +12,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
     {
         public int Id { get; set; }
         public string Categoria { get; set; }
+        public string Grupo { get; set; }
         public string HeadLine { get; set; }
         public string Subhead { get; set; }
         public string DateLine { get; set; }
@@ -38,7 +39,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             //items.Add(new GruposItem() { Id = 1, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Cerdito.png" });
             //items.Add(new GruposItem() { Id = 2, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Antena.png" });
             //items.Add(new GruposItem() { Id = 3, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Social.png" });
-            grupos.ForEach(p => items.Add(new GruposItem() { Id = p.id, Categoria = "Grupos", HeadLine = "Grupo " + p.grupo.Trim(' '), DateLine = p.carrera.Trim(' '), 
+            grupos.ForEach(p => items.Add(new GruposItem() { Id = p.id, Categoria = "Grupos", Grupo = p.grupo.Trim(' '), HeadLine = "Grupo " + p.grupo.Trim(' '), DateLine = p.carrera.Trim(' '), 
                 Subhead = p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '), Imagen = "Assets/Antena.png" }));
             return items;
         }
