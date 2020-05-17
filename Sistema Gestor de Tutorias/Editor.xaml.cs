@@ -23,6 +23,8 @@ using Windows.UI.ViewManagement;
 using Windows.UI;
 using Windows.Storage.Pickers;
 using Windows.Storage;
+using System.Runtime.CompilerServices;
+using Windows.Networking.NetworkOperators;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -37,10 +39,18 @@ namespace Sistema_Gestor_de_Tutorias
         public Editor()
         {
             this.InitializeComponent();
+            guardarBtn = new Button() { Width = 100, Height = 40, Content = "Guardar"};
+            guardarBtn.Tapped += btnGuardar_Tapped;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public Uri Source { get; set; }
+
+        private WordDocument document;
+        private Stream docStream;
+        private string sFilePathWord;
+
+        private Button guardarBtn;
 
         private List<DatePicker> datePickers;
         private List<TextBox> textBoxes;
@@ -52,7 +62,7 @@ namespace Sistema_Gestor_de_Tutorias
         private GridView checkb_grid;
         private GridView combob_grid;
         private StackPanel textbox_sp;
-        
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
@@ -62,8 +72,9 @@ namespace Sistema_Gestor_de_Tutorias
 
             formato_seleccionado = (e.Parameter) as Formato;
             string sFilePath = "Formatos/" + formato_seleccionado.formato_id + ".pdf";
-            string sFilePathWord = "Formatos/" + formato_seleccionado.formato_id + ".docx";
+            sFilePathWord = "Formatos/" + formato_seleccionado.formato_id + ".docx";
             var uri = new Uri("ms-appx:///Formatos/" + formato_seleccionado.formato_id + ".pdf");
+
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
 
@@ -102,7 +113,7 @@ namespace Sistema_Gestor_de_Tutorias
                     incisos.Height = double.NaN;
                     incisos.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
                     incisos.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                    incisos.Margin = new Thickness(10,3,10,3);
+                    incisos.Margin = new Thickness(10, 3, 10, 3);
                     incisos.FlowDirection = FlowDirection.LeftToRight;
                     incisos.Content = textAreas[i] + ")";
                     incisos.Checked += (sender, args) => {
@@ -195,8 +206,8 @@ namespace Sistema_Gestor_de_Tutorias
                             replace(dp.Name, dp.Date.Value.DateTime.ToString("dd/MMMM/yyyy"), sFilePathWord);
                         };
                         combob_grid.Items.Add(dp);
-                    } 
-                    else if (textAreas[i].ToLower().Contains("desarrollo") || textAreas[i].ToLower().Contains("asunto") || textAreas[i].ToLower().Contains("cargo")){
+                    }
+                    else if (textAreas[i].ToLower().Contains("desarrollo") || textAreas[i].ToLower().Contains("asunto") || textAreas[i].ToLower().Contains("cargo")) {
                         RichEditBox info = new RichEditBox();
                         info.Name = textAreas[i];
                         info.Width = double.NaN;
@@ -206,7 +217,12 @@ namespace Sistema_Gestor_de_Tutorias
                         richEditBoxes.Add(info);
                         textbox_sp.Children.Add(info);
                     }
-                    else {
+                    else if (textAreas[i].ToLower().ToLower().Contains("jefe"))
+                    {
+                        //if (textAreas[i].ToLower().Contains("Jefe de Tutorias"));
+                        //replace(Pagina_Configuracion.);
+                    }
+                    else if (textAreas[i] != "Carrera") {
                         ComboBox desplegables = new ComboBox();
                         desplegables.Name = textAreas[i];
                         desplegables.Width = 200;
@@ -217,13 +233,16 @@ namespace Sistema_Gestor_de_Tutorias
                         desplegables.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
                         desplegables.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
                         desplegables.Text = textAreas[i];
+                        desplegables.SelectionChanged += (sender, x) =>
+                        {
+                            replace(desplegables.Name, desplegables.SelectedItem.ToString(), sFilePathWord);
+                        };
                         comboBoxes.Add(desplegables);
                         switch (desplegables.Text)
                         {
                             case "Nombre Docente":
                                 try
                                 {
-
                                     if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
                                     {
                                         String Query = "SELECT * FROM Profesores";
@@ -244,6 +263,7 @@ namespace Sistema_Gestor_de_Tutorias
                                                         p.departamento = reader.GetString(3);
                                                     desplegables.Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
                                                 }
+                                                reader.Close();
                                             }
                                         }
                                     }
@@ -279,84 +299,7 @@ namespace Sistema_Gestor_de_Tutorias
                                                     //resultados.Add(p);
                                                     desplegables.Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
                                                 }
-                                            }
-                                        }
-                                    }
-                                }
-                                catch (Exception eSql)
-                                {
-                                    Debug.WriteLine("Resultados: " + eSql.Message);
-                                }
-                                break;
-
-                            case "Carrera":
-                                try
-                                {
-                                    if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
-                                    {
-                                        string Query = "SELECT DISTINCT carrera FROM Alumnos";
-                                        using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
-                                        {
-                                            cmd.CommandText = Query;
-                                            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                                            {
-                                                desplegables.Items.Clear();
-                                                while (await reader.ReadAsync())
-                                                {
-                                                    Alumnos carreras = new Alumnos();
-                                                    carreras.carrera = reader.GetString(0);
-                                                    desplegables.Items.Add(carreras.carrera);
-                                                }
-                                                desplegables.SelectionChanged += (sender, x) =>
-                                                {
-                                                    comboBoxes.ForEach(async (s) =>
-                                                    {
-                                                        if (s.Name.ToLower().Contains("grupo"))
-                                                        {
-                                                            s.Items.Clear();
-                                                            s.IsEnabled = true;
-                                                            string Query1 = "SELECT DISTINCT grupo FROM Grupos";
-                                                            cmd.CommandText = Query1;
-                                                            using (SqlDataReader reader2 = await cmd.ExecuteReaderAsync())
-                                                            {
-                                                                while (await reader2.ReadAsync())
-                                                                {
-                                                                    Grupos gr = new Grupos();
-                                                                    gr.grupo = reader2.GetString(0);
-                                                                    s.Items.Add(gr.grupo.Trim(' '));
-                                                                }
-                                                                s.SelectionChanged += (send, args) =>
-                                                                {
-                                                                    comboBoxes.ForEach( async (cb) =>
-                                                                    {
-                                                                        if (cb.Name.ToLower().Contains("alumno"))
-                                                                        {
-                                                                            cb.Items.Clear();
-                                                                            cb.IsEnabled = true;
-                                                                            string Query2 = "SELECT nombre, apellidos, matricula FROM Alumnos " +
-                                                                            "INNER JOIN Grupos ON Alumnos.id_alumno = Grupos.id_alumno " +
-                                                                            "AND grupo IN('" + s.SelectedItem.ToString() + "')";
-                                                                            cmd.CommandText = Query2;
-                                                                            using (SqlDataReader reader3 = await cmd.ExecuteReaderAsync())
-                                                                            {
-                                                                                while (await reader3.ReadAsync())
-                                                                                {
-                                                                                    Alumnos al = new Alumnos();
-                                                                                    al.nombre = reader3.GetString(0);
-                                                                                    if (!await reader3.IsDBNullAsync(1))
-                                                                                        al.apellidos = reader3.GetString(1);
-                                                                                    if (!await reader3.IsDBNullAsync(2))
-                                                                                        al.matricula = reader3.GetInt32(2);
-                                                                                    cb.Items.Add(al.nombre.Trim(' ') + " " + al.apellidos.Trim(' ') + " - " + al.matricula);
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    });
-                                                                };
-                                                            }
-                                                        }
-                                                    });
-                                                };
+                                                reader.Close();
                                             }
                                         }
                                     }
@@ -368,13 +311,89 @@ namespace Sistema_Gestor_de_Tutorias
                                 break;
                         }
                         combob_grid.Items.Add(desplegables);
+                    } else
+                    {
+                        try
+                        {
+                            if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
+                            {
+                                string Query = "SELECT DISTINCT carrera FROM Alumnos";
+                                using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
+                                {
+                                    cmd.CommandText = Query;
+                                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                                    {
+                                        comboBoxes[0].Items.Clear();
+                                        comboBoxes[0].SelectionChanged += (sender, args) => {
+                                            replace(comboBoxes[0].Name, comboBoxes[0].SelectedItem.ToString(), sFilePathWord);
+                                        };
+                                        while (await reader.ReadAsync())
+                                        {
+                                            Alumnos carreras = new Alumnos();
+                                            carreras.carrera = reader.GetString(0);
+                                            comboBoxes[0].Items.Add(carreras.carrera.Trim(' '));
+                                        }
+                                        reader.Close();
+                                        comboBoxes[0].SelectionChanged += async (sender, x) =>
+                                        {
+                                            comboBoxes[1].Items.Clear();
+                                            comboBoxes[1].SelectionChanged += (sender2, args) => {
+                                                replace(comboBoxes[1].Name, comboBoxes[1].SelectedItem.ToString(), sFilePathWord);
+                                            };
+                                            comboBoxes[1].IsEnabled = true;
+                                            string Query1 = "SELECT DISTINCT grupo FROM Grupos";
+                                            cmd.CommandText = Query1;
+                                            using (SqlDataReader reader2 = await cmd.ExecuteReaderAsync())
+                                            {
+                                                while (await reader2.ReadAsync())
+                                                {
+                                                    Grupos gr = new Grupos();
+                                                    gr.grupo = reader2.GetString(0);
+                                                    comboBoxes[1].Items.Add(gr.grupo.Trim(' '));
+                                                }
+                                                reader2.Close();
+                                                comboBoxes[1].SelectionChanged += async (send, args) =>
+                                                {
+                                                    comboBoxes[2].Items.Clear();
+                                                    comboBoxes[2].IsEnabled = true;
+                                                    string Query2 = "SELECT nombre, apellidos, matricula FROM Alumnos " +
+                                                    "INNER JOIN Grupos ON Alumnos.id_alumno = Grupos.id_alumno " +
+                                                    "AND grupo IN('" + comboBoxes[1].SelectedItem.ToString() + "')";
+                                                    cmd.CommandText = Query2;
+                                                    using (SqlDataReader reader3 = await cmd.ExecuteReaderAsync())
+                                                    {
+                                                        while (await reader3.ReadAsync())
+                                                        {
+                                                            Alumnos al = new Alumnos();
+                                                            al.nombre = reader3.GetString(0);
+                                                            if (!await reader3.IsDBNullAsync(1))
+                                                                al.apellidos = reader3.GetString(1);
+                                                            if (!await reader3.IsDBNullAsync(2))
+                                                                al.matricula = reader3.GetInt32(2);
+                                                            comboBoxes[2].Items.Add(al.nombre.Trim(' ') + " " + al.apellidos.Trim(' ') + " - " + al.matricula);
+                                                        }
+                                                        reader3.Close();
+                                                    }
+                                                };
+                                            }
+                                        };
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception eSql)
+                        {
+                            Debug.WriteLine("Resultados: " + eSql.Message);
+                        }
                     }
                 }
             }
             primary.Children.Add(combob_grid);
             primary.Children.Add(checkb_grid);
             primary.Children.Add(textbox_sp);
+            primary.Children.Add(guardarBtn);
         }
+
         private async Task<string> pdfTextExtract(string sFilePath)
         {
             string texto;
@@ -408,11 +427,17 @@ namespace Sistema_Gestor_de_Tutorias
             {
                 string[] text = sInput.Split(' ');
                 palabras.Add("Carrera");
-                palabras.Add("Grupo");
-                palabras.Add("Alumno");
+                comboBoxes.Add(new ComboBox() {Name = "Carrera", Width = 200, Margin = new Thickness(10, 3, 10, 3) , Header = "Carrera", PlaceholderText = "Seleccione un item"});
+                comboBoxes.Add(new ComboBox() {Name = "Grupo", Width = 200, Margin = new Thickness(10, 3, 10, 3) , Header = "Grupo", PlaceholderText = "Seleccione un item"});
+                comboBoxes.Add(new ComboBox() {Name = "Alumno", Width = 200, Margin = new Thickness(10, 3, 10, 3) , Header = "Alumnos", PlaceholderText = "Seleccione un item"});
+                combob_grid.Items.Add(comboBoxes[0]);
+                combob_grid.Items.Add(comboBoxes[1]);
+                combob_grid.Items.Add(comboBoxes[2]);
                 foreach (var word in text)
                 {
-                    if ((word.Contains(sTarget1) && word.Contains(sTarget2)) && !(word.ToLower().Contains("carrera") || word.ToLower().Contains("grupo") || word.ToLower().Contains("alumno")))
+                    if ((word.Contains(sTarget1) && word.Contains(sTarget2)) && !(word.ToLower().Contains("carrera") || 
+                        word.ToLower().Contains("grupo") || 
+                        word.ToLower().Contains("alumno")))
                     {
                         string result = word.Replace("_", " ");
                         result = new string((from c in result
@@ -455,34 +480,60 @@ namespace Sistema_Gestor_de_Tutorias
 
         private async void replace(string textToBeReplaced, string text, string formato)
         {
-            using (WordDocument document = new WordDocument())
+            try
             {
-                try
+                //Stream docStream = File.OpenRead(Path.GetFullPath(formato));
+                //await document.OpenAsync(docStream, FormatType.Docx);
+                //docStream.Dispose();
+                //Finds all occurrences of a word and replaces with properly spelled word.
+                if (document == null)
                 {
-                    Stream docStream = File.OpenRead(Path.GetFullPath(formato));
+                    document = new WordDocument();
+                    docStream = File.OpenRead(Path.GetFullPath(sFilePathWord));
                     await document.OpenAsync(docStream, FormatType.Docx);
                     docStream.Dispose();
-                    //Finds all occurrences of a word and replaces with properly spelled word.
+                }
                     document.Replace("<[" + textToBeReplaced + "]>" , text, true, true);
-                    ////Saves the resultant file in the given path.
-                    FileSavePicker savePicker = new FileSavePicker();
-                    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-                    savePicker.SuggestedFileName = "Resultado";
-                    savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-                    //Creates a storage file from FileSavePicker
-                    StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
-                    //Saves changes to the specified storage file
-                    await document.SaveAsync(outputStorageFile, FormatType.Docx);
+                ////Saves the resultant file in the given path.
+                //docStream = File.Create(Path.GetFullPath(@"Formatos/resultado.docx"));
+                //await doc.SaveAsync(docStream, FormatType.Docx);
+                //docStream.Dispose();
+            }
+            catch (Exception ex)
+            {
+                var err = new MessageDialog("Unable to open File! " + ex.Message);
+                await err.ShowAsync();
+            }
+        }
 
-                    //docStream = File.Create(Path.GetFullPath(@"Formatos/resultado.docx"));
-                    //await doc.SaveAsync(docStream, FormatType.Docx);
-                    //docStream.Dispose();
-                }
-                catch (Exception ex)
-                {
-                    var err = new MessageDialog("Unable to open File!");
-                    await err.ShowAsync();
-                }
+        private async void btnGuardar_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            try
+            {
+                //Stream docStream = File.OpenRead(Path.GetFullPath(sFilePathWord));
+                //await document.OpenAsync(docStream, FormatType.Docx);
+                //docStream.Dispose();
+                FileSavePicker savePicker = new FileSavePicker();
+                savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+                savePicker.SuggestedFileName = "Resultado";
+                savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+                //Creates a storage file from FileSavePicker
+                StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
+                //Saves changes to the specified storage file
+                await document.SaveAsync(outputStorageFile, FormatType.Docx);
+            }
+            catch (Exception ex)
+            {
+                var err = new MessageDialog("Unable to open File!");
+                await err.ShowAsync();
+            }
+        }
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }

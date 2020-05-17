@@ -1,4 +1,5 @@
-﻿using Windows.UI;
+﻿using System.ComponentModel;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -14,8 +15,22 @@ namespace Sistema_Gestor_de_Tutorias
     /// 
     public sealed partial class Pagina_Configuracion : Page
     {
-        public string JefeTutoria { get; set; }
-        public string JefeDepartamento { get; set; }
+        private string JefeTutoria;
+
+        public string jefe_tutoria
+        {
+            get { return JefeTutoria; }
+            set { JefeTutoria = value; }
+        }
+
+        private string JefeDepartamento;
+
+        public string jefe_departamento
+        {
+            get { return JefeDepartamento; }
+            set { JefeDepartamento = value; }
+        }
+
         public Page main_page_obj;
         //public NavigationView nav_view_obj;
         public Pagina_Configuracion()
