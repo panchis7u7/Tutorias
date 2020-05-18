@@ -33,17 +33,10 @@ namespace Sistema_Gestor_de_Tutorias
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Editor : Page, INotifyPropertyChanged
+    public sealed partial class Editor : Page
     {
         private Formato formato_seleccionado;
-        public Editor()
-        {
-            this.InitializeComponent();
-            guardarBtn = new Button() { Width = 100, Height = 40, Content = "Guardar"};
-            guardarBtn.Tapped += btnGuardar_Tapped;
-        }
 
-        public event PropertyChangedEventHandler PropertyChanged;
         public Uri Source { get; set; }
 
         private WordDocument document;
@@ -57,11 +50,24 @@ namespace Sistema_Gestor_de_Tutorias
         private List<ComboBox> comboBoxes;
         private List<CheckBox> checkBoxes;
         private List<RichEditBox> richEditBoxes;
+        private List<CalendarDatePicker> calendarDatePickers;
         private List<string> textAreas;
 
         private GridView checkb_grid;
         private GridView combob_grid;
         private StackPanel textbox_sp;
+        public Editor()
+        {
+            this.InitializeComponent();
+            datePickers = new List<DatePicker>();
+            textBoxes = new List<TextBox>();
+            checkBoxes = new List<CheckBox>();
+            comboBoxes = new List<ComboBox>();
+            richEditBoxes = new List<RichEditBox>();
+            calendarDatePickers = new List<CalendarDatePicker>();
+            guardarBtn = new Button() { Width = 100, Height = 40, Content = "Guardar"};
+            guardarBtn.Tapped += btnGuardar_Tapped;
+        }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -77,12 +83,6 @@ namespace Sistema_Gestor_de_Tutorias
 
             Source = uri;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
-
-            datePickers = new List<DatePicker>();
-            textBoxes = new List<TextBox>();
-            checkBoxes = new List<CheckBox>();
-            comboBoxes = new List<ComboBox>();
-            richEditBoxes = new List<RichEditBox>();
 
             #region CheckBox_GridView
             checkb_grid = new GridView();
@@ -131,7 +131,7 @@ namespace Sistema_Gestor_de_Tutorias
                     {
                         TextBox oficio = new TextBox();
                         textBoxes.Add(oficio);
-                        oficio.Name = textAreas[i];
+                        oficio.Name = textAreas[i].Replace(' ', '_');
                         oficio.IsReadOnly = false;
                         oficio.Text = "1";
                         oficio.Margin = new Thickness(10, 3, 10, 3);
@@ -140,15 +140,12 @@ namespace Sistema_Gestor_de_Tutorias
                         oficio.Header = textAreas[i];
                         oficio.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
                         oficio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                        oficio.TextChanged += (sender, args) => {
-                            replace(oficio.Name, oficio.Text, sFilePathWord);
-                        };
                         combob_grid.Items.Add(oficio);
                     }
                     else if (textAreas[i].ToLower().Contains("año"))
                     {
                         DatePicker anio = new DatePicker();
-                        anio.Name = textAreas[i];
+                        anio.Name = textAreas[i].Replace(' ', '_');
                         anio.DayVisible = false;
                         anio.MonthVisible = false;
                         anio.Header = textAreas[i];
@@ -157,9 +154,6 @@ namespace Sistema_Gestor_de_Tutorias
                         anio.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
                         anio.MaxWidth = 200;
                         anio.MinWidth = 190;
-                        anio.DateChanged += (sender, args) => {
-                            replace(anio.Name, anio.Date.DateTime.ToString(), sFilePathWord);
-                        };
                         datePickers.Add(anio);
                         combob_grid.Items.Add(anio);
                     }
@@ -169,7 +163,7 @@ namespace Sistema_Gestor_de_Tutorias
                         DatePicker final = new DatePicker();
                         datePickers.Add(inicio);
                         datePickers.Add(final);
-                        inicio.Name = textAreas[i];
+                        inicio.Name = textAreas[i].Replace(' ', '_');
                         inicio.Header = textAreas[i] + " inicio";
                         inicio.Height = double.NaN;
                         inicio.DayVisible = false;
@@ -179,7 +173,7 @@ namespace Sistema_Gestor_de_Tutorias
                         inicio.DateChanged += (sender, args) => {
                             replace(inicio.Name, inicio.MonthFormat, sFilePathWord);
                         };
-                        final.Name = textAreas[i];
+                        final.Name = textAreas[i].Replace(' ', '_');
                         final.DayVisible = false;
                         final.YearVisible = false;
                         final.Header = textAreas[i] + " final";
@@ -194,7 +188,7 @@ namespace Sistema_Gestor_de_Tutorias
                     else if (textAreas[i].ToLower().Contains("fecha"))
                     {
                         CalendarDatePicker dp = new CalendarDatePicker();
-                        dp.Name = textAreas[i];
+                        dp.Name = textAreas[i].Replace(' ', '_');
                         dp.Header = textAreas[i];
                         dp.Height = double.NaN;
                         dp.Margin = new Thickness(10, 3, 10, 3);
@@ -202,14 +196,12 @@ namespace Sistema_Gestor_de_Tutorias
                         dp.PlaceholderText = "Seleccione la fecha";
                         dp.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
                         dp.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
-                        dp.DateChanged += (sender, args) => {
-                            replace(dp.Name, dp.Date.Value.DateTime.ToString("dd/MMMM/yyyy"), sFilePathWord);
-                        };
+                        calendarDatePickers.Add(dp);
                         combob_grid.Items.Add(dp);
                     }
                     else if (textAreas[i].ToLower().Contains("desarrollo") || textAreas[i].ToLower().Contains("asunto") || textAreas[i].ToLower().Contains("cargo")) {
                         RichEditBox info = new RichEditBox();
-                        info.Name = textAreas[i];
+                        info.Name = textAreas[i].Replace(' ', '_');
                         info.Width = double.NaN;
                         info.Height = 100;
                         info.Header = textAreas[i];
@@ -224,7 +216,7 @@ namespace Sistema_Gestor_de_Tutorias
                     }
                     else if (textAreas[i] != "Carrera") {
                         ComboBox desplegables = new ComboBox();
-                        desplegables.Name = textAreas[i];
+                        desplegables.Name = textAreas[i].Replace(' ', '_');
                         desplegables.Width = 200;
                         desplegables.Margin = new Thickness(10, 3, 10, 3);
                         desplegables.Height = double.NaN;
@@ -233,14 +225,10 @@ namespace Sistema_Gestor_de_Tutorias
                         desplegables.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
                         desplegables.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
                         desplegables.Text = textAreas[i];
-                        desplegables.SelectionChanged += (sender, x) =>
-                        {
-                            replace(desplegables.Name, desplegables.SelectedItem.ToString(), sFilePathWord);
-                        };
                         comboBoxes.Add(desplegables);
-                        switch (desplegables.Text)
+                        switch (desplegables.Name)
                         {
-                            case "Nombre Docente":
+                            case "Nombre_Docente":
                                 try
                                 {
                                     if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
@@ -274,7 +262,7 @@ namespace Sistema_Gestor_de_Tutorias
                                 }
                                 break;
 
-                            case "Nombre Tutor":
+                            case "Nombre_Tutor":
                                 try
                                 {
 
@@ -324,9 +312,6 @@ namespace Sistema_Gestor_de_Tutorias
                                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                                     {
                                         comboBoxes[0].Items.Clear();
-                                        comboBoxes[0].SelectionChanged += (sender, args) => {
-                                            replace(comboBoxes[0].Name, comboBoxes[0].SelectedItem.ToString(), sFilePathWord);
-                                        };
                                         while (await reader.ReadAsync())
                                         {
                                             Alumnos carreras = new Alumnos();
@@ -337,9 +322,6 @@ namespace Sistema_Gestor_de_Tutorias
                                         comboBoxes[0].SelectionChanged += async (sender, x) =>
                                         {
                                             comboBoxes[1].Items.Clear();
-                                            comboBoxes[1].SelectionChanged += (sender2, args) => {
-                                                replace(comboBoxes[1].Name, comboBoxes[1].SelectedItem.ToString(), sFilePathWord);
-                                            };
                                             comboBoxes[1].IsEnabled = true;
                                             string Query1 = "SELECT DISTINCT grupo FROM Grupos";
                                             cmd.CommandText = Query1;
@@ -413,8 +395,7 @@ namespace Sistema_Gestor_de_Tutorias
             }
             catch (Exception Ex)
             {
-                var err = new MessageDialog("Unable to open File!: " + Ex.Message);
-                await err.ShowAsync();
+                await new MessageDialog("Error al abrir archivo: " + Ex.Message).ShowAsync();
                 return null;
             }
             return texto;
@@ -427,22 +408,22 @@ namespace Sistema_Gestor_de_Tutorias
             {
                 string[] text = sInput.Split(' ');
                 palabras.Add("Carrera");
-                comboBoxes.Add(new ComboBox() {Name = "Carrera", Width = 200, Margin = new Thickness(10, 3, 10, 3) , Header = "Carrera", PlaceholderText = "Seleccione un item"});
-                comboBoxes.Add(new ComboBox() {Name = "Grupo", Width = 200, Margin = new Thickness(10, 3, 10, 3) , Header = "Grupo", PlaceholderText = "Seleccione un item"});
-                comboBoxes.Add(new ComboBox() {Name = "Alumno", Width = 200, Margin = new Thickness(10, 3, 10, 3) , Header = "Alumnos", PlaceholderText = "Seleccione un item"});
+                comboBoxes.Add(new ComboBox() { Name = "Carrera", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Carrera", PlaceholderText = "Seleccione un item" });
+                comboBoxes.Add(new ComboBox() { Name = "Grupo", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Grupo", PlaceholderText = "Seleccione un item" });
+                comboBoxes.Add(new ComboBox() { Name = "Alumno", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Alumnos", PlaceholderText = "Seleccione un item" });
                 combob_grid.Items.Add(comboBoxes[0]);
                 combob_grid.Items.Add(comboBoxes[1]);
                 combob_grid.Items.Add(comboBoxes[2]);
                 foreach (var word in text)
                 {
-                    if ((word.Contains(sTarget1) && word.Contains(sTarget2)) && !(word.ToLower().Contains("carrera") || 
-                        word.ToLower().Contains("grupo") || 
+                    if ((word.Contains(sTarget1) && word.Contains(sTarget2)) && !(word.ToLower().Contains("carrera") ||
+                        word.ToLower().Contains("grupo") ||
                         word.ToLower().Contains("alumno")))
                     {
                         string result = word.Replace("_", " ");
                         result = new string((from c in result
-                                           where char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)
-                                           select c).ToArray());
+                                             where char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)
+                                             select c).ToArray());
                         result = result.Replace("\n", "").Replace("\r", "");
                         palabras.Add(result);
                     }
@@ -450,6 +431,7 @@ namespace Sistema_Gestor_de_Tutorias
                 return palabras;
             } catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 return null;
             }
         }
@@ -482,22 +464,7 @@ namespace Sistema_Gestor_de_Tutorias
         {
             try
             {
-                //Stream docStream = File.OpenRead(Path.GetFullPath(formato));
-                //await document.OpenAsync(docStream, FormatType.Docx);
-                //docStream.Dispose();
-                //Finds all occurrences of a word and replaces with properly spelled word.
-                if (document == null)
-                {
-                    document = new WordDocument();
-                    docStream = File.OpenRead(Path.GetFullPath(sFilePathWord));
-                    await document.OpenAsync(docStream, FormatType.Docx);
-                    docStream.Dispose();
-                }
-                    document.Replace("<[" + textToBeReplaced + "]>" , text, true, true);
-                ////Saves the resultant file in the given path.
-                //docStream = File.Create(Path.GetFullPath(@"Formatos/resultado.docx"));
-                //await doc.SaveAsync(docStream, FormatType.Docx);
-                //docStream.Dispose();
+                document.Replace("<[" + textToBeReplaced + "]>", text, true, true);
             }
             catch (Exception ex)
             {
@@ -510,30 +477,59 @@ namespace Sistema_Gestor_de_Tutorias
         {
             try
             {
-                //Stream docStream = File.OpenRead(Path.GetFullPath(sFilePathWord));
-                //await document.OpenAsync(docStream, FormatType.Docx);
-                //docStream.Dispose();
+                if (document != null)
+                {
+                    document.Close();
+                    document = null;
+                }
+                if (document == null)
+                {
+                    document = new WordDocument();
+                    docStream = File.OpenRead(Path.GetFullPath(sFilePathWord));
+                    await document.OpenAsync(docStream, FormatType.Docx);
+                    docStream.Dispose();
+                }
+                foreach (var x in textBoxes)
+                {
+                    replace(x.Name, x.Text, sFilePathWord);
+                }
+                foreach (var z in richEditBoxes)
+                {
+                    string valor;
+                    z.TextDocument.GetText(Windows.UI.Text.TextGetOptions.None, out valor);
+                    replace(z.Name, valor, sFilePathWord);
+                }
+                foreach (var x in comboBoxes)
+                {
+                    if (x.SelectedItem == null)
+                        replace(x.Name, "", sFilePathWord);
+                    else
+                        replace(x.Name, x.SelectedItem.ToString(), sFilePathWord);
+                }
+                foreach (var anio in datePickers)
+                {
+                    if (anio.SelectedDate == null)
+                        anio.SelectedDate = DateTime.UtcNow;
+                    replace(anio.Name, anio.Date.DateTime.ToString("yyyy"), sFilePathWord);
+                }
+                foreach (var dp in calendarDatePickers) 
+                {
+                    if (dp.Date.Value.DateTime == null)
+                        dp.Date = DateTime.UtcNow;
+                    replace(dp.Name, dp.Date.Value.DateTime.ToString("dd/MMMM/yyyy"), sFilePathWord);
+                }
+
                 FileSavePicker savePicker = new FileSavePicker();
                 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
                 savePicker.SuggestedFileName = "Resultado";
                 savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-                //Creates a storage file from FileSavePicker
                 StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
-                //Saves changes to the specified storage file
                 await document.SaveAsync(outputStorageFile, FormatType.Docx);
             }
             catch (Exception ex)
             {
-                var err = new MessageDialog("Unable to open File!");
+                var err = new MessageDialog("Unable to open File!" + ex.Message);
                 await err.ShowAsync();
-            }
-        }
-
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
