@@ -134,6 +134,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\CiudadesEstados.cs" />
     <Compile Include="Modelos\Formato.cs" />
     <Compile Include="Modelos\GruposItem.cs" />
     <Compile Include="Modelos\ISubscriber.cs" />

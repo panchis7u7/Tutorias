@@ -230,5 +230,12 @@ namespace Sistema_Gestor_de_Tutorias
                             var err = new MessageDialog(info_alumnos.matricula + info_alumnos.nombre + info_alumnos.apellidos);
             await err.ShowAsync();
         }
+
+        private void InventoryList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //await new MessageDialog("Error!").ShowAsync();
+            InsertsPopup.IsOpen = true;
+            info_alumnos = new InfoAlumnos();
+        }
     }
 }

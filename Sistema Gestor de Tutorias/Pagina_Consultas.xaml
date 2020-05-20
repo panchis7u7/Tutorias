@@ -62,6 +62,8 @@
                   ScrollViewer.HorizontalScrollMode="Enabled"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   ScrollViewer.IsHorizontalRailEnabled="True"
+                  IsItemClickEnabled="True"
+                  ItemClick="InventoryList_ItemClick"
                   HorizontalAlignment="Stretch">
                 <ListView.HeaderTemplate>
                     <DataTemplate>

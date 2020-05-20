@@ -7,7 +7,6 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using Sistema_Gestor_de_Tutorias.Modelos;
 using iText.Kernel.Pdf;
@@ -23,8 +22,8 @@ using Windows.UI.ViewManagement;
 using Windows.UI;
 using Windows.Storage.Pickers;
 using Windows.Storage;
-using System.Runtime.CompilerServices;
-using Windows.Networking.NetworkOperators;
+using System.ComponentModel;
+using System.Globalization;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,7 +32,7 @@ namespace Sistema_Gestor_de_Tutorias
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Editor : Page
+    public sealed partial class Editor : Page, INotifyPropertyChanged
     {
         private Formato formato_seleccionado;
 
@@ -56,6 +55,9 @@ namespace Sistema_Gestor_de_Tutorias
         private GridView checkb_grid;
         private GridView combob_grid;
         private StackPanel textbox_sp;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public Editor()
         {
             this.InitializeComponent();
@@ -82,7 +84,6 @@ namespace Sistema_Gestor_de_Tutorias
             var uri = new Uri("ms-appx:///Formatos/" + formato_seleccionado.formato_id + ".pdf");
 
             Source = uri;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Source)));
 
             #region CheckBox_GridView
             checkb_grid = new GridView();
@@ -142,48 +143,24 @@ namespace Sistema_Gestor_de_Tutorias
                         oficio.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
                         combob_grid.Items.Add(oficio);
                     }
-                    else if (textAreas[i].ToLower().Contains("año"))
+                    else if (textAreas[i].ToLower().Contains("año") || textAreas[i].ToLower().Contains("periodo"))
                     {
-                        DatePicker anio = new DatePicker();
-                        anio.Name = textAreas[i].Replace(' ', '_');
-                        anio.DayVisible = false;
-                        anio.MonthVisible = false;
-                        anio.Header = textAreas[i];
-                        anio.Margin = new Thickness(10, 3, 10, 3);
-                        anio.Height = double.NaN;
-                        anio.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
-                        anio.MaxWidth = 200;
-                        anio.MinWidth = 190;
-                        datePickers.Add(anio);
-                        combob_grid.Items.Add(anio);
-                    }
-                    else if (textAreas[i].ToLower().Contains("periodo"))
-                    {
-                        DatePicker inicio = new DatePicker();
-                        DatePicker final = new DatePicker();
-                        datePickers.Add(inicio);
-                        datePickers.Add(final);
-                        inicio.Name = textAreas[i].Replace(' ', '_');
-                        inicio.Header = textAreas[i] + " inicio";
-                        inicio.Height = double.NaN;
-                        inicio.DayVisible = false;
-                        inicio.YearVisible = false;
-                        inicio.MaxWidth = 200;
-                        inicio.Margin = new Thickness(10, 3, 10, 3);
-                        inicio.DateChanged += (sender, args) => {
-                            replace(inicio.Name, inicio.MonthFormat, sFilePathWord);
-                        };
-                        final.Name = textAreas[i].Replace(' ', '_');
-                        final.DayVisible = false;
-                        final.YearVisible = false;
-                        final.Header = textAreas[i] + " final";
-                        final.Height = double.NaN;
-                        final.Margin = new Thickness(10, 3, 10, 3);
-                        final.DateChanged += (sender, args) => {
-                            replace(final.Name, final.MonthFormat, sFilePathWord);
-                        };
-                        combob_grid.Items.Add(inicio);
-                        combob_grid.Items.Add(final);
+                        DatePicker fecha = new DatePicker();
+                        if (textAreas[i].ToLower().Contains("año")) {
+                            fecha.DayVisible = false;
+                            fecha.MonthVisible = false;
+                        } else {
+                            fecha.DayVisible = false;
+                            fecha.YearVisible = false;
+                        }
+                        fecha.Name = textAreas[i].Replace(' ', '_');
+                        fecha.CharacterSpacing = 0;
+                        fecha.Header = textAreas[i];
+                        fecha.Margin = new Thickness(10, 3, 10, 3);
+                        fecha.Height = double.NaN;
+                        fecha.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
+                        datePickers.Add(fecha);
+                        combob_grid.Items.Add(fecha);
                     }
                     else if (textAreas[i].ToLower().Contains("fecha"))
                     {
@@ -260,6 +237,21 @@ namespace Sistema_Gestor_de_Tutorias
                                 {
                                     Debug.WriteLine("Resultados: " + eSql.Message);
                                 }
+                                break;
+
+                            case "Ciudad_Estado":
+                                //RegionInfo country = new RegionInfo(new CultureInfo("es-MX", false).LCID);
+                                //List<string> countryNames = new List<string>();
+                                //foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
+                                //{
+                                //    country = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
+                                //    countryNames.Add(country.DisplayName.ToString());
+                                //}
+                                //IEnumerable<string> nameAdded = countryNames.OrderBy(names => names).Distinct();
+                                //foreach (string item in nameAdded) {
+                                //    desplegables.Items.Add(item);
+                                //}
+                                CiudadesEstados.getCiudadesEstados().ForEach(p => desplegables.Items.Add(p.Estado +", "+ p.Capital));
                                 break;
 
                             case "Nombre_Tutor":
@@ -411,13 +403,17 @@ namespace Sistema_Gestor_de_Tutorias
                 comboBoxes.Add(new ComboBox() { Name = "Carrera", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Carrera", PlaceholderText = "Seleccione un item" });
                 comboBoxes.Add(new ComboBox() { Name = "Grupo", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Grupo", PlaceholderText = "Seleccione un item" });
                 comboBoxes.Add(new ComboBox() { Name = "Alumno", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Alumnos", PlaceholderText = "Seleccione un item" });
+                //comboBoxes.Add(new ComboBox() { Name = "Estado", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Estados", PlaceholderText = "Seleccione un item" });
+                //comboBoxes.Add(new ComboBox() { Name = "Ciudad", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Ciudades", PlaceholderText = "Seleccione un item" });
                 combob_grid.Items.Add(comboBoxes[0]);
                 combob_grid.Items.Add(comboBoxes[1]);
                 combob_grid.Items.Add(comboBoxes[2]);
+                //combob_grid.Items.Add(comboBoxes[3]);
+                //combob_grid.Items.Add(comboBoxes[4]);
                 foreach (var word in text)
                 {
                     if ((word.Contains(sTarget1) && word.Contains(sTarget2)) && !(word.ToLower().Contains("carrera") ||
-                        word.ToLower().Contains("grupo") ||
+                        word.ToLower().Contains("grupo") || 
                         word.ToLower().Contains("alumno")))
                     {
                         string result = word.Replace("_", " ");
@@ -506,11 +502,17 @@ namespace Sistema_Gestor_de_Tutorias
                     else
                         replace(x.Name, x.SelectedItem.ToString(), sFilePathWord);
                 }
-                foreach (var anio in datePickers)
+                foreach (var fecha in datePickers)
                 {
-                    if (anio.SelectedDate == null)
-                        anio.SelectedDate = DateTime.UtcNow;
-                    replace(anio.Name, anio.Date.DateTime.ToString("yyyy"), sFilePathWord);
+                    if (fecha.SelectedDate == null)
+                        fecha.SelectedDate = DateTime.UtcNow;
+                    if (fecha.Name.ToLower().Contains("año"))
+                    {
+                        replace(fecha.Name, fecha.Date.DateTime.ToString("yyyy"), sFilePathWord);
+                    } else
+                    {
+                        replace(fecha.Name, fecha.Date.DateTime.ToString("MMMM"), sFilePathWord);
+                    }
                 }
                 foreach (var dp in calendarDatePickers) 
                 {

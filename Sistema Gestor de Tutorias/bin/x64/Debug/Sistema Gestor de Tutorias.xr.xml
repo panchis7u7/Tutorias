@@ -197,10 +197,12 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Name" />
       <RootProperty Name="SelectionMode" />
+      <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="HeaderTemplate" />
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="ItemContainerStyle" />
+      <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="IsVerticalRailEnabled" />
