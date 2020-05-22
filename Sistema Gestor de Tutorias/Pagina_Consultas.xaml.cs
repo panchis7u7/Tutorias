@@ -28,6 +28,7 @@ namespace Sistema_Gestor_de_Tutorias
         private int ultimoIdProvincias;
         private int ultimoIdTutores;
         private int idTutorSeleccionado;
+        private InfoAlumnos listItemSeleccionado;
         private InfoAlumnos info_alumnos;
         private ObservableCollection<InfoAlumnos> AlumnosPtr;
         public GruposItem grupo_seleccionado;
@@ -79,19 +80,19 @@ namespace Sistema_Gestor_de_Tutorias
                                 if (!await reader.IsDBNullAsync(1))
                                     info_alumnos.matricula = reader.GetInt32(1);
                                 if (!await reader.IsDBNullAsync(2))
-                                    info_alumnos.nombre = reader.GetString(2);
+                                    info_alumnos.nombre = reader.GetString(2).Trim(' ');
                                 if (!await reader.IsDBNullAsync(3))
-                                    info_alumnos.apellidos = reader.GetString(3);
+                                    info_alumnos.apellidos = reader.GetString(3).Trim(' ');
                                 if (!await reader.IsDBNullAsync(4))
                                     info_alumnos.semestre = reader.GetInt32(4);
                                 if (!await reader.IsDBNullAsync(5))
-                                    info_alumnos.carrera = reader.GetString(5);
+                                    info_alumnos.carrera = reader.GetString(5).Trim(' ');
                                 if (!await reader.IsDBNullAsync(6))
                                     info_alumnos.id_provincia = reader.GetInt32(6);
                                 if (!await reader.IsDBNullAsync(7))
                                     info_alumnos.cod_postal = reader.GetInt32(7);
                                 if (!await reader.IsDBNullAsync(8))
-                                    info_alumnos.provincia= reader.GetString(8);
+                                    info_alumnos.provincia= reader.GetString(8).Trim(' ');
                                 alumnos.Add(info_alumnos);
                             }
                         }
@@ -149,8 +150,14 @@ namespace Sistema_Gestor_de_Tutorias
             InventoryList.ItemsSource = AlumnosPtr;
         }
 
-        private async void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void btn_Agregar_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            btn_Agregar_Popup.IsEnabled = true;
+            btn_Agregar_Popup.Visibility = Visibility.Visible;
+            btn_Actualizar.IsEnabled = false;
+            btn_Actualizar.Visibility = Visibility.Collapsed;
+            btn_Baja.IsEnabled = false;
+            btn_Baja.Visibility = Visibility.Collapsed;
             InsertsPopup.IsOpen = true;
             info_alumnos = new InfoAlumnos();
 
@@ -184,58 +191,147 @@ namespace Sistema_Gestor_de_Tutorias
                 this.InsertsPopup.VerticalOffset = NewVerticalOffset;
             }
         }
-        private async void Button_Tapped_1(object sender, TappedRoutedEventArgs e)
+        private async void Alta_Popup(object sender, TappedRoutedEventArgs e)
         {
+            //var btn = sender as Button;
+            //if (btn.Content = )
             var conexion = (App.Current as App).conexionBD;
             string[] Query = {"INSERT INTO Alumnos (id_alumno, matricula, nombre, apellidos, semestre, carrera) VALUES (@id_a, @m, @n, @a, @s, @c)",
-                               "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_p, @cp, @p)",
-                               "INSERT INTO ResidenciasAlumnos (id_alumno, id_provincia) VALUES (@id_fa, @id_fp)",
-                               "INSERT INTO Grupos (id_alumno, id_tutor, grupo) VALUES (@id_tfa, @id_ft, @g)"};
+                              "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_p, @cp, @p)",
+                              "INSERT INTO ResidenciasAlumnos (id_alumno, id_provincia) VALUES (@id_fa, @id_fp)",
+                              "INSERT INTO Grupos (id_alumno, id_tutor, grupo) VALUES (@id_tfa, @id_ft, @g)"};
             {
 
                 SqlCommand cmd = conexion.CreateCommand();
                 cmd.CommandText = Query[0];
-                int result;
                 cmd.Parameters.AddWithValue("@id_a", ultimoIdAlumnos);
                 cmd.Parameters.AddWithValue("@m", info_alumnos.matricula);
                 cmd.Parameters.AddWithValue("@n", info_alumnos.nombre);
                 cmd.Parameters.AddWithValue("@a", info_alumnos.apellidos);
                 cmd.Parameters.AddWithValue("@s", info_alumnos.semestre);
                 cmd.Parameters.AddWithValue("@c", info_alumnos.carrera);
-                result = await cmd.ExecuteNonQueryAsync();
+                if (await cmd.ExecuteNonQueryAsync() < 0)
+                       await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
                 cmd.CommandText = Query[1];
                 cmd.Parameters.AddWithValue("@id_p", ultimoIdProvincias);
                 cmd.Parameters.AddWithValue("@cp", info_alumnos.cod_postal);
                 cmd.Parameters.AddWithValue("@p", info_alumnos.provincia);
-                result = await cmd.ExecuteNonQueryAsync();
+                if (await cmd.ExecuteNonQueryAsync() < 0)
+                    await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
                 cmd.CommandText = Query[2];
                 cmd.Parameters.AddWithValue("@id_fa", ultimoIdAlumnos);
                 cmd.Parameters.AddWithValue("@id_fp", ultimoIdProvincias);
-                result = await cmd.ExecuteNonQueryAsync();
+                if (await cmd.ExecuteNonQueryAsync() < 0)
+                    await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
                 cmd.CommandText = Query[3];
                 cmd.Parameters.AddWithValue("@id_tfa", ultimoIdAlumnos);
                 cmd.Parameters.AddWithValue("@id_ft", idTutorSeleccionado);
                 cmd.Parameters.AddWithValue("@g", grupo_seleccionado.Grupo);
-                result = await cmd.ExecuteNonQueryAsync();
+                if (await cmd.ExecuteNonQueryAsync() < 0)
+                    await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
                 AlumnosPtr.Add(info_alumnos);
-
-                // Check Error
-                if (result < 0)
-                    await new MessageDialog("Error insertando informacion a la base de datos!").ShowAsync();
             }
-                            var err = new MessageDialog(info_alumnos.matricula + info_alumnos.nombre + info_alumnos.apellidos);
-            await err.ShowAsync();
         }
 
         private void InventoryList_ItemClick(object sender, ItemClickEventArgs e)
         {
             //await new MessageDialog("Error!").ShowAsync();
+            btn_Agregar_Popup.IsEnabled = false;
+            btn_Agregar_Popup.Visibility = Visibility.Collapsed;
+            btn_Baja.IsEnabled = true;
+            btn_Baja.Visibility = Visibility.Visible;
+            btn_Actualizar.IsEnabled = true;
+            btn_Actualizar.Visibility = Visibility.Visible;
+            listItemSeleccionado = e.ClickedItem as InfoAlumnos;
+            txtbx_matricula.Text = listItemSeleccionado.matricula + "";
+            txtbx_Nombre.Text = listItemSeleccionado.nombre;
+            txtbx_apellidos.Text = listItemSeleccionado.apellidos;
+            txtbx_semestre.Text = listItemSeleccionado.semestre + "";
+            txtbx_carrera.Text = listItemSeleccionado.carrera;
+            txtbx_codigo_postal.Text = listItemSeleccionado.cod_postal + "";
+            txtbx_provincia.Text = listItemSeleccionado.provincia;
             InsertsPopup.IsOpen = true;
-            info_alumnos = new InfoAlumnos();
+        }
+
+        private async void btn_Baja_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (listItemSeleccionado != null) {
+                try
+                {
+                    var conexion = (App.Current as App).conexionBD;
+                    string[] Query = { "DELETE FROM Alumnos WHERE id_alumno = " + listItemSeleccionado.id_alumno,
+                                       "DELETE FROM Provincias WHERE id_provincia = " + listItemSeleccionado.id_provincia,
+                                       "DELETE FROM ResidenciasAlumnos WHERE id_alumno = " + listItemSeleccionado.id_alumno,
+                                       "DELETE FROM Grupos WHERE id_alumno = " + listItemSeleccionado.id_alumno};
+                    SqlCommand cmd = conexion.CreateCommand();
+                    cmd.CommandText = Query[0];
+                    if (await cmd.ExecuteNonQueryAsync() < 0)
+                        await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                    cmd.CommandText = Query[1];
+                    if (await cmd.ExecuteNonQueryAsync() < 0)
+                        await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                    cmd.CommandText = Query[2];
+                    if (await cmd.ExecuteNonQueryAsync() < 0)
+                        await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                    cmd.CommandText = Query[3];
+                    if (await cmd.ExecuteNonQueryAsync() < 0)
+                        await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                    foreach(var alumno in AlumnosPtr)
+                    {
+                        if(alumno.id_alumno == listItemSeleccionado.id_alumno)
+                        {
+                            AlumnosPtr.Remove(alumno);
+                            break;
+                        }
+                    }
+                } catch (Exception eSql)
+                {
+                    await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                }
+            }
+        }
+
+        private async void btn_Actualizar_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (listItemSeleccionado != null)
+            {
+                try
+                {
+                    var conexion = (App.Current as App).conexionBD;
+                    string[] Query = {"UPDATE Alumnos SET matricula = " + txtbx_matricula.Text + ", nombre = '" + txtbx_Nombre.Text + "', apellidos = '" + txtbx_apellidos.Text
+                                   + "', semestre = " + txtbx_semestre.Text + ", carrera = '" + txtbx_carrera.Text + "' WHERE id_alumno = " + listItemSeleccionado.id_alumno,
+                                     "UPDATE Provincias SET cod_postal = " + txtbx_codigo_postal.Text + ", provincia = '" + txtbx_provincia.Text +
+                                     "' WHERE id_provincia = " + listItemSeleccionado.id_provincia};
+                    SqlCommand cmd = conexion.CreateCommand();
+                    cmd.CommandText = Query[0];
+                    if (await cmd.ExecuteNonQueryAsync() < 0)
+                        await new MessageDialog("Error actualizando la fila de la base de datos!").ShowAsync();
+                    cmd.CommandText = Query[1];
+                    if (await cmd.ExecuteNonQueryAsync() < 0)
+                        await new MessageDialog("Error actualizando la fila de la base de datos!").ShowAsync();
+                    foreach(var alumno in AlumnosPtr)
+                    {
+                        if (alumno.id_alumno == listItemSeleccionado.id_alumno)
+                        {
+                            alumno.matricula = int.Parse(txtbx_matricula.Text);
+                            alumno.nombre = txtbx_Nombre.Text;
+                            alumno.apellidos = txtbx_apellidos.Text;
+                            alumno.semestre = int.Parse(txtbx_semestre.Text);
+                            alumno.carrera = txtbx_carrera.Text;
+                            alumno.cod_postal = int.Parse(txtbx_codigo_postal.Text);
+                            alumno.provincia = txtbx_provincia.Text;
+                            break;
+                        }
+                    }
+                } catch (Exception eSql)
+                {
+                    await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                }
+            }
         }
     }
 }

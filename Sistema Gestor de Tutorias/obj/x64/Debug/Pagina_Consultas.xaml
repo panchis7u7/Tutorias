@@ -27,9 +27,9 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel x:ConnectionId='2' Padding="10 10 10 10" x:Name="header" Grid.Column="4" Grid.Row="1">
-            <TextBlock x:ConnectionId='33' FontSize="40" Margin="0 0 0 10"                                           ></TextBlock>
+            <TextBlock x:ConnectionId='35' FontSize="40" Margin="0 0 0 10"                                           ></TextBlock>
             <TextBlock FontSize="30"  Margin="0 0 0 15">Agregar Alumno</TextBlock>
-            <Button x:ConnectionId='34'                        Content="Agregar" Height="40" Width="100"></Button>
+            <Button x:ConnectionId='36'                             Content="Agregar" Height="40" Width="100"></Button>
         </StackPanel>
         <Popup x:ConnectionId='3' Grid.ColumnSpan="6" Grid.RowSpan="7" x:Name="InsertsPopup"
                LightDismissOverlayMode="On"
@@ -39,16 +39,18 @@
                 Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                 BorderThickness="2" Width="auto" Height="auto">
                 <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto">
-                    <StackPanel Padding="20" Width="auto" HorizontalAlignment="Left">
+                    <StackPanel Padding="20" Width="300" HorizontalAlignment="Left">
                         <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Alumno</TextBlock>
-                        <TextBox x:ConnectionId='25' Margin="0 10 0 10" Header="Matricula" Width="200"                                                    ></TextBox>
-                        <TextBox x:ConnectionId='26' Margin="0 10 0 10" Header="Nombre" Width="200"                                                 ></TextBox>
-                        <TextBox x:ConnectionId='27' Margin="0 10 0 10" Header="Apellidos" Width="200"                                                    ></TextBox>
-                        <TextBox x:ConnectionId='28' Margin="0 10 0 10" Header="Semestre" Width="200"                                                   ></TextBox>
-                        <TextBox x:ConnectionId='29' Margin="0 10 0 10" Header="Carrera" Width="200"                                                  ></TextBox>
-                        <TextBox x:ConnectionId='30' Margin="0 10 0 10" Header="Codigo Postal" Width="200"                                                     ></TextBox>
-                        <TextBox x:ConnectionId='31' Margin="0 10 0 10" Header="Provincia" Width="200"                                                    ></TextBox>
-                        <Button x:ConnectionId='32' Margin="0 10 0 0" Width="100" Height="40"                          Content="Agregar"></Button>
+                        <TextBox x:ConnectionId='25' x:Name="txtbx_matricula" Margin="0 10 0 10" Header="Matricula" Width="200"                                                    ></TextBox>
+                        <TextBox x:ConnectionId='26' x:Name="txtbx_Nombre" Margin="0 10 0 10" Header="Nombre" Width="200"                                                 ></TextBox>
+                        <TextBox x:ConnectionId='27' x:Name="txtbx_apellidos" Margin="0 10 0 10" Header="Apellidos" Width="200"                                                    ></TextBox>
+                        <TextBox x:ConnectionId='28' x:Name="txtbx_semestre" Margin="0 10 0 10" Header="Semestre" Width="200"                                                   ></TextBox>
+                        <TextBox x:ConnectionId='29' x:Name="txtbx_carrera" Margin="0 10 0 10" Header="Carrera" Width="200"                                                  ></TextBox>
+                        <TextBox x:ConnectionId='30' x:Name="txtbx_codigo_postal" Margin="0 10 0 10" Header="Codigo Postal" Width="200"                                                     ></TextBox>
+                        <TextBox x:ConnectionId='31' x:Name="txtbx_provincia" Margin="0 10 0 10" Header="Provincia" Width="200"                                                    ></TextBox>
+                        <Button x:ConnectionId='32' x:Name="btn_Agregar_Popup" Margin="0 10 0 0" Width="100" Height="40"                     Content="Agregar"></Button>
+                        <Button x:ConnectionId='33' x:Name="btn_Baja" Margin="0 10 0 0" Width="100" Height="40"                          Content="Eliminar"></Button>
+                        <Button x:ConnectionId='34' x:Name="btn_Actualizar" Margin="0 10 0 0" Width="100" Height="40"                                Content="Actualizar"></Button>
                     </StackPanel>
                 </ScrollViewer>
             </Border>

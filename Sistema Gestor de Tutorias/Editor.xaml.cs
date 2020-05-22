@@ -23,7 +23,6 @@ using Windows.UI;
 using Windows.Storage.Pickers;
 using Windows.Storage;
 using System.ComponentModel;
-using System.Globalization;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -251,7 +250,7 @@ namespace Sistema_Gestor_de_Tutorias
                                 //foreach (string item in nameAdded) {
                                 //    desplegables.Items.Add(item);
                                 //}
-                                CiudadesEstados.getCiudadesEstados().ForEach(p => desplegables.Items.Add(p.Estado +", "+ p.Capital));
+                                CiudadesEstados.getCiudadesEstados().ForEach(p => desplegables.Items.Add(p.Capital +", "+ p.Estado));
                                 break;
 
                             case "Nombre_Tutor":
