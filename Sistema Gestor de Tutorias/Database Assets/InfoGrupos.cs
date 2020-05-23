@@ -7,5 +7,6 @@
         public string nombre { get; set; }
         public string apellidos { get; set; }
         public string carrera { get; set; }
+        public int semestre { get; set; }
     }
 }

@@ -47,8 +47,13 @@
                        FontSize="18"
                        TextWrapping="Wrap"></TextBlock>
             <TextBlock Text="{x:Bind GruposItem.Subhead}"
+                       x:Name="SubHeadTextBlock"
                        RelativePanel.Below="HeadLineTextBlock"
                        Foreground="Black" 
+                       TextWrapping="Wrap"></TextBlock>
+            <TextBlock Text="{x:Bind GruposItem.Semestre}"
+                       RelativePanel.Below="SubHeadTextBlock"
+                       Foreground="Black"
                        TextWrapping="Wrap"></TextBlock>
             <TextBlock Text="{x:Bind GruposItem.DateLine}"
                        RelativePanel.AlignBottomWithPanel="True"

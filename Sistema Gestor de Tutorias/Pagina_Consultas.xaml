@@ -45,7 +45,7 @@
                         <TextBox x:Name="txtbx_Nombre" Margin="0 10 0 10" Header="Nombre" Width="200" Text="{x:Bind info_alumnos.nombre, Mode=TwoWay}"></TextBox>
                         <TextBox x:Name="txtbx_apellidos" Margin="0 10 0 10" Header="Apellidos" Width="200" Text="{x:Bind info_alumnos.apellidos, Mode=TwoWay}"></TextBox>
                         <TextBox x:Name="txtbx_semestre" Margin="0 10 0 10" Header="Semestre" Width="200" Text="{x:Bind info_alumnos.semestre, Mode=TwoWay}"></TextBox>
-                        <TextBox x:Name="txtbx_carrera" Margin="0 10 0 10" Header="Carrera" Width="200" Text="{x:Bind info_alumnos.carrera, Mode=TwoWay}"></TextBox>
+                        <TextBox x:Name="txtbx_carrera" Margin="0 10 0 10" IsReadOnly="True" Header="Carrera" Width="200" Text="{x:Bind grupo_seleccionado.DateLine, Mode=TwoWay}"></TextBox>
                         <TextBox x:Name="txtbx_codigo_postal" Margin="0 10 0 10" Header="Codigo Postal" Width="200" Text="{x:Bind info_alumnos.cod_postal, Mode=TwoWay}"></TextBox>
                         <TextBox x:Name="txtbx_provincia" Margin="0 10 0 10" Header="Provincia" Width="200" Text="{x:Bind info_alumnos.provincia, Mode=TwoWay}"></TextBox>
                         <Button x:Name="btn_Agregar_Popup" Margin="0 10 0 0" Width="100" Height="40" Tapped="Alta_Popup" Content="Agregar"></Button>
