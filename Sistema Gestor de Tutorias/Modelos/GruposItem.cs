@@ -31,77 +31,6 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             gruposItems.Clear();
             allItems.ForEach(p => gruposItems.Add(p));
         }
-        public async static Task<GridView> GetGrupos(ObservableCollection<GruposItem> gruposItems)
-        {
-            try
-            {
-                List<string> carreras = new List<string>();
-                List<int> semestres = new List<int>();
-                var conexion = (App.Current as App).conexionBD;
-                string[] Query = { "SELECT DISTINCT carrera FROM Alumnos",
-                                   "SELECT DISTINCT semestre FROM Alumnos WHERE carrera = ",
-                                   "SELECT DISTINCT grupo FROM Grupos " +
-                                   "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
-                                   "WHERE Alumnos.carrera = 'Ing. TICs' AND Alumnos.semestre = "};
-                if (conexion.State == System.Data.ConnectionState.Open)
-                {
-                    using (SqlCommand cmd = conexion.CreateCommand())
-                    {
-                        cmd.CommandText = Query[0];
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                carreras.Add(reader.GetString(0));
-                            }
-                        }
-                    }
-                }
-                foreach(var carrera in carreras)
-                {
-                    if (conexion.State == System.Data.ConnectionState.Open)
-                    {
-                        using (SqlCommand cmd = conexion.CreateCommand())
-                        {
-                            cmd.CommandText = Query[1] + "'" + carrera + "'";
-                            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                            {
-                                while (await reader.ReadAsync())
-                                {
-                                    carreras.Add(reader.GetString(0));
-                                }
-                            }
-                        }
-                    }
-                }
-                foreach (var semestre in semestres)
-                {
-                    if (conexion.State == System.Data.ConnectionState.Open)
-                    {
-                        using (SqlCommand cmd = conexion.CreateCommand())
-                        {
-                            cmd.CommandText = Query[2] + semestre;
-                            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                            {
-                                while (await reader.ReadAsync())
-                                {
-                                    semestres.Add(reader.GetInt32(0));
-                                }
-                            }
-                        }
-                    }
-                }
-
-
-            } catch (Exception eSql)
-            {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
-            }
-            var allItems = await getGruposItems();
-            gruposItems.Clear();
-            allItems.ForEach(p => gruposItems.Add(p));
-            return new GridView();
-        }
 
         private async static Task<List<GruposItem>> getGruposItems()
         {
@@ -111,9 +40,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                 string Query = "SELECT DISTINCT grupo, Tutores.nombre, Tutores.apellidos, Alumnos.semestre, Alumnos.carrera FROM Grupos " +
                                "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
                                "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno";
-                var grupos = await GetGruposAsync((App.Current as App).conexionBD, Query);
-                //items.Add(new GruposItem() { Id = 1, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Cerdito.png" });
-                //items.Add(new GruposItem() { Id = 2, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Antena.png" });
+                var grupos = await GetGruposAsync((App.Current as App).conexionBD, Query);                //items.Add(new GruposItem() { Id = 2, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Antena.png" });
                 //items.Add(new GruposItem() { Id = 3, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Social.png" });
                 grupos.ForEach(p => items.Add(new GruposItem()
                 {
@@ -126,6 +53,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                     Semestre = p.semestre + " Semestre.",
                     Imagen = "Assets/Antena.png"
                 }));
+                items.Add(new GruposItem() { Id = 4, Categoria = "Agregar", HeadLine = "Agregar Grupo", DateLine = " ", Subhead = " ", Imagen = "Assets/Cerdito.png" });
                 return items;
             } catch (Exception eSql)
             {
