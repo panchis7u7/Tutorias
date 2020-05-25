@@ -23,9 +23,6 @@ namespace Sistema_Gestor_de_Tutorias
     /// </summary>
     public sealed partial class Pagina_Consultas : Page
     {
-        private int ultimoIdAlumnos;
-        private int ultimoIdProfesores;
-        private int ultimoIdProvincias;
         private int ultimoIdTutores;
         private int idTutorSeleccionado;
         private InfoAlumnos listItemSeleccionado;
@@ -184,26 +181,30 @@ namespace Sistema_Gestor_de_Tutorias
         }
         private async void Alta_Popup(object sender, TappedRoutedEventArgs e)
         {
-            try {
-                info_alumnos = new InfoAlumnos();
-                info_alumnos.carrera = grupo_seleccionado.DateLine;
-                ultimoIdAlumnos = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_alumno) + 1) FROM Alumnos");
-                info_alumnos.id_alumno = ultimoIdAlumnos;
-                ultimoIdProfesores = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_profesor) + 1) FROM Profesores");
-                ultimoIdProvincias = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_provincia) + 1) FROM Provincias");
-                info_alumnos.id_provincia = ultimoIdProvincias;
-                ultimoIdTutores = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
-                idTutorSeleccionado = await GetId((App.Current as App).conexionBD, "SELECT DISTINCT id_tutor FROM Tutores WHERE CONCAT(TRIM(Tutores.nombre),' ', TRIM(Tutores.apellidos)) LIKE ('%" + grupo_seleccionado.Subhead + "%')");
-
+            try
+            {
                 var conexion = (App.Current as App).conexionBD;
                 string[] Query = {"INSERT INTO Alumnos (id_alumno, matricula, nombre, apellidos, semestre, carrera) VALUES (@id_a, @m, @n, @a, @s, @c)",
                               "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_p, @cp, @p)",
                               "INSERT INTO ResidenciasAlumnos (id_alumno, id_provincia) VALUES (@id_fa, @id_fp)",
                               "INSERT INTO Grupos (id_alumno, id_tutor, grupo) VALUES (@id_tfa, @id_ft, @g)"};
+                
+                info_alumnos = new InfoAlumnos();
+                info_alumnos.id_alumno = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_alumno) + 1) FROM Alumnos");
+                info_alumnos.matricula = int.Parse(txtbx_matricula.Text);
+                info_alumnos.nombre = txtbx_Nombre.Text;
+                info_alumnos.apellidos = txtbx_apellidos.Text;
+                info_alumnos.semestre = int.Parse(txtbx_semestre.Text);
+                info_alumnos.carrera = grupo_seleccionado.DateLine;
+                info_alumnos.id_provincia = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_provincia) + 1) FROM Provincias");
+                info_alumnos.cod_postal = int.Parse(txtbx_codigo_postal.Text);
+                info_alumnos.provincia = txtbx_provincia.Text;
+                ultimoIdTutores = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
+                idTutorSeleccionado = await GetId((App.Current as App).conexionBD, "SELECT DISTINCT id_tutor FROM Tutores WHERE CONCAT(TRIM(Tutores.nombre),' ', TRIM(Tutores.apellidos)) LIKE ('%" + grupo_seleccionado.Subhead + "%')");
 
                     SqlCommand cmd = conexion.CreateCommand();
                     cmd.CommandText = Query[0];
-                    cmd.Parameters.AddWithValue("@id_a", ultimoIdAlumnos);
+                    cmd.Parameters.AddWithValue("@id_a", info_alumnos.id_alumno);
                     cmd.Parameters.AddWithValue("@m", info_alumnos.matricula);
                     cmd.Parameters.AddWithValue("@n", info_alumnos.nombre);
                     cmd.Parameters.AddWithValue("@a", info_alumnos.apellidos);
@@ -213,20 +214,20 @@ namespace Sistema_Gestor_de_Tutorias
                         await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
                     cmd.CommandText = Query[1];
-                    cmd.Parameters.AddWithValue("@id_p", ultimoIdProvincias);
+                    cmd.Parameters.AddWithValue("@id_p", info_alumnos.id_provincia);
                     cmd.Parameters.AddWithValue("@cp", info_alumnos.cod_postal);
                     cmd.Parameters.AddWithValue("@p", info_alumnos.provincia);
                     if (await cmd.ExecuteNonQueryAsync() < 0)
                         await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
                     cmd.CommandText = Query[2];
-                    cmd.Parameters.AddWithValue("@id_fa", ultimoIdAlumnos);
-                    cmd.Parameters.AddWithValue("@id_fp", ultimoIdProvincias);
+                    cmd.Parameters.AddWithValue("@id_fa", info_alumnos.id_alumno);
+                    cmd.Parameters.AddWithValue("@id_fp", info_alumnos.id_provincia);
                     if (await cmd.ExecuteNonQueryAsync() < 0)
                         await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
                     cmd.CommandText = Query[3];
-                    cmd.Parameters.AddWithValue("@id_tfa", ultimoIdAlumnos);
+                    cmd.Parameters.AddWithValue("@id_tfa", info_alumnos.id_alumno);
                     cmd.Parameters.AddWithValue("@id_ft", idTutorSeleccionado);
                     cmd.Parameters.AddWithValue("@g", grupo_seleccionado.Grupo);
                     if (await cmd.ExecuteNonQueryAsync() < 0)

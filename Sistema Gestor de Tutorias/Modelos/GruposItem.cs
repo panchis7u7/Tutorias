@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
-using Windows.UI.Xaml.Controls;
 
 namespace Sistema_Gestor_de_Tutorias.Modelos
 {
