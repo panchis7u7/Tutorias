@@ -34,15 +34,45 @@ namespace Sistema_Gestor_de_Tutorias
             int newViewId = 0;
             //int numero = (e.ClickedItem as Formato).formato_id;
             object f = e.ClickedItem;
-            await myView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            GruposItem item = (e.ClickedItem) as GruposItem;
+            if (item.Categoria == "Agregar")
             {
-                Frame newFrame = new Frame();
-                newFrame.Navigate(typeof(Pagina_Consultas), f);
-                Window.Current.Content = newFrame;
-                Window.Current.Activate();
-                newViewId = ApplicationView.GetForCurrentView().Id;
-            });
-            await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId, ViewSizePreference.UseHalf);
+                this.AgregarGruposPopup.IsOpen = true;
+            }
+            else
+            {
+                await myView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    Frame newFrame = new Frame();
+                    newFrame.Navigate(typeof(Pagina_Consultas), f);
+                    Window.Current.Content = newFrame;
+                    Window.Current.Activate();
+                    newViewId = ApplicationView.GetForCurrentView().Id;
+                });
+                await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId, ViewSizePreference.UseHalf);
+            }
+        }
+
+        private void AgregarGruposPopup_LayoutUpdated(object sender, object e)
+        {
+            if (relativeChild.ActualWidth == 0 && relativeChild.ActualHeight == 0)
+            {
+                return;
+            }
+
+            double ActualHorizontalOffset = this.AgregarGruposPopup.HorizontalOffset;
+            double ActualVerticalOffset = this.AgregarGruposPopup.VerticalOffset;
+
+            relativeChild.Height = (int)(Window.Current.Bounds.Height / 2);
+
+            double NewHorizontalOffset = (int)(Window.Current.Bounds.Width - relativeChild.ActualWidth) / 2;
+            double NewVerticalOffset = (int)(Window.Current.Bounds.Height - relativeChild.ActualHeight) / 2;
+
+            if (ActualHorizontalOffset != NewHorizontalOffset || ActualVerticalOffset != NewVerticalOffset)
+            {
+                this.AgregarGruposPopup.HorizontalOffset = NewHorizontalOffset;
+                this.AgregarGruposPopup.VerticalOffset = NewVerticalOffset;
+            }
         }
     }
 }
