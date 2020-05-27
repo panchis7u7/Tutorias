@@ -41,13 +41,13 @@
                 <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto">
                     <StackPanel Padding="20" Width="300" HorizontalAlignment="Left">
                         <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Alumno</TextBlock>
-                        <TextBox x:Name="txtbx_matricula" Margin="0 10 0 10" Header="Matricula" Width="200" Text="{x:Bind info_alumnos.matricula, Mode=TwoWay}"></TextBox>
-                        <TextBox x:Name="txtbx_Nombre" Margin="0 10 0 10" Header="Nombre" Width="200" Text="{x:Bind info_alumnos.nombre, Mode=TwoWay}"></TextBox>
-                        <TextBox x:Name="txtbx_apellidos" Margin="0 10 0 10" Header="Apellidos" Width="200" Text="{x:Bind info_alumnos.apellidos, Mode=TwoWay}"></TextBox>
-                        <TextBox x:Name="txtbx_semestre" Margin="0 10 0 10" Header="Semestre" Width="200" Text="{x:Bind info_alumnos.semestre, Mode=TwoWay}"></TextBox>
-                        <TextBox x:Name="txtbx_carrera" Margin="0 10 0 10" IsReadOnly="True" Header="Carrera" Width="200" Text="{x:Bind grupo_seleccionado.DateLine, Mode=TwoWay}"></TextBox>
-                        <TextBox x:Name="txtbx_codigo_postal" Margin="0 10 0 10" Header="Codigo Postal" Width="200" Text="{x:Bind info_alumnos.cod_postal, Mode=TwoWay}"></TextBox>
-                        <TextBox x:Name="txtbx_provincia" Margin="0 10 0 10" Header="Provincia" Width="200" Text="{x:Bind info_alumnos.provincia, Mode=TwoWay}"></TextBox>
+                        <TextBox x:Name="txtbx_matricula" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Matricula" Width="200" Text="{x:Bind info_alumnos.matricula, Mode=TwoWay}"></TextBox>
+                        <TextBox x:Name="txtbx_Nombre" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Nombre" Width="200" Text="{x:Bind info_alumnos.nombre, Mode=TwoWay}"></TextBox>
+                        <TextBox x:Name="txtbx_apellidos" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Apellidos" Width="200" Text="{x:Bind info_alumnos.apellidos, Mode=TwoWay}"></TextBox>
+                        <TextBox x:Name="txtbx_semestre" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Semestre" Width="200" Text="{x:Bind info_alumnos.semestre, Mode=TwoWay}"></TextBox>
+                        <TextBox x:Name="txtbx_carrera" HorizontalAlignment="Left" Margin="0 10 0 10" IsReadOnly="True" Header="Carrera" Width="200" Text="{x:Bind grupo_seleccionado.DateLine, Mode=TwoWay}"></TextBox>
+                        <TextBox x:Name="txtbx_codigo_postal" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Codigo Postal" Width="200" Text="{x:Bind info_alumnos.cod_postal, Mode=TwoWay}"></TextBox>
+                        <TextBox x:Name="txtbx_provincia" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Provincia" Width="200" Text="{x:Bind info_alumnos.provincia, Mode=TwoWay}"></TextBox>
                         <Button x:Name="btn_Agregar_Popup" Margin="0 10 0 0" Width="100" Height="40" Tapped="Alta_Popup" Content="Agregar"></Button>
                         <Button x:Name="btn_Baja" Margin="0 10 0 0" Width="100" Height="40" Tapped="btn_Baja_Tapped" Content="Eliminar"></Button>
                         <Button x:Name="btn_Actualizar" Margin="0 10 0 0" Width="100" Height="40" Tapped="btn_Actualizar_Tapped" Content="Actualizar"></Button>

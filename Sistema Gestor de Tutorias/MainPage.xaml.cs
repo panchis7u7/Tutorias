@@ -42,7 +42,7 @@ namespace Sistema_Gestor_de_Tutorias
                         main_frame.Navigate(typeof(Pagina_Grupos));
                         break;
                     case "3":
-                        main_frame.Navigate(typeof(Pagina_Grupos));
+                        main_frame.Navigate(typeof(Pagina_Tutores));
                         break;
                     default:
                         break;

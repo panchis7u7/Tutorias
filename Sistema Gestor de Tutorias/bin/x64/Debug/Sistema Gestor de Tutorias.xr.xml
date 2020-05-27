@@ -187,6 +187,7 @@
       <RootProperty Name="Text" />
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Header" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="IsReadOnly" />
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Configuracion" />
@@ -210,6 +211,7 @@
       <RootProperty Name="IsVerticalRailEnabled" />
       <RootProperty Name="VerticalScrollBarVisibility" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Width" />
       <RootProperty Name="ZoomMode" />
       <RootProperty Name="Background" />
       <RootMethod Name="GetVerticalScrollBarVisibility" />
@@ -250,7 +252,15 @@
       <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Formatos" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="Width" />
+    </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Grupos" />
+    <RootType FullName="Sistema_Gestor_de_Tutorias.TutoresItemControl" />
+    <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Tutores" />
     <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="ItemTemplate" />

@@ -26,7 +26,8 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="4" Grid.Row="1" FontSize="50" Margin="30 0 0 15">Formatos</TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="1" FontSize="50" Margin="30 0 0 5">Formatos</TextBlock>
+        <NavigationViewItemSeparator Grid.Column="4" Grid.Row="2" Margin="0 0 0 10"></NavigationViewItemSeparator>
         <GridView x:Name="gridViewFormatos" Grid.Column="4" Grid.Row="4" ItemsSource="{x:Bind formatos}" 
                   IsItemClickEnabled="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto"

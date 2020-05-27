@@ -123,6 +123,7 @@
     <Compile Include="Database Assets\Asignaturas.cs" />
     <Compile Include="Database Assets\Calificaciones.cs" />
     <Compile Include="Database Assets\InfoGrupos.cs" />
+    <Compile Include="Database Assets\InfoGruposTutor.cs" />
     <Compile Include="Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
@@ -139,6 +140,7 @@
     <Compile Include="Modelos\GruposItem.cs" />
     <Compile Include="Modelos\ISubscriber.cs" />
     <Compile Include="Modelos\MyEventAggregator.cs" />
+    <Compile Include="Modelos\TutoresItem.cs" />
     <Compile Include="Pagina_Configuracion.xaml.cs">
       <DependentUpon>Pagina_Configuracion.xaml</DependentUpon>
     </Compile>
@@ -152,15 +154,18 @@
     <Compile Include="Pagina_Grupos.xaml.cs">
       <DependentUpon>Pagina_Grupos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pagina_Tutores.xaml.cs">
+      <DependentUpon>Pagina_Tutores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Database Assets\Provincias.cs" />
-    <Compile Include="Database Assets\ResidenciasAlumnos.cs" />
-    <Compile Include="Database Assets\ResidenciasProfesores.cs" />
-    <Compile Include="Database Assets\ResidenciasTutores.cs" />
     <Compile Include="SimplePdfViewerControl.xaml.cs">
       <DependentUpon>SimplePdfViewerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Database Assets\Tutores.cs" />
+    <Compile Include="TutoresItemControl.xaml.cs">
+      <DependentUpon>TutoresItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UriExtension.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +225,7 @@
     <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
     <Content Include="Assets\Tutorados_Credito_Complementario.png" />
+    <Content Include="Assets\Usuario.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -261,7 +267,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pagina_Tutores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SimplePdfViewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TutoresItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -46,9 +46,9 @@
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE81E;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
-            <NavigationViewItem x:Name="btn_home" Content="Inicio" IsEnabled="True" IsSelected="True" Tag="3">
+            <NavigationViewItem x:Name="btn_Tutores" Content="Tutores" IsEnabled="True" IsSelected="True" Tag="3">
                 <NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10F;"></FontIcon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE748;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
         </NavigationView.MenuItems>
@@ -57,12 +57,11 @@
                 <Frame.ContentTransitions>
                     <TransitionCollection>
                         <NavigationThemeTransition>
-                            
+
                         </NavigationThemeTransition>
                     </TransitionCollection>
                 </Frame.ContentTransitions>
             </Frame>
-            
         </Grid>
     </NavigationView>
 </Page>

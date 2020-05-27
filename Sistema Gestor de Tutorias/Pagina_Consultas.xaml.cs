@@ -23,7 +23,6 @@ namespace Sistema_Gestor_de_Tutorias
     /// </summary>
     public sealed partial class Pagina_Consultas : Page
     {
-        private int ultimoIdTutores;
         private int idTutorSeleccionado;
         private InfoAlumnos listItemSeleccionado;
         private InfoAlumnos info_alumnos;
@@ -199,7 +198,7 @@ namespace Sistema_Gestor_de_Tutorias
                 info_alumnos.id_provincia = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_provincia) + 1) FROM Provincias");
                 info_alumnos.cod_postal = int.Parse(txtbx_codigo_postal.Text);
                 info_alumnos.provincia = txtbx_provincia.Text;
-                ultimoIdTutores = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
+                //ultimoIdTutores = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
                 idTutorSeleccionado = await GetId((App.Current as App).conexionBD, "SELECT DISTINCT id_tutor FROM Tutores WHERE CONCAT(TRIM(Tutores.nombre),' ', TRIM(Tutores.apellidos)) LIKE ('%" + grupo_seleccionado.Subhead + "%')");
 
                     SqlCommand cmd = conexion.CreateCommand();

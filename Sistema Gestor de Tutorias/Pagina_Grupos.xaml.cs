@@ -6,6 +6,7 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
 using System;
 using Windows.UI.Core;
+using Sistema_Gestor_de_Tutorias.Database_Assets;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -17,6 +18,7 @@ namespace Sistema_Gestor_de_Tutorias
     public sealed partial class Pagina_Grupos : Page
     {
         private ObservableCollection<GruposItem> GruposItems;
+        public InfoGruposTutor InfoGruposTutores;
         public Pagina_Grupos()
         {
             this.InitializeComponent();
