@@ -26,7 +26,7 @@
                         <Setter Target="HeadLineTextBlock.FontSize" Value="18"/>
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:Name="WideLayout">
+                <!--<VisualState x:Name="WideLayout">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="900"/>
                     </VisualState.StateTriggers>
@@ -35,7 +35,7 @@
                         <Setter Target="MainPanelGrid.Height" Value="300"/>
                         <Setter Target="HeadLineTextBlock.FontSize" Value="26"/>
                     </VisualState.Setters>
-                </VisualState>
+                </VisualState>-->
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Image Name="Imagen" Source="{x:Bind GruposItem.Imagen}"/>

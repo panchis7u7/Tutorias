@@ -30,10 +30,10 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="4" Grid.Row="1" FontSize="50" Margin="30 0 0 5">Tutores</TextBlock>
         <NavigationViewItemSeparator Grid.Column="4" Grid.Row="2" Margin="0 0 0 10"></NavigationViewItemSeparator>
-        <Popup x:ConnectionId='2' Grid.ColumnSpan="5" Grid.RowSpan="6" x:Name="AgregarGruposPopup"
+        <Popup x:ConnectionId='2' Grid.ColumnSpan="5" Grid.RowSpan="6" x:Name="AgregarTutoresPopup"
                LightDismissOverlayMode="On"
                IsLightDismissEnabled="True"
-                                                               >
+                                                                >
             <Border x:ConnectionId='6' x:Name="relativeChild" BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
                 Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                 BorderThickness="2" Width="auto" Height="auto">

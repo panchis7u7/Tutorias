@@ -42,6 +42,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                     Subhead = p.departamento,
                     Imagen = "Assets/Usuario.png"
                 }));
+                items.Add(new TutoresItem() { Id = 0, Categoria = "Agregar", HeadLine = "Agregar Tutor", Subhead = " ", Imagen = "Assets/Add.png" });
                 return items;
             } catch (Exception eSql)
             {

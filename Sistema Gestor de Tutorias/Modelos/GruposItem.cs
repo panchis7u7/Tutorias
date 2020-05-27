@@ -52,7 +52,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                     Semestre = p.semestre + " Semestre.",
                     Imagen = "Assets/Antena.png"
                 }));
-                items.Add(new GruposItem() { Id = 4, Categoria = "Agregar", HeadLine = "Agregar Grupo", DateLine = " ", Subhead = " ", Imagen = "Assets/Cerdito.png" });
+                items.Add(new GruposItem() { Id = 4, Categoria = "Agregar", HeadLine = "Agregar Grupo", DateLine = " ", Subhead = " ", Imagen = "Assets/Add.png" });
                 return items;
             } catch (Exception eSql)
             {

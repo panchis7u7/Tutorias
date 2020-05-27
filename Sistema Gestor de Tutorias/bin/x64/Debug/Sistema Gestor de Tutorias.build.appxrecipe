@@ -166,6 +166,9 @@
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\microsoft.toolkit.uwp.ui.controls.datagrid\7.0.0-preview1\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Add.png">
+      <PackagePath>Assets\Add.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Assets\Antena.png">
       <PackagePath>Assets\Antena.png</PackagePath>
     </AppxPackagedFile>
