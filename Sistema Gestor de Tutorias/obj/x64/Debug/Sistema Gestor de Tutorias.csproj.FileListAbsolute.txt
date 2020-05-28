@@ -180,3 +180,4 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Prof
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\ProfesoresItemControl.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Profesores.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\ProfesoresItemControl.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Sistema Gestor de Tutorias.csprojAssemblyReference.cache

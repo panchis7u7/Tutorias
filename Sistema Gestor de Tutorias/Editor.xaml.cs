@@ -521,6 +521,9 @@ namespace Sistema_Gestor_de_Tutorias
                         dp.Date = DateTime.UtcNow;
                     replace(dp.Name, dp.Date.Value.DateTime.ToString("dd/MMMM/yyyy"), sFilePathWord);
                 }
+                replace("Jefe_Tutorias", await getJefes((App.Current as App).conexionBD, "SELECT nombre FROM CoordinadoresTutorias;"), sFilePathWord);
+                replace("Jefe_Departamento", await getJefes((App.Current as App).conexionBD, "SELECT nombre FROM JefesDepartamentos;"), sFilePathWord);
+                replace("Coordinador_Tutorias_Institucionales", await getJefes((App.Current as App).conexionBD, "SELECT nombre FROM CoordinadoresTutoriasInstitucionales;"), sFilePathWord);
 
                 FileSavePicker savePicker = new FileSavePicker();
                 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -534,6 +537,32 @@ namespace Sistema_Gestor_de_Tutorias
                 var err = new MessageDialog("Unable to open File!" + ex.Message);
                 await err.ShowAsync();
             }
+        }
+
+        private async Task<string> getJefes(SqlConnection conexion, string Query)
+        {
+            try
+            {
+                string nombre = string.Empty;
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    using (SqlCommand cmd = conexion.CreateCommand())
+                    {
+                        cmd.CommandText = Query;
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            await reader.ReadAsync();
+                            nombre = reader.GetString(0).Trim(' ');
+                        }
+                    }
+                }
+                return nombre;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine(eSql.Message);
+            }
+            return string.Empty;
         }
     }
 }

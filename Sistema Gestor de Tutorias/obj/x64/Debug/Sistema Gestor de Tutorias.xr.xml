@@ -112,12 +112,12 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="TextWrapping" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Inlines" />
-      <RootProperty Name="Padding" />
       <RootProperty Name="Name" />
+      <RootProperty Name="Padding" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
       <RootEvent Name="PointerReleased" />
       <RootEvent Name="PointerEntered" />
@@ -135,10 +135,11 @@
       <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Width" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationView">
@@ -176,18 +177,22 @@
     <RootType FullName="Windows.UI.Xaml.Media.Animation.NavigationThemeTransition" />
     <RootType FullName="Sistema_Gestor_de_Tutorias.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Header" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Foreground" />
+      <RootProperty Name="VerticalAlignment" />
       <RootEvent Name="Toggled" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Width" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Text" />
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Header" />
+      <RootProperty Name="Tag" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Text" />
       <RootProperty Name="IsReadOnly" />
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Configuracion" />
