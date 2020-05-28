@@ -109,6 +109,7 @@ namespace Sistema_Gestor_de_Tutorias
                 if (textAreas[i].Length <= 1)
                 {
                     CheckBox incisos = new CheckBox();
+                    incisos.Name = textAreas[i];
                     incisos.Width = double.NaN;
                     incisos.Height = double.NaN;
                     incisos.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;

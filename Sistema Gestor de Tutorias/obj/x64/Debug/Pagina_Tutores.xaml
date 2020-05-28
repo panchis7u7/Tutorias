@@ -39,7 +39,13 @@
                 BorderThickness="2" Width="auto" Height="auto">
                 <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto" Width="auto">
                     <StackPanel Padding="20" Width="300">
-                        <Button x:ConnectionId='7' x:Name="btn_Actualizar" Margin="0 10 0 0" Width="100" Height="40" Content="Actualizar"></Button>
+                        <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Tutor</TextBlock>
+                        <CheckBox x:ConnectionId='7' x:Name="chkbx_Profesor" Content="Es profesor?"                                                                 Margin="0 10 0 10" FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="200"></CheckBox>
+                        <ComboBox x:ConnectionId='8' x:Name="cmbbx_profesores" IsEnabled="False" Width="200" HorizontalAlignment="Left" Header="Profesor" Margin="0 10 0 10"></ComboBox>
+                        <TextBox x:ConnectionId='9' x:Name="txtbx_nombre" IsEnabled="True" Header="Nombre" Margin="0 10 0 10" Width="200" HorizontalAlignment="Left"                                                 ></TextBox>
+                        <TextBox x:ConnectionId='10' x:Name="txtbx_apellidos" IsEnabled="True" Header="Apellidos" Margin="0 10 0 10" Width="200" HorizontalAlignment="Left"                                                    ></TextBox>
+                        <TextBox x:ConnectionId='11' x:Name="txtbx_departamento" IsEnabled="True" Header="Apellidos" Margin="0 10 0 10" Width="200" HorizontalAlignment="Left" Text="Sistemas" IsReadOnly="True"></TextBox>
+                        <Button x:ConnectionId='12' x:Name="btn_Agregar"                             Margin="0 10 0 0" Width="100" Height="40" Content="Actualizar"></Button>
                     </StackPanel>
                 </ScrollViewer>
             </Border>

@@ -59,7 +59,7 @@
                 BorderThickness="2" Width="auto" Height="auto">
                 <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto" Width="auto">
                     <StackPanel Padding="20" Width="300">
-                        <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Grupos</TextBlock>
+                        <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Grupo</TextBlock>
                         <TextBox x:ConnectionId='7' x:Name="txtbx_Grupo" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Grupo" Width="200"                                                     ></TextBox>
                         <ComboBox x:ConnectionId='8' x:Name="txtbx_Tutor" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Tutor" Width="200"></ComboBox>
                         <ComboBox x:ConnectionId='9' x:Name="cmbbx_carrera" Margin="0 10 0 10" Header="Carrera" Width="200"></ComboBox>
