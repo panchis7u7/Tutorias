@@ -44,6 +44,9 @@ namespace Sistema_Gestor_de_Tutorias
                     case "3":
                         main_frame.Navigate(typeof(Pagina_Tutores));
                         break;
+                    case "4":
+                        main_frame.Navigate(typeof(Pagina_Profesores));
+                        break;
                     default:
                         break;
                 }

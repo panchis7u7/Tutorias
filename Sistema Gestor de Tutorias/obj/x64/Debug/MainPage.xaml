@@ -51,9 +51,14 @@
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE748;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
+            <NavigationViewItem x:ConnectionId='7' x:Name="btn_Profesores" Content="Profesores" IsEnabled="True" IsSelected="True" Tag="4">
+                <NavigationViewItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE821;"></FontIcon>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
         </NavigationView.MenuItems>
-        <Grid x:ConnectionId='7' x:Name="hola">
-            <Frame x:ConnectionId='8' x:Name="main_frame" Background="Transparent">
+        <Grid x:ConnectionId='8' x:Name="hola">
+            <Frame x:ConnectionId='9' x:Name="main_frame" Background="Transparent">
                 <Frame.ContentTransitions>
                     <TransitionCollection>
                         <NavigationThemeTransition>

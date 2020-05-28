@@ -51,6 +51,11 @@
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE748;"></FontIcon>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
+            <NavigationViewItem x:Name="btn_Profesores" Content="Profesores" IsEnabled="True" IsSelected="True" Tag="4">
+                <NavigationViewItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE821;"></FontIcon>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
         </NavigationView.MenuItems>
         <Grid x:Name="hola">
             <Frame x:Name="main_frame" Background="Transparent">

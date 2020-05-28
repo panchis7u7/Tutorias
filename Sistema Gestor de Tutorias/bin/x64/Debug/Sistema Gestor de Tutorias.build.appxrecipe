@@ -430,8 +430,14 @@
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Grupos.xbf">
       <PackagePath>Pagina_Grupos.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Profesores.xbf">
+      <PackagePath>Pagina_Profesores.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Tutores.xbf">
       <PackagePath>Pagina_Tutores.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\ProfesoresItemControl.xbf">
+      <PackagePath>ProfesoresItemControl.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\SimplePdfViewerControl.xbf">
       <PackagePath>SimplePdfViewerControl.xbf</PackagePath>

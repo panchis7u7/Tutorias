@@ -124,6 +124,7 @@
     <Compile Include="Database Assets\Calificaciones.cs" />
     <Compile Include="Database Assets\InfoGrupos.cs" />
     <Compile Include="Database Assets\InfoGruposTutor.cs" />
+    <Compile Include="Database Assets\TutoresProfesores.cs" />
     <Compile Include="Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
@@ -140,6 +141,7 @@
     <Compile Include="Modelos\GruposItem.cs" />
     <Compile Include="Modelos\ISubscriber.cs" />
     <Compile Include="Modelos\MyEventAggregator.cs" />
+    <Compile Include="Modelos\ProfesoresItem.cs" />
     <Compile Include="Modelos\TutoresItem.cs" />
     <Compile Include="Pagina_Configuracion.xaml.cs">
       <DependentUpon>Pagina_Configuracion.xaml</DependentUpon>
@@ -154,8 +156,14 @@
     <Compile Include="Pagina_Grupos.xaml.cs">
       <DependentUpon>Pagina_Grupos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pagina_Profesores.xaml.cs">
+      <DependentUpon>Pagina_Profesores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pagina_Tutores.xaml.cs">
       <DependentUpon>Pagina_Tutores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfesoresItemControl.xaml.cs">
+      <DependentUpon>ProfesoresItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Database Assets\Provincias.cs" />
@@ -268,7 +276,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pagina_Profesores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pagina_Tutores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfesoresItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

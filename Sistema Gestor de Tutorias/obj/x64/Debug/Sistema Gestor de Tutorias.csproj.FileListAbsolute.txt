@@ -13,7 +13,9 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Conf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Consultas.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Formatos.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Grupos.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Tutores.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\SimplePdfViewerControl.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\TutoresItemControl.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.xr.xml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.exe
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.pdb
@@ -77,7 +79,6 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Xml.
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Graphics.Canvas.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.Graphics.Canvas.winmd
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Microsoft.UI.Xaml.Markup.winmd
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Sistema Gestor de Tutorias.csprojAssemblyReference.cache
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\App.g.i.cs
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\App.g.cs
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Editor.g.i.cs
@@ -94,8 +95,12 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Form
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Formatos.g.cs
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Grupos.g.i.cs
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Grupos.g.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Tutores.g.i.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Tutores.g.cs
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\SimplePdfViewerControl.g.i.cs
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\SimplePdfViewerControl.g.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\TutoresItemControl.g.i.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\TutoresItemControl.g.cs
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\XamlTypeInfo.g.cs
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\App.xaml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Editor.xaml
@@ -105,7 +110,9 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Conf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Consultas.xaml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Formatos.xaml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Grupos.xaml
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Tutores.xaml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\SimplePdfViewerControl.xaml
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\TutoresItemControl.xaml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\App.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Editor.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\GruposItemControl.xbf
@@ -114,7 +121,9 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Conf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Consultas.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Formatos.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Grupos.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Tutores.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\SimplePdfViewerControl.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\TutoresItemControl.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\XamlSaveStateFile.xml
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Sistema Gestor de Tutorias.csproj.CoreCompileInputs.cache
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Sistema Gestor de Tutorias.csproj.CopyComplete
@@ -161,13 +170,13 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\resources.e
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\ProjectArchitectures.txt
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_637214750760000000.json
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637112786540000000.json
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Tutores.xbf
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Tutores.g.i.cs
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Tutores.g.cs
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Tutores.xaml
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Tutores.xbf
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\TutoresItemControl.xbf
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\TutoresItemControl.g.i.cs
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\TutoresItemControl.g.cs
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\TutoresItemControl.xaml
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\TutoresItemControl.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Profesores.g.i.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Profesores.g.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\ProfesoresItemControl.g.i.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\ProfesoresItemControl.g.cs
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Profesores.xaml
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\ProfesoresItemControl.xaml
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Pagina_Profesores.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\ProfesoresItemControl.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Profesores.xbf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\ProfesoresItemControl.xbf

@@ -23,6 +23,7 @@ using Windows.UI;
 using Windows.Storage.Pickers;
 using Windows.Storage;
 using System.ComponentModel;
+using Sistema_Gestor_de_Tutorias.Database_Assets;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -257,10 +258,10 @@ namespace Sistema_Gestor_de_Tutorias
                             case "Nombre_Tutor":
                                 try
                                 {
-
                                     if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
                                     {
-                                        String Query = "SELECT * FROM Tutores";
+                                        String Query = "SELECT Tutores.id_tutor, Profesores.nombre, Profesores.apellidos, Profesores.departamento FROM Tutores " +
+                                                       "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor;"; 
                                         using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
                                         {
                                             cmd.CommandText = Query;
@@ -268,7 +269,7 @@ namespace Sistema_Gestor_de_Tutorias
                                             {
                                                 while (await reader.ReadAsync())
                                                 {
-                                                    Tutores p = new Tutores();
+                                                    TutoresProfesores p = new TutoresProfesores();
                                                     p.id_tutor = reader.GetInt32(0);
                                                     if (!await reader.IsDBNullAsync(1))
                                                         p.nombre = reader.GetString(1);

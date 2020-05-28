@@ -189,7 +189,6 @@
       <RootProperty Name="Header" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="IsReadOnly" />
-      <RootProperty Name="IsEnabled" />
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Configuracion" />
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Popup">
@@ -261,6 +260,8 @@
       <RootProperty Name="IsEnabled" />
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Grupos" />
+    <RootType FullName="Sistema_Gestor_de_Tutorias.ProfesoresItemControl" />
+    <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Profesores" />
     <RootType FullName="Sistema_Gestor_de_Tutorias.TutoresItemControl" />
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="Content" />

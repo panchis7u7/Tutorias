@@ -1,7 +1,11 @@
-﻿using Sistema_Gestor_de_Tutorias.Modelos;
+﻿using iText.Layout.Element;
+using Sistema_Gestor_de_Tutorias.Modelos;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,11 +19,13 @@ namespace Sistema_Gestor_de_Tutorias
     public sealed partial class Pagina_Tutores : Page
     {
         private ObservableCollection<TutoresItem> TutoresItems;
+        private List<Profesores> profesores;
         private Tutores tutorAgregar;
         public Pagina_Tutores()
         {
             this.InitializeComponent();
             TutoresItems = new ObservableCollection<TutoresItem>();
+            profesores = new List<Profesores>();
         }
 
         private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -27,9 +33,41 @@ namespace Sistema_Gestor_de_Tutorias
             TutoresFactory.getTutores("Tutores", TutoresItems);
         }
 
-        private void GruposGrid_ItemClick(object sender, ItemClickEventArgs e)
+        private async void GruposGrid_ItemClick(object sender, ItemClickEventArgs e)
         {
             AgregarTutoresPopup.IsOpen = true;
+            try
+            {
+                if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
+                {
+                    String Query = "SELECT * FROM Profesores";
+                    using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
+                    {
+                        cmd.CommandText = Query;
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                Profesores p = new Profesores();
+                                p.id_profesor = reader.GetInt32(0);
+                                if (!await reader.IsDBNullAsync(1))
+                                    p.nombre = reader.GetString(1).Trim(' ');
+                                if (!await reader.IsDBNullAsync(2))
+                                    p.apellidos = reader.GetString(2).Trim(' ');
+                                if (!await reader.IsDBNullAsync(3))
+                                    p.departamento = reader.GetString(3).Trim(' ');
+                                profesores.Add(p);
+                                cmbbx_profesores.Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
+                            }
+                            reader.Close();
+                        }
+                    }
+                }
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Resultados: " + eSql.Message);
+            }
         }
 
         private void AgregarTutoresPopup_LayoutUpdated(object sender, object e)
@@ -54,51 +92,69 @@ namespace Sistema_Gestor_de_Tutorias
             }
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        private async void btn_Agregar_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            cmbbx_profesores.IsEnabled = true;
-            txtbx_nombre.IsEnabled = false;
-            txtbx_apellidos.IsEnabled = false;
-            txtbx_departamento.IsEnabled = false;
+            try
+            {
+                Tutores tutor = new Tutores();
+                tutor.id_tutor = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
+                tutor.id_Profesor = profesores[cmbbx_profesores.SelectedIndex].id_profesor;
+                string Query = "INSERT INTO Tutores (id_tutor, id_profesor) VALUES (@id_t, @id_p)";
+                var conexion = (App.Current as App).conexionBD;
+                SqlCommand cmd = conexion.CreateCommand();
+                cmd.CommandText = Query;
+                cmd.Parameters.AddWithValue("@id_t", tutor.id_tutor);
+                cmd.Parameters.AddWithValue("@id_p", tutor.id_Profesor);
+                if (await cmd.ExecuteNonQueryAsync() < 0)
+                    await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                TutoresItems.Add(new TutoresItem()
+                {
+                    Categoria = "Tutores",
+                    HeadLine = profesores[cmbbx_profesores.SelectedIndex].nombre + " " + profesores[cmbbx_profesores.SelectedIndex].nombre,
+                    Subhead = profesores[cmbbx_profesores.SelectedIndex].departamento,
+                    Imagen = "Assets/Usuario.png"
+                });
+            }
+            catch (Exception eSql)
+            {
+                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+            }
         }
-
+        private void chkbx_Profesor_Checked(object sender, RoutedEventArgs e)
+        {
+            cmbbx_psicologosTutores.IsEnabled = false;
+            cmbbx_profesores.IsEnabled = true;
+        }
         private void chkbx_Profesor_Unchecked(object sender, RoutedEventArgs e)
         {
             cmbbx_profesores.IsEnabled = false;
-            txtbx_nombre.IsEnabled = true;
-            txtbx_apellidos.IsEnabled = true;
-            txtbx_departamento.IsEnabled = true;
+            cmbbx_psicologosTutores.IsEnabled = true;
         }
 
-        private async void btn_Agregar_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        public async Task<int> GetId(SqlConnection conexion, string Query)
         {
-            if (tutorAgregar == null)
-            tutorAgregar = new Tutores();
-            tutorAgregar.id_tutor = 5;
-            if(chkbx_Profesor.IsChecked == true)
+            int id = 0;
+            try
             {
-
-            } else
-            {
-                try
+                if (conexion.State == System.Data.ConnectionState.Open)
                 {
-                    string Query = "INSERT INTO Tutores (id_tutor, nombre, apellidos, departamento) VALUES (@id_t, @n, @a, @d)";
-                    this.DataContextChanged += (s, x) => Bindings.Update();
-                    var conexion = (App.Current as App).conexionBD;
-                    SqlCommand cmd = conexion.CreateCommand();
-                    cmd.CommandText = Query;
-                    cmd.Parameters.AddWithValue("@id_t", tutorAgregar.id_tutor);
-                    cmd.Parameters.AddWithValue("@n", tutorAgregar.nombre);
-                    cmd.Parameters.AddWithValue("@a", tutorAgregar.apellidos);
-                    cmd.Parameters.AddWithValue("@d", tutorAgregar.departamento);
-                    if (await cmd.ExecuteNonQueryAsync() < 0)
-                        await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
-
-                } catch (Exception eSql)
-                {
-                    await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                    using (SqlCommand cmd = conexion.CreateCommand())
+                    {
+                        cmd.CommandText = Query;
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            await reader.ReadAsync();
+                            id = reader.GetInt32(0);
+                        }
+                    }
                 }
+                return id;
             }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+            }
+            return 0;
         }
     }
 }

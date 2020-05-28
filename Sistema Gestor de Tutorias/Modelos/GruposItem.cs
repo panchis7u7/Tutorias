@@ -36,9 +36,10 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             try
             {
                 var items = new List<GruposItem>();
-                string Query = "SELECT DISTINCT grupo, Tutores.nombre, Tutores.apellidos, Alumnos.semestre, Alumnos.carrera FROM Grupos " +
+                string Query = "SELECT DISTINCT grupo, Profesores.nombre, Profesores.apellidos, Alumnos.semestre, Alumnos.carrera FROM Grupos " +
                                "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
-                               "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno";
+                               "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
+                               "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno; ";
                 var grupos = await GetGruposAsync((App.Current as App).conexionBD, Query);                //items.Add(new GruposItem() { Id = 2, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Antena.png" });
                 //items.Add(new GruposItem() { Id = 3, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Social.png" });
                 grupos.ForEach(p => items.Add(new GruposItem()
@@ -78,15 +79,15 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                             {
                                 InfoGrupos grupo = new InfoGrupos();
                                 grupo.id = i;
-                                grupo.grupo = reader.GetString(0);
+                                grupo.grupo = reader.GetString(0).Trim(' ');
                                 if (!await reader.IsDBNullAsync(1))
-                                    grupo.nombre = reader.GetString(1);
+                                    grupo.nombre = reader.GetString(1).Trim(' ');
                                 if (!await reader.IsDBNullAsync(2))
-                                    grupo.apellidos = reader.GetString(2);
+                                    grupo.apellidos = reader.GetString(2).Trim(' ');
                                 if (!await reader.IsDBNullAsync(3))
                                     grupo.semestre = reader.GetInt32(3);
                                 if (!await reader.IsDBNullAsync(4))
-                                    grupo.carrera = reader.GetString(4);
+                                    grupo.carrera = reader.GetString(4).Trim(' ');
                                 grupos.Add(grupo);
                                 i += 1;
                             }

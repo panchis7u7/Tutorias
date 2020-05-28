@@ -118,13 +118,15 @@ namespace Sistema_Gestor_de_Tutorias
         private async void TextBlock_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             TextBlock tx = sender as TextBlock;
-            string GetAlumnosOrderByQuery = "SELECT DISTINCT Alumnos.id_alumno, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.id_provincia, Provincias.cod_postal, Provincias.provincia, Tutores.id_tutor FROM Grupos " +
-                                            "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
-                                            "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
-                                            "INNER JOIN ResidenciasAlumnos ON ResidenciasAlumnos.id_alumno = Alumnos.id_alumno " +
-                                            "INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
-                                            "AND CONCAT(TRIM(Tutores.nombre),' ', TRIM(Tutores.apellidos)) LIKE ('%" + grupo_seleccionado.Subhead + "%') " +
-                                            "ORDER BY " + tx.Name;
+            string GetAlumnosOrderByQuery = 
+            "SELECT DISTINCT Alumnos.id_alumno, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.id_provincia, Provincias.cod_postal, Provincias.provincia, Tutores.id_tutor FROM Grupos " +
+            "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
+            "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
+            "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
+            "INNER JOIN ResidenciasAlumnos ON ResidenciasAlumnos.id_alumno = Alumnos.id_alumno " +
+            "INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
+            "AND CONCAT(TRIM(Profesores.nombre),' ', TRIM(Profesores.apellidos)) LIKE('%" + grupo_seleccionado.Subhead + "%') " +
+            "ORDER BY " + tx.Name; 
             InventoryList.ItemsSource = await GetAlumnos((App.Current as App).conexionBD, GetAlumnosOrderByQuery);
         }
 
@@ -136,12 +138,14 @@ namespace Sistema_Gestor_de_Tutorias
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             grupo_seleccionado = (e.Parameter) as GruposItem;
-            string Query = "SELECT DISTINCT Alumnos.id_alumno, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.id_provincia, Provincias.cod_postal, Provincias.provincia FROM Grupos " +
-                           "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
-                           "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
-                           "INNER JOIN ResidenciasAlumnos ON ResidenciasAlumnos.id_alumno = Alumnos.id_alumno " +
-                           "INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
-                           "AND CONCAT(TRIM(Tutores.nombre),' ', TRIM(Tutores.apellidos)) LIKE ('%" + grupo_seleccionado.Subhead + "%')";
+            string Query =
+            "SELECT DISTINCT Alumnos.id_alumno, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.id_provincia, Provincias.cod_postal, Provincias.provincia, Tutores.id_tutor FROM Grupos " +
+            "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
+            "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
+            "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
+            "INNER JOIN ResidenciasAlumnos ON ResidenciasAlumnos.id_alumno = Alumnos.id_alumno " +
+            "INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
+            "AND CONCAT(TRIM(Profesores.nombre),' ', TRIM(Profesores.apellidos)) LIKE('%" + grupo_seleccionado.Subhead + "%');";
             AlumnosPtr = await GetAlumnos((App.Current as App).conexionBD, Query);
             InventoryList.ItemsSource = AlumnosPtr;
         }
@@ -184,9 +188,9 @@ namespace Sistema_Gestor_de_Tutorias
             {
                 var conexion = (App.Current as App).conexionBD;
                 string[] Query = {"INSERT INTO Alumnos (id_alumno, matricula, nombre, apellidos, semestre, carrera) VALUES (@id_a, @m, @n, @a, @s, @c)",
-                              "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_p, @cp, @p)",
-                              "INSERT INTO ResidenciasAlumnos (id_alumno, id_provincia) VALUES (@id_fa, @id_fp)",
-                              "INSERT INTO Grupos (id_alumno, id_tutor, grupo) VALUES (@id_tfa, @id_ft, @g)"};
+                                  "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_P, @cp, @p)",
+                                  "INSERT INTO ResidenciasAlumnos (id_alumno, id_provincia) VALUES (@id_fa, @id_fp)",
+                                  "INSERT INTO Grupos (id_alumno, id_tutor, grupo) VALUES (@id_tfa, @id_ft, @g)"};
                 
                 info_alumnos = new InfoAlumnos();
                 info_alumnos.id_alumno = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_alumno) + 1) FROM Alumnos");
@@ -199,7 +203,9 @@ namespace Sistema_Gestor_de_Tutorias
                 info_alumnos.cod_postal = int.Parse(txtbx_codigo_postal.Text);
                 info_alumnos.provincia = txtbx_provincia.Text;
                 //ultimoIdTutores = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
-                idTutorSeleccionado = await GetId((App.Current as App).conexionBD, "SELECT DISTINCT id_tutor FROM Tutores WHERE CONCAT(TRIM(Tutores.nombre),' ', TRIM(Tutores.apellidos)) LIKE ('%" + grupo_seleccionado.Subhead + "%')");
+                idTutorSeleccionado = await GetId((App.Current as App).conexionBD, "SELECT DISTINCT id_tutor FROM Tutores " +
+                    "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
+                    "WHERE CONCAT(TRIM(Profesores.nombre), ' ', TRIM(Profesores.apellidos)) LIKE('%" + grupo_seleccionado.Subhead + "%');");
 
                     SqlCommand cmd = conexion.CreateCommand();
                     cmd.CommandText = Query[0];
