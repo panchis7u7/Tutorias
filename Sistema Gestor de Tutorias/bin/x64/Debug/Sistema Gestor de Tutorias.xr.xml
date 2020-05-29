@@ -135,6 +135,7 @@
       <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="IsEnabled" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
@@ -186,6 +187,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Width" />
+      <RootProperty Name="IsReadOnly" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Margin" />
       <RootProperty Name="PlaceholderText" />
@@ -193,7 +195,6 @@
       <RootProperty Name="Tag" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Text" />
-      <RootProperty Name="IsReadOnly" />
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Configuracion" />
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Popup">
@@ -201,6 +202,7 @@
       <RootProperty Name="IsLightDismissEnabled" />
       <RootProperty Name="Child" />
       <RootEvent Name="LayoutUpdated" />
+      <RootEvent Name="Loaded" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Name" />
@@ -257,17 +259,6 @@
       <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Formatos" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Header" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="IsEnabled" />
-    </RootType>
-    <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Grupos" />
-    <RootType FullName="Sistema_Gestor_de_Tutorias.ProfesoresItemControl" />
-    <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Profesores" />
-    <RootType FullName="Sistema_Gestor_de_Tutorias.TutoresItemControl" />
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="Content" />
       <RootProperty Name="Margin" />
@@ -277,6 +268,18 @@
       <RootEvent Name="Unchecked" />
       <RootEvent Name="Checked" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="IsEnabled" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Grupos" />
+    <RootType FullName="Sistema_Gestor_de_Tutorias.ProfesoresItemControl" />
+    <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Profesores" />
+    <RootType FullName="Sistema_Gestor_de_Tutorias.TutoresItemControl" />
     <RootType FullName="Sistema_Gestor_de_Tutorias.Pagina_Tutores" />
     <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
       <RootProperty Name="ItemsSource" />

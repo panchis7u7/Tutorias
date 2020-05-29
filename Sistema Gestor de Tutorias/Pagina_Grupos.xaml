@@ -53,6 +53,7 @@
         <Popup Grid.ColumnSpan="5" Grid.RowSpan="6" x:Name="AgregarGruposPopup"
                LightDismissOverlayMode="On"
                IsLightDismissEnabled="True"
+               Loaded="AgregarGruposPopup_Loaded"
                LayoutUpdated="AgregarGruposPopup_LayoutUpdated">
             <Border x:Name="relativeChild" BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
                 Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
@@ -61,10 +62,11 @@
                     <StackPanel Padding="20" Width="300">
                         <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Grupo</TextBlock>
                         <TextBox x:Name="txtbx_Grupo" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Grupo" Width="200" Text="{x:Bind InfoGruposTutores.grupo, Mode=TwoWay}"></TextBox>
-                        <ComboBox x:Name="txtbx_Tutor" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Tutor" Width="200"></ComboBox>
+                        <CheckBox x:Name="chkbx_Profesor" Content="Es profesor?" Unchecked="chkbx_Profesor_Unchecked" Checked="chkbx_Profesor_Checked" Margin="0 10 0 10" FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="200"></CheckBox>
+                        <ComboBox x:Name="cmbbx_Profesores" HorizontalAlignment="Left" PlaceholderText="Seleccionar docente" IsEnabled="True" Margin="0 10 0 10" Header="Profesores" Width="200"></ComboBox>
+                        <ComboBox x:Name="cmbbx_Psicologo" HorizontalAlignment="Left" PlaceholderText="Seleccionar psicologo" IsEnabled="False" Margin="0 10 0 10" Header="Psicologos" Width="200"></ComboBox>
                         <ComboBox x:Name="cmbbx_carrera" Margin="0 10 0 10" Header="Carrera" Width="200"></ComboBox>
-                        <ComboBox x:Name="cmbbx_Departamento" Margin="0 10 0 10" Header="Departamento" Width="200"></ComboBox>
-                        <Button x:Name="btn_Actualizar" Margin="0 10 0 0" Width="100" Height="40" Content="Actualizar"></Button>
+                        <Button x:Name="btn_Agregar" Tapped="btn_Agregar_Tapped" Margin="0 10 0 0" Width="100" Height="40" Content="Agregar"></Button>
                     </StackPanel>
                 </ScrollViewer>
             </Border>

@@ -1,12 +1,11 @@
-﻿namespace Sistema_Gestor_de_Tutorias
+﻿
+namespace Sistema_Gestor_de_Tutorias.Database_Assets
 {
-    public class Profesores
+    public class Psicologos
     {
-        public int id_profesor { get; set; }
+        public int id_psicologo { get; set; }
         public string nombre { get; set; }
         public string apellidos { get; set; }
-        public string departamento { get; set; }
-
         public override string ToString()
         {
             return (this.nombre + " " + this.apellidos);

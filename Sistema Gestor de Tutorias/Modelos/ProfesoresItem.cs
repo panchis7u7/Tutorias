@@ -55,7 +55,6 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
 
         private async static Task<List<Profesores>> GetProfesoresAsync(SqlConnection conexion, string Query)
         {
-            int i = 0;
             var tutores = new List<Profesores>();
             try
             {
@@ -78,6 +77,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                                     tutor.departamento = reader.GetString(3).Trim(' ');
                                 tutores.Add(tutor);
                             }
+                            reader.Close();
                         }
                     }
                 }

@@ -40,8 +40,10 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                                "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
                                "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
                                "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno; ";
-                var grupos = await GetGruposAsync((App.Current as App).conexionBD, Query);                //items.Add(new GruposItem() { Id = 2, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Antena.png" });
+                //var grupos = await GetGruposAsync((App.Current as App).conexionBD, Query);                //items.Add(new GruposItem() { Id = 2, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Antena.png" });
+                var grupos = await DBAssets.GetGruposAsync((App.Current as App).conexionBD, Query);                //items.Add(new GruposItem() { Id = 2, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Antena.png" });
                 //items.Add(new GruposItem() { Id = 3, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Social.png" });
+                if(grupos != null)
                 grupos.ForEach(p => items.Add(new GruposItem()
                 {
                     Id = p.id,
@@ -91,6 +93,8 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                                 grupos.Add(grupo);
                                 i += 1;
                             }
+                            reader.Close();
+                            cmd.Dispose();
                         }
                     }
                 }

@@ -36,6 +36,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                 string Query = "SELECT Tutores.id_tutor, Profesores.nombre, Profesores.apellidos, Profesores.departamento FROM Tutores " +
                                "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor;";
                 var tutores = await GetTutoresAsync((App.Current as App).conexionBD, Query);
+                if (tutores != null)
                 tutores.ForEach(p => items.Add(new TutoresItem()
                 {
                     Id = p.id_tutor,
