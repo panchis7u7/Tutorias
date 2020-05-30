@@ -1,6 +1,4 @@
-﻿using ColorCode.Compilation.Languages;
-using Microsoft.Toolkit.Uwp.UI.Converters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
@@ -254,7 +252,7 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             return null;
         }
 
-        public async static Task<ObservableCollection<InfoAlumnos>> GetInfoAlumnosAsync(string connectionString)
+        public async static Task<ObservableCollection<InfoAlumnos>> GetInfoAlumnosAsync(string connectionString, string tutor, string comando)
         {
             try
             {
@@ -264,10 +262,14 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                     await conexion.OpenAsync();
                     if (conexion.State == System.Data.ConnectionState.Open)
                     {
-                        string Query = "SELECT DISTINCT Alumnos.id_alumno, matricula, nombre, apellidos, Provincias.id_provincia, Provincias.provincia, Provincias.cod_postal FROM Alumnos " +
+                        string Query = "SELECT DISTINCT Alumnos.id_alumno, matricula, Alumnos.nombre, Alumnos.apellidos, Provincias.id_provincia, Provincias.provincia, Provincias.cod_postal FROM Alumnos " +
                                        "INNER JOIN Grupos ON Grupos.id_alumno = Alumnos.id_alumno " +
                                        "INNER JOIN ResidenciasAlumnos ON ResidenciasAlumnos.id_alumno = Alumnos.id_alumno " +
-                                       "INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia;";
+                                       "INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
+                                       "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
+                                       "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
+                                       "WHERE CONCAT(TRIM(Profesores.nombre),' ', TRIM(Profesores.apellidos)) LIKE('%" + tutor + "%') " +
+                                       comando + ";";
                         using (SqlCommand cmd = conexion.CreateCommand())
                         {
                             cmd.CommandText = Query;

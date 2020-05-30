@@ -68,22 +68,13 @@ namespace Sistema_Gestor_de_Tutorias
         private void TextBlock_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             TextBlock tx = sender as TextBlock;
-            tx.Foreground = new SolidColorBrush(Colors.OrangeRed);
+            tx.Foreground = new SolidColorBrush(Colors.DarkOrange);
         }
 
         private async void TextBlock_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
-            //TextBlock tx = sender as TextBlock;
-            //string GetAlumnosOrderByQuery = 
-            //"SELECT DISTINCT Alumnos.id_alumno, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.id_provincia, Provincias.cod_postal, Provincias.provincia, Tutores.id_tutor FROM Grupos " +
-            //"INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
-            //"INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
-            //"INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
-            //"INNER JOIN ResidenciasAlumnos ON ResidenciasAlumnos.id_alumno = Alumnos.id_alumno " +
-            //"INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
-            //"AND CONCAT(TRIM(Profesores.nombre),' ', TRIM(Profesores.apellidos)) LIKE('%" + grupo_seleccionado.Subhead + "%') " +
-            //"ORDER BY " + tx.Name; 
-            //InventoryList.ItemsSource = await GetAlumnos((App.Current as App).conexionBD, GetAlumnosOrderByQuery);
+            TextBlock tx = sender as TextBlock;
+            InventoryList.ItemsSource = await DBAssets.GetInfoAlumnosAsync((App.Current as App).ConnectionString, grupo_seleccionado.Subhead, "ORDER BY " + tx.Name);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -94,7 +85,7 @@ namespace Sistema_Gestor_de_Tutorias
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             grupo_seleccionado = (e.Parameter) as GruposItem;
-            AlumnosPtr = await DBAssets.GetInfoAlumnosAsync((App.Current as App).ConnectionString);
+            AlumnosPtr = await DBAssets.GetInfoAlumnosAsync((App.Current as App).ConnectionString, grupo_seleccionado.Subhead, "");
             InventoryList.ItemsSource = AlumnosPtr;
         }
 
