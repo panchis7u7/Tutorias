@@ -105,6 +105,16 @@ namespace Sistema_Gestor_de_Tutorias
             string texto = await pdfTextExtract(sFilePath);
             //int contador = charCounter(ref texto);
             textAreas = GetWordBasedOn(ref texto, "<[", "]>");
+            comboBoxes[0].Items.Clear();
+            comboBoxes[1].Items.Clear();
+            comboBoxes[2].Items.Clear();
+            comboBoxes[0].SelectionChanged += async (sender, x) => {
+                comboBoxes[1].ItemsSource = await DBAssets.getGruposOnCarreraAsync((App.Current as App).ConnectionString, comboBoxes[0].SelectedItem.ToString());
+            };
+            comboBoxes[1].SelectionChanged += async (sender, x) => {
+                comboBoxes[2].ItemsSource = await DBAssets.GetAlumnosBasedOnGrupoAsync((App.Current as App).ConnectionString, 
+                    (comboBoxes[1].SelectedItem as InfoGruposGS).grupo, (comboBoxes[1].SelectedItem as InfoGruposGS).semestre);
+            };
             for (int i = 0; i < textAreas.Count; i++)
             {
                 if (textAreas[i].Length <= 1)
@@ -207,159 +217,21 @@ namespace Sistema_Gestor_de_Tutorias
                         switch (desplegables.Name)
                         {
                             case "Nombre_Docente":
-                                try
-                                {
-                                    if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
-                                    {
-                                        String Query = "SELECT * FROM Profesores";
-                                        using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
-                                        {
-                                            cmd.CommandText = Query;
-                                            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                                            {
-                                                while (await reader.ReadAsync())
-                                                {
-                                                    Profesores p = new Profesores();
-                                                    p.id_profesor = reader.GetInt32(0);
-                                                    if (!await reader.IsDBNullAsync(1))
-                                                        p.nombre = reader.GetString(1);
-                                                    if (!await reader.IsDBNullAsync(2))
-                                                        p.apellidos = reader.GetString(2);
-                                                    if (!await reader.IsDBNullAsync(3))
-                                                        p.departamento = reader.GetString(3);
-                                                    desplegables.Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
-                                                }
-                                                reader.Close();
-                                            }
-                                        }
-                                    }
-                                }
-                                catch (Exception eSql)
-                                {
-                                    Debug.WriteLine("Resultados: " + eSql.Message);
-                                }
+                                desplegables.ItemsSource = await DBAssets.getProfesoresAsync((App.Current as App).ConnectionString);
                                 break;
 
                             case "Ciudad_Estado":
-                                //RegionInfo country = new RegionInfo(new CultureInfo("es-MX", false).LCID);
-                                //List<string> countryNames = new List<string>();
-                                //foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
-                                //{
-                                //    country = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
-                                //    countryNames.Add(country.DisplayName.ToString());
-                                //}
-                                //IEnumerable<string> nameAdded = countryNames.OrderBy(names => names).Distinct();
-                                //foreach (string item in nameAdded) {
-                                //    desplegables.Items.Add(item);
-                                //}
                                 CiudadesEstados.getCiudadesEstados().ForEach(p => desplegables.Items.Add(p.Capital +", "+ p.Estado));
                                 break;
 
                             case "Nombre_Tutor":
-                                try
-                                {
-                                    if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
-                                    {
-                                        String Query = "SELECT Tutores.id_tutor, Profesores.nombre, Profesores.apellidos, Profesores.departamento FROM Tutores " +
-                                                       "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor;"; 
-                                        using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
-                                        {
-                                            cmd.CommandText = Query;
-                                            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                                            {
-                                                while (await reader.ReadAsync())
-                                                {
-                                                    TutoresProfesores p = new TutoresProfesores();
-                                                    p.id_tutor = reader.GetInt32(0);
-                                                    if (!await reader.IsDBNullAsync(1))
-                                                        p.nombre = reader.GetString(1);
-                                                    if (!await reader.IsDBNullAsync(2))
-                                                        p.apellidos = reader.GetString(2);
-                                                    if (!await reader.IsDBNullAsync(3))
-                                                        p.departamento = reader.GetString(3);
-                                                    //resultados.Add(p);
-                                                    desplegables.Items.Add(p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '));
-                                                }
-                                                reader.Close();
-                                            }
-                                        }
-                                    }
-                                }
-                                catch (Exception eSql)
-                                {
-                                    Debug.WriteLine("Resultados: " + eSql.Message);
-                                }
+                                desplegables.ItemsSource = await DBAssets.getNombreTutoresAsync((App.Current as App).ConnectionString);
                                 break;
                         }
                         combob_grid.Items.Add(desplegables);
                     } else
                     {
-                        try
-                        {
-                            if ((App.Current as App).conexionBD.State == System.Data.ConnectionState.Open)
-                            {
-                                string Query = "SELECT DISTINCT carrera FROM Alumnos";
-                                using (SqlCommand cmd = (App.Current as App).conexionBD.CreateCommand())
-                                {
-                                    cmd.CommandText = Query;
-                                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                                    {
-                                        comboBoxes[0].Items.Clear();
-                                        while (await reader.ReadAsync())
-                                        {
-                                            Alumnos carreras = new Alumnos();
-                                            carreras.carrera = reader.GetString(0);
-                                            comboBoxes[0].Items.Add(carreras.carrera.Trim(' '));
-                                        }
-                                        reader.Close();
-                                        comboBoxes[0].SelectionChanged += async (sender, x) =>
-                                        {
-                                            comboBoxes[1].Items.Clear();
-                                            comboBoxes[1].IsEnabled = true;
-                                            string Query1 = "SELECT DISTINCT grupo FROM Grupos";
-                                            cmd.CommandText = Query1;
-                                            using (SqlDataReader reader2 = await cmd.ExecuteReaderAsync())
-                                            {
-                                                while (await reader2.ReadAsync())
-                                                {
-                                                    Grupos gr = new Grupos();
-                                                    gr.grupo = reader2.GetString(0);
-                                                    comboBoxes[1].Items.Add(gr.grupo.Trim(' '));
-                                                }
-                                                reader2.Close();
-                                                comboBoxes[1].SelectionChanged += async (send, args) =>
-                                                {
-                                                    comboBoxes[2].Items.Clear();
-                                                    comboBoxes[2].IsEnabled = true;
-                                                    string Query2 = "SELECT nombre, apellidos, matricula FROM Alumnos " +
-                                                    "INNER JOIN Grupos ON Alumnos.id_alumno = Grupos.id_alumno " +
-                                                    "AND grupo IN('" + comboBoxes[1].SelectedItem.ToString() + "')";
-                                                    cmd.CommandText = Query2;
-                                                    using (SqlDataReader reader3 = await cmd.ExecuteReaderAsync())
-                                                    {
-                                                        while (await reader3.ReadAsync())
-                                                        {
-                                                            Alumnos al = new Alumnos();
-                                                            al.nombre = reader3.GetString(0);
-                                                            if (!await reader3.IsDBNullAsync(1))
-                                                                al.apellidos = reader3.GetString(1);
-                                                            if (!await reader3.IsDBNullAsync(2))
-                                                                al.matricula = reader3.GetInt32(2);
-                                                            comboBoxes[2].Items.Add(al.nombre.Trim(' ') + " " + al.apellidos.Trim(' ') + " - " + al.matricula);
-                                                        }
-                                                        reader3.Close();
-                                                    }
-                                                };
-                                            }
-                                        };
-                                    }
-                                }
-                            }
-                        }
-                        catch (Exception eSql)
-                        {
-                            Debug.WriteLine("Resultados: " + eSql.Message);
-                        }
+                        comboBoxes[0].ItemsSource = await DBAssets.getCarrerasAsync((App.Current as App).ConnectionString);
                     }
                 }
             }
@@ -404,13 +276,9 @@ namespace Sistema_Gestor_de_Tutorias
                 comboBoxes.Add(new ComboBox() { Name = "Carrera", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Carrera", PlaceholderText = "Seleccione un item" });
                 comboBoxes.Add(new ComboBox() { Name = "Grupo", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Grupo", PlaceholderText = "Seleccione un item" });
                 comboBoxes.Add(new ComboBox() { Name = "Alumno", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Alumnos", PlaceholderText = "Seleccione un item" });
-                //comboBoxes.Add(new ComboBox() { Name = "Estado", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Estados", PlaceholderText = "Seleccione un item" });
-                //comboBoxes.Add(new ComboBox() { Name = "Ciudad", Width = 200, Margin = new Thickness(10, 3, 10, 3), Header = "Ciudades", PlaceholderText = "Seleccione un item" });
                 combob_grid.Items.Add(comboBoxes[0]);
                 combob_grid.Items.Add(comboBoxes[1]);
                 combob_grid.Items.Add(comboBoxes[2]);
-                //combob_grid.Items.Add(comboBoxes[3]);
-                //combob_grid.Items.Add(comboBoxes[4]);
                 foreach (var word in text)
                 {
                     if ((word.Contains(sTarget1) && word.Contains(sTarget2)) && !(word.ToLower().Contains("carrera") ||

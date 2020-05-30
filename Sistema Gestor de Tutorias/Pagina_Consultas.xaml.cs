@@ -13,6 +13,7 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Popups;
+using Sistema_Gestor_de_Tutorias.Database_Assets;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -57,51 +58,6 @@ namespace Sistema_Gestor_de_Tutorias
             }
             return 0;
         }
-        public async Task<ObservableCollection<InfoAlumnos>> GetAlumnos(SqlConnection conexion, string Query)
-        {
-            var alumnos = new ObservableCollection<InfoAlumnos>();
-            try
-            {
-                if (conexion.State == System.Data.ConnectionState.Open)
-                {
-                    using (SqlCommand cmd = conexion.CreateCommand())
-                    {
-                        cmd.CommandText = Query;
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                info_alumnos = new InfoAlumnos();
-                                info_alumnos.id_alumno = reader.GetInt32(0);
-                                if (!await reader.IsDBNullAsync(1))
-                                    info_alumnos.matricula = reader.GetInt32(1);
-                                if (!await reader.IsDBNullAsync(2))
-                                    info_alumnos.nombre = reader.GetString(2).Trim(' ');
-                                if (!await reader.IsDBNullAsync(3))
-                                    info_alumnos.apellidos = reader.GetString(3).Trim(' ');
-                                if (!await reader.IsDBNullAsync(4))
-                                    info_alumnos.semestre = reader.GetInt32(4);
-                                if (!await reader.IsDBNullAsync(5))
-                                    info_alumnos.carrera = reader.GetString(5).Trim(' ');
-                                if (!await reader.IsDBNullAsync(6))
-                                    info_alumnos.id_provincia = reader.GetInt32(6);
-                                if (!await reader.IsDBNullAsync(7))
-                                    info_alumnos.cod_postal = reader.GetInt32(7);
-                                if (!await reader.IsDBNullAsync(8))
-                                    info_alumnos.provincia= reader.GetString(8).Trim(' ');
-                                alumnos.Add(info_alumnos);
-                            }
-                        }
-                    }
-                }
-            return alumnos;
-        }
-        catch (Exception eSql)
-        {
-            Debug.WriteLine("Exception: " + eSql.Message);
-        }
-        return null;
-    }
 
         private void TextBlock_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
@@ -117,17 +73,17 @@ namespace Sistema_Gestor_de_Tutorias
 
         private async void TextBlock_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
-            TextBlock tx = sender as TextBlock;
-            string GetAlumnosOrderByQuery = 
-            "SELECT DISTINCT Alumnos.id_alumno, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.id_provincia, Provincias.cod_postal, Provincias.provincia, Tutores.id_tutor FROM Grupos " +
-            "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
-            "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
-            "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
-            "INNER JOIN ResidenciasAlumnos ON ResidenciasAlumnos.id_alumno = Alumnos.id_alumno " +
-            "INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
-            "AND CONCAT(TRIM(Profesores.nombre),' ', TRIM(Profesores.apellidos)) LIKE('%" + grupo_seleccionado.Subhead + "%') " +
-            "ORDER BY " + tx.Name; 
-            InventoryList.ItemsSource = await GetAlumnos((App.Current as App).conexionBD, GetAlumnosOrderByQuery);
+            //TextBlock tx = sender as TextBlock;
+            //string GetAlumnosOrderByQuery = 
+            //"SELECT DISTINCT Alumnos.id_alumno, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.id_provincia, Provincias.cod_postal, Provincias.provincia, Tutores.id_tutor FROM Grupos " +
+            //"INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
+            //"INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
+            //"INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
+            //"INNER JOIN ResidenciasAlumnos ON ResidenciasAlumnos.id_alumno = Alumnos.id_alumno " +
+            //"INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
+            //"AND CONCAT(TRIM(Profesores.nombre),' ', TRIM(Profesores.apellidos)) LIKE('%" + grupo_seleccionado.Subhead + "%') " +
+            //"ORDER BY " + tx.Name; 
+            //InventoryList.ItemsSource = await GetAlumnos((App.Current as App).conexionBD, GetAlumnosOrderByQuery);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -138,15 +94,7 @@ namespace Sistema_Gestor_de_Tutorias
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             grupo_seleccionado = (e.Parameter) as GruposItem;
-            string Query =
-            "SELECT DISTINCT Alumnos.id_alumno, Alumnos.matricula, Alumnos.nombre, Alumnos.apellidos, Alumnos.semestre, Alumnos.carrera, Provincias.id_provincia, Provincias.cod_postal, Provincias.provincia, Tutores.id_tutor FROM Grupos " +
-            "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno " +
-            "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
-            "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
-            "INNER JOIN ResidenciasAlumnos ON ResidenciasAlumnos.id_alumno = Alumnos.id_alumno " +
-            "INNER JOIN Provincias ON Provincias.id_provincia = ResidenciasAlumnos.id_provincia " +
-            "AND CONCAT(TRIM(Profesores.nombre),' ', TRIM(Profesores.apellidos)) LIKE('%" + grupo_seleccionado.Subhead + "%');";
-            AlumnosPtr = await GetAlumnos((App.Current as App).conexionBD, Query);
+            AlumnosPtr = await DBAssets.GetInfoAlumnosAsync((App.Current as App).ConnectionString);
             InventoryList.ItemsSource = AlumnosPtr;
         }
 
@@ -197,8 +145,6 @@ namespace Sistema_Gestor_de_Tutorias
                 info_alumnos.matricula = int.Parse(txtbx_matricula.Text);
                 info_alumnos.nombre = txtbx_Nombre.Text;
                 info_alumnos.apellidos = txtbx_apellidos.Text;
-                info_alumnos.semestre = int.Parse(txtbx_semestre.Text);
-                info_alumnos.carrera = grupo_seleccionado.DateLine;
                 info_alumnos.id_provincia = await GetId((App.Current as App).conexionBD, "SELECT (MAX(id_provincia) + 1) FROM Provincias");
                 info_alumnos.cod_postal = int.Parse(txtbx_codigo_postal.Text);
                 info_alumnos.provincia = txtbx_provincia.Text;
@@ -213,8 +159,6 @@ namespace Sistema_Gestor_de_Tutorias
                     cmd.Parameters.AddWithValue("@m", info_alumnos.matricula);
                     cmd.Parameters.AddWithValue("@n", info_alumnos.nombre);
                     cmd.Parameters.AddWithValue("@a", info_alumnos.apellidos);
-                    cmd.Parameters.AddWithValue("@s", info_alumnos.semestre);
-                    cmd.Parameters.AddWithValue("@c", info_alumnos.carrera);
                     if (await cmd.ExecuteNonQueryAsync() < 0)
                         await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
@@ -258,8 +202,6 @@ namespace Sistema_Gestor_de_Tutorias
             txtbx_matricula.Text = listItemSeleccionado.matricula + "";
             txtbx_Nombre.Text = listItemSeleccionado.nombre;
             txtbx_apellidos.Text = listItemSeleccionado.apellidos;
-            txtbx_semestre.Text = listItemSeleccionado.semestre + "";
-            txtbx_carrera.Text = listItemSeleccionado.carrera;
             txtbx_codigo_postal.Text = listItemSeleccionado.cod_postal + "";
             txtbx_provincia.Text = listItemSeleccionado.provincia;
             InsertsPopup.IsOpen = true;
@@ -311,7 +253,7 @@ namespace Sistema_Gestor_de_Tutorias
                 {
                     var conexion = (App.Current as App).conexionBD;
                     string[] Query = {"UPDATE Alumnos SET matricula = " + txtbx_matricula.Text + ", nombre = '" + txtbx_Nombre.Text + "', apellidos = '" + txtbx_apellidos.Text
-                                   + "', semestre = " + txtbx_semestre.Text + ", carrera = '" + txtbx_carrera.Text + "' WHERE id_alumno = " + listItemSeleccionado.id_alumno,
+                                   + "' WHERE id_alumno = " + listItemSeleccionado.id_alumno,
                                      "UPDATE Provincias SET cod_postal = " + txtbx_codigo_postal.Text + ", provincia = '" + txtbx_provincia.Text +
                                      "' WHERE id_provincia = " + listItemSeleccionado.id_provincia};
                     SqlCommand cmd = conexion.CreateCommand();
@@ -328,8 +270,6 @@ namespace Sistema_Gestor_de_Tutorias
                             alumno.matricula = int.Parse(txtbx_matricula.Text);
                             alumno.nombre = txtbx_Nombre.Text;
                             alumno.apellidos = txtbx_apellidos.Text;
-                            alumno.semestre = int.Parse(txtbx_semestre.Text);
-                            alumno.carrera = txtbx_carrera.Text;
                             alumno.cod_postal = int.Parse(txtbx_codigo_postal.Text);
                             alumno.provincia = txtbx_provincia.Text;
                             break;

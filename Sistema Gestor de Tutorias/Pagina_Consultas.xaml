@@ -44,7 +44,6 @@
                         <TextBox x:Name="txtbx_matricula" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Matricula" Width="200" Text="{x:Bind info_alumnos.matricula, Mode=TwoWay}"></TextBox>
                         <TextBox x:Name="txtbx_Nombre" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Nombre" Width="200" Text="{x:Bind info_alumnos.nombre, Mode=TwoWay}"></TextBox>
                         <TextBox x:Name="txtbx_apellidos" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Apellidos" Width="200" Text="{x:Bind info_alumnos.apellidos, Mode=TwoWay}"></TextBox>
-                        <TextBox x:Name="txtbx_semestre" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Semestre" Width="200" Text="{x:Bind info_alumnos.semestre, Mode=TwoWay}"></TextBox>
                         <TextBox x:Name="txtbx_carrera" HorizontalAlignment="Left" Margin="0 10 0 10" IsReadOnly="True" Header="Carrera" Width="200" Text="{x:Bind grupo_seleccionado.DateLine, Mode=TwoWay}"></TextBox>
                         <TextBox x:Name="txtbx_codigo_postal" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Codigo Postal" Width="200" Text="{x:Bind info_alumnos.cod_postal, Mode=TwoWay}"></TextBox>
                         <TextBox x:Name="txtbx_provincia" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Provincia" Width="200" Text="{x:Bind info_alumnos.provincia, Mode=TwoWay}"></TextBox>
@@ -74,8 +73,6 @@
                             <TextBlock Name="matricula" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Matricula" Padding="0 10 0 10"  Width="100" FontWeight="Medium" Foreground="DarkOrange"/>
                             <TextBlock Name="nombre" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Nombre" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
                             <TextBlock Name="apellidos" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Apellidos" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
-                            <TextBlock Name="semestre" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Semestre" Width="80" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
-                            <TextBlock Name="carrera" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Carrera" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
                             <TextBlock Name="cod_postal" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Cod. Postal" Width="100" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
                             <TextBlock Name="provincia" PointerReleased="TextBlock_PointerReleased" PointerEntered="TextBlock_PointerEntered" PointerExited="TextBlock_PointerExited" Text="Provincia" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
                         </StackPanel>
@@ -88,8 +85,6 @@
                             <TextBlock Name="Matricula" Text="{x:Bind matricula}" Width="100" Foreground="White"/>
                             <TextBlock Name="Nombre" Text="{x:Bind nombre}" Width="200" Foreground="White"/>
                             <TextBlock Text="{x:Bind apellidos}" Width="200" Foreground="White"/>
-                            <TextBlock Text="{x:Bind semestre}" Width="80" Foreground="White"/>
-                            <TextBlock Text="{x:Bind carrera}" Width="200" Foreground="White"/>
                             <TextBlock Text="{x:Bind cod_postal}" Width="100" Foreground="White"/>
                             <TextBlock Text="{x:Bind provincia}" Width="200" Foreground="White"/>
                         </StackPanel>

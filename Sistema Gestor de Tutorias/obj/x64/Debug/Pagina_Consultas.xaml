@@ -27,30 +27,29 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel x:ConnectionId='2' Padding="10 10 10 10" x:Name="header" Grid.Column="4" Grid.Row="1">
-            <TextBlock x:ConnectionId='35' FontSize="40" Margin="0 0 0 10"                                           ></TextBlock>
+            <TextBlock x:ConnectionId='30' FontSize="40" Margin="0 0 0 10"                                           ></TextBlock>
             <TextBlock FontSize="30"  Margin="0 0 0 15">Agregar Alumno</TextBlock>
-            <Button x:ConnectionId='36'                             Content="Agregar" Height="40" Width="100"></Button>
+            <Button x:ConnectionId='31'                             Content="Agregar" Height="40" Width="100"></Button>
         </StackPanel>
         <Popup x:ConnectionId='3' Grid.ColumnSpan="6" Grid.RowSpan="7" x:Name="InsertsPopup"
                LightDismissOverlayMode="On"
                IsLightDismissEnabled="True"
                                                          >
-            <Border x:ConnectionId='24' x:Name="relativeChild" BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+            <Border x:ConnectionId='20' x:Name="relativeChild" BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
                 Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                 BorderThickness="2" Width="auto" Height="auto">
                 <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto">
                     <StackPanel Padding="20" Width="300" HorizontalAlignment="Left">
                         <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Alumno</TextBlock>
-                        <TextBox x:ConnectionId='25' x:Name="txtbx_matricula" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Matricula" Width="200"                                                    ></TextBox>
-                        <TextBox x:ConnectionId='26' x:Name="txtbx_Nombre" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Nombre" Width="200"                                                 ></TextBox>
-                        <TextBox x:ConnectionId='27' x:Name="txtbx_apellidos" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Apellidos" Width="200"                                                    ></TextBox>
-                        <TextBox x:ConnectionId='28' x:Name="txtbx_semestre" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Semestre" Width="200"                                                   ></TextBox>
-                        <TextBox x:ConnectionId='29' x:Name="txtbx_carrera" HorizontalAlignment="Left" Margin="0 10 0 10" IsReadOnly="True" Header="Carrera" Width="200"                                                         ></TextBox>
-                        <TextBox x:ConnectionId='30' x:Name="txtbx_codigo_postal" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Codigo Postal" Width="200"                                                     ></TextBox>
-                        <TextBox x:ConnectionId='31' x:Name="txtbx_provincia" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Provincia" Width="200"                                                    ></TextBox>
-                        <Button x:ConnectionId='32' x:Name="btn_Agregar_Popup" Margin="0 10 0 0" Width="100" Height="40"                     Content="Agregar"></Button>
-                        <Button x:ConnectionId='33' x:Name="btn_Baja" Margin="0 10 0 0" Width="100" Height="40"                          Content="Eliminar"></Button>
-                        <Button x:ConnectionId='34' x:Name="btn_Actualizar" Margin="0 10 0 0" Width="100" Height="40"                                Content="Actualizar"></Button>
+                        <TextBox x:ConnectionId='21' x:Name="txtbx_matricula" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Matricula" Width="200"                                                    ></TextBox>
+                        <TextBox x:ConnectionId='22' x:Name="txtbx_Nombre" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Nombre" Width="200"                                                 ></TextBox>
+                        <TextBox x:ConnectionId='23' x:Name="txtbx_apellidos" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Apellidos" Width="200"                                                    ></TextBox>
+                        <TextBox x:ConnectionId='24' x:Name="txtbx_carrera" HorizontalAlignment="Left" Margin="0 10 0 10" IsReadOnly="True" Header="Carrera" Width="200"                                                         ></TextBox>
+                        <TextBox x:ConnectionId='25' x:Name="txtbx_codigo_postal" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Codigo Postal" Width="200"                                                     ></TextBox>
+                        <TextBox x:ConnectionId='26' x:Name="txtbx_provincia" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Provincia" Width="200"                                                    ></TextBox>
+                        <Button x:ConnectionId='27' x:Name="btn_Agregar_Popup" Margin="0 10 0 0" Width="100" Height="40"                     Content="Agregar"></Button>
+                        <Button x:ConnectionId='28' x:Name="btn_Baja" Margin="0 10 0 0" Width="100" Height="40"                          Content="Eliminar"></Button>
+                        <Button x:ConnectionId='29' x:Name="btn_Actualizar" Margin="0 10 0 0" Width="100" Height="40"                                Content="Actualizar"></Button>
                     </StackPanel>
                 </ScrollViewer>
             </Border>
@@ -74,24 +73,20 @@
                             <TextBlock x:ConnectionId='7' Name="matricula"                                                                                                                               Text="Matricula" Padding="0 10 0 10"  Width="100" FontWeight="Medium" Foreground="DarkOrange"/>
                             <TextBlock x:ConnectionId='8' Name="nombre"                                                                                                                               Text="Nombre" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
                             <TextBlock x:ConnectionId='9' Name="apellidos"                                                                                                                               Text="Apellidos" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
-                            <TextBlock x:ConnectionId='10' Name="semestre"                                                                                                                               Text="Semestre" Width="80" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
-                            <TextBlock x:ConnectionId='11' Name="carrera"                                                                                                                               Text="Carrera" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
-                            <TextBlock x:ConnectionId='12' Name="cod_postal"                                                                                                                               Text="Cod. Postal" Width="100" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
-                            <TextBlock x:ConnectionId='13' Name="provincia"                                                                                                                               Text="Provincia" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
+                            <TextBlock x:ConnectionId='10' Name="cod_postal"                                                                                                                               Text="Cod. Postal" Width="100" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
+                            <TextBlock x:ConnectionId='11' Name="provincia"                                                                                                                               Text="Provincia" Width="200" Padding="0 10 0 10" FontWeight="Medium" Foreground="DarkOrange"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.HeaderTemplate>
                 <ListView.ItemTemplate>
                     <DataTemplate                               >
-                        <StackPanel x:ConnectionId='15' Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='16' Name="Id"                            Width="50" Foreground="White" />
-                            <TextBlock x:ConnectionId='17' Name="Matricula"                           Width="100" Foreground="White"/>
-                            <TextBlock x:ConnectionId='18' Name="Nombre"                        Width="200" Foreground="White"/>
+                        <StackPanel x:ConnectionId='13' Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='14' Name="Id"                            Width="50" Foreground="White" />
+                            <TextBlock x:ConnectionId='15' Name="Matricula"                           Width="100" Foreground="White"/>
+                            <TextBlock x:ConnectionId='16' Name="Nombre"                        Width="200" Foreground="White"/>
+                            <TextBlock x:ConnectionId='17'                           Width="200" Foreground="White"/>
+                            <TextBlock x:ConnectionId='18'                            Width="100" Foreground="White"/>
                             <TextBlock x:ConnectionId='19'                           Width="200" Foreground="White"/>
-                            <TextBlock x:ConnectionId='20'                          Width="80" Foreground="White"/>
-                            <TextBlock x:ConnectionId='21'                         Width="200" Foreground="White"/>
-                            <TextBlock x:ConnectionId='22'                            Width="100" Foreground="White"/>
-                            <TextBlock x:ConnectionId='23'                           Width="200" Foreground="White"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 
@@ -35,14 +33,8 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
         {
             try
             {
-                var items = new List<GruposItem>();
-                string Query = "SELECT DISTINCT grupo, Profesores.nombre, Profesores.apellidos, Alumnos.semestre, Alumnos.carrera FROM Grupos " +
-                               "INNER JOIN Tutores ON Tutores.id_tutor = Grupos.id_tutor " +
-                               "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor " +
-                               "INNER JOIN Alumnos ON Alumnos.id_alumno = Grupos.id_alumno; ";
-                //var grupos = await GetGruposAsync((App.Current as App).conexionBD, Query);                //items.Add(new GruposItem() { Id = 2, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Antena.png" });
-                var grupos = await DBAssets.GetGruposAsync((App.Current as App).conexionBD, Query);                //items.Add(new GruposItem() { Id = 2, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Antena.png" });
-                //items.Add(new GruposItem() { Id = 3, Categoria = "Grupos", HeadLine = "Lorem Ipsum", DateLine = "Nunc tristique nec", Subhead = "doro sit amet", Imagen = "Assets/Social.png" });
+                var items = new List<GruposItem>();           
+                var grupos = await DBAssets.GetInfoGruposAsync((App.Current as App).ConnectionString);                
                 if(grupos != null)
                 grupos.ForEach(p => items.Add(new GruposItem()
                 {
@@ -60,49 +52,6 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             } catch (Exception eSql)
             {
                 await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
-            }
-            return null;
-        }
-
-        private async static Task<List<InfoGrupos>> GetGruposAsync(SqlConnection conexion, string Query)
-        {
-            int i = 0;
-            var grupos = new List<InfoGrupos>();
-            try
-            {
-                if (conexion.State == System.Data.ConnectionState.Open)
-                {
-                    using (SqlCommand cmd = conexion.CreateCommand())
-                    {
-                        cmd.CommandText = Query;
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                InfoGrupos grupo = new InfoGrupos();
-                                grupo.id = i;
-                                grupo.grupo = reader.GetString(0).Trim(' ');
-                                if (!await reader.IsDBNullAsync(1))
-                                    grupo.nombre = reader.GetString(1).Trim(' ');
-                                if (!await reader.IsDBNullAsync(2))
-                                    grupo.apellidos = reader.GetString(2).Trim(' ');
-                                if (!await reader.IsDBNullAsync(3))
-                                    grupo.semestre = reader.GetInt32(3);
-                                if (!await reader.IsDBNullAsync(4))
-                                    grupo.carrera = reader.GetString(4).Trim(' ');
-                                grupos.Add(grupo);
-                                i += 1;
-                            }
-                            reader.Close();
-                            cmd.Dispose();
-                        }
-                    }
-                }
-                return grupos;
-            }
-            catch (Exception eSql)
-            {
-                Debug.WriteLine("Exception: " + eSql.Message);
             }
             return null;
         }

@@ -8,7 +8,7 @@ using System;
 using Windows.UI.Core;
 using Sistema_Gestor_de_Tutorias.Database_Assets;
 using Windows.UI.Xaml.Navigation;
-using System.Data.SqlClient;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -48,7 +48,6 @@ namespace Sistema_Gestor_de_Tutorias
         {
             var myView = CoreApplication.CreateNewView();
             int newViewId = 0;
-            //int numero = (e.ClickedItem as Formato).formato_id;
             object f = e.ClickedItem;
             GruposItem item = (e.ClickedItem) as GruposItem;
             if (item.Categoria == "Agregar")
@@ -98,28 +97,28 @@ namespace Sistema_Gestor_de_Tutorias
                 Tutores tutor = new Tutores();
                 tutor.id_tutor = await DBAssets.GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
                 tutor.id_Profesor = (cmbbx_Profesores.SelectedItem as Profesores).id_profesor;
-                Grupos grupo = new Grupos();
-                grupo.id_tutor = await DBAssets.GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
-                grupo.id_Profesor = profesores[cmbbx_profesores.SelectedIndex].id_profesor;
-                string Query = "INSERT INTO Tutores (id_tutor, id_profesor) VALUES (@id_t, @id_p)";
-                var conexion = (App.Current as App).conexionBD;
-                SqlCommand cmd = conexion.CreateCommand();
-                cmd.CommandText = Query;
-                cmd.Parameters.AddWithValue("@id_t", tutor.id_tutor);
-                cmd.Parameters.AddWithValue("@id_p", tutor.id_Profesor);
-                if (await cmd.ExecuteNonQueryAsync() < 0)
-                    await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
-                GruposItems.Add(new GruposItem()
-                {
-                    Id = 
-                    Categoria = "Grupos",
-                    Grupo = p.grupo.Trim(' '),
-                    HeadLine = "Grupo " + p.grupo.Trim(' '),
-                    DateLine = p.carrera.Trim(' '),
-                    Subhead = p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '),
-                    Semestre = p.semestre + " Semestre.",
-                    Imagen = "Assets/Antena.png"
-                });
+                if(await DBAssets.SetTutor((App.Current as App).ConnectionString, tutor) >= 0)
+                    await new MessageDialog((cmbbx_Profesores.SelectedItem as Profesores).nombre + " " +
+                        (cmbbx_Profesores.SelectedItem as Profesores).apellidos + " es ahora un tutor!").ShowAsync();
+
+
+                //Grupos grupo = new Grupos();
+                //grupo.id_tutor = tutor.id_tutor;
+                //grupo.id_alumno = 0;
+                //grupo.grupo = txtbx_Grupo.Text;
+
+
+                //GruposItems.Add(new GruposItem()
+                //{
+                //    Id = tutor.id_tutor,
+                //    Categoria = "Grupos",
+                //    Grupo = grupo.grupo.Trim(' '),
+                //    HeadLine = "Grupo " + grupo.grupo.Trim(' '),
+                //    DateLine = p.carrera.Trim(' '),
+                //    Subhead = p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '),
+                //    Semestre = p.semestre + " Semestre.",
+                //    Imagen = "Assets/Antena.png"
+                //});
             }
             catch (Exception eSql)
             {

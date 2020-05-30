@@ -124,6 +124,7 @@
     <Compile Include="Database Assets\Calificaciones.cs" />
     <Compile Include="Database Assets\DBAssets.cs" />
     <Compile Include="Database Assets\InfoGrupos.cs" />
+    <Compile Include="Database Assets\InfoGruposGS.cs" />
     <Compile Include="Database Assets\InfoGruposTutor.cs" />
     <Compile Include="Database Assets\Psicologos.cs" />
     <Compile Include="Database Assets\TutoresProfesores.cs" />
