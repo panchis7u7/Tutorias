@@ -36,16 +36,16 @@ namespace Sistema_Gestor_de_Tutorias
                 switch (item.Tag.ToString())
                 {
                     case "1":
-                        main_frame.Navigate(typeof(Pagina_Formatos));
+                        main_frame.Navigate(typeof(Pagina_Formatos), navMenu);
                         break;
                     case "2":
-                        main_frame.Navigate(typeof(Pagina_Grupos));
+                        main_frame.Navigate(typeof(Pagina_Grupos), navMenu);
                         break;
                     case "3":
-                        main_frame.Navigate(typeof(Pagina_Tutores));
+                        main_frame.Navigate(typeof(Pagina_Tutores), navMenu);
                         break;
                     case "4":
-                        main_frame.Navigate(typeof(Pagina_Profesores));
+                        main_frame.Navigate(typeof(Pagina_Profesores), navMenu);
                         break;
                     default:
                         break;

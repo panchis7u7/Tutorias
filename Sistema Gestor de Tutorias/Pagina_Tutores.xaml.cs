@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Sistema_Gestor_de_Tutorias
@@ -19,7 +20,7 @@ namespace Sistema_Gestor_de_Tutorias
     {
         private ObservableCollection<TutoresItem> TutoresItems;
         private List<Profesores> profesores;
-        private Tutores tutorAgregar;
+        private NavigationView navigationView;
         public Pagina_Tutores()
         {
             this.InitializeComponent();
@@ -30,6 +31,11 @@ namespace Sistema_Gestor_de_Tutorias
         private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             TutoresFactory.getTutores("Tutores", TutoresItems);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationView = e.Parameter as NavigationView;
         }
 
         private async void GruposGrid_ItemClick(object sender, ItemClickEventArgs e)
@@ -81,8 +87,13 @@ namespace Sistema_Gestor_de_Tutorias
 
             relativeChild.Height = (int)(Window.Current.Bounds.Height / 2);
 
-            double NewHorizontalOffset = (int)(Window.Current.Bounds.Width - relativeChild.ActualWidth) / 2;
-            double NewVerticalOffset = (int)(Window.Current.Bounds.Height - relativeChild.ActualHeight) / 2;
+            double NewHorizontalOffset;
+            if (navigationView.IsPaneOpen)
+                NewHorizontalOffset = (int)((Window.Current.Bounds.Width - relativeChild.ActualWidth) / 2) - 250;
+            else
+                NewHorizontalOffset = (int)((Window.Current.Bounds.Width - relativeChild.ActualWidth) / 2) - 30;
+
+            double NewVerticalOffset = (int)((Window.Current.Bounds.Height - relativeChild.ActualHeight) / 2) - 30;
 
             if (ActualHorizontalOffset != NewHorizontalOffset || ActualVerticalOffset != NewVerticalOffset)
             {

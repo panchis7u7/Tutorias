@@ -24,6 +24,7 @@ namespace Sistema_Gestor_de_Tutorias
         private ObservableCollection<Psicologos> psicologos;
 
         public InfoGruposTutor InfoGruposTutores;
+        public NavigationView navigationView;
         public Pagina_Grupos()
         {
             this.InitializeComponent();
@@ -36,6 +37,7 @@ namespace Sistema_Gestor_de_Tutorias
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            this.navigationView = e.Parameter as NavigationView;
             GruposFactory.GetGrupos("Grupos", GruposItems);
             profesores = await DBAssets.getProfesoresAsync((App.Current as App).ConnectionString);
             psicologos = await DBAssets.getPsicologosAsync((App.Current as App).ConnectionString);
@@ -80,8 +82,13 @@ namespace Sistema_Gestor_de_Tutorias
 
             relativeChild.Height = (int)(Window.Current.Bounds.Height / 2);
 
-            double NewHorizontalOffset = (int)(Window.Current.Bounds.Width - relativeChild.ActualWidth) / 2;
-            double NewVerticalOffset = (int)(Window.Current.Bounds.Height - relativeChild.ActualHeight) / 2;
+            double NewHorizontalOffset;
+            if (navigationView.IsPaneOpen)
+                NewHorizontalOffset = (int)((Window.Current.Bounds.Width - relativeChild.ActualWidth) / 2) - 250;
+            else
+                NewHorizontalOffset = (int)((Window.Current.Bounds.Width - relativeChild.ActualWidth) / 2) - 30;
+
+            double NewVerticalOffset = (int)((Window.Current.Bounds.Height - relativeChild.ActualHeight) / 2) - 30;
 
             if (ActualHorizontalOffset != NewHorizontalOffset || ActualVerticalOffset != NewVerticalOffset)
             {
