@@ -30,31 +30,30 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="4" Grid.Row="1" FontSize="50" Margin="30 0 0 5">Tutores</TextBlock>
         <NavigationViewItemSeparator Grid.Column="4" Grid.Row="2" Margin="0 0 0 10"></NavigationViewItemSeparator>
-        <Popup x:ConnectionId='2' Grid.ColumnSpan="5" Grid.RowSpan="6" x:Name="AgregarTutoresPopup"
+        <Popup x:ConnectionId='2' Grid.ColumnSpan="5" Grid.RowSpan="6" x:Name="InfoTutoresPopup"
                LightDismissOverlayMode="On"
                IsLightDismissEnabled="True"
-                                                                >
+                                                             >
             <Border x:ConnectionId='6' x:Name="relativeChild" BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
                 Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                 BorderThickness="2" Width="auto" Height="auto">
                 <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto" Width="auto">
                     <StackPanel Padding="20" Width="300">
-                        <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Tutor</TextBlock>
-                        <CheckBox x:ConnectionId='7' x:Name="chkbx_Profesor" Content="Es profesor?"                                                                       Margin="0 10 0 10" FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="200"></CheckBox>
-                        <ComboBox x:ConnectionId='8' x:Name="cmbbx_profesores" IsEnabled="True" Width="200" HorizontalAlignment="Left" Header="Profesor" Margin="0 10 0 10"></ComboBox>
-                        <ComboBox x:ConnectionId='9' x:Name="cmbbx_psicologosTutores" IsEnabled="False" Width="200" HorizontalAlignment="Left" Header="Psicologos" Margin="0 10 0 10"></ComboBox>
-                        <Button x:ConnectionId='10' x:Name="btn_Agregar"                             Margin="0 10 0 0" Width="100" Height="40" Content="Actualizar"></Button>
+                        <TextBlock FontSize="20"  Margin="0 0 0 15">Informacion del Tutor</TextBlock>
+                        <TextBox x:ConnectionId='7' x:Name="txtbx_Nombre" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Nombre" Header="Nombre" Width="200"></TextBox>
+                        <TextBox x:ConnectionId='8' x:Name="txtbx_Apellidos" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Apellidos" Header="Apellidos" Width="200"></TextBox>
+                        <Button x:ConnectionId='9' x:Name="btn_Actualizar" Margin="0 10 0 0" Width="100" Height="40"                                Content="Actualizar"></Button>
                     </StackPanel>
                 </ScrollViewer>
             </Border>
         </Popup>
-        <GridView x:ConnectionId='3' x:Name="GruposGrid"
+        <GridView x:ConnectionId='3' x:Name="TutoresGrid"
                   Grid.Column="4"
                   Grid.Row="5"
                   HorizontalAlignment="Stretch" 
                   Margin="10,0,0,0" 
                                                      
-                                                  
+                                                   
                   IsItemClickEnabled="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.IsVerticalRailEnabled="True"

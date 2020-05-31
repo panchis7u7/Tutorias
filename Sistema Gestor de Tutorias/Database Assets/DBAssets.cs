@@ -180,7 +180,7 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             return null;
         }
 
-        public async static Task<ObservableCollection<string>> getStringAsync (string connectionString, string Query)
+        public async static Task<ObservableCollection<string>> getStringsAsync (string connectionString, string Query)
         {
             try
             {
@@ -206,6 +206,38 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                     }
                 }
                 return textos;
+            }
+            catch (Exception eSql)
+            {
+                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+            }
+            return null;
+        }
+
+        public async static Task<string> getStringAsync(string connectionString, string Query)
+        {
+            string texto = string.Empty;
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    await conexion.OpenAsync();
+                    if (conexion.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conexion.CreateCommand())
+                        {
+                            cmd.CommandText = Query;
+                            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                            {
+                                while (await reader.ReadAsync())
+                                {
+                                    texto = reader.GetString(0).Trim(' ');
+                                }
+                            }
+                        }
+                    }
+                }
+                return texto;
             }
             catch (Exception eSql)
             {
@@ -353,12 +385,14 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
 
         public async static Task<int> SetTutor(string connectionString, Tutores tutor)
         {
+            SqlTransaction transaccion = null;
+            string Query = "INSERT INTO Tutores (id_tutor, id_profesor, grupo, semestre, carrera) VALUES (@id_t, @id_p, @g, @s, @c)";
             try
             {
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     await conexion.OpenAsync();
-                    string Query = "INSERT INTO Tutores (id_tutor, id_profesor, grupo, semestre, carrera) VALUES (@id_t, @id_p, @g, @s, @c)";
+                    transaccion = conexion.BeginTransaction();
                     using (SqlCommand cmd = conexion.CreateCommand())
                     {
                         cmd.CommandText = Query;
@@ -367,8 +401,10 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                         cmd.Parameters.AddWithValue("@g", tutor.grupo);
                         cmd.Parameters.AddWithValue("@s", tutor.semestre);
                         cmd.Parameters.AddWithValue("@c", tutor.carrera);
+                        cmd.Transaction = transaccion;
                         if (await cmd.ExecuteNonQueryAsync() < 0)
                             return -1;
+                        transaccion.Commit();
                     }
                 }
                 return 0;
@@ -376,25 +412,30 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             catch (Exception eSql)
             {
                 Debug.WriteLine("Exception: " + eSql.Message);
+                transaccion.Rollback();
             }
             return -1;
         }
 
         public async static Task<int> SetGrupo(string connectionString, Grupos grupo)
         {
+            SqlTransaction transaccion = null;
+            string Query = "INSERT INTO Grupos (id_alumno, id_tutor) VALUES (@id_a, @id_t)";
             try
             {
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     await conexion.OpenAsync();
-                    string Query = "INSERT INTO Grupos (id_alumno, id_tutor) VALUES (@id_a, @id_t)";
+                    transaccion = conexion.BeginTransaction();
                     using (SqlCommand cmd = conexion.CreateCommand())
                     {
                         cmd.CommandText = Query;
                         cmd.Parameters.AddWithValue("@id_a", grupo.id_alumno);
                         cmd.Parameters.AddWithValue("@id_t", grupo.id_tutor);
+                        cmd.Transaction = transaccion;
                         if (await cmd.ExecuteNonQueryAsync() < 0)
                             return -1;
+                        transaccion.Commit();
                     }
                 }
                 return 0;
@@ -402,6 +443,214 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             catch (Exception eSql)
             {
                 Debug.WriteLine("Exception: " + eSql.Message);
+                transaccion.Rollback();
+            }
+            return -1;
+        }
+
+        public async static Task<int> setAlumnoAsync(string connectionString, InfoAlumnos alumno, int idTutor)
+        {
+            SqlTransaction transaccion = null;
+            string[] Query = {"INSERT INTO Alumnos (id_alumno, matricula, nombre, apellidos) VALUES (@id_a, @m, @n, @a)",
+                                      "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_P, @cp, @p)",
+                                      "INSERT INTO ResidenciasAlumnos (id_alumno, id_provincia) VALUES (@id_fa, @id_fp)",
+                                      "INSERT INTO Grupos (id_alumno, id_tutor) VALUES (@id_tfa, @id_ft)"};
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    await conexion.OpenAsync();
+                    transaccion = conexion.BeginTransaction();
+                    using (SqlCommand cmd = conexion.CreateCommand())
+                    {
+                        cmd.CommandText = Query[0];
+                        cmd.Parameters.AddWithValue("@id_a", alumno.id_alumno);
+                        cmd.Parameters.AddWithValue("@m", alumno.matricula);
+                        cmd.Parameters.AddWithValue("@n", alumno.nombre);
+                        cmd.Parameters.AddWithValue("@a", alumno.apellidos);
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+
+                        cmd.CommandText = Query[1];
+                        cmd.Parameters.AddWithValue("@id_p", alumno.id_provincia);
+                        cmd.Parameters.AddWithValue("@cp", alumno.cod_postal);
+                        cmd.Parameters.AddWithValue("@p", alumno.provincia);
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+
+                        cmd.CommandText = Query[2];
+                        cmd.Parameters.AddWithValue("@id_fa", alumno.id_alumno);
+                        cmd.Parameters.AddWithValue("@id_fp", alumno.id_provincia);
+                        cmd.Transaction = transaccion;
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+
+                        cmd.CommandText = Query[3];
+                        cmd.Parameters.AddWithValue("@id_tfa", alumno.id_alumno);
+                        cmd.Parameters.AddWithValue("@id_ft", idTutor);
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        transaccion.Commit();
+                    }
+                }
+                return 0;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+                transaccion.Rollback();
+            }
+            return -1;
+        }
+
+        public async static Task<int> setBajaAlumnoAsync(string connectionString, InfoAlumnos alumno)
+        {
+            SqlTransaction transaccion = null;
+            string[] Query = { "DELETE FROM Alumnos WHERE id_alumno = " + alumno.id_alumno,
+                               "DELETE FROM Provincias WHERE id_provincia = " + alumno.id_provincia,
+                               "DELETE FROM ResidenciasAlumnos WHERE id_alumno = " + alumno.id_alumno,
+                               "DELETE FROM Grupos WHERE id_alumno = " + alumno.id_alumno};
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    await conexion.OpenAsync();
+                    transaccion = conexion.BeginTransaction();
+                    using (SqlCommand cmd = conexion.CreateCommand())
+                    {
+                        cmd.CommandText = Query[0];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        cmd.CommandText = Query[1];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        cmd.CommandText = Query[2];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        cmd.CommandText = Query[3];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        transaccion.Commit();
+                    }
+                }
+                return 0;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+                transaccion.Rollback();
+            }
+            return -1;
+        }
+
+        public async static Task<int> setActualizarAlumnoAsync(string connectionString, InfoAlumnos alumno)
+        {
+            SqlTransaction transaccion = null;
+            string[] Query = {"UPDATE Alumnos SET matricula = " + alumno.matricula + ", nombre = '" + alumno.nombre + "', apellidos = '" + alumno.apellidos +
+                              "' WHERE id_alumno = " + alumno.id_alumno,
+                              "UPDATE Provincias SET cod_postal = " + alumno.cod_postal + ", provincia = '" + alumno.provincia +
+                              "' WHERE id_provincia = " + alumno.id_provincia};
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    await conexion.OpenAsync();
+                    transaccion = conexion.BeginTransaction();
+                    using (SqlCommand cmd = conexion.CreateCommand())
+                    {
+                        cmd.CommandText = Query[0];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error actualizando la fila de la base de datos!").ShowAsync();
+                        cmd.CommandText = Query[1];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error actualizando la fila de la base de datos!").ShowAsync();
+                        transaccion.Commit();
+                    }
+                }
+                return 0;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+                transaccion.Rollback();
+            }
+            return -1;
+        }
+
+        public async static Task<int> setActualizarTutorAsync(string connectionString, TutoresProfesores tutor)
+        {
+            SqlTransaction transaccion = null;
+            string[] Query = { "UPDATE Profesores SET nombre = '" + tutor.nombre + "', apellidos = '" + tutor.apellidos + "' WHERE id_profesor = " + tutor.id_profesor + ";"};
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    await conexion.OpenAsync();
+                    transaccion = conexion.BeginTransaction();
+                    using (SqlCommand cmd = conexion.CreateCommand())
+                    {
+                        cmd.CommandText = Query[0];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error actualizando la fila de la base de datos!").ShowAsync();
+                        transaccion.Commit();
+                    }
+                }
+                return 0;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+                transaccion.Rollback();
+            }
+            return -1;
+        }
+
+        public async static Task<int> setActualizarJefeAsync(string connectionString, string nombreJefeTut, string nombreJefeTutIns, string nombreJefeDep)
+        {
+            SqlTransaction transaccion = null;
+            string[] Query = { "UPDATE CoordinadoresTutorias SET nombre = '" + nombreJefeTut + "' WHERE id_jefe = 1;" ,
+                               "UPDATE CoordinadoresTutoriasInstitucionales SET nombre = '" + nombreJefeTutIns + "' WHERE id_jefe = 1;",
+                               "UPDATE JefesDepartamentos SET nombre = '" + nombreJefeDep + "' WHERE id_jefe = 1;"};
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    await conexion.OpenAsync();
+                    transaccion = conexion.BeginTransaction();
+                    using (SqlCommand cmd = conexion.CreateCommand())
+                    {
+                        cmd.CommandText = Query[0];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        cmd.CommandText = Query[1];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        cmd.CommandText = Query[2];
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        transaccion.Commit();
+                    }
+                }
+                return 0;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+                transaccion.Rollback();
             }
             return -1;
         }

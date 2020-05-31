@@ -15,7 +15,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
         public string Categoria { get; set; }
         public string HeadLine { get; set; }
         public string Subhead { get; set; }
-        //public string DateLine { get; set; }
+        public TutoresProfesores tutor { get; set; }
         public string Imagen { get; set; }
     }
 
@@ -33,19 +33,19 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             try
             {
                 var items = new List<TutoresItem>();
-                string Query = "SELECT Tutores.id_tutor, Profesores.nombre, Profesores.apellidos, Profesores.departamento FROM Tutores " +
+                string Query = "SELECT Tutores.id_tutor, Profesores.id_profesor, Profesores.nombre, Profesores.apellidos, Profesores.departamento, Tutores.grupo FROM Tutores " +
                                "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor;";
                 var tutores = await GetTutoresAsync((App.Current as App).conexionBD, Query);
                 if (tutores != null)
-                tutores.ForEach(p => items.Add(new TutoresItem()
-                {
-                    Id = p.id_tutor,
-                    Categoria = "Tutores",
-                    HeadLine = p.nombre + " " + p.apellidos,
-                    Subhead = p.departamento,
-                    Imagen = "Assets/Usuario.png"
-                }));
-                items.Add(new TutoresItem() { Id = 0, Categoria = "Agregar", HeadLine = "Agregar Tutor", Subhead = " ", Imagen = "Assets/Add.png" });
+                    tutores.ForEach(p => items.Add(new TutoresItem()
+                    {
+                        Id = p.id_tutor,
+                        Categoria = "Tutores",
+                        HeadLine = p.nombre + " " + p.apellidos,
+                        Subhead = p.departamento,
+                        tutor = p,
+                        Imagen = "Assets/Usuario.png"
+                    }));
                 return items;
             } catch (Exception eSql)
             {
@@ -72,11 +72,15 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                                 TutoresProfesores tutor = new TutoresProfesores();;
                                 tutor.id_tutor = reader.GetInt32(0);
                                 if (!await reader.IsDBNullAsync(1))
-                                    tutor.nombre = reader.GetString(1).Trim(' ');
+                                    tutor.id_profesor = reader.GetInt32(1);
                                 if (!await reader.IsDBNullAsync(2))
-                                    tutor.apellidos = reader.GetString(2).Trim(' ');
+                                    tutor.nombre = reader.GetString(2).Trim(' ');
                                 if (!await reader.IsDBNullAsync(3))
-                                    tutor.departamento = reader.GetString(3).Trim(' ');
+                                    tutor.apellidos = reader.GetString(3).Trim(' ');
+                                if (!await reader.IsDBNullAsync(4))
+                                    tutor.departamento = reader.GetString(4).Trim(' ');
+                                if (!await reader.IsDBNullAsync(5))
+                                    tutor.grupo = reader.GetString(5).Trim(' ');
                                 tutores.Add(tutor);
                             }
                         }

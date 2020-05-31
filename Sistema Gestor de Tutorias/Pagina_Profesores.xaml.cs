@@ -31,7 +31,7 @@ namespace Sistema_Gestor_de_Tutorias
         protected override async void OnNavigatedTo (NavigationEventArgs e)
         {
             this.navigationView = e.Parameter as NavigationView;
-            cmbbx_Departamento.ItemsSource = await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT DISTINCT departamento from Profesores;");
+            cmbbx_Departamento.ItemsSource = await DBAssets.getStringsAsync((App.Current as App).ConnectionString, "SELECT DISTINCT departamento from Profesores;");
         }
 
         private void AgregarProfesoresPopup_LayoutUpdated(object sender, object e)

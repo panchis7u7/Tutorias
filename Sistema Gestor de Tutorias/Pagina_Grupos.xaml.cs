@@ -41,7 +41,7 @@ namespace Sistema_Gestor_de_Tutorias
             GruposFactory.GetGrupos("Grupos", GruposItems);
             profesores = await DBAssets.getProfesoresAsync((App.Current as App).ConnectionString);
             psicologos = await DBAssets.getPsicologosAsync((App.Current as App).ConnectionString);
-            cmbbx_carrera.ItemsSource = await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT DISTINCT carrera FROM Tutores");
+            cmbbx_carrera.ItemsSource = await DBAssets.getStringsAsync((App.Current as App).ConnectionString, "SELECT DISTINCT carrera FROM Tutores");
             cmbbx_Profesores.ItemsSource = profesores;
             cmbbx_Psicologo.ItemsSource = psicologos;
         }
