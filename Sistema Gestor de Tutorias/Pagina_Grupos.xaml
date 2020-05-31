@@ -61,11 +61,12 @@
                 <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto" Width="auto">
                     <StackPanel Padding="20" Width="300">
                         <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Grupo</TextBlock>
-                        <TextBox x:Name="txtbx_Grupo" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Grupo" Width="200" Text="{x:Bind InfoGruposTutores.grupo, Mode=TwoWay}"></TextBox>
-                        <CheckBox x:Name="chkbx_Profesor" Content="Es profesor?" Unchecked="chkbx_Profesor_Unchecked" Checked="chkbx_Profesor_Checked" Margin="0 10 0 10" FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="200"></CheckBox>
-                        <ComboBox x:Name="cmbbx_Profesores" HorizontalAlignment="Left" PlaceholderText="Seleccionar docente" IsEnabled="True" Margin="0 10 0 10" Header="Profesores" Width="200"></ComboBox>
-                        <ComboBox x:Name="cmbbx_Psicologo" HorizontalAlignment="Left" PlaceholderText="Seleccionar psicologo" IsEnabled="False" Margin="0 10 0 10" Header="Psicologos" Width="200"></ComboBox>
-                        <ComboBox x:Name="cmbbx_carrera" Margin="0 10 0 10" Header="Carrera" Width="200"></ComboBox>
+                        <TextBox x:Name="txtbx_Grupo" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Grupo" Header="Grupo" Width="200" Text="{x:Bind InfoGruposTutores.grupo, Mode=TwoWay}"></TextBox>
+                        <CheckBox x:Name="chkbx_Profesor" Content="Seleccionar Psicologo" Unchecked="chkbx_Profesor_Unchecked" Checked="chkbx_Profesor_Checked" Margin="0 10 0 10" FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="200"></CheckBox>
+                        <ComboBox x:Name="cmbbx_Profesores" HorizontalAlignment="Left" PlaceholderText="Seleccionar Docente" IsEnabled="True" Margin="0 10 0 10" Header="Profesores" Width="200"></ComboBox>
+                        <ComboBox x:Name="cmbbx_Psicologo" HorizontalAlignment="Left" PlaceholderText="Seleccionar Psicologo" IsEnabled="False" Margin="0 10 0 10" Header="Psicologos" Width="200"></ComboBox>
+                        <ComboBox x:Name="cmbbx_carrera" HorizontalAlignment="Left" PlaceholderText="Seleccionar Carrera" Margin="0 10 0 10" Header="Carrera" Width="200"></ComboBox>
+                        <TextBox x:Name="txtbx_Semestre" HorizontalAlignment="Left" PlaceholderText="Ingresar Semestre" Margin="0 10 0 10" Header="Semestre" Width="200"></TextBox>
                         <Button x:Name="btn_Agregar" Tapped="btn_Agregar_Tapped" Margin="0 10 0 0" Width="100" Height="40" Content="Agregar"></Button>
                     </StackPanel>
                 </ScrollViewer>

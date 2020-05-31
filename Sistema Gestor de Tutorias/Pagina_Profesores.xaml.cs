@@ -1,4 +1,5 @@
-﻿using Sistema_Gestor_de_Tutorias.Modelos;
+﻿using Sistema_Gestor_de_Tutorias.Database_Assets;
+using Sistema_Gestor_de_Tutorias.Modelos;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -27,9 +28,10 @@ namespace Sistema_Gestor_de_Tutorias
             ProfesoresFactory.getProfesores("Profesores", ProfesoresItems);
         }
 
-        protected override void OnNavigatedTo (NavigationEventArgs e)
+        protected override async void OnNavigatedTo (NavigationEventArgs e)
         {
             this.navigationView = e.Parameter as NavigationView;
+            cmbbx_Departamento.ItemsSource = await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT DISTINCT departamento from Profesores;");
         }
 
         private void AgregarProfesoresPopup_LayoutUpdated(object sender, object e)
@@ -61,12 +63,48 @@ namespace Sistema_Gestor_de_Tutorias
 
         private void btn_Agregar_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            
         }
 
         private void ProfesoresGrid_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ProfesoresItem item = (e.ClickedItem) as ProfesoresItem;
+            if (item.Categoria == "Agregar")
+            {
+                btn_Agregar.IsEnabled = true;
+                btn_Agregar.Visibility = Visibility.Visible;
+                btn_Actualizar.IsEnabled = false;
+                btn_Actualizar.Visibility = Visibility.Collapsed;
+                btn_Eliminar.IsEnabled = false;
+                btn_Eliminar.Visibility = Visibility.Collapsed;
+                cmbbx_Departamento.IsEnabled = true;
+                cmbbx_Departamento.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btn_Agregar.IsEnabled = false;
+                btn_Agregar.Visibility = Visibility.Collapsed;
+                btn_Actualizar.IsEnabled = true;
+                btn_Actualizar.Visibility = Visibility.Visible;
+                btn_Eliminar.IsEnabled = true;
+                btn_Eliminar.Visibility = Visibility.Visible;
+                cmbbx_Departamento.IsEnabled = false;
+                cmbbx_Departamento.Visibility = Visibility.Collapsed;
+                txtbx_Nombre.Text = item.profesor.nombre;
+                txtbx_Apellidos.Text = item.profesor.apellidos;
+                txtbx_Departamento.Text = item.profesor.departamento;
+            }
             AgregarProfesoresPopup.IsOpen = true;
+        }
+
+        private void btn_Actualizar_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Eliminar_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
         }
     }
 }

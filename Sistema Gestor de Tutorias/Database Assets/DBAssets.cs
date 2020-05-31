@@ -180,17 +180,16 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             return null;
         }
 
-        public async static Task<ObservableCollection<string>> getCarrerasAsync (string connectionString)
+        public async static Task<ObservableCollection<string>> getStringAsync (string connectionString, string Query)
         {
             try
             {
-                ObservableCollection<string> carreras = new ObservableCollection<string>();
+                ObservableCollection<string> textos = new ObservableCollection<string>();
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     await conexion.OpenAsync();
                     if (conexion.State == System.Data.ConnectionState.Open)
                     {
-                        String Query = "SELECT DISTINCT carrera FROM Tutores";
                         using (SqlCommand cmd = conexion.CreateCommand())
                         {
                             cmd.CommandText = Query;
@@ -198,15 +197,15 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                             {
                                 while (await reader.ReadAsync())
                                 {
-                                    string p;
-                                    p = reader.GetString(0).Trim(' ');
-                                    carreras.Add(p);
+                                    string texto;
+                                    texto = reader.GetString(0).Trim(' ');
+                                    textos.Add(texto);
                                 }
                             }
                         }
                     }
                 }
-                return carreras;
+                return textos;
             }
             catch (Exception eSql)
             {
@@ -365,9 +364,9 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                         cmd.CommandText = Query;
                         cmd.Parameters.AddWithValue("@id_t", tutor.id_tutor);
                         cmd.Parameters.AddWithValue("@id_p", tutor.id_Profesor);
-                        cmd.Parameters.AddWithValue("@id_g", tutor.grupo);
-                        cmd.Parameters.AddWithValue("@id_s", tutor.semestre);
-                        cmd.Parameters.AddWithValue("@id_c", tutor.carrera);
+                        cmd.Parameters.AddWithValue("@g", tutor.grupo);
+                        cmd.Parameters.AddWithValue("@s", tutor.semestre);
+                        cmd.Parameters.AddWithValue("@c", tutor.carrera);
                         if (await cmd.ExecuteNonQueryAsync() < 0)
                             return -1;
                     }
@@ -414,6 +413,7 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             {
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
+                    await conexion.OpenAsync();
                     if (conexion.State == System.Data.ConnectionState.Open)
                     {
                         using (SqlCommand cmd = conexion.CreateCommand())

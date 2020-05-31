@@ -17,6 +17,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
         public string Subhead { get; set; }
         //public string DateLine { get; set; }
         public string Imagen { get; set; }
+        public Profesores profesor { get; set; }
     }
 
     public class ProfesoresFactory
@@ -41,6 +42,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                     Categoria = "Tutores",
                     HeadLine = p.nombre + " " + p.apellidos,
                     Subhead = p.departamento,
+                    profesor = p,
                     Imagen = "Assets/Usuario.png"
                 }));
                 items.Add(new ProfesoresItem() { Id = 0, Categoria = "Agregar", HeadLine = "Agregar Profesor", Subhead = " ", Imagen = "Assets/Add.png" });

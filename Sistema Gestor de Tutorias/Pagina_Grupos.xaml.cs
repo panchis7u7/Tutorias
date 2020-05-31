@@ -41,7 +41,7 @@ namespace Sistema_Gestor_de_Tutorias
             GruposFactory.GetGrupos("Grupos", GruposItems);
             profesores = await DBAssets.getProfesoresAsync((App.Current as App).ConnectionString);
             psicologos = await DBAssets.getPsicologosAsync((App.Current as App).ConnectionString);
-            cmbbx_carrera.ItemsSource = await DBAssets.getCarrerasAsync((App.Current as App).ConnectionString);
+            cmbbx_carrera.ItemsSource = await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT DISTINCT carrera FROM Tutores");
             cmbbx_Profesores.ItemsSource = profesores;
             cmbbx_Psicologo.ItemsSource = psicologos;
         }
@@ -104,28 +104,33 @@ namespace Sistema_Gestor_de_Tutorias
                 Tutores tutor = new Tutores();
                 tutor.id_tutor = await DBAssets.GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
                 tutor.id_Profesor = (cmbbx_Profesores.SelectedItem as Profesores).id_profesor;
-                if(await DBAssets.SetTutor((App.Current as App).ConnectionString, tutor) >= 0)
-                    await new MessageDialog((cmbbx_Profesores.SelectedItem as Profesores).nombre + " " +
-                        (cmbbx_Profesores.SelectedItem as Profesores).apellidos + " es ahora un tutor!").ShowAsync();
+                tutor.grupo = txtbx_Grupo.Text;
+                tutor.carrera = cmbbx_carrera.SelectedItem.ToString();
+                tutor.semestre = txtbx_Semestre.Text;
 
+                Grupos grupo = new Grupos();
+                grupo.id_tutor = tutor.id_tutor;
+                grupo.id_alumno = 0;
+                
+                if (await DBAssets.SetTutor((App.Current as App).ConnectionString, tutor) >= 0)
+                if (await DBAssets.SetGrupo((App.Current as App).ConnectionString, grupo) >= 0)
+                {
 
-                //Grupos grupo = new Grupos();
-                //grupo.id_tutor = tutor.id_tutor;
-                //grupo.id_alumno = 0;
-                //grupo.grupo = txtbx_Grupo.Text;
-
-
-                //GruposItems.Add(new GruposItem()
-                //{
-                //    Id = tutor.id_tutor,
-                //    Categoria = "Grupos",
-                //    Grupo = grupo.grupo.Trim(' '),
-                //    HeadLine = "Grupo " + grupo.grupo.Trim(' '),
-                //    DateLine = p.carrera.Trim(' '),
-                //    Subhead = p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '),
-                //    Semestre = p.semestre + " Semestre.",
-                //    Imagen = "Assets/Antena.png"
-                //});
+                    GruposItems.Add(new GruposItem()
+                    {
+                        Id = tutor.id_tutor,
+                        Categoria = "Grupos",
+                        Grupo = tutor.grupo.Trim(' '),
+                        HeadLine = "Grupo " + tutor.grupo.Trim(' '),
+                        DateLine = tutor.carrera.Trim(' '),
+                        Subhead = (cmbbx_Profesores.SelectedItem as Profesores).nombre + " " + (cmbbx_Profesores.SelectedItem as Profesores).apellidos,
+                        Semestre = tutor.semestre + " Semestre.",
+                        Imagen = "Assets/Antena.png"
+                    });
+                } else
+                    {
+                        await new MessageDialog("Error al crear grupo!").ShowAsync();
+                    }
             }
             catch (Exception eSql)
             {
@@ -140,14 +145,14 @@ namespace Sistema_Gestor_de_Tutorias
 
         private void chkbx_Profesor_Checked(object sender, RoutedEventArgs e)
         {
-            cmbbx_Profesores.IsEnabled = true;
-            cmbbx_Psicologo.IsEnabled = false;
+            cmbbx_Profesores.IsEnabled = false;
+            cmbbx_Psicologo.IsEnabled = true;
         }
 
         private void chkbx_Profesor_Unchecked(object sender, RoutedEventArgs e)
         {
-            cmbbx_Profesores.IsEnabled = false;
-            cmbbx_Psicologo.IsEnabled = true;
+            cmbbx_Profesores.IsEnabled = true;
+            cmbbx_Psicologo.IsEnabled = false;
         }
     }
 }

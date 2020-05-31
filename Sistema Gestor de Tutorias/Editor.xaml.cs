@@ -231,7 +231,7 @@ namespace Sistema_Gestor_de_Tutorias
                         combob_grid.Items.Add(desplegables);
                     } else
                     {
-                        comboBoxes[0].ItemsSource = await DBAssets.getCarrerasAsync((App.Current as App).ConnectionString);
+                        comboBoxes[0].ItemsSource = await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT DISTINCT carrera FROM Tutores;");
                     }
                 }
             }

@@ -40,9 +40,13 @@
                 <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto" Width="auto">
                     <StackPanel Padding="20" Width="300">
                         <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Profesor</TextBlock>
-                        <ComboBox x:ConnectionId='7' x:Name="cmbbx_profesores" IsEnabled="True" Width="200" HorizontalAlignment="Left" Header="Profesor" Margin="0 10 0 10"></ComboBox>
-                        <ComboBox x:ConnectionId='8' x:Name="cmbbx_psicologosTutores" IsEnabled="False" Width="200" HorizontalAlignment="Left" Header="Psicologos" Margin="0 10 0 10"></ComboBox>
-                        <Button x:ConnectionId='9' x:Name="btn_Agregar"                             Margin="0 10 0 0" Width="100" Height="40" Content="Actualizar"></Button>
+                        <TextBox x:ConnectionId='7' x:Name="txtbx_Nombre" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Nombre" Header="Nombre" Width="200"></TextBox>
+                        <TextBox x:ConnectionId='8' x:Name="txtbx_Apellidos" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Apellidos" Header="Apellidos" Width="200"></TextBox>
+                        <TextBox x:ConnectionId='9' x:Name="txtbx_Departamento" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Departamento" Header="Departamento" Width="200"></TextBox>
+                        <ComboBox x:ConnectionId='10' x:Name="cmbbx_Departamento" HorizontalAlignment="Left" PlaceholderText="Seleccionar Carrera" Margin="0 10 0 10" Header="Departamento" Width="200"></ComboBox>
+                        <Button x:ConnectionId='11' x:Name="btn_Agregar"                             Margin="0 10 0 0" Width="100" Height="40" Content="Agregar"></Button>
+                        <Button x:ConnectionId='12' x:Name="btn_Actualizar"                                Margin="0 10 0 0" Width="100" Height="40" Content="Actualizar"></Button>
+                        <Button x:ConnectionId='13' x:Name="btn_Eliminar"                              Margin="0 10 0 0" Width="100" Height="40" Content="Eliminar"></Button>
                     </StackPanel>
                 </ScrollViewer>
             </Border>
