@@ -72,10 +72,12 @@ namespace Sistema_Gestor_de_Tutorias
             this.main_page_obj = e.Parameter as Page;
             string[] Query = { "SELECT nombre FROM CoordinadoresTutorias",
                                "SELECT nombre FROM CoordinadoresTutoriasInstitucionales",
-                               "SELECT nombre FROM JefesDepartamentos"};
+                               "SELECT nombre FROM JefesDepartamentos WHERE id_jefe = 1",
+                               "SELECT nombre FROM JefesDepartamentos WHERE id_jefe = 2"};
             txtbx_jefeTut.Text = await DBAssets.getStringAsync((App.Current as App).ConnectionString, Query[0]);
             txtbx_jefeTutIns.Text = await DBAssets.getStringAsync((App.Current as App).ConnectionString, Query[1]);
             txtbx_jefeDep.Text = await DBAssets.getStringAsync((App.Current as App).ConnectionString, Query[2]);  
+            txtbx_jefeDesAcadem.Text = await DBAssets.getStringAsync((App.Current as App).ConnectionString, Query[3]);  
         }
 
         private async void btn_guardar_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)

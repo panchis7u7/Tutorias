@@ -2,7 +2,7 @@
 
 namespace Sistema_Gestor_de_Tutorias
 {
-    class Provincias : INotifyPropertyChanged
+    public class Provincias : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public int id_provincia { get; set; }

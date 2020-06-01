@@ -30,13 +30,13 @@
     <AppXManifest Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-05-31T22:16:28.487</Modified>
+      <Modified>2020-06-01T09:31:32.354</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.exe">
       <PackagePath>entrypoint\Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-05-31T22:16:23.567</Modified>
+      <Modified>2020-06-01T09:31:27.192</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\smadr\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
       <PackagePath>ColorCode.Core.dll</PackagePath>
@@ -504,81 +504,101 @@
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2020-04-06T20:58:23.583</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\1.pdf">
-      <PackagePath>Formatos\1.pdf</PackagePath>
-      <Modified>2020-04-22T14:14:04.867</Modified>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\2.docx">
+      <PackagePath>Formatos\2.docx</PackagePath>
+      <Modified>2020-05-20T05:10:36.063</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\3.pdf">
-      <PackagePath>Formatos\3.pdf</PackagePath>
-      <Modified>2020-05-06T18:19:22.038</Modified>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\6.docx">
+      <PackagePath>Formatos\6.docx</PackagePath>
+      <Modified>2020-06-01T07:43:09.068</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\1.docx">
+      <PackagePath>Formatos\1.docx</PackagePath>
+      <Modified>2020-06-01T08:47:59.958</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\3.docx">
+      <PackagePath>Formatos\3.docx</PackagePath>
+      <Modified>2020-06-01T08:58:00.538</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\7.docx">
+      <PackagePath>Formatos\7.docx</PackagePath>
+      <Modified>2020-06-01T09:30:39.843</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\2.pdf">
       <PackagePath>Formatos\2.pdf</PackagePath>
       <Modified>2020-05-20T05:10:36.059</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\3.docx">
-      <PackagePath>Formatos\3.docx</PackagePath>
-      <Modified>2020-05-06T18:19:22.036</Modified>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\6.pdf">
+      <PackagePath>Formatos\6.pdf</PackagePath>
+      <Modified>2020-06-01T07:43:09.122</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\2.docx">
-      <PackagePath>Formatos\2.docx</PackagePath>
-      <Modified>2020-05-20T05:10:36.063</Modified>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\1.pdf">
+      <PackagePath>Formatos\1.pdf</PackagePath>
+      <Modified>2020-06-01T08:47:59.965</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\3.pdf">
+      <PackagePath>Formatos\3.pdf</PackagePath>
+      <Modified>2020-06-01T08:58:00.539</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\7.pdf">
+      <PackagePath>Formatos\7.pdf</PackagePath>
+      <Modified>2020-06-01T09:30:39.845</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.xr.xml">
       <PackagePath>Sistema Gestor de Tutorias.xr.xml</PackagePath>
-      <Modified>2020-05-31T06:11:10.240</Modified>
+      <Modified>2020-06-01T07:48:09.520</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.500</Modified>
+      <Modified>2020-06-01T09:15:05.223</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Editor.xbf">
       <PackagePath>Editor.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.500</Modified>
+      <Modified>2020-06-01T09:15:05.223</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\GruposItemControl.xbf">
       <PackagePath>GruposItemControl.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.223</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.223</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Configuracion.xbf">
       <PackagePath>Pagina_Configuracion.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.224</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Consultas.xbf">
       <PackagePath>Pagina_Consultas.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.479</Modified>
+      <Modified>2020-06-01T09:15:05.202</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Formatos.xbf">
       <PackagePath>Pagina_Formatos.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.224</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Grupos.xbf">
       <PackagePath>Pagina_Grupos.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.224</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Profesores.xbf">
       <PackagePath>Pagina_Profesores.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.214</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Pagina_Tutores.xbf">
       <PackagePath>Pagina_Tutores.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.224</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\ProfesoresItemControl.xbf">
       <PackagePath>ProfesoresItemControl.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.224</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\SimplePdfViewerControl.xbf">
       <PackagePath>SimplePdfViewerControl.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.224</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\TutoresItemControl.xbf">
       <PackagePath>TutoresItemControl.xbf</PackagePath>
-      <Modified>2020-05-31T22:13:14.501</Modified>
+      <Modified>2020-06-01T09:15:05.224</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -586,11 +606,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-05-30T02:40:24.132</Modified>
+      <Modified>2020-06-01T09:31:29.840</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Core\Sistema Gestor de Tutorias.exe">
       <PackagePath>Sistema Gestor de Tutorias.exe</PackagePath>
-      <Modified>2020-05-31T22:16:28.478</Modified>
+      <Modified>2020-06-01T09:31:32.340</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

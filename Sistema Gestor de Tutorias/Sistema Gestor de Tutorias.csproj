@@ -327,6 +327,25 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Formatos\2.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formatos\2.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Formatos\6.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formatos\6.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Formatos\1.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Formatos\1.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -340,10 +359,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Formatos\2.docx">
+    <Content Include="Formatos\7.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Formatos\2.pdf">
+    <Content Include="Formatos\7.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

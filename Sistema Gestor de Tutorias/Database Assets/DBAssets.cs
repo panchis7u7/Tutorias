@@ -452,9 +452,9 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
         {
             SqlTransaction transaccion = null;
             string[] Query = {"INSERT INTO Alumnos (id_alumno, matricula, nombre, apellidos) VALUES (@id_a, @m, @n, @a)",
-                                      "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_P, @cp, @p)",
-                                      "INSERT INTO ResidenciasAlumnos (id_alumno, id_provincia) VALUES (@id_fa, @id_fp)",
-                                      "INSERT INTO Grupos (id_alumno, id_tutor) VALUES (@id_tfa, @id_ft)"};
+                              "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_P, @cp, @p)",
+                              "INSERT INTO ResidenciasAlumnos (id_alumno, id_provincia) VALUES (@id_fa, @id_fp)",
+                              "INSERT INTO Grupos (id_alumno, id_tutor) VALUES (@id_tfa, @id_ft)"};
             try
             {
                 using (SqlConnection conexion = new SqlConnection(connectionString))
@@ -494,6 +494,61 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                         cmd.Transaction = transaccion;
                         if (await cmd.ExecuteNonQueryAsync() < 0)
                             await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        transaccion.Commit();
+                    }
+                }
+                return 0;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine("Exception: " + eSql.Message);
+                transaccion.Rollback();
+            }
+            return -1;
+        }
+
+        public async static Task<int> setProfesoresAsync(string connectionString, Profesores profesor, Provincias provincia, int unico)
+        {
+            SqlTransaction transaccion = null;
+            string[] QueryResidencia = { "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_prov, @cp, @p)",
+                                         "INSERT INTO ResidenciasProfesores (id_provincia, id_profesor) VALUES (@id_p, id_prof)"};
+            string Query = "INSERT INTO Profesores (id_profesor, nombre, apellidos, departamento) VALUES (@id_p, @n, @a, @d)";
+            try
+            {
+                profesor.id_profesor = await GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_profesor) + 1) FROM Profesores;");
+                int id_provincia = await GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_provincia) + 1) FROM Provincias");
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    await conexion.OpenAsync();
+                    transaccion = conexion.BeginTransaction();
+                    using (SqlCommand cmd = conexion.CreateCommand())
+                    {
+                        cmd.CommandText = Query;
+                        cmd.Parameters.AddWithValue("@id_p", profesor.id_profesor);
+                        cmd.Parameters.AddWithValue("@n", profesor.nombre);
+                        cmd.Parameters.AddWithValue("@m", profesor.apellidos);
+                        cmd.Parameters.AddWithValue("@d", profesor.departamento);
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+
+                        if (unico > 0)
+                        {
+                            cmd.CommandText = QueryResidencia[0];
+                            cmd.Parameters.AddWithValue("@id_prov", id_provincia);
+                            cmd.Parameters.AddWithValue("@cp", provincia.cod_postal);
+                            cmd.Parameters.AddWithValue("@p", provincia.provincia);
+                            cmd.Transaction = transaccion;
+                            if (await cmd.ExecuteNonQueryAsync() < 0)
+                                await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+
+                            cmd.CommandText = QueryResidencia[1];
+                            cmd.Parameters.AddWithValue("@id_p", id_provincia);
+                            cmd.Parameters.AddWithValue("@id_prof", profesor.id_profesor);
+                            cmd.Transaction = transaccion;
+                            if (await cmd.ExecuteNonQueryAsync() < 0)
+                                await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        }
                         transaccion.Commit();
                     }
                 }

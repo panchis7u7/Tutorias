@@ -9,7 +9,6 @@
     mc:Ignorable="d"
     Loaded="Page_Loaded"
     Background="Transparent">
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"></ColumnDefinition>
@@ -42,8 +41,11 @@
                         <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Profesor</TextBlock>
                         <TextBox x:Name="txtbx_Nombre" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Nombre" Header="Nombre" Width="200"></TextBox>
                         <TextBox x:Name="txtbx_Apellidos" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Apellidos" Header="Apellidos" Width="200"></TextBox>
-                        <TextBox x:Name="txtbx_Departamento" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Departamento" Header="Departamento" Width="200"></TextBox>
-                        <ComboBox x:Name="cmbbx_Departamento" HorizontalAlignment="Left" PlaceholderText="Seleccionar Carrera" Margin="0 10 0 10" Header="Departamento" Width="200"></ComboBox>
+                        <CheckBox x:Name="chkbx_Departamento" Content="El Departamento no esta en la lista? Agregarlo." Unchecked="chkbx_Departamento_Unchecked" Checked="chkbx_Departamento_Checked" Margin="0 10 0 10" FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="200"></CheckBox>
+                        <ComboBox x:Name="cmbbx_Departamento" IsEnabled="True" Visibility="Visible" HorizontalAlignment="Left" PlaceholderText="Seleccionar Carrera" Margin="0 10 0 10" Header="Departamento" Width="200"></ComboBox>
+                        <TextBox x:Name="txtbx_Departamento" IsEnabled="False" Visibility="Collapsed" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Departamento" Header="Departamento" Width="200"></TextBox>
+                        <TextBox x:Name="txtbx_codigo_postal" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Codigo Postal" Width="200"></TextBox>
+                        <TextBox x:Name="txtbx_provincia" HorizontalAlignment="Left" Margin="0 10 0 10" Header="Provincia" Width="200"></TextBox>
                         <Button x:Name="btn_Agregar" Tapped="btn_Agregar_Tapped" Margin="0 10 0 0" Width="100" Height="40" Content="Agregar"></Button>
                         <Button x:Name="btn_Actualizar" Tapped="btn_Actualizar_Tapped" Margin="0 10 0 0" Width="100" Height="40" Content="Actualizar"></Button>
                         <Button x:Name="btn_Eliminar" Tapped="btn_Eliminar_Tapped" Margin="0 10 0 0" Width="100" Height="40" Content="Eliminar"></Button>

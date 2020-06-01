@@ -35,7 +35,8 @@
             <TextBox x:ConnectionId='5' x:Name="txtbx_jefeTut" Width="225" IsReadOnly="True" FontSize="16" Margin="0 0 20 0" PlaceholderText="Nombre Completo" Header="Jefe de Tutorias" Tag="1"></TextBox>
             <TextBox x:ConnectionId='6' x:Name="txtbx_jefeTutIns" Width="225" FontSize="16" IsReadOnly="True" Margin="0 0 20 0" PlaceholderText="Nombre Completo" Header="Jefe de Tutorias Institucional" Tag="2"></TextBox>
             <TextBox x:ConnectionId='7' x:Name="txtbx_jefeDep" Width="225" IsReadOnly="True" FontSize="16" Margin="0 0 20 0" PlaceholderText="Nombre Completo" Header="Jefe de Departamento" Tag="3"></TextBox>
-            <Button x:ConnectionId='8' x:Name="btn_guardar" IsEnabled="False"                             VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="6" Height="40" Width="100" Content="Guardar"></Button>
+            <TextBox x:ConnectionId='8' x:Name="txtbx_jefeDesAcadem" Width="225" IsReadOnly="True" FontSize="16" Margin="0 0 20 0" PlaceholderText="Nombre Completo" Header="Jefe de Desarrollo Académico" Tag="3"></TextBox>
+            <Button x:ConnectionId='9' x:Name="btn_guardar" IsEnabled="False"                             VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="6" Height="40" Width="100" Content="Guardar"></Button>
         </StackPanel>
     </Grid>
 </Page>

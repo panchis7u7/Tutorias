@@ -61,9 +61,17 @@ namespace Sistema_Gestor_de_Tutorias
             }
         }
 
-        private void btn_Agregar_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void btn_Agregar_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            
+            Profesores profesor = new Profesores();
+            if (txtbx_provincia.Text == "" || txtbx_codigo_postal.Text == "")
+                await DBAssets.setProfesoresAsync((App.Current as App).ConnectionString, profesor, null, 0);
+            else {
+                Provincias provincia = new Provincias() { provincia = txtbx_provincia.Text, cod_postal = int.Parse(txtbx_codigo_postal.Text)};
+                if (await DBAssets.setProfesoresAsync((App.Current as App).ConnectionString, profesor, provincia, 1) >= 0)
+                    ProfesoresItems.Add(new ProfesoresItem() { 
+                    });
+            }
         }
 
         private void ProfesoresGrid_ItemClick(object sender, ItemClickEventArgs e)
@@ -77,8 +85,6 @@ namespace Sistema_Gestor_de_Tutorias
                 btn_Actualizar.Visibility = Visibility.Collapsed;
                 btn_Eliminar.IsEnabled = false;
                 btn_Eliminar.Visibility = Visibility.Collapsed;
-                cmbbx_Departamento.IsEnabled = true;
-                cmbbx_Departamento.Visibility = Visibility.Visible;
             }
             else
             {
@@ -88,8 +94,6 @@ namespace Sistema_Gestor_de_Tutorias
                 btn_Actualizar.Visibility = Visibility.Visible;
                 btn_Eliminar.IsEnabled = true;
                 btn_Eliminar.Visibility = Visibility.Visible;
-                cmbbx_Departamento.IsEnabled = false;
-                cmbbx_Departamento.Visibility = Visibility.Collapsed;
                 txtbx_Nombre.Text = item.profesor.nombre;
                 txtbx_Apellidos.Text = item.profesor.apellidos;
                 txtbx_Departamento.Text = item.profesor.departamento;
@@ -105,6 +109,22 @@ namespace Sistema_Gestor_de_Tutorias
         private void btn_Eliminar_Tapped(object sender, TappedRoutedEventArgs e)
         {
 
+        }
+
+        private void chkbx_Departamento_Unchecked(object sender, RoutedEventArgs e)
+        {
+            txtbx_Departamento.IsEnabled = false;
+            txtbx_Departamento.Visibility = Visibility.Collapsed;
+            cmbbx_Departamento.IsEnabled = true;
+            cmbbx_Departamento.Visibility = Visibility.Visible;
+        }
+
+        private void chkbx_Departamento_Checked(object sender, RoutedEventArgs e)
+        {
+            txtbx_Departamento.IsEnabled = true;
+            txtbx_Departamento.Visibility = Visibility.Visible;
+            cmbbx_Departamento.IsEnabled = false;
+            cmbbx_Departamento.Visibility = Visibility.Collapsed;
         }
     }
 }

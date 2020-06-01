@@ -388,20 +388,35 @@
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\2.docx">
+      <PackagePath>Formatos\2.docx</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\6.docx">
+      <PackagePath>Formatos\6.docx</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\1.docx">
+      <PackagePath>Formatos\1.docx</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\3.docx">
+      <PackagePath>Formatos\3.docx</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\7.docx">
+      <PackagePath>Formatos\7.docx</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\2.pdf">
+      <PackagePath>Formatos\2.pdf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\6.pdf">
+      <PackagePath>Formatos\6.pdf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\1.pdf">
       <PackagePath>Formatos\1.pdf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\3.pdf">
       <PackagePath>Formatos\3.pdf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\2.pdf">
-      <PackagePath>Formatos\2.pdf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\3.docx">
-      <PackagePath>Formatos\3.docx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\2.docx">
-      <PackagePath>Formatos\2.docx</PackagePath>
+    <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\Formatos\7.pdf">
+      <PackagePath>Formatos\7.pdf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Sistema Gestor de Tutorias.xr.xml">
       <PackagePath>Sistema Gestor de Tutorias.xr.xml</PackagePath>

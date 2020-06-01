@@ -1,4 +1,5 @@
-﻿namespace Sistema_Gestor_de_Tutorias
+﻿
+namespace Sistema_Gestor_de_Tutorias
 {
     public class Profesores
     {

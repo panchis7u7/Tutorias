@@ -15,7 +15,6 @@ using iText.Kernel.Pdf.Canvas.Parser;
 using Windows.UI.Popups;
 using iText.Layout;
 using Syncfusion.DocIO;
-using System.Data.SqlClient;
 using System.Diagnostics;
 using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
@@ -67,7 +66,7 @@ namespace Sistema_Gestor_de_Tutorias
             comboBoxes = new List<ComboBox>();
             richEditBoxes = new List<RichEditBox>();
             calendarDatePickers = new List<CalendarDatePicker>();
-            guardarBtn = new Button() { Width = 100, Height = 40, Content = "Guardar"};
+            guardarBtn = new Button() { Width = 100, Height = 40, Margin = new Thickness(30,15,30,15) ,Content = "Guardar"};
             guardarBtn.Tapped += btnGuardar_Tapped;
         }
 
@@ -128,12 +127,6 @@ namespace Sistema_Gestor_de_Tutorias
                     incisos.Margin = new Thickness(10, 3, 10, 3);
                     incisos.FlowDirection = FlowDirection.LeftToRight;
                     incisos.Content = textAreas[i] + ")";
-                    incisos.Checked += (sender, args) => {
-                        if (incisos.IsChecked == true)
-                            replace(incisos.Name, "x", sFilePathWord);
-                        else
-                            replace(incisos.Name, " ", sFilePathWord);
-                    };
                     checkBoxes.Add(incisos);
                     checkb_grid.Items.Add(incisos);
                 }
@@ -187,13 +180,13 @@ namespace Sistema_Gestor_de_Tutorias
                         calendarDatePickers.Add(dp);
                         combob_grid.Items.Add(dp);
                     }
-                    else if (textAreas[i].ToLower().Contains("desarrollo") || textAreas[i].ToLower().Contains("asunto") || textAreas[i].ToLower().Contains("cargo")) {
+                    else if (textAreas[i].ToLower().Contains("situacion") || textAreas[i].ToLower().Contains("descripcion") || textAreas[i].ToLower().Contains("asunto") || textAreas[i].ToLower().Contains("cargo")) {
                         RichEditBox info = new RichEditBox();
                         info.Name = textAreas[i].Replace(' ', '_');
                         info.Width = double.NaN;
                         info.Height = 100;
                         info.Header = textAreas[i];
-                        info.Margin = new Thickness(10, 3, 10, 3);
+                        info.Margin = new Thickness(30, 3, 10, 3);
                         richEditBoxes.Add(info);
                         textbox_sp.Children.Add(info);
                     }
@@ -329,6 +322,7 @@ namespace Sistema_Gestor_de_Tutorias
         {
             try
             {
+                document.ReplaceFirst = true;
                 document.Replace("<[" + textToBeReplaced + "]>", text, true, true);
             }
             catch (Exception ex)
@@ -388,6 +382,17 @@ namespace Sistema_Gestor_de_Tutorias
                     if (dp.Date.Value.DateTime == null)
                         dp.Date = DateTime.UtcNow;
                     replace(dp.Name, dp.Date.Value.DateTime.ToString("dd/MMMM/yyyy"), sFilePathWord);
+                }
+                if (checkBoxes != null)
+                {
+                    foreach (var cb in checkBoxes)
+                    {
+                        if (cb.IsChecked == true)
+                            replace(cb.Name, "x", sFilePathWord);
+                        else
+                            replace(cb.Name, "", sFilePathWord);
+                    }
+                        
                 }
                 replace("Jefe_Tutorias", await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT nombre FROM CoordinadoresTutorias;"), sFilePathWord);
                 replace("Jefe_Departamento", await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT nombre FROM JefesDepartamentos;"), sFilePathWord);
