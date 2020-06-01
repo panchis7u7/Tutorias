@@ -10,6 +10,10 @@ namespace Sistema_Gestor_de_Tutorias
         public int id_provincia { get; set; }
         public string provincia { get; set; }
         public int cod_postal { get; set; }
-        
+
+        public override string ToString()
+        {
+            return this.nombre + " " + this.apellidos;
+        }
     }
 }

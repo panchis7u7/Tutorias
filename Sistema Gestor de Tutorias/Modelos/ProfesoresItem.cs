@@ -1,9 +1,7 @@
-﻿
+﻿using Sistema_Gestor_de_Tutorias.Database_Assets;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 
@@ -17,7 +15,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
         public string Subhead { get; set; }
         //public string DateLine { get; set; }
         public string Imagen { get; set; }
-        public Profesores profesor { get; set; }
+        public InfoProfesores profesor { get; set; }
     }
 
     public class ProfesoresFactory
@@ -34,9 +32,8 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             try
             {
                 var items = new List<ProfesoresItem>();
-                string Query = "SELECT Profesores.id_profesor, Profesores.nombre, Profesores.apellidos, Profesores.departamento FROM Profesores;";
-                var tutores = await GetProfesoresAsync((App.Current as App).conexionBD, Query);
-                tutores.ForEach(p => items.Add(new ProfesoresItem()
+                List<InfoProfesores> profesores = await DBAssets.getProfesoresAsync((App.Current as App).ConnectionString);
+                profesores.ForEach(p => items.Add(new ProfesoresItem()
                 {
                     Id = p.id_profesor,
                     Categoria = "Tutores",
@@ -51,43 +48,6 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             catch (Exception eSql)
             {
                 await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
-            }
-            return null;
-        }
-
-        private async static Task<List<Profesores>> GetProfesoresAsync(SqlConnection conexion, string Query)
-        {
-            var tutores = new List<Profesores>();
-            try
-            {
-                if (conexion.State == System.Data.ConnectionState.Open)
-                {
-                    using (SqlCommand cmd = conexion.CreateCommand())
-                    {
-                        cmd.CommandText = Query;
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                Profesores tutor = new Profesores(); ;
-                                tutor.id_profesor = reader.GetInt32(0);
-                                if (!await reader.IsDBNullAsync(1))
-                                    tutor.nombre = reader.GetString(1).Trim(' ');
-                                if (!await reader.IsDBNullAsync(2))
-                                    tutor.apellidos = reader.GetString(2).Trim(' ');
-                                if (!await reader.IsDBNullAsync(3))
-                                    tutor.departamento = reader.GetString(3).Trim(' ');
-                                tutores.Add(tutor);
-                            }
-                            reader.Close();
-                        }
-                    }
-                }
-                return tutores;
-            }
-            catch (Exception eSql)
-            {
-                Debug.WriteLine("Exception: " + eSql.Message);
             }
             return null;
         }

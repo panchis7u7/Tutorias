@@ -1,9 +1,14 @@
 ﻿using Sistema_Gestor_de_Tutorias.Database_Assets;
 using Sistema_Gestor_de_Tutorias.Modelos;
+using System;
 using System.Collections.ObjectModel;
+using System.IO;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -16,6 +21,7 @@ namespace Sistema_Gestor_de_Tutorias
     public sealed partial class Pagina_Profesores : Page
     {
         private ObservableCollection<ProfesoresItem> ProfesoresItems;
+        private ProfesoresItem profesor_seleccionado;
         private NavigationView navigationView;
         public Pagina_Profesores()
         {
@@ -63,20 +69,29 @@ namespace Sistema_Gestor_de_Tutorias
 
         private async void btn_Agregar_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Profesores profesor = new Profesores();
-            if (txtbx_provincia.Text == "" || txtbx_codigo_postal.Text == "")
-                await DBAssets.setProfesoresAsync((App.Current as App).ConnectionString, profesor, null, 0);
-            else {
-                Provincias provincia = new Provincias() { provincia = txtbx_provincia.Text, cod_postal = int.Parse(txtbx_codigo_postal.Text)};
-                if (await DBAssets.setProfesoresAsync((App.Current as App).ConnectionString, profesor, provincia, 1) >= 0)
-                    ProfesoresItems.Add(new ProfesoresItem() { 
-                    });
-            }
+            InfoProfesores profesor = new InfoProfesores();
+            profesor.nombre = txtbx_Nombre.Text;
+            profesor.apellidos = txtbx_Apellidos.Text;
+            profesor.correo = txtbx_correo.Text;
+            profesor.departamento = txtbx_Departamento.Text;
+            profesor.cod_postal = int.Parse(txtbx_codigo_postal.Text);
+            if (await DBAssets.setProfesoresAsync((App.Current as App).ConnectionString, profesor) >= 0)
+                ProfesoresItems.Add(new ProfesoresItem() {
+                    Id = profesor.id_profesor,
+                    Categoria = "Tutores",
+                    HeadLine = profesor.nombre + " " + profesor.apellidos,
+                    Subhead = profesor.departamento,
+                    profesor = profesor,
+                    Imagen = "Assets/Usuario.png"
+                });
         }
 
-        private void ProfesoresGrid_ItemClick(object sender, ItemClickEventArgs e)
+        private async void ProfesoresGrid_ItemClick(object sender, ItemClickEventArgs e)
         {
             ProfesoresItem item = (e.ClickedItem) as ProfesoresItem;
+            profesor_seleccionado = item;
+            MemoryStream stream;
+            BitmapImage bitmap;
             if (item.Categoria == "Agregar")
             {
                 btn_Agregar.IsEnabled = true;
@@ -85,6 +100,8 @@ namespace Sistema_Gestor_de_Tutorias
                 btn_Actualizar.Visibility = Visibility.Collapsed;
                 btn_Eliminar.IsEnabled = false;
                 btn_Eliminar.Visibility = Visibility.Collapsed;
+                btn_AgregarImagen.IsEnabled = false;
+                btn_AgregarImagen.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -97,18 +114,45 @@ namespace Sistema_Gestor_de_Tutorias
                 txtbx_Nombre.Text = item.profesor.nombre;
                 txtbx_Apellidos.Text = item.profesor.apellidos;
                 txtbx_Departamento.Text = item.profesor.departamento;
+                txtbx_codigo_postal.Text = item.profesor.cod_postal.ToString();
+                txtbx_provincia.Text = item.profesor.provincia;
+                txtbx_correo.Text = item.profesor.correo;
+                if (item.profesor.imagen != null)
+                {
+                    stream = new MemoryStream();
+                    await item.profesor.imagen.CopyToAsync(stream);
+                    stream.Position = 0;
+                    bitmap = new BitmapImage();
+                    await bitmap.SetSourceAsync(stream.AsRandomAccessStream());
+                    img_profesor.Source = bitmap;
+                }
             }
             AgregarProfesoresPopup.IsOpen = true;
         }
 
-        private void btn_Actualizar_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void btn_Actualizar_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            profesor_seleccionado.profesor.nombre = txtbx_Nombre.Text;
+            profesor_seleccionado.profesor.apellidos = txtbx_Apellidos.Text;
+            if (cmbbx_Departamento.IsEnabled)
+                profesor_seleccionado.profesor.departamento = cmbbx_Departamento.SelectedItem.ToString();
+            else
+                profesor_seleccionado.profesor.departamento = txtbx_Departamento.Text;
+            profesor_seleccionado.profesor.correo = txtbx_correo.Text;
+            profesor_seleccionado.profesor.provincia = txtbx_provincia.Text;
+            await DBAssets.setActualizarProfesorAsync((App.Current as App).ConnectionString, profesor_seleccionado.profesor);
         }
 
-        private void btn_Eliminar_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void btn_Eliminar_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            await DBAssets.setBajaProfesorAsync((App.Current as App).ConnectionString, profesor_seleccionado.profesor);
+            foreach(var profesor in ProfesoresItems)
+            {
+                if(profesor.profesor.id_profesor == profesor_seleccionado.profesor.id_profesor)
+                {
+                    ProfesoresItems.Remove(profesor);
+                }
+            }
         }
 
         private void chkbx_Departamento_Unchecked(object sender, RoutedEventArgs e)
@@ -125,6 +169,23 @@ namespace Sistema_Gestor_de_Tutorias
             txtbx_Departamento.Visibility = Visibility.Visible;
             cmbbx_Departamento.IsEnabled = false;
             cmbbx_Departamento.Visibility = Visibility.Collapsed;
+        }
+
+        private async void btn_AgregarImagen_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            openPicker.FileTypeFilter.Add(".jpg");
+            openPicker.FileTypeFilter.Add(".png");
+            StorageFile file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+            {
+                var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                var image = new BitmapImage();
+                image.SetSource(stream);
+                img_profesor.Source = image;
+            }
         }
     }
 }

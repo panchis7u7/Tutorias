@@ -9,6 +9,8 @@ using Windows.UI.Core;
 using Sistema_Gestor_de_Tutorias.Database_Assets;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using iText.Layout.Element;
+using System.Collections.Generic;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -20,7 +22,7 @@ namespace Sistema_Gestor_de_Tutorias
     public sealed partial class Pagina_Grupos : Page
     {
         private ObservableCollection<GruposItem> GruposItems;
-        private ObservableCollection<Profesores> profesores;
+        private List<InfoProfesores> profesores;
         private ObservableCollection<Psicologos> psicologos;
 
         public InfoGruposTutor InfoGruposTutores;
@@ -106,7 +108,7 @@ namespace Sistema_Gestor_de_Tutorias
                 tutor.id_Profesor = (cmbbx_Profesores.SelectedItem as Profesores).id_profesor;
                 tutor.grupo = txtbx_Grupo.Text;
                 tutor.carrera = cmbbx_carrera.SelectedItem.ToString();
-                tutor.semestre = txtbx_Semestre.Text;
+                tutor.semestre = int.Parse(txtbx_Semestre.Text);
 
                 Grupos grupo = new Grupos();
                 grupo.id_tutor = tutor.id_tutor;

@@ -190,7 +190,7 @@ namespace Sistema_Gestor_de_Tutorias
                         richEditBoxes.Add(info);
                         textbox_sp.Children.Add(info);
                     }
-                    else if (textAreas[i].ToLower().ToLower().Contains("jefe"))
+                    else if (textAreas[i].ToLower().ToLower().Contains("jefe") || textAreas[i].ToLower().ToLower().Contains("grupo") || textAreas[i].ToLower().ToLower().Contains("correo") || textAreas[i].ToLower().ToLower().Contains("imagen"))
                     {
                         //if (textAreas[i].ToLower().Contains("Jefe de Tutorias"));
                         //replace(Pagina_Configuracion.);
@@ -210,7 +210,7 @@ namespace Sistema_Gestor_de_Tutorias
                         switch (desplegables.Name)
                         {
                             case "Nombre_Docente":
-                                desplegables.ItemsSource = await DBAssets.getProfesoresAsync((App.Current as App).ConnectionString);
+                                desplegables.ItemsSource = await DBAssets.getProfesoresTutoresAsync((App.Current as App).ConnectionString);
                                 break;
 
                             case "Ciudad_Estado":
@@ -218,7 +218,7 @@ namespace Sistema_Gestor_de_Tutorias
                                 break;
 
                             case "Nombre_Tutor":
-                                desplegables.ItemsSource = await DBAssets.getNombreTutoresAsync((App.Current as App).ConnectionString);
+                                desplegables.ItemsSource = await DBAssets.getProfesoresTutoresAsync((App.Current as App).ConnectionString);
                                 break;
                         }
                         combob_grid.Items.Add(desplegables);
@@ -363,7 +363,25 @@ namespace Sistema_Gestor_de_Tutorias
                     if (x.SelectedItem == null)
                         replace(x.Name, "", sFilePathWord);
                     else
+                        if (x.Name.ToLower().Contains("nombre_tutor"))
+                    {
+                        replace("Grupo", (x.SelectedItem as TutoresProfesores).grupo + " de " + (x.SelectedItem as TutoresProfesores).semestre + " semestre", sFilePathWord);
+                        replace("Correo", (x.SelectedItem as TutoresProfesores).correo, sFilePathWord);
+                        if ((x.SelectedItem as TutoresProfesores).imagen != null)
+                        {
+                            //TextSelection textSelections = document.Find(new Regex("^<[Imagen]>"));
+                            Stream imageStream = (x.SelectedItem as TutoresProfesores).imagen;
+                            WParagraph paragraph = new WParagraph(document);
+                            WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
+                            picture.Width = 60;
+                            picture.Height = 60;
+                            TextSelection newSelection = new TextSelection(paragraph, 0, 1);
+                            TextBodyPart bodyPart = new TextBodyPart(document);
+                            bodyPart.BodyItems.Add(paragraph);
+                            document.Replace("<[Imagen]>", bodyPart, true, true);
+                        }
                         replace(x.Name, x.SelectedItem.ToString(), sFilePathWord);
+                    }
                 }
                 foreach (var fecha in datePickers)
                 {
@@ -395,8 +413,9 @@ namespace Sistema_Gestor_de_Tutorias
                         
                 }
                 replace("Jefe_Tutorias", await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT nombre FROM CoordinadoresTutorias;"), sFilePathWord);
-                replace("Jefe_Departamento", await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT nombre FROM JefesDepartamentos;"), sFilePathWord);
-                replace("Coordinador_Tutorias_Institucionales", await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT nombre FROM CoordinadoresTutoriasInstitucionales;"), sFilePathWord);
+                replace("Jefe_Departamento", await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT nombre FROM JefesDepartamentos WHERE id_jefe = 1;"), sFilePathWord);
+                replace("Jefe_Tutorias_Institucional", await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT nombre FROM CoordinadoresTutoriasInstitucionales;"), sFilePathWord);
+                replace("Jefe_Desarrollo_Académico", await DBAssets.getStringAsync((App.Current as App).ConnectionString, "SELECT nombre FROM JefesDepartamentos WHERE id_jefe = 2;"), sFilePathWord);
 
                 FileSavePicker savePicker = new FileSavePicker();
                 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;

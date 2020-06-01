@@ -57,6 +57,10 @@
               "target": "Package",
               "version": "[18.1.0.45, )"
             },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
             "Uno.Microsoft.Toolkit.Uwp.UI.Controls": {
               "target": "Package",
               "version": "[6.1.0-build.71.g38c59ea2a0, )"

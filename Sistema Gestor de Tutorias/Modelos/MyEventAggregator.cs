@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 
@@ -17,7 +14,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             subscribers.Add(new Tuple<CoreDispatcher, object>(Window.Current.Dispatcher, subscriber));
         }
 
-        public void Publish<TMessage>(TMessage message)
+        public async void Publish<TMessage>(TMessage message)
         {
             var messageType = GetEventType(message);
 
@@ -28,7 +25,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
                 if (messageType.IsInstanceOfType(handler))
                 {
                     var dispatcher = subscriber.Item1;
-                    dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
                         ((ISubscriber<TMessage>)handler).HandleMessage(message);
                     });
