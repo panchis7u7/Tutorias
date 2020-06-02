@@ -38,7 +38,11 @@
                 BorderThickness="2" Width="auto" Height="auto">
                 <ScrollViewer IsVerticalRailEnabled="True" VerticalScrollBarVisibility="Auto" Width="auto">
                     <StackPanel Padding="20" Width="300">
-                        <TextBlock FontSize="20"  Margin="0 0 0 15">Agregar Profesor</TextBlock>
+                        <!--<StackPanel Orientation="Horizontal" Width="auto">
+                            <TextBlock FontSize="20"  Margin="0 0 0 15" Width="200" >Agregar Profesor</TextBlock>
+                            <Button x:Name="btn_Salir" FontSize="20" HorizontalAlignment="Right" Tapped="btn_Salir_Tapped" Margin="0 10 0 20" Width="40" Height="40" Content="X"></Button>
+                        </StackPanel>-->
+                        <TextBlock FontSize="20"  Margin="0 0 0 15" Width="200" >Agregar Profesor</TextBlock>
                         <TextBox x:Name="txtbx_Nombre" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Nombre" Header="Nombre" Width="200"></TextBox>
                         <TextBox x:Name="txtbx_Apellidos" HorizontalAlignment="Left" Margin="0 10 0 10" PlaceholderText="Ingresar Apellidos" Header="Apellidos" Width="200"></TextBox>
                         <CheckBox x:Name="chkbx_Departamento" Content="Buscar departamento en la lista..." Unchecked="chkbx_Departamento_Unchecked" Checked="chkbx_Departamento_Checked" Margin="0 10 0 10" FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="200"></CheckBox>

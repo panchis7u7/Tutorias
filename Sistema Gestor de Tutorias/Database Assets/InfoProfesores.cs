@@ -1,6 +1,4 @@
-﻿
-using System.IO;
-
+﻿using System.IO;
 namespace Sistema_Gestor_de_Tutorias.Database_Assets
 {
     public class InfoProfesores

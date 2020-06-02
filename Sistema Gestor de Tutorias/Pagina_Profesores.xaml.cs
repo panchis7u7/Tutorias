@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -23,6 +24,7 @@ namespace Sistema_Gestor_de_Tutorias
         private ObservableCollection<ProfesoresItem> ProfesoresItems;
         private ProfesoresItem profesor_seleccionado;
         private NavigationView navigationView;
+        private Stream imgPtr;
         public Pagina_Profesores()
         {
             this.InitializeComponent();
@@ -75,6 +77,8 @@ namespace Sistema_Gestor_de_Tutorias
             profesor.correo = txtbx_correo.Text;
             profesor.departamento = txtbx_Departamento.Text;
             profesor.cod_postal = int.Parse(txtbx_codigo_postal.Text);
+            profesor.provincia = txtbx_provincia.Text;
+            profesor.imagen = imgPtr;
             if (await DBAssets.setProfesoresAsync((App.Current as App).ConnectionString, profesor) >= 0)
                 ProfesoresItems.Add(new ProfesoresItem() {
                     Id = profesor.id_profesor,
@@ -90,8 +94,8 @@ namespace Sistema_Gestor_de_Tutorias
         {
             ProfesoresItem item = (e.ClickedItem) as ProfesoresItem;
             profesor_seleccionado = item;
-            MemoryStream stream;
-            BitmapImage bitmap;
+            MemoryStream stream = null;
+            BitmapImage bitmap = null;
             if (item.Categoria == "Agregar")
             {
                 btn_Agregar.IsEnabled = true;
@@ -100,8 +104,6 @@ namespace Sistema_Gestor_de_Tutorias
                 btn_Actualizar.Visibility = Visibility.Collapsed;
                 btn_Eliminar.IsEnabled = false;
                 btn_Eliminar.Visibility = Visibility.Collapsed;
-                btn_AgregarImagen.IsEnabled = false;
-                btn_AgregarImagen.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -121,9 +123,12 @@ namespace Sistema_Gestor_de_Tutorias
                 {
                     stream = new MemoryStream();
                     await item.profesor.imagen.CopyToAsync(stream);
-                    stream.Position = 0;
                     bitmap = new BitmapImage();
+                    item.profesor.imagen.Position = 0;
+                    stream.Position = 0;
                     await bitmap.SetSourceAsync(stream.AsRandomAccessStream());
+                    await item.profesor.imagen.FlushAsync();
+                    await stream.FlushAsync();
                     img_profesor.Source = bitmap;
                 }
             }
@@ -173,6 +178,7 @@ namespace Sistema_Gestor_de_Tutorias
 
         private async void btn_AgregarImagen_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            profesor_seleccionado = null;
             FileOpenPicker openPicker = new FileOpenPicker();
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
@@ -184,8 +190,18 @@ namespace Sistema_Gestor_de_Tutorias
                 var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
                 var image = new BitmapImage();
                 image.SetSource(stream);
+                Stream imgStream = stream.AsStream();
+                imgStream.Position = 0;
+                if (profesor_seleccionado != null)
+                    profesor_seleccionado.profesor.imagen = imgStream;
+                imgPtr = imgStream;
                 img_profesor.Source = image;
             }
+        }
+
+        private void btn_Salir_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            AgregarProfesoresPopup.IsOpen = false;
         }
     }
 }

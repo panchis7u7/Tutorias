@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 
@@ -665,6 +666,12 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             string Query = "INSERT INTO Profesores (id_profesor, nombre, apellidos, departamento, correo, imagen) VALUES (@id_p, @n, @a, @d, @c, @img)";
             try
             {
+                byte[] result;
+                using (var streamReader = new MemoryStream())
+                {
+                    profesor.imagen.CopyTo(streamReader);
+                    result = streamReader.ToArray();
+                }
                 profesor.id_profesor = await GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_profesor) + 1) FROM Profesores;");
                 int id_provincia = await GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_provincia) + 1) FROM Provincias");
                 using (SqlConnection conexion = new SqlConnection(connectionString))
@@ -676,28 +683,28 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                         cmd.CommandText = Query;
                         cmd.Parameters.AddWithValue("@id_p", profesor.id_profesor);
                         cmd.Parameters.AddWithValue("@n", profesor.nombre);
-                        cmd.Parameters.AddWithValue("@m", profesor.apellidos);
+                        cmd.Parameters.AddWithValue("@a", profesor.apellidos);
                         cmd.Parameters.AddWithValue("@d", profesor.departamento);
                         cmd.Parameters.AddWithValue("@c", profesor.correo);
-                        cmd.Parameters.AddWithValue("@img", "");
+                        cmd.Parameters.AddWithValue("@img", result);
                         cmd.Transaction = transaccion;
                         if (await cmd.ExecuteNonQueryAsync() < 0)
                             await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
-                            cmd.CommandText = QueryResidencia[0];
-                            cmd.Parameters.AddWithValue("@id_prov", id_provincia);
-                            cmd.Parameters.AddWithValue("@cp", profesor.cod_postal);
-                            cmd.Parameters.AddWithValue("@p", profesor.provincia);
-                            cmd.Transaction = transaccion;
-                            if (await cmd.ExecuteNonQueryAsync() < 0)
-                                await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        cmd.CommandText = QueryResidencia[0];
+                        cmd.Parameters.AddWithValue("@id_prov", id_provincia);
+                        cmd.Parameters.AddWithValue("@cp", profesor.cod_postal);
+                        cmd.Parameters.AddWithValue("@p", profesor.provincia);
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
 
-                            cmd.CommandText = QueryResidencia[1];
-                            cmd.Parameters.AddWithValue("@id_p", id_provincia);
-                            cmd.Parameters.AddWithValue("@id_prof", profesor.id_profesor);
-                            cmd.Transaction = transaccion;
-                            if (await cmd.ExecuteNonQueryAsync() < 0)
-                                await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        cmd.CommandText = QueryResidencia[1];
+                        cmd.Parameters.AddWithValue("@id_p", id_provincia);
+                        cmd.Parameters.AddWithValue("@id_prof", profesor.id_profesor);
+                        cmd.Transaction = transaccion;
+                        if (await cmd.ExecuteNonQueryAsync() < 0)
+                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
                         
                         transaccion.Commit();
                     }
@@ -840,19 +847,26 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
         {
             SqlTransaction transaccion = null;
             string[] Query = {"UPDATE Profesores SET nombre  = '" + profesor.nombre + "', apellidos = '" + profesor.apellidos+ "', departamento = '" + profesor.departamento +
-                              "', correo = '"+  profesor.correo + "', imagen = @imagen WHERE id_alumno = " + profesor.id_profesor,
+                              "', correo = '"+  profesor.correo + "', imagen = @imagen WHERE id_profesor = " + profesor.id_profesor,
                               "UPDATE Provincias SET cod_postal = " + profesor.cod_postal + ", provincia = '" + profesor.provincia +
                               "' WHERE id_provincia = " + profesor.id_provincia};
             try
             {
+                byte[] result;
+                using (var streamReader = new MemoryStream())
+                {
+                profesor.imagen.CopyTo(streamReader);
+                result = streamReader.ToArray();
+                }
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     await conexion.OpenAsync();
                     transaccion = conexion.BeginTransaction();
                     using (SqlCommand cmd = conexion.CreateCommand())
                     {
+                        profesor.imagen.Position = 0;
                         cmd.CommandText = Query[0];
-                        cmd.Parameters.Add(new SqlParameter("@imagen", profesor.imagen));
+                        cmd.Parameters.Add(new SqlParameter("@imagen", result));
                         cmd.Transaction = transaccion;
                         if (await cmd.ExecuteNonQueryAsync() < 0)
                             await new MessageDialog("Error actualizando la fila de la base de datos!").ShowAsync();
