@@ -16,6 +16,7 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
         public string Subhead { get; set; }
         public string Semestre { get; set; }
         public string DateLine { get; set; }
+        public InfoGruposTutor grupo { get; set; }
         public string Imagen { get; set; }
     }
     
@@ -34,19 +35,20 @@ namespace Sistema_Gestor_de_Tutorias.Modelos
             try
             {
                 var items = new List<GruposItem>();           
-                var grupos = await DBAssets.GetInfoGruposAsync((App.Current as App).ConnectionString);                
-                if(grupos != null)
-                grupos.ForEach(p => items.Add(new GruposItem()
-                {
-                    Id = p.id,
-                    Categoria = "Grupos",
-                    Grupo = p.grupo.Trim(' '),
-                    HeadLine = "Grupo " + p.grupo.Trim(' '),
-                    DateLine = p.carrera.Trim(' '),
-                    Subhead = p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '),
-                    Semestre = p.semestre + " Semestre.",
-                    Imagen = "Assets/Antena.png"
-                }));
+                var grupos = await DBAssets.GetInfoGruposAsync((App.Current as App).ConnectionString);
+                if (grupos != null)
+                    grupos.ForEach(p => items.Add(new GruposItem()
+                    {
+                        Id = p.id_tutor,
+                        Categoria = "Grupos",
+                        Grupo = p.grupo.Trim(' '),
+                        HeadLine = "Grupo " + p.grupo.Trim(' '),
+                        DateLine = p.carrera.Trim(' '),
+                        Subhead = p.nombre.Trim(' ') + " " + p.apellidos.Trim(' '),
+                        Semestre = p.semestre + " Semestre.",
+                        grupo = p,
+                        Imagen = "Assets/Antena.png"
+                    }));
                 items.Add(new GruposItem() { Id = 4, Categoria = "Agregar", HeadLine = "Agregar Grupo", DateLine = " ", Subhead = " ", Imagen = "Assets/Add.png" });
                 return items;
             } catch (Exception eSql)

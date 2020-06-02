@@ -123,7 +123,6 @@
     <Compile Include="Database Assets\Asignaturas.cs" />
     <Compile Include="Database Assets\Calificaciones.cs" />
     <Compile Include="Database Assets\DBAssets.cs" />
-    <Compile Include="Database Assets\InfoGrupos.cs" />
     <Compile Include="Database Assets\InfoGruposGS.cs" />
     <Compile Include="Database Assets\InfoGruposTutor.cs" />
     <Compile Include="Database Assets\InfoProfesores.cs" />

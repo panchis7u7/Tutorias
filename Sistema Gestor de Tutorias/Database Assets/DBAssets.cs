@@ -27,7 +27,6 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                     await conexion.OpenAsync();
                     if (conexion.State == System.Data.ConnectionState.Open)
                     {
-                        //String Query = "SELECT * FROM Profesores";
                         String Query = "SELECT Profesores.id_profesor, nombre, apellidos, departamento, correo, imagen, Provincias.id_provincia, Provincias.cod_postal, Provincias.provincia FROM Profesores " +
                                        "INNER JOIN ResidenciasProfesores ON ResidenciasProfesores.id_profesor = Profesores.id_profesor " +
                                        "INNER JOIN Provincias ON provinciAS.id_provincia = ResidenciasProfesores.id_provincia; "; 
@@ -65,7 +64,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                 return profesores;
             } catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -118,7 +118,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -162,7 +163,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -204,7 +206,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -254,7 +257,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -293,7 +297,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -327,7 +332,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -359,7 +365,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -396,7 +403,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -429,7 +437,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                await new MessageDialog("Error!: " + eSql.Message).ShowAsync();
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return "";
         }
@@ -483,23 +492,24 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
 
-        public async static Task<List<InfoGrupos>> GetInfoGruposAsync (string connectionString)
+        public async static Task<List<InfoGruposTutor>> GetInfoGruposAsync (string connectionString)
         {
             try
             {
-                List<InfoGrupos> grupos = new List<InfoGrupos>();
+                List<InfoGruposTutor> grupos = new List<InfoGruposTutor>();
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     await conexion.OpenAsync();
                     if (conexion.State == System.Data.ConnectionState.Open)
                     {
-                        string Query = "SELECT id_tutor, Profesores.nombre, Profesores.apellidos, carrera, grupo, semestre FROM Tutores " +
-                                       "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor;";
+                        string Query = "SELECT Tutores.id_tutor, Profesores.nombre, Profesores.apellidos, grupo, departamento, semestre, carrera FROM Tutores " +
+                                       "INNER JOIN Profesores ON Profesores.id_profesor = Tutores.id_profesor; ";
                         using (SqlCommand cmd = conexion.CreateCommand())
                         {
                             cmd.CommandText = Query;
@@ -507,18 +517,20 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                             {
                                 while (await reader.ReadAsync())
                                 {
-                                    InfoGrupos grupo = new InfoGrupos();
-                                    grupo.id = reader.GetInt32(0);
+                                    InfoGruposTutor grupo = new InfoGruposTutor();
+                                    grupo.id_tutor = reader.GetInt32(0);
                                     if (!await reader.IsDBNullAsync(1))
                                         grupo.nombre = reader.GetString(1).Trim(' ');
                                     if (!await reader.IsDBNullAsync(2))
                                         grupo.apellidos = reader.GetString(2).Trim(' ');
                                     if (!await reader.IsDBNullAsync(3))
-                                        grupo.carrera = reader.GetString(3).Trim(' ');
+                                        grupo.grupo = reader.GetString(3).Trim(' ');
                                     if (!await reader.IsDBNullAsync(4))
-                                        grupo.grupo = reader.GetString(4).Trim(' ');
+                                        grupo.departamento = reader.GetString(4).Trim(' ');
                                     if (!await reader.IsDBNullAsync(5))
                                         grupo.semestre = reader.GetInt32(5);
+                                    if (!await reader.IsDBNullAsync(6))
+                                        grupo.carrera = reader.GetString(6).Trim(' ');
                                     grupos.Add(grupo);
                                 }
                             }
@@ -529,7 +541,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return null;
         }
@@ -553,8 +566,7 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                         cmd.Parameters.AddWithValue("@s", tutor.semestre);
                         cmd.Parameters.AddWithValue("@c", tutor.carrera);
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            return -1;
+                        await cmd.ExecuteNonQueryAsync();
                         transaccion.Commit();
                     }
                 }
@@ -562,7 +574,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -584,8 +597,7 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                         cmd.Parameters.AddWithValue("@id_a", grupo.id_alumno);
                         cmd.Parameters.AddWithValue("@id_t", grupo.id_tutor);
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            return -1;
+                        await cmd.ExecuteNonQueryAsync();
                         transaccion.Commit();
                     }
                 }
@@ -593,7 +605,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -620,31 +633,27 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                         cmd.Parameters.AddWithValue("@n", alumno.nombre);
                         cmd.Parameters.AddWithValue("@a", alumno.apellidos);
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
 
                         cmd.CommandText = Query[1];
                         cmd.Parameters.AddWithValue("@id_p", alumno.id_provincia);
                         cmd.Parameters.AddWithValue("@cp", alumno.cod_postal);
                         cmd.Parameters.AddWithValue("@p", alumno.provincia);
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
 
                         cmd.CommandText = Query[2];
                         cmd.Parameters.AddWithValue("@id_fa", alumno.id_alumno);
                         cmd.Parameters.AddWithValue("@id_fp", alumno.id_provincia);
                         cmd.Transaction = transaccion;
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
 
                         cmd.CommandText = Query[3];
                         cmd.Parameters.AddWithValue("@id_tfa", alumno.id_alumno);
                         cmd.Parameters.AddWithValue("@id_ft", idTutor);
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         transaccion.Commit();
                     }
                 }
@@ -652,7 +661,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -662,15 +672,18 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
         {
             SqlTransaction transaccion = null;
             string[] QueryResidencia = { "INSERT INTO Provincias (id_provincia, cod_postal, provincia) VALUES (@id_prov, @cp, @p)",
-                                         "INSERT INTO ResidenciasProfesores (id_provincia, id_profesor) VALUES (@id_p, id_prof)"};
-            string Query = "INSERT INTO Profesores (id_profesor, nombre, apellidos, departamento, correo, imagen) VALUES (@id_p, @n, @a, @d, @c, @img)";
+                                         "INSERT INTO ResidenciasProfesores (id_provincia, id_profesor) VALUES (@id_p, @id_pr)"};
+            string Query = "INSERT INTO Profesores (id_profesor, nombre, apellidos, departamento, correo, imagen) VALUES (@id_prof, @n, @a, @d, @c, @img)";
             try
             {
-                byte[] result;
-                using (var streamReader = new MemoryStream())
+                byte[] result = null;
+                if (profesor.imagen != null)
                 {
-                    profesor.imagen.CopyTo(streamReader);
-                    result = streamReader.ToArray();
+                    using (var streamReader = new MemoryStream())
+                    {
+                        profesor.imagen.CopyTo(streamReader);
+                        result = streamReader.ToArray();
+                    }
                 }
                 profesor.id_profesor = await GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_profesor) + 1) FROM Profesores;");
                 int id_provincia = await GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_provincia) + 1) FROM Provincias");
@@ -681,31 +694,33 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                     using (SqlCommand cmd = conexion.CreateCommand())
                     {
                         cmd.CommandText = Query;
-                        cmd.Parameters.AddWithValue("@id_p", profesor.id_profesor);
+                        cmd.Parameters.AddWithValue("@id_prof", profesor.id_profesor);
                         cmd.Parameters.AddWithValue("@n", profesor.nombre);
                         cmd.Parameters.AddWithValue("@a", profesor.apellidos);
                         cmd.Parameters.AddWithValue("@d", profesor.departamento);
                         cmd.Parameters.AddWithValue("@c", profesor.correo);
-                        cmd.Parameters.AddWithValue("@img", result);
+                        if (profesor.imagen != null)
+                            cmd.Parameters.AddWithValue("@img", result);
+                        else
+                        {
+                            cmd.Parameters.Add("@img", SqlDbType.VarBinary).Value = DBNull.Value;
+                        }
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
 
                         cmd.CommandText = QueryResidencia[0];
                         cmd.Parameters.AddWithValue("@id_prov", id_provincia);
                         cmd.Parameters.AddWithValue("@cp", profesor.cod_postal);
                         cmd.Parameters.AddWithValue("@p", profesor.provincia);
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
 
                         cmd.CommandText = QueryResidencia[1];
                         cmd.Parameters.AddWithValue("@id_p", id_provincia);
-                        cmd.Parameters.AddWithValue("@id_prof", profesor.id_profesor);
+                        cmd.Parameters.AddWithValue("@id_pr", profesor.id_profesor);
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
-                        
+                        await cmd.ExecuteNonQueryAsync();
+
                         transaccion.Commit();
                     }
                 }
@@ -713,7 +728,40 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
+                transaccion.Rollback();
+            }
+            return -1;
+        }
+
+        public async static Task<int> setBajaGrupoAsync(string connectionString, int id_tutor)
+        {
+            SqlTransaction transaccion = null;
+            string[] Query = { "DELETE FROM Tutores WHERE id_tutor = " + id_tutor,
+                               "DELETE FROM Grupos WHERE id_tutor = " + id_tutor };
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    await conexion.OpenAsync();
+                    transaccion = conexion.BeginTransaction();
+                    using (SqlCommand cmd = conexion.CreateCommand())
+                    {
+                        cmd.CommandText = Query[0];
+                        cmd.Transaction = transaccion;
+                        await cmd.ExecuteNonQueryAsync();
+                        cmd.CommandText = Query[1];
+                        cmd.Transaction = transaccion;
+                        transaccion.Commit();
+                    }
+                }
+                return 0;
+            }
+            catch (Exception eSql)
+            {
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -736,20 +784,16 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                     {
                         cmd.CommandText = Query[0];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         cmd.CommandText = Query[1];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         cmd.CommandText = Query[2];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         cmd.CommandText = Query[3];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         transaccion.Commit();
                     }
                 }
@@ -757,7 +801,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -780,20 +825,15 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                     {
                         cmd.CommandText = Query[0];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         cmd.CommandText = Query[1];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         cmd.CommandText = Query[2];
-                        cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         cmd.CommandText = Query[3];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error borrando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         transaccion.Commit();
                     }
                 }
@@ -801,7 +841,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -824,12 +865,10 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                     {
                         cmd.CommandText = Query[0];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error actualizando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         cmd.CommandText = Query[1];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error actualizando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         transaccion.Commit();
                     }
                 }
@@ -837,7 +876,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -881,7 +921,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -901,8 +942,7 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                     {
                         cmd.CommandText = Query[0];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error actualizando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         transaccion.Commit();
                     }
                 }
@@ -910,7 +950,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -932,16 +973,13 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
                     {
                         cmd.CommandText = Query[0];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         cmd.CommandText = Query[1];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         cmd.CommandText = Query[2];
                         cmd.Transaction = transaccion;
-                        if (await cmd.ExecuteNonQueryAsync() < 0)
-                            await new MessageDialog("Error insertando la fila de la base de datos!").ShowAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         transaccion.Commit();
                     }
                 }
@@ -949,7 +987,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
                 transaccion.Rollback();
             }
             return -1;
@@ -980,7 +1019,8 @@ namespace Sistema_Gestor_de_Tutorias.Database_Assets
             }
             catch (Exception eSql)
             {
-                Debug.WriteLine("Exception: " + eSql.Message);
+                await new MessageDialog("Error con los datos!").ShowAsync();
+                Debug.WriteLine("Error!: " + eSql.Message);
             }
             return 0;
         }

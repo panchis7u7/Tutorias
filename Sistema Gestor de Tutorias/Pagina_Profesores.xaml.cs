@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -29,16 +28,17 @@ namespace Sistema_Gestor_de_Tutorias
         {
             this.InitializeComponent();
             ProfesoresItems = new ObservableCollection<ProfesoresItem>();
+            imgPtr = null;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            ProfesoresFactory.getProfesores("Profesores", ProfesoresItems);
         }
 
         protected override async void OnNavigatedTo (NavigationEventArgs e)
         {
             this.navigationView = e.Parameter as NavigationView;
+            ProfesoresFactory.getProfesores("Profesores", ProfesoresItems);
             cmbbx_Departamento.ItemsSource = await DBAssets.getStringsAsync((App.Current as App).ConnectionString, "SELECT DISTINCT departamento from Profesores;");
         }
 
@@ -75,7 +75,10 @@ namespace Sistema_Gestor_de_Tutorias
             profesor.nombre = txtbx_Nombre.Text;
             profesor.apellidos = txtbx_Apellidos.Text;
             profesor.correo = txtbx_correo.Text;
-            profesor.departamento = txtbx_Departamento.Text;
+            if (cmbbx_Departamento.IsEnabled)
+                profesor.departamento = cmbbx_Departamento.SelectedItem.ToString();
+            else
+                profesor.departamento = txtbx_Departamento.Text;
             profesor.cod_postal = int.Parse(txtbx_codigo_postal.Text);
             profesor.provincia = txtbx_provincia.Text;
             profesor.imagen = imgPtr;
@@ -119,17 +122,24 @@ namespace Sistema_Gestor_de_Tutorias
                 txtbx_codigo_postal.Text = item.profesor.cod_postal.ToString();
                 txtbx_provincia.Text = item.profesor.provincia;
                 txtbx_correo.Text = item.profesor.correo;
-                if (item.profesor.imagen != null)
+                try
                 {
-                    stream = new MemoryStream();
-                    await item.profesor.imagen.CopyToAsync(stream);
-                    bitmap = new BitmapImage();
-                    item.profesor.imagen.Position = 0;
-                    stream.Position = 0;
-                    await bitmap.SetSourceAsync(stream.AsRandomAccessStream());
-                    await item.profesor.imagen.FlushAsync();
-                    await stream.FlushAsync();
-                    img_profesor.Source = bitmap;
+                    if (item.profesor.imagen != null)
+                    {
+                        stream = new MemoryStream();
+                        await item.profesor.imagen.CopyToAsync(stream);
+                        bitmap = new BitmapImage();
+                        item.profesor.imagen.Position = 0;
+                        stream.Position = 0;
+                        await bitmap.SetSourceAsync(stream.AsRandomAccessStream());
+                        await item.profesor.imagen.FlushAsync();
+                        await stream.FlushAsync();
+                        img_profesor.Source = bitmap;
+                    }
+                } catch (Exception eSql)
+                {
+                    await new Windows.UI.Popups.MessageDialog("Error al leer la imagen!").ShowAsync();
+                    System.Diagnostics.Debug.WriteLine("Error!: " + eSql.Message);
                 }
             }
             AgregarProfesoresPopup.IsOpen = true;
@@ -137,15 +147,20 @@ namespace Sistema_Gestor_de_Tutorias
 
         private async void btn_Actualizar_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            profesor_seleccionado.profesor.nombre = txtbx_Nombre.Text;
-            profesor_seleccionado.profesor.apellidos = txtbx_Apellidos.Text;
-            if (cmbbx_Departamento.IsEnabled)
-                profesor_seleccionado.profesor.departamento = cmbbx_Departamento.SelectedItem.ToString();
-            else
-                profesor_seleccionado.profesor.departamento = txtbx_Departamento.Text;
-            profesor_seleccionado.profesor.correo = txtbx_correo.Text;
-            profesor_seleccionado.profesor.provincia = txtbx_provincia.Text;
-            await DBAssets.setActualizarProfesorAsync((App.Current as App).ConnectionString, profesor_seleccionado.profesor);
+            try
+            {
+                profesor_seleccionado.profesor.nombre = txtbx_Nombre.Text;
+                profesor_seleccionado.profesor.apellidos = txtbx_Apellidos.Text;
+                if (cmbbx_Departamento.IsEnabled)
+                    profesor_seleccionado.profesor.departamento = cmbbx_Departamento.SelectedItem.ToString();
+                else
+                    profesor_seleccionado.profesor.departamento = txtbx_Departamento.Text;
+                profesor_seleccionado.profesor.correo = txtbx_correo.Text;
+                profesor_seleccionado.profesor.provincia = txtbx_provincia.Text;
+                profesor_seleccionado.profesor.imagen = imgPtr;
+                await DBAssets.setActualizarProfesorAsync((App.Current as App).ConnectionString, profesor_seleccionado.profesor);
+            } catch (Exception ex) { 
+            }
         }
 
         private async void btn_Eliminar_Tapped(object sender, TappedRoutedEventArgs e)

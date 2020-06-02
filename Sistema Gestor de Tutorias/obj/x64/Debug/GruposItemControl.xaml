@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid x:ConnectionId='2' x:Name="MainPanelGrid" Background="White" Margin="10" Height="275" Width="200">
+    <Grid x:ConnectionId='2' x:Name="MainPanelGrid" Background="White" Margin="10" Height="275" Width="200"                                        >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -26,6 +26,7 @@
                         <Setter Target="HeadLineTextBlock.FontSize" Value="18"/>
                     </VisualState.Setters>
                 </VisualState>
+
                 <!--<VisualState x:Name="WideLayout">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="900"/>
@@ -38,24 +39,29 @@
                 </VisualState>-->
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Image x:ConnectionId='4' Name="Imagen"                                    />
+        <Grid.ContextFlyout>
+            <MenuFlyout x:ConnectionId='4' x:Name="flyout_menu">
+                <MenuFlyoutItem x:ConnectionId='5'                              IsEnabled="True" IsTapEnabled="True" Text="Eliminar"></MenuFlyoutItem>
+            </MenuFlyout>
+        </Grid.ContextFlyout>
+        <Image x:ConnectionId='6' Name="Imagen"                                    />
         <RelativePanel Grid.Row="1" Margin="10">
-            <TextBlock x:ConnectionId='5'                                    
+            <TextBlock x:ConnectionId='7'                                    
                        RelativePanel.AlignTopWithPanel="True"
                        x:Name="HeadLineTextBlock"
                        Foreground="Black"
                        FontSize="18"
                        TextWrapping="Wrap"></TextBlock>
-            <TextBlock x:ConnectionId='6'                                   
+            <TextBlock x:ConnectionId='8'                                   
                        x:Name="SubHeadTextBlock"
                        RelativePanel.Below="HeadLineTextBlock"
                        Foreground="Black" 
                        TextWrapping="Wrap"></TextBlock>
-            <TextBlock x:ConnectionId='7'                                    
+            <TextBlock x:ConnectionId='9'                                    
                        RelativePanel.Below="SubHeadTextBlock"
                        Foreground="Black"
                        TextWrapping="Wrap"></TextBlock>
-            <TextBlock x:ConnectionId='8'                                    
+            <TextBlock x:ConnectionId='10'                                    
                        RelativePanel.AlignBottomWithPanel="True"
                        Foreground="Black"
                        FontSize="10"></TextBlock>

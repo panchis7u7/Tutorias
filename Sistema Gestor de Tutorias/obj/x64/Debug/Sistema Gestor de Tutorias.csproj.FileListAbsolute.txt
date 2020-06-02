@@ -4,10 +4,12 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\2.
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\2.pdf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\6.docx
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\6.pdf
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\1.docx
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\1.pdf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\3.docx
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\3.pdf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\7.docx
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\7.pdf
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\1.docx
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\1.pdf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\App.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Editor.xbf
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\GruposItemControl.xbf
@@ -76,6 +78,7 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Syncfusion.
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Syncfusion.Licensing.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Syncfusion.OfficeChart.UWP.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Configuration.ConfigurationManager.dll
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Drawing.Common.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Runtime.Loader.dll
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Security.Cryptography.ProtectedData.dll
@@ -160,6 +163,7 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Syncfusion.
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Syncfusion.OfficeChart.UWP\en\Syncfusion.OfficeChart.TexturePatternGradient.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Syncfusion.OfficeChart.UWP\en\Syncfusion.OfficeChart.VMLPresetGradientFills.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Configuration.ConfigurationManager.SR.resw
+E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Drawing.Common.SR.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Security.Cryptography.ProtectedData.SR.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Security.Permissions.SR.resw
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Xml.XPath.XmlDocument.SR.resw
@@ -183,8 +187,3 @@ E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\resources.e
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\ProjectArchitectures.txt
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_637214750760000000.json
 E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637112786540000000.json
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\7.docx
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\Formatos\7.pdf
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\Sistema Gestor de Tutorias.csprojAssemblyReference.cache
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\bin\x64\Debug\System.Drawing.Common.dll
-E:\Proyectos\C#\Tutorias C#\Sistema Gestor de Tutorias\obj\x64\Debug\FxResources.System.Drawing.Common.SR.resw

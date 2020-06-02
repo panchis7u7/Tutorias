@@ -9,7 +9,6 @@ using Windows.UI.Core;
 using Sistema_Gestor_de_Tutorias.Database_Assets;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
-using iText.Layout.Element;
 using System.Collections.Generic;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -105,7 +104,7 @@ namespace Sistema_Gestor_de_Tutorias
             {
                 Tutores tutor = new Tutores();
                 tutor.id_tutor = await DBAssets.GetId((App.Current as App).ConnectionString, "SELECT (MAX(id_tutor) + 1) FROM Tutores");
-                tutor.id_Profesor = (cmbbx_Profesores.SelectedItem as Profesores).id_profesor;
+                tutor.id_Profesor = (cmbbx_Profesores.SelectedItem as InfoProfesores).id_profesor;
                 tutor.grupo = txtbx_Grupo.Text;
                 tutor.carrera = cmbbx_carrera.SelectedItem.ToString();
                 tutor.semestre = int.Parse(txtbx_Semestre.Text);
@@ -125,7 +124,7 @@ namespace Sistema_Gestor_de_Tutorias
                         Grupo = tutor.grupo.Trim(' '),
                         HeadLine = "Grupo " + tutor.grupo.Trim(' '),
                         DateLine = tutor.carrera.Trim(' '),
-                        Subhead = (cmbbx_Profesores.SelectedItem as Profesores).nombre + " " + (cmbbx_Profesores.SelectedItem as Profesores).apellidos,
+                        Subhead = (cmbbx_Profesores.SelectedItem as InfoProfesores).nombre + " " + (cmbbx_Profesores.SelectedItem as InfoProfesores).apellidos,
                         Semestre = tutor.semestre + " Semestre.",
                         Imagen = "Assets/Antena.png"
                     });

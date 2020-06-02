@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid x:Name="MainPanelGrid" Background="White" Margin="10" Height="275" Width="200">
+    <Grid x:Name="MainPanelGrid" Background="White" Margin="10" Height="275" Width="200" RightTapped="MainPanelGrid_RightTapped">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -26,6 +26,7 @@
                         <Setter Target="HeadLineTextBlock.FontSize" Value="18"/>
                     </VisualState.Setters>
                 </VisualState>
+
                 <!--<VisualState x:Name="WideLayout">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="900"/>
@@ -38,6 +39,11 @@
                 </VisualState>-->
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <Grid.ContextFlyout>
+            <MenuFlyout x:Name="flyout_menu">
+                <MenuFlyoutItem Click="MenuFlyoutItem_Click" IsEnabled="True" IsTapEnabled="True" Text="Eliminar"></MenuFlyoutItem>
+            </MenuFlyout>
+        </Grid.ContextFlyout>
         <Image Name="Imagen" Source="{x:Bind GruposItem.Imagen}"/>
         <RelativePanel Grid.Row="1" Margin="10">
             <TextBlock Text="{x:Bind GruposItem.HeadLine}"

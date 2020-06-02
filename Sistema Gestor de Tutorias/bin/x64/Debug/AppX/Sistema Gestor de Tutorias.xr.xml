@@ -32,6 +32,8 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="ContextFlyout" />
+      <RootEvent Name="RightTapped" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
       <RootMethod Name="GetRow" />
@@ -108,6 +110,15 @@
       <RootProperty Name="Target" />
       <RootProperty Name="Value" />
       <RootProperty Name="Property" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
+      <RootProperty Name="IsEnabled" />
+      <RootProperty Name="IsTapEnabled" />
+      <RootProperty Name="Text" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Name" />

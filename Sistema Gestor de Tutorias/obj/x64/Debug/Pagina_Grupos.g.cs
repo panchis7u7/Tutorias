@@ -186,14 +186,14 @@ namespace Sistema_Gestor_de_Tutorias
                     }
                 }
             }
-            private void Update_InfoGruposTutores_grupo(global::System.Char obj, int phase)
+            private void Update_InfoGruposTutores_grupo(global::System.String obj, int phase)
             {
                 if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
                 {
                     // Pagina_Grupos.xaml line 64
                     if (!isobj7TextDisabled)
                     {
-                        XamlBindingSetters.Set_Windows_UI_Xaml_Controls_TextBox_Text(this.obj7, obj.ToString(), null);
+                        XamlBindingSetters.Set_Windows_UI_Xaml_Controls_TextBox_Text(this.obj7, obj, null);
                     }
                 }
             }
@@ -205,7 +205,7 @@ namespace Sistema_Gestor_de_Tutorias
                     {
                         if (this.dataRoot.InfoGruposTutores != null)
                         {
-                            this.dataRoot.InfoGruposTutores.grupo = (global::System.Char) global::Windows.UI.Xaml.Markup.XamlBindingHelper.ConvertValue(typeof(global::System.Char), this.obj7.Text);
+                            this.dataRoot.InfoGruposTutores.grupo = this.obj7.Text;
                         }
                     }
                 }
