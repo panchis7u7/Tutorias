@@ -79,6 +79,7 @@ System.Diagnostics.Tools.dll                          : 4.6.28529.05
 System.Diagnostics.TraceSource.dll                    : 4.6.28529.05
 System.Diagnostics.Tracing.dll                        : 4.6.28529.05
 System.dll                                            : 4.6.28529.05
+System.Drawing.Common.dll                             : 4.6.26919.02
 System.Drawing.dll                                    : 4.6.28529.5
 System.Drawing.Primitives.dll                         : 4.6.28529.05
 System.Dynamic.Runtime.dll                            : 4.6.28529.05

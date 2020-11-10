@@ -132,7 +132,7 @@ namespace Sistema_Gestor_de_Tutorias
                 }
                 else
                 {
-                    if (textAreas[i].ToLower().Contains("no oficio") || textAreas[i].ToLower().Contains("no semestre"))
+                    if (textAreas[i].ToLower().Contains("no oficio") || textAreas[i].ToLower().Contains("no semestre") || textAreas[i].ToLower().Contains("no constancias"))
                     {
                         TextBox oficio = new TextBox();
                         textBoxes.Add(oficio);
@@ -244,7 +244,7 @@ namespace Sistema_Gestor_de_Tutorias
                 texto = string.Empty;
                 for (int page = 1; page <= pdf.GetNumberOfPages(); page++)
                 {
-                    ITextExtractionStrategy its = new LocationTextExtractionStrategy();
+                    ITextExtractionStrategy its = new SimpleTextExtractionStrategy();
                     String s = PdfTextExtractor.GetTextFromPage(pdf.GetPage(page), its);
                     //s = System.Text.Encoding.UTF8.GetString(ASCIIEncoding.Convert(System.Text.Encoding.Default, System.Text.Encoding.UTF8, System.Text.Encoding.Default.GetBytes(s)));
                     texto = texto + s;
@@ -382,6 +382,7 @@ namespace Sistema_Gestor_de_Tutorias
                         }
                         replace(x.Name, x.SelectedItem.ToString(), sFilePathWord);
                     }
+                    replace(x.Name, x.SelectedItem.ToString(), sFilePathWord);
                 }
                 foreach (var fecha in datePickers)
                 {

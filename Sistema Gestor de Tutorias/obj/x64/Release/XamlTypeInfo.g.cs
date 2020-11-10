@@ -223,7 +223,7 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[26];
+            _typeNameTable = new string[35];
             _typeNameTable[0] = "Sistema_Gestor_de_Tutorias.SimplePdfViewerControl";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[2] = "System.Uri";
@@ -231,27 +231,36 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
             _typeNameTable[4] = "Boolean";
             _typeNameTable[5] = "Sistema_Gestor_de_Tutorias.Editor";
             _typeNameTable[6] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[7] = "Sistema_Gestor_de_Tutorias.MainPage";
-            _typeNameTable[8] = "Sistema_Gestor_de_Tutorias.Pagina_Configuracion";
-            _typeNameTable[9] = "Sistema_Gestor_de_Tutorias.Pagina_Consultas";
-            _typeNameTable[10] = "Sistema_Gestor_de_Tutorias.Pagina_Formatos";
-            _typeNameTable[11] = "Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid";
-            _typeNameTable[12] = "Windows.UI.Xaml.Controls.Grid";
-            _typeNameTable[13] = "Windows.UI.Xaml.Controls.Panel";
-            _typeNameTable[14] = "Int32";
-            _typeNameTable[15] = "Windows.UI.Xaml.Controls.Orientation";
-            _typeNameTable[16] = "System.Nullable`1<Boolean>";
-            _typeNameTable[17] = "System.ValueType";
-            _typeNameTable[18] = "Windows.UI.Xaml.FrameworkElement";
-            _typeNameTable[19] = "Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool";
-            _typeNameTable[20] = "Windows.UI.Xaml.Markup.MarkupExtension";
-            _typeNameTable[21] = "Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice";
-            _typeNameTable[22] = "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter";
-            _typeNameTable[23] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[24] = "Double";
-            _typeNameTable[25] = "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter";
+            _typeNameTable[7] = "Sistema_Gestor_de_Tutorias.GruposItemControl";
+            _typeNameTable[8] = "Sistema_Gestor_de_Tutorias.Modelos.GruposItem";
+            _typeNameTable[9] = "Sistema_Gestor_de_Tutorias.MainPage";
+            _typeNameTable[10] = "Sistema_Gestor_de_Tutorias.Pagina_Configuracion";
+            _typeNameTable[11] = "Sistema_Gestor_de_Tutorias.Pagina_Consultas";
+            _typeNameTable[12] = "Sistema_Gestor_de_Tutorias.Pagina_Formatos";
+            _typeNameTable[13] = "Sistema_Gestor_de_Tutorias.Pagina_Grupos";
+            _typeNameTable[14] = "Sistema_Gestor_de_Tutorias.ProfesoresItemControl";
+            _typeNameTable[15] = "Sistema_Gestor_de_Tutorias.Modelos.ProfesoresItem";
+            _typeNameTable[16] = "Sistema_Gestor_de_Tutorias.Pagina_Profesores";
+            _typeNameTable[17] = "Sistema_Gestor_de_Tutorias.TutoresItemControl";
+            _typeNameTable[18] = "Sistema_Gestor_de_Tutorias.Modelos.TutoresItem";
+            _typeNameTable[19] = "Sistema_Gestor_de_Tutorias.Pagina_Tutores";
+            _typeNameTable[20] = "Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid";
+            _typeNameTable[21] = "Windows.UI.Xaml.Controls.Grid";
+            _typeNameTable[22] = "Windows.UI.Xaml.Controls.Panel";
+            _typeNameTable[23] = "Int32";
+            _typeNameTable[24] = "Windows.UI.Xaml.Controls.Orientation";
+            _typeNameTable[25] = "System.Nullable`1<Boolean>";
+            _typeNameTable[26] = "System.ValueType";
+            _typeNameTable[27] = "Windows.UI.Xaml.FrameworkElement";
+            _typeNameTable[28] = "Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool";
+            _typeNameTable[29] = "Windows.UI.Xaml.Markup.MarkupExtension";
+            _typeNameTable[30] = "Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice";
+            _typeNameTable[31] = "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter";
+            _typeNameTable[32] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[33] = "Double";
+            _typeNameTable[34] = "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter";
 
-            _typeTable = new global::System.Type[26];
+            _typeTable = new global::System.Type[35];
             _typeTable[0] = typeof(global::Sistema_Gestor_de_Tutorias.SimplePdfViewerControl);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[2] = typeof(global::System.Uri);
@@ -259,25 +268,34 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
             _typeTable[4] = typeof(global::System.Boolean);
             _typeTable[5] = typeof(global::Sistema_Gestor_de_Tutorias.Editor);
             _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[7] = typeof(global::Sistema_Gestor_de_Tutorias.MainPage);
-            _typeTable[8] = typeof(global::Sistema_Gestor_de_Tutorias.Pagina_Configuracion);
-            _typeTable[9] = typeof(global::Sistema_Gestor_de_Tutorias.Pagina_Consultas);
-            _typeTable[10] = typeof(global::Sistema_Gestor_de_Tutorias.Pagina_Formatos);
-            _typeTable[11] = typeof(global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid);
-            _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.Grid);
-            _typeTable[13] = typeof(global::Windows.UI.Xaml.Controls.Panel);
-            _typeTable[14] = typeof(global::System.Int32);
-            _typeTable[15] = typeof(global::Windows.UI.Xaml.Controls.Orientation);
-            _typeTable[16] = typeof(global::System.Nullable<global::System.Boolean>);
-            _typeTable[17] = typeof(global::System.ValueType);
-            _typeTable[18] = typeof(global::Windows.UI.Xaml.FrameworkElement);
-            _typeTable[19] = typeof(global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool);
-            _typeTable[20] = typeof(global::Windows.UI.Xaml.Markup.MarkupExtension);
-            _typeTable[21] = typeof(global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice);
-            _typeTable[22] = typeof(global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter);
-            _typeTable[23] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[24] = typeof(global::System.Double);
-            _typeTable[25] = typeof(global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter);
+            _typeTable[7] = typeof(global::Sistema_Gestor_de_Tutorias.GruposItemControl);
+            _typeTable[8] = typeof(global::Sistema_Gestor_de_Tutorias.Modelos.GruposItem);
+            _typeTable[9] = typeof(global::Sistema_Gestor_de_Tutorias.MainPage);
+            _typeTable[10] = typeof(global::Sistema_Gestor_de_Tutorias.Pagina_Configuracion);
+            _typeTable[11] = typeof(global::Sistema_Gestor_de_Tutorias.Pagina_Consultas);
+            _typeTable[12] = typeof(global::Sistema_Gestor_de_Tutorias.Pagina_Formatos);
+            _typeTable[13] = typeof(global::Sistema_Gestor_de_Tutorias.Pagina_Grupos);
+            _typeTable[14] = typeof(global::Sistema_Gestor_de_Tutorias.ProfesoresItemControl);
+            _typeTable[15] = typeof(global::Sistema_Gestor_de_Tutorias.Modelos.ProfesoresItem);
+            _typeTable[16] = typeof(global::Sistema_Gestor_de_Tutorias.Pagina_Profesores);
+            _typeTable[17] = typeof(global::Sistema_Gestor_de_Tutorias.TutoresItemControl);
+            _typeTable[18] = typeof(global::Sistema_Gestor_de_Tutorias.Modelos.TutoresItem);
+            _typeTable[19] = typeof(global::Sistema_Gestor_de_Tutorias.Pagina_Tutores);
+            _typeTable[20] = typeof(global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid);
+            _typeTable[21] = typeof(global::Windows.UI.Xaml.Controls.Grid);
+            _typeTable[22] = typeof(global::Windows.UI.Xaml.Controls.Panel);
+            _typeTable[23] = typeof(global::System.Int32);
+            _typeTable[24] = typeof(global::Windows.UI.Xaml.Controls.Orientation);
+            _typeTable[25] = typeof(global::System.Nullable<global::System.Boolean>);
+            _typeTable[26] = typeof(global::System.ValueType);
+            _typeTable[27] = typeof(global::Windows.UI.Xaml.FrameworkElement);
+            _typeTable[28] = typeof(global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool);
+            _typeTable[29] = typeof(global::Windows.UI.Xaml.Markup.MarkupExtension);
+            _typeTable[30] = typeof(global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice);
+            _typeTable[31] = typeof(global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter);
+            _typeTable[32] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[33] = typeof(global::System.Double);
+            _typeTable[34] = typeof(global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -314,15 +332,24 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
 
         private object Activate_0_SimplePdfViewerControl() { return new global::Sistema_Gestor_de_Tutorias.SimplePdfViewerControl(); }
         private object Activate_5_Editor() { return new global::Sistema_Gestor_de_Tutorias.Editor(); }
-        private object Activate_7_MainPage() { return new global::Sistema_Gestor_de_Tutorias.MainPage(); }
-        private object Activate_8_Pagina_Configuracion() { return new global::Sistema_Gestor_de_Tutorias.Pagina_Configuracion(); }
-        private object Activate_9_Pagina_Consultas() { return new global::Sistema_Gestor_de_Tutorias.Pagina_Consultas(); }
-        private object Activate_10_Pagina_Formatos() { return new global::Sistema_Gestor_de_Tutorias.Pagina_Formatos(); }
-        private object Activate_11_UniformGrid() { return new global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid(); }
-        private object Activate_19_NullableBool() { return new global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool(); }
-        private object Activate_21_OnDevice() { return new global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice(); }
-        private object Activate_22_DoubleToObjectConverter() { return new global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter(); }
-        private object Activate_25_DoubleToVisibilityConverter() { return new global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter(); }
+        private object Activate_7_GruposItemControl() { return new global::Sistema_Gestor_de_Tutorias.GruposItemControl(); }
+        private object Activate_8_GruposItem() { return new global::Sistema_Gestor_de_Tutorias.Modelos.GruposItem(); }
+        private object Activate_9_MainPage() { return new global::Sistema_Gestor_de_Tutorias.MainPage(); }
+        private object Activate_10_Pagina_Configuracion() { return new global::Sistema_Gestor_de_Tutorias.Pagina_Configuracion(); }
+        private object Activate_11_Pagina_Consultas() { return new global::Sistema_Gestor_de_Tutorias.Pagina_Consultas(); }
+        private object Activate_12_Pagina_Formatos() { return new global::Sistema_Gestor_de_Tutorias.Pagina_Formatos(); }
+        private object Activate_13_Pagina_Grupos() { return new global::Sistema_Gestor_de_Tutorias.Pagina_Grupos(); }
+        private object Activate_14_ProfesoresItemControl() { return new global::Sistema_Gestor_de_Tutorias.ProfesoresItemControl(); }
+        private object Activate_15_ProfesoresItem() { return new global::Sistema_Gestor_de_Tutorias.Modelos.ProfesoresItem(); }
+        private object Activate_16_Pagina_Profesores() { return new global::Sistema_Gestor_de_Tutorias.Pagina_Profesores(); }
+        private object Activate_17_TutoresItemControl() { return new global::Sistema_Gestor_de_Tutorias.TutoresItemControl(); }
+        private object Activate_18_TutoresItem() { return new global::Sistema_Gestor_de_Tutorias.Modelos.TutoresItem(); }
+        private object Activate_19_Pagina_Tutores() { return new global::Sistema_Gestor_de_Tutorias.Pagina_Tutores(); }
+        private object Activate_20_UniformGrid() { return new global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid(); }
+        private object Activate_28_NullableBool() { return new global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool(); }
+        private object Activate_30_OnDevice() { return new global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice(); }
+        private object Activate_31_DoubleToObjectConverter() { return new global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter(); }
+        private object Activate_34_DoubleToVisibilityConverter() { return new global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -374,37 +401,103 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
                 xamlType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  Sistema_Gestor_de_Tutorias.MainPage
-                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_MainPage;
+            case 7:   //  Sistema_Gestor_de_Tutorias.GruposItemControl
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_7_GruposItemControl;
+                userType.AddMemberName("GruposItem");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  Sistema_Gestor_de_Tutorias.Pagina_Configuracion
-                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_Pagina_Configuracion;
+            case 8:   //  Sistema_Gestor_de_Tutorias.Modelos.GruposItem
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Sistema_Gestor_de_Tutorias.Pagina_Consultas
+            case 9:   //  Sistema_Gestor_de_Tutorias.MainPage
                 userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_Pagina_Consultas;
+                userType.Activator = Activate_9_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  Sistema_Gestor_de_Tutorias.Pagina_Formatos
+            case 10:   //  Sistema_Gestor_de_Tutorias.Pagina_Configuracion
                 userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_Pagina_Formatos;
+                userType.Activator = Activate_10_Pagina_Configuracion;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid
+            case 11:   //  Sistema_Gestor_de_Tutorias.Pagina_Consultas
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_11_Pagina_Consultas;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 12:   //  Sistema_Gestor_de_Tutorias.Pagina_Formatos
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_12_Pagina_Formatos;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Sistema_Gestor_de_Tutorias.Pagina_Grupos
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_13_Pagina_Grupos;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  Sistema_Gestor_de_Tutorias.ProfesoresItemControl
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_14_ProfesoresItemControl;
+                userType.AddMemberName("profesoresItem");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  Sistema_Gestor_de_Tutorias.Modelos.ProfesoresItem
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 16:   //  Sistema_Gestor_de_Tutorias.Pagina_Profesores
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_16_Pagina_Profesores;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 17:   //  Sistema_Gestor_de_Tutorias.TutoresItemControl
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_17_TutoresItemControl;
+                userType.AddMemberName("TutoresItem");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 18:   //  Sistema_Gestor_de_Tutorias.Modelos.TutoresItem
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 19:   //  Sistema_Gestor_de_Tutorias.Pagina_Tutores
+                userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_19_Pagina_Tutores;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 20:   //  Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid
                 userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Grid"));
-                userType.Activator = Activate_11_UniformGrid;
+                userType.Activator = Activate_20_UniformGrid;
                 userType.AddMemberName("Columns");
                 userType.AddMemberName("FirstColumn");
                 userType.AddMemberName("Orientation");
@@ -414,23 +507,23 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 12:   //  Windows.UI.Xaml.Controls.Grid
+            case 21:   //  Windows.UI.Xaml.Controls.Grid
                 xamlType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 13:   //  Windows.UI.Xaml.Controls.Panel
+            case 22:   //  Windows.UI.Xaml.Controls.Panel
                 xamlType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 14:   //  Int32
+            case 23:   //  Int32
                 xamlType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 15:   //  Windows.UI.Xaml.Controls.Orientation
+            case 24:   //  Windows.UI.Xaml.Controls.Orientation
                 xamlType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 16:   //  System.Nullable`1<Boolean>
+            case 25:   //  System.Nullable`1<Boolean>
                 userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetBoxedType(GetXamlTypeByName("Boolean"));
                 userType.BoxInstance = userType.BoxType<global::System.Boolean>;
@@ -438,18 +531,18 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 17:   //  System.ValueType
+            case 26:   //  System.ValueType
                 userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case 18:   //  Windows.UI.Xaml.FrameworkElement
+            case 27:   //  Windows.UI.Xaml.FrameworkElement
                 xamlType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 19:   //  Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool
+            case 28:   //  Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool
                 userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Markup.MarkupExtension"));
-                userType.Activator = Activate_19_NullableBool;
+                userType.Activator = Activate_28_NullableBool;
                 userType.AddMemberName("Value");
                 userType.AddMemberName("IsNull");
                 userType.SetIsBindable();
@@ -457,13 +550,13 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 20:   //  Windows.UI.Xaml.Markup.MarkupExtension
+            case 29:   //  Windows.UI.Xaml.Markup.MarkupExtension
                 xamlType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 21:   //  Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice
+            case 30:   //  Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice
                 userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Markup.MarkupExtension"));
-                userType.Activator = Activate_21_OnDevice;
+                userType.Activator = Activate_30_OnDevice;
                 userType.AddMemberName("Default");
                 userType.AddMemberName("Desktop");
                 userType.AddMemberName("Holographic");
@@ -475,9 +568,9 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 22:   //  Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter
+            case 31:   //  Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter
                 userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_22_DoubleToObjectConverter;
+                userType.Activator = Activate_31_DoubleToObjectConverter;
                 userType.AddMemberName("TrueValue");
                 userType.AddMemberName("FalseValue");
                 userType.AddMemberName("NullValue");
@@ -487,17 +580,17 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 23:   //  Windows.UI.Xaml.DependencyObject
+            case 32:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 24:   //  Double
+            case 33:   //  Double
                 xamlType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 25:   //  Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter
+            case 34:   //  Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter
                 userType = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter"));
-                userType.Activator = Activate_25_DoubleToVisibilityConverter;
+                userType.Activator = Activate_34_DoubleToVisibilityConverter;
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
@@ -602,180 +695,195 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
             var that = (global::Sistema_Gestor_de_Tutorias.Editor)instance;
             that.Source = (global::System.Uri)Value;
         }
-        private object get_4_UniformGrid_Columns(object instance)
+        private object get_4_GruposItemControl_GruposItem(object instance)
+        {
+            var that = (global::Sistema_Gestor_de_Tutorias.GruposItemControl)instance;
+            return that.GruposItem;
+        }
+        private object get_5_ProfesoresItemControl_profesoresItem(object instance)
+        {
+            var that = (global::Sistema_Gestor_de_Tutorias.ProfesoresItemControl)instance;
+            return that.profesoresItem;
+        }
+        private object get_6_TutoresItemControl_TutoresItem(object instance)
+        {
+            var that = (global::Sistema_Gestor_de_Tutorias.TutoresItemControl)instance;
+            return that.TutoresItem;
+        }
+        private object get_7_UniformGrid_Columns(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid)instance;
             return that.Columns;
         }
-        private void set_4_UniformGrid_Columns(object instance, object Value)
+        private void set_7_UniformGrid_Columns(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid)instance;
             that.Columns = (global::System.Int32)Value;
         }
-        private object get_5_UniformGrid_FirstColumn(object instance)
+        private object get_8_UniformGrid_FirstColumn(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid)instance;
             return that.FirstColumn;
         }
-        private void set_5_UniformGrid_FirstColumn(object instance, object Value)
+        private void set_8_UniformGrid_FirstColumn(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid)instance;
             that.FirstColumn = (global::System.Int32)Value;
         }
-        private object get_6_UniformGrid_Orientation(object instance)
+        private object get_9_UniformGrid_Orientation(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid)instance;
             return that.Orientation;
         }
-        private void set_6_UniformGrid_Orientation(object instance, object Value)
+        private void set_9_UniformGrid_Orientation(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid)instance;
             that.Orientation = (global::Windows.UI.Xaml.Controls.Orientation)Value;
         }
-        private object get_7_UniformGrid_Rows(object instance)
+        private object get_10_UniformGrid_Rows(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid)instance;
             return that.Rows;
         }
-        private void set_7_UniformGrid_Rows(object instance, object Value)
+        private void set_10_UniformGrid_Rows(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid)instance;
             that.Rows = (global::System.Int32)Value;
         }
-        private object get_8_UniformGrid_AutoLayout(object instance)
+        private object get_11_UniformGrid_AutoLayout(object instance)
         {
             return global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid.GetAutoLayout((global::Windows.UI.Xaml.FrameworkElement)instance);
         }
-        private void set_8_UniformGrid_AutoLayout(object instance, object Value)
+        private void set_11_UniformGrid_AutoLayout(object instance, object Value)
         {
             global::Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid.SetAutoLayout((global::Windows.UI.Xaml.FrameworkElement)instance, (global::System.Nullable<global::System.Boolean>)Value);
         }
-        private object get_9_NullableBool_Value(object instance)
+        private object get_12_NullableBool_Value(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool)instance;
             return that.Value;
         }
-        private void set_9_NullableBool_Value(object instance, object Value)
+        private void set_12_NullableBool_Value(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool)instance;
             that.Value = (global::System.Boolean)Value;
         }
-        private object get_10_NullableBool_IsNull(object instance)
+        private object get_13_NullableBool_IsNull(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool)instance;
             return that.IsNull;
         }
-        private void set_10_NullableBool_IsNull(object instance, object Value)
+        private void set_13_NullableBool_IsNull(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool)instance;
             that.IsNull = (global::System.Boolean)Value;
         }
-        private object get_11_OnDevice_Default(object instance)
+        private object get_14_OnDevice_Default(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             return that.Default;
         }
-        private void set_11_OnDevice_Default(object instance, object Value)
+        private void set_14_OnDevice_Default(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             that.Default = (global::System.Object)Value;
         }
-        private object get_12_OnDevice_Desktop(object instance)
+        private object get_15_OnDevice_Desktop(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             return that.Desktop;
         }
-        private void set_12_OnDevice_Desktop(object instance, object Value)
+        private void set_15_OnDevice_Desktop(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             that.Desktop = (global::System.Object)Value;
         }
-        private object get_13_OnDevice_Holographic(object instance)
+        private object get_16_OnDevice_Holographic(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             return that.Holographic;
         }
-        private void set_13_OnDevice_Holographic(object instance, object Value)
+        private void set_16_OnDevice_Holographic(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             that.Holographic = (global::System.Object)Value;
         }
-        private object get_14_OnDevice_IoT(object instance)
+        private object get_17_OnDevice_IoT(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             return that.IoT;
         }
-        private void set_14_OnDevice_IoT(object instance, object Value)
+        private void set_17_OnDevice_IoT(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             that.IoT = (global::System.Object)Value;
         }
-        private object get_15_OnDevice_Team(object instance)
+        private object get_18_OnDevice_Team(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             return that.Team;
         }
-        private void set_15_OnDevice_Team(object instance, object Value)
+        private void set_18_OnDevice_Team(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             that.Team = (global::System.Object)Value;
         }
-        private object get_16_OnDevice_Xbox(object instance)
+        private object get_19_OnDevice_Xbox(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             return that.Xbox;
         }
-        private void set_16_OnDevice_Xbox(object instance, object Value)
+        private void set_19_OnDevice_Xbox(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice)instance;
             that.Xbox = (global::System.Object)Value;
         }
-        private object get_17_DoubleToObjectConverter_TrueValue(object instance)
+        private object get_20_DoubleToObjectConverter_TrueValue(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             return that.TrueValue;
         }
-        private void set_17_DoubleToObjectConverter_TrueValue(object instance, object Value)
+        private void set_20_DoubleToObjectConverter_TrueValue(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             that.TrueValue = (global::System.Object)Value;
         }
-        private object get_18_DoubleToObjectConverter_FalseValue(object instance)
+        private object get_21_DoubleToObjectConverter_FalseValue(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             return that.FalseValue;
         }
-        private void set_18_DoubleToObjectConverter_FalseValue(object instance, object Value)
+        private void set_21_DoubleToObjectConverter_FalseValue(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             that.FalseValue = (global::System.Object)Value;
         }
-        private object get_19_DoubleToObjectConverter_NullValue(object instance)
+        private object get_22_DoubleToObjectConverter_NullValue(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             return that.NullValue;
         }
-        private void set_19_DoubleToObjectConverter_NullValue(object instance, object Value)
+        private void set_22_DoubleToObjectConverter_NullValue(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             that.NullValue = (global::System.Object)Value;
         }
-        private object get_20_DoubleToObjectConverter_GreaterThan(object instance)
+        private object get_23_DoubleToObjectConverter_GreaterThan(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             return that.GreaterThan;
         }
-        private void set_20_DoubleToObjectConverter_GreaterThan(object instance, object Value)
+        private void set_23_DoubleToObjectConverter_GreaterThan(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             that.GreaterThan = (global::System.Double)Value;
         }
-        private object get_21_DoubleToObjectConverter_LessThan(object instance)
+        private object get_24_DoubleToObjectConverter_LessThan(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             return that.LessThan;
         }
-        private void set_21_DoubleToObjectConverter_LessThan(object instance, object Value)
+        private void set_24_DoubleToObjectConverter_LessThan(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
             that.LessThan = (global::System.Double)Value;
@@ -814,33 +922,51 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
                 xamlMember.Getter = get_3_Editor_Source;
                 xamlMember.Setter = set_3_Editor_Source;
                 break;
+            case "Sistema_Gestor_de_Tutorias.GruposItemControl.GruposItem":
+                userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Sistema_Gestor_de_Tutorias.GruposItemControl");
+                xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "GruposItem", "Sistema_Gestor_de_Tutorias.Modelos.GruposItem");
+                xamlMember.Getter = get_4_GruposItemControl_GruposItem;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Sistema_Gestor_de_Tutorias.ProfesoresItemControl.profesoresItem":
+                userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Sistema_Gestor_de_Tutorias.ProfesoresItemControl");
+                xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "profesoresItem", "Sistema_Gestor_de_Tutorias.Modelos.ProfesoresItem");
+                xamlMember.Getter = get_5_ProfesoresItemControl_profesoresItem;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Sistema_Gestor_de_Tutorias.TutoresItemControl.TutoresItem":
+                userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Sistema_Gestor_de_Tutorias.TutoresItemControl");
+                xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "TutoresItem", "Sistema_Gestor_de_Tutorias.Modelos.TutoresItem");
+                xamlMember.Getter = get_6_TutoresItemControl_TutoresItem;
+                xamlMember.SetIsReadOnly();
+                break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid.Columns":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "Columns", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_4_UniformGrid_Columns;
-                xamlMember.Setter = set_4_UniformGrid_Columns;
+                xamlMember.Getter = get_7_UniformGrid_Columns;
+                xamlMember.Setter = set_7_UniformGrid_Columns;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid.FirstColumn":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "FirstColumn", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_5_UniformGrid_FirstColumn;
-                xamlMember.Setter = set_5_UniformGrid_FirstColumn;
+                xamlMember.Getter = get_8_UniformGrid_FirstColumn;
+                xamlMember.Setter = set_8_UniformGrid_FirstColumn;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid.Orientation":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "Orientation", "Windows.UI.Xaml.Controls.Orientation");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_UniformGrid_Orientation;
-                xamlMember.Setter = set_6_UniformGrid_Orientation;
+                xamlMember.Getter = get_9_UniformGrid_Orientation;
+                xamlMember.Setter = set_9_UniformGrid_Orientation;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid.Rows":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "Rows", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_7_UniformGrid_Rows;
-                xamlMember.Setter = set_7_UniformGrid_Rows;
+                xamlMember.Getter = get_10_UniformGrid_Rows;
+                xamlMember.Setter = set_10_UniformGrid_Rows;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid.AutoLayout":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.UniformGrid");
@@ -848,91 +974,91 @@ namespace Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo
                 xamlMember.SetTargetTypeName("Windows.UI.Xaml.FrameworkElement");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_8_UniformGrid_AutoLayout;
-                xamlMember.Setter = set_8_UniformGrid_AutoLayout;
+                xamlMember.Getter = get_11_UniformGrid_AutoLayout;
+                xamlMember.Setter = set_11_UniformGrid_AutoLayout;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool.Value":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "Value", "Boolean");
-                xamlMember.Getter = get_9_NullableBool_Value;
-                xamlMember.Setter = set_9_NullableBool_Value;
+                xamlMember.Getter = get_12_NullableBool_Value;
+                xamlMember.Setter = set_12_NullableBool_Value;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool.IsNull":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "IsNull", "Boolean");
-                xamlMember.Getter = get_10_NullableBool_IsNull;
-                xamlMember.Setter = set_10_NullableBool_IsNull;
+                xamlMember.Getter = get_13_NullableBool_IsNull;
+                xamlMember.Setter = set_13_NullableBool_IsNull;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice.Default":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "Default", "Object");
-                xamlMember.Getter = get_11_OnDevice_Default;
-                xamlMember.Setter = set_11_OnDevice_Default;
+                xamlMember.Getter = get_14_OnDevice_Default;
+                xamlMember.Setter = set_14_OnDevice_Default;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice.Desktop":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "Desktop", "Object");
-                xamlMember.Getter = get_12_OnDevice_Desktop;
-                xamlMember.Setter = set_12_OnDevice_Desktop;
+                xamlMember.Getter = get_15_OnDevice_Desktop;
+                xamlMember.Setter = set_15_OnDevice_Desktop;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice.Holographic":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "Holographic", "Object");
-                xamlMember.Getter = get_13_OnDevice_Holographic;
-                xamlMember.Setter = set_13_OnDevice_Holographic;
+                xamlMember.Getter = get_16_OnDevice_Holographic;
+                xamlMember.Setter = set_16_OnDevice_Holographic;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice.IoT":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "IoT", "Object");
-                xamlMember.Getter = get_14_OnDevice_IoT;
-                xamlMember.Setter = set_14_OnDevice_IoT;
+                xamlMember.Getter = get_17_OnDevice_IoT;
+                xamlMember.Setter = set_17_OnDevice_IoT;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice.Team":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "Team", "Object");
-                xamlMember.Getter = get_15_OnDevice_Team;
-                xamlMember.Setter = set_15_OnDevice_Team;
+                xamlMember.Getter = get_18_OnDevice_Team;
+                xamlMember.Setter = set_18_OnDevice_Team;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice.Xbox":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.Markup.OnDevice");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "Xbox", "Object");
-                xamlMember.Getter = get_16_OnDevice_Xbox;
-                xamlMember.Setter = set_16_OnDevice_Xbox;
+                xamlMember.Getter = get_19_OnDevice_Xbox;
+                xamlMember.Setter = set_19_OnDevice_Xbox;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.TrueValue":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "TrueValue", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_17_DoubleToObjectConverter_TrueValue;
-                xamlMember.Setter = set_17_DoubleToObjectConverter_TrueValue;
+                xamlMember.Getter = get_20_DoubleToObjectConverter_TrueValue;
+                xamlMember.Setter = set_20_DoubleToObjectConverter_TrueValue;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.FalseValue":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "FalseValue", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_18_DoubleToObjectConverter_FalseValue;
-                xamlMember.Setter = set_18_DoubleToObjectConverter_FalseValue;
+                xamlMember.Getter = get_21_DoubleToObjectConverter_FalseValue;
+                xamlMember.Setter = set_21_DoubleToObjectConverter_FalseValue;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.NullValue":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "NullValue", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_19_DoubleToObjectConverter_NullValue;
-                xamlMember.Setter = set_19_DoubleToObjectConverter_NullValue;
+                xamlMember.Getter = get_22_DoubleToObjectConverter_NullValue;
+                xamlMember.Setter = set_22_DoubleToObjectConverter_NullValue;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.GreaterThan":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "GreaterThan", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_20_DoubleToObjectConverter_GreaterThan;
-                xamlMember.Setter = set_20_DoubleToObjectConverter_GreaterThan;
+                xamlMember.Getter = get_23_DoubleToObjectConverter_GreaterThan;
+                xamlMember.Setter = set_23_DoubleToObjectConverter_GreaterThan;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.LessThan":
                 userType = (global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
                 xamlMember = new global::Sistema_Gestor_de_Tutorias.Sistema_Gestor_de_Tutorias_XamlTypeInfo.XamlMember(this, "LessThan", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_21_DoubleToObjectConverter_LessThan;
-                xamlMember.Setter = set_21_DoubleToObjectConverter_LessThan;
+                xamlMember.Getter = get_24_DoubleToObjectConverter_LessThan;
+                xamlMember.Setter = set_24_DoubleToObjectConverter_LessThan;
                 break;
             }
             return xamlMember;

@@ -1,7 +1,13 @@
 App.xbf
 Editor.xbf
+GruposItemControl.xbf
 MainPage.xbf
 Pagina_Configuracion.xbf
 Pagina_Consultas.xbf
 Pagina_Formatos.xbf
+Pagina_Grupos.xbf
+Pagina_Profesores.xbf
+Pagina_Tutores.xbf
+ProfesoresItemControl.xbf
 SimplePdfViewerControl.xbf
+TutoresItemControl.xbf

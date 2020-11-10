@@ -5,10 +5,9 @@
     xmlns:local="using:Sistema_Gestor_de_Tutorias"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    
     mc:Ignorable="d"
     Background="Transparent">
-    <Grid x:ConnectionId='2' x:Name="config_grid">
+    <Grid x:ConnectionId='2' x:Name="config_grid" Margin="-2,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -23,13 +22,22 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="30em">Configuracion</TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="20em" Padding="0 30 0 0">Ubicacion de Guardado:</TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="3" Foreground="White" FontSize="20em" Padding="0 30 0 0">Modo Oscuro</TextBlock>
-        <ToggleSwitch x:ConnectionId='3' x:Name="ts_Modo_Oscuro"                                Grid.Column="1" Grid.Row="4" Foreground="White" ></ToggleSwitch>
+        <TextBlock Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 0 30" FontSize="30em">Configuracion</TextBlock>
+        <!--<TextBlock Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="20em" Padding="0 30 0 0">Ubicacion de Guardado:</TextBlock>-->
+        <ToggleSwitch x:ConnectionId='3' x:Name="ts_Modo_Oscuro" FontSize="20em" Header="Modo Oscuro" Margin="0 0 0 20"                               Grid.Column="1" Grid.Row="2" Foreground="White" ></ToggleSwitch>
+        <ToggleSwitch x:ConnectionId='4' x:Name="ts_habilitar" FontSize="20em" Header="Habilitar" Margin="0 0 0 20"                                Grid.Column="1" Grid.Row="3" Foreground="White" Grid.ColumnSpan="2" VerticalAlignment="Top" />
+        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" Margin="0 0 0 20">
+            <TextBox x:ConnectionId='5' x:Name="txtbx_jefeTut" Width="225" IsReadOnly="True" FontSize="16" Margin="0 0 20 0" PlaceholderText="Nombre Completo" Header="Jefe de Tutorias" Tag="1"></TextBox>
+            <TextBox x:ConnectionId='6' x:Name="txtbx_jefeTutIns" Width="225" FontSize="16" IsReadOnly="True" Margin="0 0 20 0" PlaceholderText="Nombre Completo" Header="Jefe de Tutorias Institucional" Tag="2"></TextBox>
+            <TextBox x:ConnectionId='7' x:Name="txtbx_jefeDep" Width="225" IsReadOnly="True" FontSize="16" Margin="0 0 20 0" PlaceholderText="Nombre Completo" Header="Jefe de Departamento" Tag="3"></TextBox>
+            <TextBox x:ConnectionId='8' x:Name="txtbx_jefeDesAcadem" Width="225" IsReadOnly="True" FontSize="16" Margin="0 0 20 0" PlaceholderText="Nombre Completo" Header="Jefe de Desarrollo Académico" Tag="3"></TextBox>
+            <Button x:ConnectionId='9' x:Name="btn_guardar" IsEnabled="False"                             VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="6" Height="40" Width="100" Content="Guardar"></Button>
+        </StackPanel>
     </Grid>
 </Page>
 

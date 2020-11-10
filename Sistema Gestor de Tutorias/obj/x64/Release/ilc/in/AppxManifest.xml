@@ -25,8 +25,12 @@
   <Applications>
     <Application Id="App" Executable="Sistema Gestor de Tutorias.exe" EntryPoint="Sistema_Gestor_de_Tutorias.App">
       <uap:VisualElements DisplayName="Sistema Gestor de Tutorias" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Sistema Gestor de Tutorias" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:LockScreen BadgeLogo="Assets\BadgeLogo.png" Notification="badge" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape" />
+        </uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>
@@ -146,8 +150,8 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="16.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2019" />
-    <build:Item Name="OperatingSystem" Version="10.0.19603.1000 (WinBuild.160101.0800)" />
-    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="16.0.29903.111" />
+    <build:Item Name="OperatingSystem" Version="10.0.20170.1000 (WinBuild.160101.0800)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="16.0.30223.195" />
     <build:Item Name="ProjectGUID" Value="{E1A8B369-7FA8-48F5-BCDF-100E0E1C5232}" />
     <build:Item Name="ilc.exe" Version="2.2.28605.00 built by: PROJECTNREL" />
     <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="10.0.19041.1" />
